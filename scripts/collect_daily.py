@@ -341,19 +341,92 @@ def classify_and_score(item: Signal) -> Signal:
     return item
 
 
+def context_text(item: Signal) -> str:
+    return re.sub(r"\s+", " ", f"{item.title}. {item.raw}").strip()
+
+
+def display_subject(item: Signal) -> str:
+    title = item.title.strip()
+    if "/" in title and not title.lower().startswith("http"):
+        return title.split("/")[-1].replace("-", " ").replace("_", " ")
+    return re.sub(r"\s+", " ", title)
+
+
+def keyword_flags(item: Signal) -> set[str]:
+    text = context_text(item).lower()
+    flags: set[str] = set()
+    groups = {
+        "agent": ["agent", "multi-agent", "autonomous"],
+        "llm": ["llm", "gpt", "claude", "gemini", "deepseek", "model", "rag"],
+        "image": ["image", "photo", "picture", "comfyui", "stable diffusion", "flux", "drawing"],
+        "video": ["video", "shortvideo", "veo", "seedance", "sora"],
+        "voice": ["voice", "tts", "speech", "audio", "podcast"],
+        "docs": ["doc", "docs", "documentation", "readme", "wiki"],
+        "workflow": ["workflow", "pipeline", "automation", "orchestration"],
+        "security": ["guard", "security", "eval", "safety", "policy"],
+        "design": ["design", "ui", "ux", "figma", "prototype"],
+        "writing": ["writing", "copy", "content", "blog"],
+        "local": ["local", "offline", "self-host", "self host", "desktop"],
+    }
+    for flag, words in groups.items():
+        if any(word in text for word in words):
+            flags.add(flag)
+    return flags
+
+
+def compact_raw(item: Signal, max_len: int = 180) -> str:
+    text = re.sub(r"\s+", " ", item.raw).strip()
+    if not text:
+        return "暂无描述，先从标题和来源判断。"
+    return text if len(text) <= max_len else text[: max_len - 1] + "…"
+
+
 def need_sentence(item: Signal) -> str:
+    subject = display_subject(item)
+    flags = keyword_flags(item)
+    if "docs" in flags:
+        return f"围绕 {subject} 做“代码/PR 自动生成用户文档”的轻量工具，解决小团队文档总是落后的问题。"
+    if "video" in flags:
+        return f"把 {subject} 这类视频生成/短视频流水线包装成面向创作者的模板化工具，而不是让用户自己拼脚本。"
+    if "image" in flags:
+        return f"把 {subject} 这类图像生成能力收敛到具体场景，例如商品图、角色图、封面图或工作流模板。"
+    if "voice" in flags:
+        return f"把 {subject} 这类语音/TTS 能力做成可直接试用的配音、播客、客服话术或本地化工具。"
+    if "agent" in flags and "workflow" in flags:
+        return f"把 {subject} 的 Agent/工作流能力产品化，帮用户完成一个明确任务，而不是只展示框架。"
+    if "agent" in flags:
+        return f"围绕 {subject} 做垂直 Agent：选一个岗位或场景，把通用 Agent 变成可交付的流程。"
+    if "writing" in flags:
+        return f"把 {subject} 包装成特定人群的写作/改写/发布助手，重点解决风格和流程问题。"
+    if "design" in flags:
+        return f"围绕 {subject} 做设计交付辅助工具，帮助非设计团队快速得到可用界面或素材。"
+    if "security" in flags:
+        return f"把 {subject} 做成 AI 应用安全/评测/策略检查工具，服务正在上线 Agent 的团队。"
     if "HF Trending" in item.type or "GitHub Trending" in item.type:
-        return "把新模型/开源能力包装成普通用户可直接使用的工具、模板或托管工作流。"
+        return f"把 {subject} 从开源项目/模型变成一个普通用户可直接使用的托管入口或模板。"
     if "News" in item.type:
-        return "围绕刚出现的技术/平台变化，快速承接教程、试用、迁移、替代或生成类需求。"
+        return f"围绕“{subject}”这个新讨论点，快速承接教程、试用、替代方案或新词站流量。"
     if "Complaint" in item.type:
-        return "从社区讨论中提取反复出现的不爽，寻找更快、更便宜、更简单的替代方案。"
+        return f"从“{subject}”背后的社区不爽里，找到一个更快、更便宜或更简单的替代动作。"
     if "Product" in item.type:
-        return "观察新产品发布背后的用户任务，寻找更垂直、更轻量或更便宜的 20% 版本。"
-    return "判断该线索背后是否存在明确任务和供需失衡。"
+        return f"拆解 {subject} 的核心任务，找一个更垂直、更轻量或更便宜的 20% 版本。"
+    return f"判断 {subject} 背后是否存在明确任务和供需失衡。"
 
 
 def user_sentence(item: Signal) -> str:
+    flags = keyword_flags(item)
+    if "video" in flags:
+        return "短视频创作者、出海营销团队、内容工作室、需要批量生成视频素材的小团队。"
+    if "image" in flags:
+        return "电商卖家、设计外包团队、游戏/角色创作者、需要稳定出图流程的独立开发者。"
+    if "voice" in flags:
+        return "播客/短视频创作者、课程团队、客服团队、做多语言内容本地化的人。"
+    if "docs" in flags:
+        return "频繁改代码但文档维护跟不上的开源作者、SaaS 小团队和开发者工具团队。"
+    if "agent" in flags:
+        return "想把重复流程交给 AI 的创业团队、运营人员、开发者和个人效率工具用户。"
+    if "design" in flags:
+        return "缺少专业设计资源的小型开发团队、独立开发者和 SaaS MVP 团队。"
     if "HF" in item.type or "GitHub" in item.type:
         return "AI 应用开发者、独立开发者、内容创作者、需要把模型能力落地到具体任务的人。"
     if "Complaint" in item.type:
@@ -364,6 +437,18 @@ def user_sentence(item: Signal) -> str:
 
 
 def gap_sentence(item: Signal) -> str:
+    subject = display_subject(item)
+    flags = keyword_flags(item)
+    if "local" in flags:
+        return f"{subject} 可能满足本地/离线需求，但部署和配置门槛高，普通用户缺少一键安装和默认工作流。"
+    if "video" in flags:
+        return "视频生成需求很热，但用户通常卡在提示词、镜头脚本、批处理、模型选择和成片交付。"
+    if "image" in flags:
+        return "图像生成能力多，但垂直行业模板、稳定风格、批量生成和后处理仍然供给不足。"
+    if "docs" in flags:
+        return "团队知道文档重要，但 PR 合并后文档经常滞后；现有方案要么太重，要么没有贴进 GitHub 流程。"
+    if "agent" in flags:
+        return "Agent 框架很多，真正能让非技术用户直接完成一个业务动作的垂直产品仍然少。"
     if "HF" in item.type:
         return "模型能力可能已经出现，但普通用户缺少稳定入口、清晰场景、低门槛 UI 和可付费包装。"
     if "GitHub" in item.type:
@@ -374,6 +459,20 @@ def gap_sentence(item: Signal) -> str:
 
 
 def mvp_sentence(item: Signal) -> str:
+    subject = display_subject(item)
+    flags = keyword_flags(item)
+    if "docs" in flags:
+        return "做 GitHub App/Action：用户在 PR 评论里触发，自动生成 changelog、README 片段和用户文档草稿。"
+    if "video" in flags:
+        return "做一个“输入主题→脚本→镜头提示词→生成队列”的单页工具，先支持 3 个固定视频模板。"
+    if "image" in flags:
+        return "做一个场景化生成页：固定 5-10 个模板、示例图和参数预设，先收集邮箱或 credits 付费。"
+    if "voice" in flags:
+        return "做一个上传文本即可生成多语音版本的 demo，附带字幕/音频下载和按分钟计费。"
+    if "agent" in flags:
+        return f"选 {subject} 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。"
+    if "design" in flags:
+        return "做“上传产品说明→生成 landing page 首屏/组件稿”的最小工具，先服务独立开发者。"
     if "HF" in item.type or "GitHub" in item.type:
         return "48 小时内做一个承接页 + Demo/教程 + 等候名单；能调用则做最小可用 Web 工具。"
     if "News" in item.type:
@@ -384,6 +483,13 @@ def mvp_sentence(item: Signal) -> str:
 
 
 def monetization_sentence(item: Signal) -> str:
+    flags = keyword_flags(item)
+    if "video" in flags or "image" in flags or "voice" in flags:
+        return "credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。"
+    if "docs" in flags:
+        return "按仓库/席位订阅，或按 PR 次数计费；开源免费、私有仓库收费。"
+    if "agent" in flags or "workflow" in flags:
+        return "按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。"
     if "HF" in item.type or "GitHub" in item.type:
         return "订阅、credits、托管版、API 加价、模板包或部署服务。"
     if "News" in item.type:
@@ -394,6 +500,13 @@ def monetization_sentence(item: Signal) -> str:
 
 
 def risk_sentence(item: Signal) -> str:
+    flags = keyword_flags(item)
+    if "video" in flags or "image" in flags or "voice" in flags:
+        return "生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。"
+    if "docs" in flags:
+        return "需要接入代码仓库权限，信任成本较高；先用 GitHub Action 或只读权限降低阻力。"
+    if "agent" in flags:
+        return "Agent 演示容易惊艳但交付不稳定；MVP 要限制任务边界并保留人工兜底。"
     if "News" in item.type:
         return "热度衰减快；若涉及品牌词或商标，避免长期做 EMD，必要时转向自有品牌。"
     if "HF" in item.type or "GitHub" in item.type:
@@ -440,6 +553,7 @@ def build_report(signals: list[Signal], today: str) -> str:
         lines.append(f"- 来源：{item.source}")
         lines.append(f"- 链接：{item.url}")
         lines.append(f"- 类型：{item.type}")
+        lines.append(f"- 原始信号：{compact_raw(item)}")
         lines.append(f"- 一句话需求：{need_sentence(item)}")
         lines.append(f"- 用户是谁：{user_sentence(item)}")
         lines.append(f"- 供需失衡：{gap_sentence(item)}")
@@ -469,41 +583,46 @@ def build_report(signals: list[Signal], today: str) -> str:
 
 def append_csv(signals: list[Signal], today: str) -> None:
     DATA_DIR.mkdir(exist_ok=True)
-    exists = CSV_PATH.exists()
-    with CSV_PATH.open("a", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        if not exists:
-            writer.writerow([
-                "date",
-                "title",
-                "type",
-                "source",
-                "url",
-                "user",
-                "need",
-                "supply_gap",
-                "mvp",
-                "monetization",
-                "risk",
-                "score",
-                "status",
-            ])
+    existing_rows: list[dict[str, str]] = []
+    fieldnames = [
+        "date",
+        "title",
+        "type",
+        "source",
+        "url",
+        "user",
+        "need",
+        "supply_gap",
+        "mvp",
+        "monetization",
+        "risk",
+        "score",
+        "status",
+    ]
+    if CSV_PATH.exists():
+        with CSV_PATH.open("r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            existing_rows = [row for row in reader if row.get("date") != today]
+    with CSV_PATH.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(existing_rows)
         for item in signals[:20]:
-            writer.writerow([
-                today,
-                item.title,
-                item.type,
-                item.source,
-                item.url,
-                user_sentence(item),
-                need_sentence(item),
-                gap_sentence(item),
-                mvp_sentence(item),
-                monetization_sentence(item),
-                risk_sentence(item),
-                item.score,
-                recommendation(item.score),
-            ])
+            writer.writerow({
+                "date": today,
+                "title": item.title,
+                "type": item.type,
+                "source": item.source,
+                "url": item.url,
+                "user": user_sentence(item),
+                "need": need_sentence(item),
+                "supply_gap": gap_sentence(item),
+                "mvp": mvp_sentence(item),
+                "monetization": monetization_sentence(item),
+                "risk": risk_sentence(item),
+                "score": item.score,
+                "status": recommendation(item.score),
+            })
 
 
 def main() -> int:
