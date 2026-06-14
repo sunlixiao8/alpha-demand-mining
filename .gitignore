@@ -1,0 +1,9 @@
+# Course source materials stay local and should not be pushed.
+04-*.md
+05-*.md
+06-*.md
+07-*.md
+
+# Local secrets.
+.env
+*.key
