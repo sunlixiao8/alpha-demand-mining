@@ -74,34 +74,56 @@
 <h1>2026-06-15 需求线索日报</h1>
 <h2>今日摘要</h2>
 <ul>
-<li>采集线索：20 条</li>
+<li>采集线索：17 条</li>
 <li>重点权重：新词站、Hugging Face Trending、GitHub 新技术机会</li>
 <li>筛选原则：宁可少于 20 条，也不硬凑低质量内容</li>
 </ul>
 <h2>Top 10-20 线索</h2>
-<h3>1. cobusgreyling/loop-engineering</h3>
+<h3>1. Jackrong/Qwopus3.6-27B-Coder-MTP-GGUF</h3>
+<ul>
+<li>来源：Hugging Face Trending</li>
+<li>链接：https://huggingface.co/Jackrong/Qwopus3.6-27B-Coder-MTP-GGUF</li>
+<li>类型：HF Trending / New Tech</li>
+<li>结论：值得今天进入深挖池。它有明确新技术信号，也能落到一个可收费的窄场景。</li>
+<li>原始信号：Trending model from Hugging Face models page. Tags: transformers, gguf, llama.cpp, image-text-to-text, vision, multimodal, text-generation-inference, unsloth, conversational, qwen…</li>
+<li>证据：Hugging Face 上 下载 33720，点赞 174，适合判断是否存在模型能力到产品入口之间的空档。</li>
+<li>为什么现在：现在值得看，是因为模型/Space 进入 Trending 后，通常会先出现尝鲜搜索，再出现工具化供给。窗口很短。</li>
+<li>用户是谁：独立开发者、AI 编程重度用户、小型研发团队、需要把代码任务标准化的技术负责人。</li>
+<li>真实需求：把 Qwopus3.6 27B Coder MTP GGUF 包装成开发团队能直接使用的代码任务助手，例如审查、测试、迁移、重构或规范落地。</li>
+<li>供需失衡：AI 编程工具很多，但团队级流程、质量度量、上下文管理和可复用模板仍然不足。</li>
+<li>切入角度：切口不要做另一个通用编程助手，先把 Qwopus3.6 27B Coder MTP GGUF 落到代码审查、遗留项目迁移、测试补全或团队规范检查。</li>
+<li>可做 MVP：做一个 Qwopus3.6 27B Coder MTP GGUF 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。</li>
+<li>分发路径：分发靠开发者证据：用 Qwopus3.6 27B Coder MTP GGUF 跑真实 repo 的前后对比，发到 GitHub、HN、X、V2EX 和 AI 编程社区。</li>
+<li>变现方式：按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。</li>
+<li>风险：Agent 演示容易惊艳但交付不稳定；MVP 要限制任务边界并保留人工兜底。</li>
+<li>下一步验证：验证动作：选 3 个真实 GitHub repo，用 Qwopus3.6 27B Coder MTP GGUF 做代码审查/测试补全样例，记录节省时间和误报率。</li>
+<li>置信度：中：Trending 是早期信号，但要继续核查 demo 质量、license 和普通用户是否真的会搜。</li>
+<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 21</li>
+<li>建议：深挖</li>
+</ul>
+<h3>2. cobusgreyling/loop-engineering</h3>
 <ul>
 <li>来源：GitHub Search: llm created:&gt;=2026-06-04</li>
 <li>链接：https://github.com/cobusgreyling/loop-engineering</li>
 <li>类型：GitHub Trending / New Tech</li>
 <li>结论：值得今天进入深挖池。它有明确新技术信号，也能落到一个可收费的窄场景。</li>
 <li>原始信号：Practical patterns, starters &amp; CLI tools for loop engineering with AI coding agents. Design systems that prompt and orchestrate agents (inspired by Addy Osmani and Boris Cherny). …</li>
-<li>证据：短期内已有 167 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Practical patterns, starters &amp; CLI tools for loop engineering with AI coding agents. Design systems that prompt and orc…</li>
+<li>证据：短期内已有 168 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Practical patterns, starters &amp; CLI tools for loop engineering with AI coding agents. Design systems that prompt and orc…</li>
 <li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：想把重复流程交给 AI 的创业团队、运营人员、开发者和个人效率工具用户。</li>
-<li>真实需求：围绕 loop engineering 做垂直 Agent：选一个岗位或场景，把通用 Agent 变成可交付的流程。</li>
-<li>供需失衡：loop engineering 证明 Agent 生态还在快速长新工具，但多数仍停留在开发者框架，缺少面向具体业务动作的交付层。</li>
-<li>切入角度：切口不要做通用 Agent 平台，先把 loop engineering 映射到一个窄流程，例如开发协作、内容运营、SEO 外链或客服质检。</li>
-<li>可做 MVP：选 loop engineering 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。</li>
-<li>分发路径：分发靠 loop engineering 的案例：展示一个岗位任务从 30 分钟变 3 分钟，并把流程录屏发到 X、HN、独立开发者社区。</li>
+<li>用户是谁：独立开发者、AI 编程重度用户、小型研发团队、需要把代码任务标准化的技术负责人。</li>
+<li>真实需求：把 loop engineering 包装成开发团队能直接使用的代码任务助手，例如审查、测试、迁移、重构或规范落地。</li>
+<li>供需失衡：AI 编程工具很多，但团队级流程、质量度量、上下文管理和可复用模板仍然不足。</li>
+<li>切入角度：切口不要做另一个通用编程助手，先把 loop engineering 落到代码审查、遗留项目迁移、测试补全或团队规范检查。</li>
+<li>可做 MVP：做一个 loop engineering 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。</li>
+<li>分发路径：分发靠开发者证据：用 loop engineering 跑真实 repo 的前后对比，发到 GitHub、HN、X、V2EX 和 AI 编程社区。</li>
 <li>变现方式：按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。</li>
 <li>风险：Agent 演示容易惊艳但交付不稳定；MVP 要限制任务边界并保留人工兜底。</li>
-<li>下一步验证：验证动作：先读 loop engineering 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
+<li>下一步验证：验证动作：选 3 个真实 GitHub repo，用 loop engineering 做代码审查/测试补全样例，记录节省时间和误报率。</li>
 <li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
 <li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 21</li>
 <li>建议：深挖</li>
 </ul>
-<h3>2. zengxiao-he/tessera</h3>
+<h3>3. zengxiao-he/tessera</h3>
 <ul>
 <li>来源：GitHub Search: llm created:&gt;=2026-06-04</li>
 <li>链接：https://github.com/zengxiao-he/tessera</li>
@@ -110,20 +132,20 @@
 <li>原始信号：From teacher to tiles — a from-scratch LLM distillation &amp; serving engine: custom Triton/CUDA kernels, FSDP distillation, paged-KV continuous batching, speculative decoding, a Rust…</li>
 <li>证据：短期内已有 162 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：From teacher to tiles — a from-scratch LLM distillation &amp; serving engine: custom Triton/CUDA kernels, FSDP distillation…</li>
 <li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：AI 应用开发者、独立开发者、内容创作者、需要把模型能力落地到具体任务的人。</li>
-<li>真实需求：把 tessera 从开源项目/模型变成一个普通用户可直接使用的托管入口或模板。</li>
-<li>供需失衡：tessera 这类开源项目通常有技术势能，但部署、示例、文档和产品化入口还不够顺。</li>
-<li>切入角度：切口可以是 tessera 的托管 demo、中文/英文教程、新词站承接页或一键部署包。</li>
-<li>可做 MVP：48 小时内做一个承接页 + Demo/教程 + 等候名单；能调用则做最小可用 Web 工具。</li>
-<li>分发路径：分发从 tessera 所在 GitHub 生态切入：README 对比页、Issue 评论、相关 repo discussion、开发者社区和教程文章。</li>
+<li>用户是谁：独立开发者、AI 编程重度用户、小型研发团队、需要把代码任务标准化的技术负责人。</li>
+<li>真实需求：把 tessera 包装成开发团队能直接使用的代码任务助手，例如审查、测试、迁移、重构或规范落地。</li>
+<li>供需失衡：AI 编程工具很多，但团队级流程、质量度量、上下文管理和可复用模板仍然不足。</li>
+<li>切入角度：切口不要做另一个通用编程助手，先把 tessera 落到代码审查、遗留项目迁移、测试补全或团队规范检查。</li>
+<li>可做 MVP：做一个 tessera 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。</li>
+<li>分发路径：分发靠开发者证据：用 tessera 跑真实 repo 的前后对比，发到 GitHub、HN、X、V2EX 和 AI 编程社区。</li>
 <li>变现方式：订阅、credits、托管版、API 加价、模板包或部署服务。</li>
 <li>风险：技术可能只是短期热度；需要确认 license、模型可用性、成本和真实工作流。</li>
-<li>下一步验证：验证动作：先读 tessera 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
+<li>下一步验证：验证动作：选 3 个真实 GitHub repo，用 tessera 做代码审查/测试补全样例，记录节省时间和误报率。</li>
 <li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
 <li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 21</li>
 <li>建议：深挖</li>
 </ul>
-<h3>3. kadevin/ilab-gpt-conjure</h3>
+<h3>4. kadevin/ilab-gpt-conjure</h3>
 <ul>
 <li>来源：GitHub Search: image-generation created:&gt;=2026-06-04</li>
 <li>链接：https://github.com/kadevin/ilab-gpt-conjure</li>
@@ -145,29 +167,117 @@
 <li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 21</li>
 <li>建议：深挖</li>
 </ul>
-<h3>4. DietrichGebert/ponytail</h3>
+<h3>5. google/diffusiongemma-26B-A4B-it</h3>
+<ul>
+<li>来源：Hugging Face Trending</li>
+<li>链接：https://huggingface.co/google/diffusiongemma-26B-A4B-it</li>
+<li>类型：HF Trending / New Tech</li>
+<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
+<li>原始信号：Trending model from Hugging Face models page. Tags: transformers, safetensors, diffusion_gemma, image-text-to-text, conversational, license:apache-2.0, endpoints_compatible, regio…</li>
+<li>证据：Hugging Face 上 下载 198912，点赞 762，适合判断是否存在模型能力到产品入口之间的空档。</li>
+<li>为什么现在：现在值得看，是因为模型/Space 进入 Trending 后，通常会先出现尝鲜搜索，再出现工具化供给。窗口很短。</li>
+<li>用户是谁：AI 应用开发者、独立开发者、内容创作者、需要把模型能力落地到具体任务的人。</li>
+<li>真实需求：把 diffusiongemma 26B A4B it 从开源项目/模型变成一个普通用户可直接使用的托管入口或模板。</li>
+<li>供需失衡：模型能力可能已经出现，但普通用户缺少稳定入口、清晰场景、低门槛 UI 和可付费包装。</li>
+<li>切入角度：切口可以是 diffusiongemma 26B A4B it 的托管 demo、中文/英文教程、新词站承接页或一键部署包。</li>
+<li>可做 MVP：做 diffusiongemma 26B A4B it 承接页：解释用途、跑通 demo、列出替代方案，并收集等候名单或付费咨询线索。</li>
+<li>分发路径：分发优先做新词 SEO：模型名 + demo/free/tutorial/API/alternative，同时去 Hugging Face 评论区、Reddit、X 发可用入口。</li>
+<li>变现方式：订阅、credits、托管版、API 加价、模板包或部署服务。</li>
+<li>风险：技术可能只是短期热度；需要确认 license、模型可用性、成本和真实工作流。</li>
+<li>下一步验证：验证动作：今天建一个 diffusiongemma 26B A4B it 新词页，放调用方式、可运行 demo 和替代方案表，看 24 小时搜索点击/注册。</li>
+<li>置信度：中：Trending 是早期信号，但要继续核查 demo 质量、license 和普通用户是否真的会搜。</li>
+<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
+<li>建议：观察</li>
+</ul>
+<h3>6. moonshotai/Kimi-K2.7-Code</h3>
+<ul>
+<li>来源：Hugging Face Trending</li>
+<li>链接：https://huggingface.co/moonshotai/Kimi-K2.7-Code</li>
+<li>类型：HF Trending / New Tech</li>
+<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
+<li>原始信号：Trending model from Hugging Face models page. Tags: transformers, safetensors, kimi_k25, image-feature-extraction, compressed-tensors, image-text-to-text, conversational, custom_c…</li>
+<li>证据：Hugging Face 上 下载 15145，点赞 595，适合判断是否存在模型能力到产品入口之间的空档。</li>
+<li>为什么现在：现在值得看，是因为模型/Space 进入 Trending 后，通常会先出现尝鲜搜索，再出现工具化供给。窗口很短。</li>
+<li>用户是谁：独立开发者、AI 编程重度用户、小型研发团队、需要把代码任务标准化的技术负责人。</li>
+<li>真实需求：把 Kimi K2.7 Code 包装成开发团队能直接使用的代码任务助手，例如审查、测试、迁移、重构或规范落地。</li>
+<li>供需失衡：AI 编程工具很多，但团队级流程、质量度量、上下文管理和可复用模板仍然不足。</li>
+<li>切入角度：切口不要做另一个通用编程助手，先把 Kimi K2.7 Code 落到代码审查、遗留项目迁移、测试补全或团队规范检查。</li>
+<li>可做 MVP：做一个 Kimi K2.7 Code 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。</li>
+<li>分发路径：分发靠开发者证据：用 Kimi K2.7 Code 跑真实 repo 的前后对比，发到 GitHub、HN、X、V2EX 和 AI 编程社区。</li>
+<li>变现方式：订阅、credits、托管版、API 加价、模板包或部署服务。</li>
+<li>风险：技术可能只是短期热度；需要确认 license、模型可用性、成本和真实工作流。</li>
+<li>下一步验证：验证动作：选 3 个真实 GitHub repo，用 Kimi K2.7 Code 做代码审查/测试补全样例，记录节省时间和误报率。</li>
+<li>置信度：中：Trending 是早期信号，但要继续核查 demo 质量、license 和普通用户是否真的会搜。</li>
+<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
+<li>建议：观察</li>
+</ul>
+<h3>7. MiniMaxAI/MiniMax-M3</h3>
+<ul>
+<li>来源：Hugging Face Trending</li>
+<li>链接：https://huggingface.co/MiniMaxAI/MiniMax-M3</li>
+<li>类型：HF Trending / New Tech</li>
+<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
+<li>原始信号：Trending model from Hugging Face models page. Tags: transformers, safetensors, minimax_m3_vl, image-text-to-text, multimodal, moe, agent, coding, video, conversational, custom_cod…</li>
+<li>证据：Hugging Face 上 下载 6643，点赞 474，适合判断是否存在模型能力到产品入口之间的空档。</li>
+<li>为什么现在：现在值得看，是因为模型/Space 进入 Trending 后，通常会先出现尝鲜搜索，再出现工具化供给。窗口很短。</li>
+<li>用户是谁：短视频创作者、出海营销团队、内容工作室、需要批量生成视频素材的小团队。</li>
+<li>真实需求：把 MiniMax M3 这类视频生成/短视频流水线包装成面向创作者的模板化工具，而不是让用户自己拼脚本。</li>
+<li>供需失衡：视频生成需求很热，但用户通常卡在提示词、镜头脚本、批处理、模型选择和成片交付。</li>
+<li>切入角度：切口不要把 MiniMax M3 做成通用视频生成器，先选一个高频模板，比如产品广告、TikTok 短剧分镜、课程切片。</li>
+<li>可做 MVP：围绕 MiniMax M3 做一个“输入主题→脚本→镜头提示词→生成队列”的单页工具，先支持 3 个固定视频模板。</li>
+<li>分发路径：分发靠 MiniMax M3 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。</li>
+<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
+<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
+<li>下一步验证：验证动作：今天建一个 MiniMax M3 新词页，放调用方式、可运行 demo 和替代方案表，看 24 小时搜索点击/注册。</li>
+<li>置信度：中：Trending 是早期信号，但要继续核查 demo 质量、license 和普通用户是否真的会搜。</li>
+<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
+<li>建议：观察</li>
+</ul>
+<h3>8. nvidia/LocateAnything-3B</h3>
+<ul>
+<li>来源：Hugging Face Trending</li>
+<li>链接：https://huggingface.co/nvidia/LocateAnything-3B</li>
+<li>类型：HF Trending / New Tech</li>
+<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
+<li>原始信号：Trending model from Hugging Face models page. Tags: transformers, safetensors, locateanything, image-feature-extraction, nvidia, eagle, vision, object-detection, grounding, arxiv:…</li>
+<li>证据：Hugging Face 上 下载 75201，点赞 1990，适合判断是否存在模型能力到产品入口之间的空档。</li>
+<li>为什么现在：现在值得看，是因为模型/Space 进入 Trending 后，通常会先出现尝鲜搜索，再出现工具化供给。窗口很短。</li>
+<li>用户是谁：电商运营、仓储盘点团队、质检团队、数据标注团队、需要批量理解图片的小型业务方。</li>
+<li>真实需求：把 LocateAnything 3B 这种视觉定位能力包装成可直接交付的图片理解工具，例如商品识别、瑕疵定位、库存盘点或标注助手。</li>
+<li>供需失衡：视觉模型能力在变强，但普通业务方缺少可上传、可批量处理、可导出结果的低门槛产品。</li>
+<li>切入角度：切口不要做泛视觉 demo，先把 LocateAnything 3B 用在库存盘点、质检标注、安防检索或电商图片结构化。</li>
+<li>可做 MVP：做一个 LocateAnything 3B 批量图片分析页：上传图片夹，输出框选结果、CSV 和可复核的人工修正界面。</li>
+<li>分发路径：分发靠行业样例：用 LocateAnything 3B 跑 3 类真实图片集，发布检测/定位准确率和可视化结果，承接视觉 AI 长尾词。</li>
+<li>变现方式：订阅、credits、托管版、API 加价、模板包或部署服务。</li>
+<li>风险：技术可能只是短期热度；需要确认 license、模型可用性、成本和真实工作流。</li>
+<li>下一步验证：验证动作：找 30 张电商/仓储/质检图片，用 LocateAnything 3B 跑定位结果，问 5 个运营或质检人员是否愿意试用。</li>
+<li>置信度：中：Trending 是早期信号，但要继续核查 demo 质量、license 和普通用户是否真的会搜。</li>
+<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
+<li>建议：观察</li>
+</ul>
+<h3>9. DietrichGebert/ponytail</h3>
 <ul>
 <li>来源：GitHub Search: llm created:&gt;=2026-06-04</li>
 <li>链接：https://github.com/DietrichGebert/ponytail</li>
 <li>类型：GitHub Trending / New Tech</li>
 <li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote. Stars: 5741. Newly created AI-related repo; check deployment, demo, a…</li>
-<li>证据：短期内已有 5741 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote. Stars: 57…</li>
+<li>原始信号：Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote. Stars: 5899. Newly created AI-related repo; check deployment, demo, a…</li>
+<li>证据：短期内已有 5899 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote. Stars: 58…</li>
 <li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：想把重复流程交给 AI 的创业团队、运营人员、开发者和个人效率工具用户。</li>
-<li>真实需求：围绕 ponytail 做垂直 Agent：选一个岗位或场景，把通用 Agent 变成可交付的流程。</li>
-<li>供需失衡：ponytail 证明 Agent 生态还在快速长新工具，但多数仍停留在开发者框架，缺少面向具体业务动作的交付层。</li>
-<li>切入角度：切口不要做通用 Agent 平台，先把 ponytail 映射到一个窄流程，例如开发协作、内容运营、SEO 外链或客服质检。</li>
-<li>可做 MVP：选 ponytail 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。</li>
-<li>分发路径：分发靠 ponytail 的案例：展示一个岗位任务从 30 分钟变 3 分钟，并把流程录屏发到 X、HN、独立开发者社区。</li>
+<li>用户是谁：独立开发者、AI 编程重度用户、小型研发团队、需要把代码任务标准化的技术负责人。</li>
+<li>真实需求：把 ponytail 包装成开发团队能直接使用的代码任务助手，例如审查、测试、迁移、重构或规范落地。</li>
+<li>供需失衡：AI 编程工具很多，但团队级流程、质量度量、上下文管理和可复用模板仍然不足。</li>
+<li>切入角度：切口不要做另一个通用编程助手，先把 ponytail 落到代码审查、遗留项目迁移、测试补全或团队规范检查。</li>
+<li>可做 MVP：做一个 ponytail 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。</li>
+<li>分发路径：分发靠开发者证据：用 ponytail 跑真实 repo 的前后对比，发到 GitHub、HN、X、V2EX 和 AI 编程社区。</li>
 <li>变现方式：按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。</li>
 <li>风险：Agent 演示容易惊艳但交付不稳定；MVP 要限制任务边界并保留人工兜底。</li>
-<li>下一步验证：验证动作：先读 ponytail 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
+<li>下一步验证：验证动作：选 3 个真实 GitHub repo，用 ponytail 做代码审查/测试补全样例，记录节省时间和误报率。</li>
 <li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
 <li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
 <li>建议：观察</li>
 </ul>
-<h3>5. myccarl/ai-shortVideo-pipeline</h3>
+<h3>10. myccarl/ai-shortVideo-pipeline</h3>
 <ul>
 <li>来源：GitHub Search: llm created:&gt;=2026-06-04</li>
 <li>链接：https://github.com/myccarl/ai-shortVideo-pipeline</li>
@@ -189,51 +299,51 @@
 <li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
 <li>建议：观察</li>
 </ul>
-<h3>6. JimLiu/baoyu-design</h3>
+<h3>11. JimLiu/baoyu-design</h3>
 <ul>
 <li>来源：GitHub Search: ai-agent created:&gt;=2026-06-04</li>
 <li>链接：https://github.com/JimLiu/baoyu-design</li>
 <li>类型：GitHub Trending / New Tech</li>
 <li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
 <li>原始信号：Run Claude Design locally as an Agent Skill — Cursor, Claude Code &amp; more. Produce polished UI mockups, prototypes, decks &amp; wireframes as self-contained HTML, without claude.ai/des…</li>
-<li>证据：短期内已有 1045 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Run Claude Design locally as an Agent Skill — Cursor, Claude Code &amp; more. Produce polished UI mockups, prototypes, deck…</li>
+<li>证据：短期内已有 1046 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Run Claude Design locally as an Agent Skill — Cursor, Claude Code &amp; more. Produce polished UI mockups, prototypes, deck…</li>
 <li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：想把重复流程交给 AI 的创业团队、运营人员、开发者和个人效率工具用户。</li>
-<li>真实需求：围绕 baoyu design 做垂直 Agent：选一个岗位或场景，把通用 Agent 变成可交付的流程。</li>
-<li>供需失衡：baoyu design 可能满足本地/离线需求，但部署和配置门槛高，普通用户缺少一键安装和默认工作流。</li>
-<li>切入角度：切口不要做通用 Agent 平台，先把 baoyu design 映射到一个窄流程，例如开发协作、内容运营、SEO 外链或客服质检。</li>
-<li>可做 MVP：选 baoyu design 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。</li>
-<li>分发路径：分发靠 baoyu design 的案例：展示一个岗位任务从 30 分钟变 3 分钟，并把流程录屏发到 X、HN、独立开发者社区。</li>
+<li>用户是谁：缺少专业设计资源的小型开发团队、独立开发者和 SaaS MVP 团队。</li>
+<li>真实需求：围绕 baoyu design 做设计交付辅助工具，帮助非设计团队快速得到可用界面或素材。</li>
+<li>供需失衡：小团队知道界面重要，但缺少能持续产出高质量 UI 的设计资源；现有工具要么太专业，要么无法直接变成可用稿。</li>
+<li>切入角度：切口不要做完整设计平台，先让 baoyu design 服务一个窄任务：产品说明转首屏、组件稿或演示页。</li>
+<li>可做 MVP：用 baoyu design 做“上传产品说明→生成 landing page 首屏/组件稿”的最小工具，先服务独立开发者。</li>
+<li>分发路径：分发找独立开发者和小 SaaS 团队，用 baoyu design 展示“文字需求到高质量首屏”的前后对比。</li>
 <li>变现方式：按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。</li>
 <li>风险：Agent 演示容易惊艳但交付不稳定；MVP 要限制任务边界并保留人工兜底。</li>
-<li>下一步验证：验证动作：先读 baoyu design 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
+<li>下一步验证：验证动作：找 5 个真实产品说明，用 baoyu design 生成首屏和组件稿，问独立开发者是否愿意为可编辑版本付费。</li>
 <li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
 <li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
 <li>建议：观察</li>
 </ul>
-<h3>7. omnigent-ai/omnigent</h3>
+<h3>12. omnigent-ai/omnigent</h3>
 <ul>
 <li>来源：GitHub Search: ai-agent created:&gt;=2026-06-04</li>
 <li>链接：https://github.com/omnigent-ai/omnigent</li>
 <li>类型：GitHub Trending / New Tech</li>
 <li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
 <li>原始信号：A meta-harness for all your AI agents. Omnigent provides a common layer over Claude Code, Codex, Pi, and the agents you write yourself: swap or combine harnesses without rewriting…</li>
-<li>证据：短期内已有 1011 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：A meta-harness for all your AI agents. Omnigent provides a common layer over Claude Code, Codex, Pi, and the agents you…</li>
+<li>证据：短期内已有 1030 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：A meta-harness for all your AI agents. Omnigent provides a common layer over Claude Code, Codex, Pi, and the agents you…</li>
 <li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：想把重复流程交给 AI 的创业团队、运营人员、开发者和个人效率工具用户。</li>
-<li>真实需求：围绕 omnigent 做垂直 Agent：选一个岗位或场景，把通用 Agent 变成可交付的流程。</li>
-<li>供需失衡：omnigent 证明 Agent 生态还在快速长新工具，但多数仍停留在开发者框架，缺少面向具体业务动作的交付层。</li>
-<li>切入角度：切口不要做通用 Agent 平台，先把 omnigent 映射到一个窄流程，例如开发协作、内容运营、SEO 外链或客服质检。</li>
-<li>可做 MVP：选 omnigent 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。</li>
-<li>分发路径：分发靠 omnigent 的案例：展示一个岗位任务从 30 分钟变 3 分钟，并把流程录屏发到 X、HN、独立开发者社区。</li>
+<li>用户是谁：创始人、内容创作者、知识付费团队、需要保留个人表达风格的运营人员。</li>
+<li>真实需求：把 omnigent 包装成特定人群的写作/改写/发布助手，重点解决风格和流程问题。</li>
+<li>供需失衡：写作工具很多，但多数会抹平个人风格；真正稀缺的是保留人味、适配具体发布渠道的工作流。</li>
+<li>切入角度：切口不要做通用写作助手，先把 omnigent 固定到一种强风格，例如创始人公众号、产品更新或销售邮件。</li>
+<li>可做 MVP：做一个 omnigent 改写页：输入草稿，选择个人风格和发布渠道，输出 3 个可直接发布版本。</li>
+<li>分发路径：分发靠 omnigent 的真实改写案例：同一段粗糙文字改成 3 种人味风格，发到小红书、即刻、公众号和创作者社群。</li>
 <li>变现方式：按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。</li>
 <li>风险：Agent 演示容易惊艳但交付不稳定；MVP 要限制任务边界并保留人工兜底。</li>
-<li>下一步验证：验证动作：先读 omnigent 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
+<li>下一步验证：验证动作：用 omnigent 手动帮 5 位创作者改写一篇内容，记录他们是否愿意持续付费保留个人风格。</li>
 <li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
 <li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
 <li>建议：观察</li>
 </ul>
-<h3>8. amElnagdy/guard-skills</h3>
+<h3>13. amElnagdy/guard-skills</h3>
 <ul>
 <li>来源：GitHub Search: ai-agent created:&gt;=2026-06-04</li>
 <li>链接：https://github.com/amElnagdy/guard-skills</li>
@@ -242,296 +352,120 @@
 <li>原始信号：Guard skills for coding agents, quality gates that catch AI-generated failure modes in code, tests, and docs Stars: 717. Newly created AI-related repo; check deployment, demo, and…</li>
 <li>证据：短期内已有 717 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Guard skills for coding agents, quality gates that catch AI-generated failure modes in code, tests, and docs Stars: 717…</li>
 <li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：频繁改代码但文档维护跟不上的开源作者、SaaS 小团队和开发者工具团队。</li>
-<li>真实需求：围绕 guard skills 做“代码/PR 自动生成用户文档”的轻量工具，解决小团队文档总是落后的问题。</li>
-<li>供需失衡：团队知道文档重要，但 PR 合并后文档经常滞后；现有方案要么太重，要么没有贴进 GitHub 流程。</li>
-<li>切入角度：切口不要做“大而全知识库”，先做 GitHub PR/Issue 文档更新这一刀，贴近开发者工作流。</li>
-<li>可做 MVP：做 GitHub App/Action：用户在 PR 评论里触发，自动生成 changelog、README 片段和用户文档草稿。</li>
-<li>分发路径：分发找开源项目维护者、SaaS changelog 场景和开发者工具社区，用免费开源仓库换私有仓库付费。</li>
+<li>用户是谁：独立开发者、AI 编程重度用户、小型研发团队、需要把代码任务标准化的技术负责人。</li>
+<li>真实需求：把 guard skills 包装成开发团队能直接使用的代码任务助手，例如审查、测试、迁移、重构或规范落地。</li>
+<li>供需失衡：AI 编程工具很多，但团队级流程、质量度量、上下文管理和可复用模板仍然不足。</li>
+<li>切入角度：切口不要做另一个通用编程助手，先把 guard skills 落到代码审查、遗留项目迁移、测试补全或团队规范检查。</li>
+<li>可做 MVP：做一个 guard skills 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。</li>
+<li>分发路径：分发靠开发者证据：用 guard skills 跑真实 repo 的前后对比，发到 GitHub、HN、X、V2EX 和 AI 编程社区。</li>
 <li>变现方式：按仓库/席位订阅，或按 PR 次数计费；开源免费、私有仓库收费。</li>
 <li>风险：需要接入代码仓库权限，信任成本较高；先用 GitHub Action 或只读权限降低阻力。</li>
-<li>下一步验证：验证动作：先读 guard skills 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
+<li>下一步验证：验证动作：选 3 个真实 GitHub repo，用 guard skills 做代码审查/测试补全样例，记录节省时间和误报率。</li>
 <li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
 <li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
 <li>建议：观察</li>
 </ul>
-<h3>9. orange2ai/renwei-writing</h3>
+<h3>14. orange2ai/renwei-writing</h3>
 <ul>
 <li>来源：GitHub Search: ai-agent created:&gt;=2026-06-04</li>
 <li>链接：https://github.com/orange2ai/renwei-writing</li>
 <li>类型：GitHub Trending / New Tech</li>
 <li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：人味儿写作 · An AI agent skill: edit people&#x27;s words without erasing the person behind them Stars: 544. Newly created AI-related repo; check deployment, demo, and productization gaps.</li>
-<li>证据：短期内已有 544 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：人味儿写作 · An AI agent skill: edit people&#x27;s words without erasing the person behind them Stars: 544. Newly created AI-rela…</li>
+<li>原始信号：人味儿写作 · An AI agent skill: edit people&#x27;s words without erasing the person behind them Stars: 549. Newly created AI-related repo; check deployment, demo, and productization gaps.</li>
+<li>证据：短期内已有 549 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：人味儿写作 · An AI agent skill: edit people&#x27;s words without erasing the person behind them Stars: 549. Newly created AI-rela…</li>
 <li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：想把重复流程交给 AI 的创业团队、运营人员、开发者和个人效率工具用户。</li>
-<li>真实需求：围绕 renwei writing 做垂直 Agent：选一个岗位或场景，把通用 Agent 变成可交付的流程。</li>
-<li>供需失衡：renwei writing 证明 Agent 生态还在快速长新工具，但多数仍停留在开发者框架，缺少面向具体业务动作的交付层。</li>
-<li>切入角度：切口不要做通用 Agent 平台，先把 renwei writing 映射到一个窄流程，例如开发协作、内容运营、SEO 外链或客服质检。</li>
-<li>可做 MVP：选 renwei writing 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。</li>
-<li>分发路径：分发靠 renwei writing 的案例：展示一个岗位任务从 30 分钟变 3 分钟，并把流程录屏发到 X、HN、独立开发者社区。</li>
+<li>用户是谁：创始人、内容创作者、知识付费团队、需要保留个人表达风格的运营人员。</li>
+<li>真实需求：把 renwei writing 包装成特定人群的写作/改写/发布助手，重点解决风格和流程问题。</li>
+<li>供需失衡：写作工具很多，但多数会抹平个人风格；真正稀缺的是保留人味、适配具体发布渠道的工作流。</li>
+<li>切入角度：切口不要做通用写作助手，先把 renwei writing 固定到一种强风格，例如创始人公众号、产品更新或销售邮件。</li>
+<li>可做 MVP：做一个 renwei writing 改写页：输入草稿，选择个人风格和发布渠道，输出 3 个可直接发布版本。</li>
+<li>分发路径：分发靠 renwei writing 的真实改写案例：同一段粗糙文字改成 3 种人味风格，发到小红书、即刻、公众号和创作者社群。</li>
 <li>变现方式：按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。</li>
 <li>风险：Agent 演示容易惊艳但交付不稳定；MVP 要限制任务边界并保留人工兜底。</li>
-<li>下一步验证：验证动作：先读 renwei writing 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
+<li>下一步验证：验证动作：用 renwei writing 手动帮 5 位创作者改写一篇内容，记录他们是否愿意持续付费保留个人风格。</li>
 <li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
 <li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
 <li>建议：观察</li>
 </ul>
-<h3>10. techjarves/Local-AI-Image-Generator</h3>
+<h3>15. Show HN: Landmark AI and ML research explained, redrawn, animated</h3>
 <ul>
-<li>来源：GitHub Search: image-generation created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/techjarves/Local-AI-Image-Generator</li>
-<li>类型：GitHub Trending / New Tech</li>
+<li>来源：Hacker News: AI</li>
+<li>链接：https://research.rudrite.com/</li>
+<li>类型：News Window</li>
 <li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：A fully self-contained, offline AI image generation studio for Windows. Runs Stable Diffusion (Safetensors/GGUF) locally with zero manual setup. Auto-configures CUDA for Nvidia GP…</li>
-<li>证据：短期内已有 195 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：A fully self-contained, offline AI image generation studio for Windows. Runs Stable Diffusion (Safetensors/GGUF) locall…</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：电商卖家、设计外包团队、游戏/角色创作者、需要稳定出图流程的独立开发者。</li>
-<li>真实需求：把 Local AI Image Generator 这类图像生成能力收敛到具体场景，例如商品图、角色图、封面图或工作流模板。</li>
-<li>供需失衡：Local AI Image Generator 可能满足本地/离线需求，但部署和配置门槛高，普通用户缺少一键安装和默认工作流。</li>
-<li>切入角度：切口不要把 Local AI Image Generator 做成通用出图站，先选一个能付费的垂直场景，比如电商主图、App Store 截图、角色设定图。</li>
-<li>可做 MVP：围绕 Local AI Image Generator 做一个场景化生成页：固定 5-10 个模板、示例图和参数预设，先收集邮箱或 credits 付费。</li>
-<li>分发路径：分发靠 Local AI Image Generator 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 Local AI Image Generator 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
-<li>建议：观察</li>
-</ul>
-<h3>11. helloianneo/ian-xiaohei-scenes</h3>
-<ul>
-<li>来源：GitHub Search: image-generation created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/helloianneo/ian-xiaohei-scenes</li>
-<li>类型：GitHub Trending / New Tech</li>
-<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：Xiaohei 2.0 Codex Skill for Chinese real-object article illustrations and long-scroll story images Stars: 132. Newly created AI-related repo; check deployment, demo, and productiz…</li>
-<li>证据：短期内已有 132 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Xiaohei 2.0 Codex Skill for Chinese real-object article illustrations and long-scroll story images Stars: 132. Newly cr…</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：电商卖家、设计外包团队、游戏/角色创作者、需要稳定出图流程的独立开发者。</li>
-<li>真实需求：把 ian xiaohei scenes 这类图像生成能力收敛到具体场景，例如商品图、角色图、封面图或工作流模板。</li>
-<li>供需失衡：图像生成能力多，但垂直行业模板、稳定风格、批量生成和后处理仍然供给不足。</li>
-<li>切入角度：切口不要把 ian xiaohei scenes 做成通用出图站，先选一个能付费的垂直场景，比如电商主图、App Store 截图、角色设定图。</li>
-<li>可做 MVP：围绕 ian xiaohei scenes 做一个场景化生成页：固定 5-10 个模板、示例图和参数预设，先收集邮箱或 credits 付费。</li>
-<li>分发路径：分发靠 ian xiaohei scenes 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 ian xiaohei scenes 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
-<li>建议：观察</li>
-</ul>
-<h3>12. newideas99/open-dungeon</h3>
-<ul>
-<li>来源：GitHub Search: image-generation created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/newideas99/open-dungeon</li>
-<li>类型：GitHub Trending / New Tech</li>
-<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：Open Dungeon — the first easy-to-use, fully local AI roleplay app. Story and inline scene images generated 100% on your machine (Gemma 4 QAT via Ollama(and others) + FLUX). No acc…</li>
-<li>证据：短期内已有 119 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Open Dungeon — the first easy-to-use, fully local AI roleplay app. Story and inline scene images generated 100% on your…</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：电商卖家、设计外包团队、游戏/角色创作者、需要稳定出图流程的独立开发者。</li>
-<li>真实需求：把 open dungeon 这类图像生成能力收敛到具体场景，例如商品图、角色图、封面图或工作流模板。</li>
-<li>供需失衡：open dungeon 可能满足本地/离线需求，但部署和配置门槛高，普通用户缺少一键安装和默认工作流。</li>
-<li>切入角度：切口不要把 open dungeon 做成通用出图站，先选一个能付费的垂直场景，比如电商主图、App Store 截图、角色设定图。</li>
-<li>可做 MVP：围绕 open dungeon 做一个场景化生成页：固定 5-10 个模板、示例图和参数预设，先收集邮箱或 credits 付费。</li>
-<li>分发路径：分发靠 open dungeon 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 open dungeon 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
-<li>建议：观察</li>
-</ul>
-<h3>13. tmchow/illo-skill</h3>
-<ul>
-<li>来源：GitHub Search: image-generation created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/tmchow/illo-skill</li>
-<li>类型：GitHub Trending / New Tech</li>
-<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：illo — an AI agent skill that turns ideas and articles into original print-style editorial illustrations, starring a recurring mascot. Ten bundled looks, custom characters, OpenRo…</li>
-<li>证据：短期内已有 90 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：illo — an AI agent skill that turns ideas and articles into original print-style editorial illustrations, starring a re…</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：想把重复流程交给 AI 的创业团队、运营人员、开发者和个人效率工具用户。</li>
-<li>真实需求：围绕 illo skill 做垂直 Agent：选一个岗位或场景，把通用 Agent 变成可交付的流程。</li>
-<li>供需失衡：illo skill 证明 Agent 生态还在快速长新工具，但多数仍停留在开发者框架，缺少面向具体业务动作的交付层。</li>
-<li>切入角度：切口不要做通用 Agent 平台，先把 illo skill 映射到一个窄流程，例如开发协作、内容运营、SEO 外链或客服质检。</li>
-<li>可做 MVP：选 illo skill 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。</li>
-<li>分发路径：分发靠 illo skill 的案例：展示一个岗位任务从 30 分钟变 3 分钟，并把流程录屏发到 X、HN、独立开发者社区。</li>
+<li>原始信号：Fresh tech discussion. Check comments for complaints, missing tooling, and early adopter workflows.</li>
+<li>证据：Hacker News 已出现讨论，说明早期开发者和技术买家开始关注；需要重点看评论里是否有人抱怨部署、成本或替代方案。</li>
+<li>为什么现在：现在值得看，是因为新闻讨论先于成熟供给，适合做新词页、教程页或最小工具承接第一波搜索。</li>
+<li>用户是谁：追新技术、追效率工具、需要立即解决具体任务的早期采用者。</li>
+<li>真实需求：围绕“Show HN: Landmark AI and ML research explained, redrawn, animated”这个新讨论点，快速承接教程、试用、替代方案或新词站流量。</li>
+<li>供需失衡：信息热度先于产品供给，窗口期内用户会主动搜索入口、教程和替代方案。</li>
+<li>切入角度：切口围绕 Show HN: Landmark AI and ML research explained, redrawn, animated 做一个能当天发布的承接动作：解释、替代方案、清单或最小工具。</li>
+<li>可做 MVP：围绕 Show HN: Landmark AI and ML research explained, redrawn, animated 做新词承接页：解释是什么、谁需要、可用替代方案，并放一个轻量工具或资源清单。</li>
+<li>分发路径：分发先回到 Hacker News: AI 的讨论区验证兴趣，再用 Show HN: Landmark AI and ML research explained, redrawn, animated 相关关键词做 SEO 页面承接长尾搜索。</li>
 <li>变现方式：按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。</li>
-<li>风险：Agent 演示容易惊艳但交付不稳定；MVP 要限制任务边界并保留人工兜底。</li>
-<li>下一步验证：验证动作：先读 illo skill 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
+<li>风险：热度衰减快；若涉及品牌词或商标，避免长期做 EMD，必要时转向自有品牌。</li>
+<li>下一步验证：验证动作：读 Show HN: Landmark AI and ML research explained, redrawn, animated 的原文和评论，提炼 3 个搜索词，做一页承接页测试点击和邮箱。</li>
+<li>置信度：中：有讨论信号，但需要阅读评论确认是不是具体痛点。</li>
+<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 4 / MVP 可行性 4 / 变现潜力 4，总分 18</li>
 <li>建议：观察</li>
 </ul>
-<h3>14. AIMixer/ComfyUI-Bernini</h3>
+<h3>16. Fifteen short films about AI-era threats, made with Conan</h3>
 <ul>
-<li>来源：GitHub Search: video-generation created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/AIMixer/ComfyUI-Bernini</li>
-<li>类型：GitHub Trending / New Tech</li>
+<li>来源：Hacker News: AI</li>
+<li>链接：https://www.adaptivesecurity.com/conan</li>
+<li>类型：News Window</li>
 <li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：Standalone ComfyUI plugin for Wan 2.2 Bernini video generation and editing. Stars: 84. Newly created AI-related repo; check deployment, demo, and productization gaps.</li>
-<li>证据：短期内已有 84 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Standalone ComfyUI plugin for Wan 2.2 Bernini video generation and editing. Stars: 84. Newly created AI-related repo; c…</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：短视频创作者、出海营销团队、内容工作室、需要批量生成视频素材的小团队。</li>
-<li>真实需求：把 ComfyUI Bernini 这类视频生成/短视频流水线包装成面向创作者的模板化工具，而不是让用户自己拼脚本。</li>
-<li>供需失衡：视频生成需求很热，但用户通常卡在提示词、镜头脚本、批处理、模型选择和成片交付。</li>
-<li>切入角度：切口不要把 ComfyUI Bernini 做成通用视频生成器，先选一个高频模板，比如产品广告、TikTok 短剧分镜、课程切片。</li>
-<li>可做 MVP：围绕 ComfyUI Bernini 做一个“输入主题→脚本→镜头提示词→生成队列”的单页工具，先支持 3 个固定视频模板。</li>
-<li>分发路径：分发靠 ComfyUI Bernini 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 ComfyUI Bernini 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
+<li>原始信号：Fresh tech discussion. Check comments for complaints, missing tooling, and early adopter workflows.</li>
+<li>证据：Hacker News 已出现讨论，说明早期开发者和技术买家开始关注；需要重点看评论里是否有人抱怨部署、成本或替代方案。</li>
+<li>为什么现在：现在值得看，是因为新闻讨论先于成熟供给，适合做新词页、教程页或最小工具承接第一波搜索。</li>
+<li>用户是谁：追新技术、追效率工具、需要立即解决具体任务的早期采用者。</li>
+<li>真实需求：围绕“Fifteen short films about AI-era threats, made with Conan”这个新讨论点，快速承接教程、试用、替代方案或新词站流量。</li>
+<li>供需失衡：信息热度先于产品供给，窗口期内用户会主动搜索入口、教程和替代方案。</li>
+<li>切入角度：切口围绕 Fifteen short films about AI-era threats, made with Conan 做一个能当天发布的承接动作：解释、替代方案、清单或最小工具。</li>
+<li>可做 MVP：围绕 Fifteen short films about AI-era threats, made with Conan 做新词承接页：解释是什么、谁需要、可用替代方案，并放一个轻量工具或资源清单。</li>
+<li>分发路径：分发先回到 Hacker News: AI 的讨论区验证兴趣，再用 Fifteen short films about AI-era threats, made with Conan 相关关键词做 SEO 页面承接长尾搜索。</li>
+<li>变现方式：按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。</li>
+<li>风险：热度衰减快；若涉及品牌词或商标，避免长期做 EMD，必要时转向自有品牌。</li>
+<li>下一步验证：验证动作：读 Fifteen short films about AI-era threats, made with Conan 的原文和评论，提炼 3 个搜索词，做一页承接页测试点击和邮箱。</li>
+<li>置信度：中：有讨论信号，但需要阅读评论确认是不是具体痛点。</li>
+<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 4 / MVP 可行性 4 / 变现潜力 4，总分 18</li>
 <li>建议：观察</li>
 </ul>
-<h3>15. smthemex/ComfyUI_JoyAI_Echo</h3>
+<h3>17. SillyTavern: LLM Front End for Power Users</h3>
 <ul>
-<li>来源：GitHub Search: video-generation created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/smthemex/ComfyUI_JoyAI_Echo</li>
-<li>类型：GitHub Trending / New Tech</li>
+<li>来源：Hacker News: LLM</li>
+<li>链接：https://sillytavern.app/</li>
+<li>类型：News Window</li>
 <li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：Pushing the Frontier of Long Video Generation Standalone, inference-only release for minute-level multi-shot audio-video generation with a distilled DMD generator, paired cross-mo…</li>
-<li>证据：短期内已有 42 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Pushing the Frontier of Long Video Generation Standalone, inference-only release for minute-level multi-shot audio-vide…</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：短视频创作者、出海营销团队、内容工作室、需要批量生成视频素材的小团队。</li>
-<li>真实需求：把 ComfyUI JoyAI Echo 这类视频生成/短视频流水线包装成面向创作者的模板化工具，而不是让用户自己拼脚本。</li>
-<li>供需失衡：视频生成需求很热，但用户通常卡在提示词、镜头脚本、批处理、模型选择和成片交付。</li>
-<li>切入角度：切口不要把 ComfyUI JoyAI Echo 做成通用视频生成器，先选一个高频模板，比如产品广告、TikTok 短剧分镜、课程切片。</li>
-<li>可做 MVP：围绕 ComfyUI JoyAI Echo 做一个“输入主题→脚本→镜头提示词→生成队列”的单页工具，先支持 3 个固定视频模板。</li>
-<li>分发路径：分发靠 ComfyUI JoyAI Echo 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 ComfyUI JoyAI Echo 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
-<li>建议：观察</li>
-</ul>
-<h3>16. zhuang2002/ComfyUI_JoyAI_Echo</h3>
-<ul>
-<li>来源：GitHub Search: video-generation created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/zhuang2002/ComfyUI_JoyAI_Echo</li>
-<li>类型：GitHub Trending / New Tech</li>
-<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：ComfyUI nodes for JoyAI-Echo: faithful bf16 implementation with multi-shot audio-video generation Stars: 23. Newly created AI-related repo; check deployment, demo, and productizat…</li>
-<li>证据：短期内已有 23 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：ComfyUI nodes for JoyAI-Echo: faithful bf16 implementation with multi-shot audio-video generation Stars: 23. Newly crea…</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：短视频创作者、出海营销团队、内容工作室、需要批量生成视频素材的小团队。</li>
-<li>真实需求：把 ComfyUI JoyAI Echo 这类视频生成/短视频流水线包装成面向创作者的模板化工具，而不是让用户自己拼脚本。</li>
-<li>供需失衡：视频生成需求很热，但用户通常卡在提示词、镜头脚本、批处理、模型选择和成片交付。</li>
-<li>切入角度：切口不要把 ComfyUI JoyAI Echo 做成通用视频生成器，先选一个高频模板，比如产品广告、TikTok 短剧分镜、课程切片。</li>
-<li>可做 MVP：围绕 ComfyUI JoyAI Echo 做一个“输入主题→脚本→镜头提示词→生成队列”的单页工具，先支持 3 个固定视频模板。</li>
-<li>分发路径：分发靠 ComfyUI JoyAI Echo 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 ComfyUI JoyAI Echo 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
-<li>建议：观察</li>
-</ul>
-<h3>17. rookiestar28/ComfyUI-LongCat-Avatar</h3>
-<ul>
-<li>来源：GitHub Search: video-generation created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/rookiestar28/ComfyUI-LongCat-Avatar</li>
-<li>类型：GitHub Trending / New Tech</li>
-<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：ComfyUI custom nodes for LongCat Video Avatar 1.5 audio-driven human video generation. Stars: 19. Newly created AI-related repo; check deployment, demo, and productization gaps.</li>
-<li>证据：短期内已有 19 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：ComfyUI custom nodes for LongCat Video Avatar 1.5 audio-driven human video generation. Stars: 19. Newly created AI-rela…</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：短视频创作者、出海营销团队、内容工作室、需要批量生成视频素材的小团队。</li>
-<li>真实需求：把 ComfyUI LongCat Avatar 这类视频生成/短视频流水线包装成面向创作者的模板化工具，而不是让用户自己拼脚本。</li>
-<li>供需失衡：视频生成需求很热，但用户通常卡在提示词、镜头脚本、批处理、模型选择和成片交付。</li>
-<li>切入角度：切口不要把 ComfyUI LongCat Avatar 做成通用视频生成器，先选一个高频模板，比如产品广告、TikTok 短剧分镜、课程切片。</li>
-<li>可做 MVP：围绕 ComfyUI LongCat Avatar 做一个“输入主题→脚本→镜头提示词→生成队列”的单页工具，先支持 3 个固定视频模板。</li>
-<li>分发路径：分发靠 ComfyUI LongCat Avatar 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 ComfyUI LongCat Avatar 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
-<li>建议：观察</li>
-</ul>
-<h3>18. rednote-hilab/dots.tts</h3>
-<ul>
-<li>来源：GitHub Search: tts created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/rednote-hilab/dots.tts</li>
-<li>类型：GitHub Trending / New Tech</li>
-<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：Stars: 608. Newly created AI-related repo; check deployment, demo, and productization gaps.</li>
-<li>证据：短期内已有 608 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Stars: 608. Newly created AI-related repo; check deployment, demo, and productization gaps.</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：播客/短视频创作者、课程团队、客服团队、做多语言内容本地化的人。</li>
-<li>真实需求：把 dots.tts 这类语音/TTS 能力做成可直接试用的配音、播客、客服话术或本地化工具。</li>
-<li>供需失衡：dots.tts 这类开源项目通常有技术势能，但部署、示例、文档和产品化入口还不够顺。</li>
-<li>切入角度：切口不要把 dots.tts 做成普通 TTS，先做多语言短视频配音或课程旁白，一次解决文本、声音和下载。</li>
-<li>可做 MVP：围绕 dots.tts 做一个上传文本即可生成多语音版本的 demo，附带字幕/音频下载和按分钟计费。</li>
-<li>分发路径：分发从 dots.tts 所在 GitHub 生态切入：README 对比页、Issue 评论、相关 repo discussion、开发者社区和教程文章。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 dots.tts 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
-<li>建议：观察</li>
-</ul>
-<h3>19. K07VN/capcut-tts-api</h3>
-<ul>
-<li>来源：GitHub Search: tts created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/K07VN/capcut-tts-api</li>
-<li>类型：GitHub Trending / New Tech</li>
-<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：capcut api tts &amp; stt Stars: 129. Newly created AI-related repo; check deployment, demo, and productization gaps.</li>
-<li>证据：短期内已有 129 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：capcut api tts &amp; stt Stars: 129. Newly created AI-related repo; check deployment, demo, and productization gaps.</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：播客/短视频创作者、课程团队、客服团队、做多语言内容本地化的人。</li>
-<li>真实需求：把 capcut tts api 这类语音/TTS 能力做成可直接试用的配音、播客、客服话术或本地化工具。</li>
-<li>供需失衡：capcut tts api 这类开源项目通常有技术势能，但部署、示例、文档和产品化入口还不够顺。</li>
-<li>切入角度：切口不要把 capcut tts api 做成普通 TTS，先做多语言短视频配音或课程旁白，一次解决文本、声音和下载。</li>
-<li>可做 MVP：围绕 capcut tts api 做一个上传文本即可生成多语音版本的 demo，附带字幕/音频下载和按分钟计费。</li>
-<li>分发路径：分发从 capcut tts api 所在 GitHub 生态切入：README 对比页、Issue 评论、相关 repo discussion、开发者社区和教程文章。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 capcut tts api 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
-<li>建议：观察</li>
-</ul>
-<h3>20. ASLP-lab/FlashTTS</h3>
-<ul>
-<li>来源：GitHub Search: tts created:&gt;=2026-06-04</li>
-<li>链接：https://github.com/ASLP-lab/FlashTTS</li>
-<li>类型：GitHub Trending / New Tech</li>
-<li>结论：适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。</li>
-<li>原始信号：Fast Streaming TTS with MTP Acceleration and X-pred Mean Flow Distillation Stars: 37. Newly created AI-related repo; check deployment, demo, and productization gaps.</li>
-<li>证据：短期内已有 37 stars，且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：Fast Streaming TTS with MTP Acceleration and X-pred Mean Flow Distillation Stars: 37. Newly created AI-related repo; ch…</li>
-<li>为什么现在：现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。</li>
-<li>用户是谁：播客/短视频创作者、课程团队、客服团队、做多语言内容本地化的人。</li>
-<li>真实需求：把 FlashTTS 这类语音/TTS 能力做成可直接试用的配音、播客、客服话术或本地化工具。</li>
-<li>供需失衡：FlashTTS 这类开源项目通常有技术势能，但部署、示例、文档和产品化入口还不够顺。</li>
-<li>切入角度：切口不要把 FlashTTS 做成普通 TTS，先做多语言短视频配音或课程旁白，一次解决文本、声音和下载。</li>
-<li>可做 MVP：围绕 FlashTTS 做一个上传文本即可生成多语音版本的 demo，附带字幕/音频下载和按分钟计费。</li>
-<li>分发路径：分发从 FlashTTS 所在 GitHub 生态切入：README 对比页、Issue 评论、相关 repo discussion、开发者社区和教程文章。</li>
-<li>变现方式：credits 按生成次数收费，外加 Pro 订阅解锁批量、高清、商用模板和队列优先级。</li>
-<li>风险：生成成本、版权/商用授权和同质化竞争是主要风险，需要用垂直场景避开纯工具内卷。</li>
-<li>下一步验证：验证动作：先读 FlashTTS 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。</li>
-<li>置信度：中高：有项目描述和热度指标，但还缺用户评论与搜索量。</li>
-<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 19</li>
+<li>原始信号：Fresh tech discussion. Check comments for complaints, missing tooling, and early adopter workflows.</li>
+<li>证据：Hacker News 已出现讨论，说明早期开发者和技术买家开始关注；需要重点看评论里是否有人抱怨部署、成本或替代方案。</li>
+<li>为什么现在：现在值得看，是因为新闻讨论先于成熟供给，适合做新词页、教程页或最小工具承接第一波搜索。</li>
+<li>用户是谁：追新技术、追效率工具、需要立即解决具体任务的早期采用者。</li>
+<li>真实需求：围绕“SillyTavern: LLM Front End for Power Users”这个新讨论点，快速承接教程、试用、替代方案或新词站流量。</li>
+<li>供需失衡：信息热度先于产品供给，窗口期内用户会主动搜索入口、教程和替代方案。</li>
+<li>切入角度：切口围绕 SillyTavern: LLM Front End for Power Users 做一个能当天发布的承接动作：解释、替代方案、清单或最小工具。</li>
+<li>可做 MVP：围绕 SillyTavern: LLM Front End for Power Users 做新词承接页：解释是什么、谁需要、可用替代方案，并放一个轻量工具或资源清单。</li>
+<li>分发路径：分发先回到 Hacker News: LLM 的讨论区验证兴趣，再用 SillyTavern: LLM Front End for Power Users 相关关键词做 SEO 页面承接长尾搜索。</li>
+<li>变现方式：按任务包、月度订阅或托管执行次数收费；早期可用人工兜底提高交付率。</li>
+<li>风险：热度衰减快；若涉及品牌词或商标，避免长期做 EMD，必要时转向自有品牌。</li>
+<li>下一步验证：验证动作：读 SillyTavern: LLM Front End for Power Users 的原文和评论，提炼 3 个搜索词，做一页承接页测试点击和邮箱。</li>
+<li>置信度：中：有讨论信号，但需要阅读评论确认是不是具体痛点。</li>
+<li>评分：需求强度 4 / 供给缺口 4 / Alpha 时效 4 / MVP 可行性 4 / 变现潜力 4，总分 18</li>
 <li>建议：观察</li>
 </ul>
 <h2>今日最值得深挖的 1-3 个方向</h2>
 <ul>
-<li>cobusgreyling/loop-engineering：选 loop engineering 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。</li>
-<li>zengxiao-he/tessera：48 小时内做一个承接页 + Demo/教程 + 等候名单；能调用则做最小可用 Web 工具。</li>
-<li>kadevin/ilab-gpt-conjure：围绕 ilab gpt conjure 做一个场景化生成页：固定 5-10 个模板、示例图和参数预设，先收集邮箱或 credits 付费。</li>
+<li>Jackrong/Qwopus3.6-27B-Coder-MTP-GGUF：做一个 Qwopus3.6 27B Coder MTP GGUF 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。</li>
+<li>cobusgreyling/loop-engineering：做一个 loop engineering 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。</li>
+<li>zengxiao-he/tessera：做一个 tessera 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。</li>
 </ul>
 <h2>明日观察关键词</h2>
 <ul>
+<li>Jackrong/Qwopus3.6-27B-Coder-MTP-GGUF</li>
 <li>cobusgreyling/loop-engineering</li>
 <li>zengxiao-he/tessera</li>
 <li>kadevin/ilab-gpt-conjure</li>
-<li>DietrichGebert/ponytail</li>
-<li>myccarl/ai-shortVideo-pipeline</li>
+<li>google/diffusiongemma-26B-A4B-it</li>
 </ul>
     </article>
   </main>

@@ -86,21 +86,26 @@ def dedupe(signals: list[Signal]) -> list[Signal]:
 
 
 def collect_huggingface() -> list[Signal]:
-    url = "https://huggingface.co/api/models?sort=trending&limit=30"
+    url = "https://huggingface.co/models?sort=trending"
     try:
-        data = json.loads(fetch_text(url))
+        text = fetch_text(url)
     except Exception as exc:
         return [Signal("Hugging Face Trending fetch failed", url, "Hugging Face", "HF Trending", str(exc), 8)]
 
+    model_ids = extract_huggingface_model_ids(text)
     signals: list[Signal] = []
-    for model in data:
-        model_id = model.get("modelId") or model.get("id")
-        if not model_id or "/" not in model_id:
-            continue
-        tags = ", ".join(model.get("tags") or [])
-        downloads = model.get("downloads")
-        likes = model.get("likes")
-        raw = f"Trending model. Tags: {tags}. Downloads: {downloads}. Likes: {likes}."
+    for model_id in model_ids:
+        tags = ""
+        downloads = None
+        likes = None
+        try:
+            detail = json.loads(fetch_text(f"https://huggingface.co/api/models/{model_id}", timeout=12))
+            tags = ", ".join(detail.get("tags") or [])
+            downloads = detail.get("downloads")
+            likes = detail.get("likes")
+        except Exception:
+            pass
+        raw = f"Trending model from Hugging Face models page. Tags: {tags or 'unknown'}. Downloads: {downloads}. Likes: {likes}."
         signals.append(
             Signal(
                 title=model_id,
@@ -111,6 +116,27 @@ def collect_huggingface() -> list[Signal]:
             )
         )
     return signals
+
+
+def extract_huggingface_model_ids(text: str, limit: int = 20) -> list[str]:
+    model_ids: list[str] = []
+    for href in re.findall(r'href="(/[^"?#]+)"', text):
+        parts = href.strip("/").split("/")
+        if len(parts) != 2:
+            continue
+        owner, repo = parts
+        if owner in {"models", "datasets", "spaces", "docs", "blog", "posts", "papers", "learn", "login", "join", "inference"}:
+            continue
+        if not re.match(r"^[A-Za-z0-9][A-Za-z0-9_.-]*$", owner):
+            continue
+        if not re.match(r"^[A-Za-z0-9][A-Za-z0-9_.-]*$", repo):
+            continue
+        model_id = f"{owner}/{repo}"
+        if model_id not in model_ids:
+            model_ids.append(model_id)
+        if len(model_ids) >= limit:
+            break
+    return model_ids
 
 
 def collect_huggingface_spaces() -> list[Signal]:
@@ -358,13 +384,15 @@ def keyword_flags(item: Signal) -> set[str]:
     groups = {
         "agent": ["agent", "multi-agent", "autonomous"],
         "llm": ["llm", "gpt", "claude", "gemini", "deepseek", "model", "rag"],
-        "image": ["image", "photo", "picture", "comfyui", "stable diffusion", "flux", "drawing"],
+        "image": ["image generation", "gpt-image", "photo", "picture", "comfyui", "stable diffusion", "flux", "drawing", "出图", "图片生成"],
         "video": ["video", "shortvideo", "veo", "seedance", "sora"],
         "voice": ["voice", "tts", "speech", "audio", "podcast"],
         "docs": ["doc", "docs", "documentation", "readme", "wiki"],
         "workflow": ["workflow", "pipeline", "automation", "orchestration"],
         "security": ["guard", "security", "eval", "safety", "policy"],
-        "design": ["design", "ui", "ux", "figma", "prototype"],
+        "design": ["figma", "prototype", "wireframe", "mockup"],
+        "code": ["coder", "coding agent", "ai coding", "claude code", "-code", "software", "programming", "llm distillation", "serving engine", "cuda", "rust server"],
+        "vision": ["vision", "object-detection", "object detection", "grounding", "image-feature-extraction", "locateanything"],
         "writing": ["writing", "copy", "content", "blog"],
         "local": ["local", "offline", "self-host", "self host", "desktop"],
     }
@@ -372,6 +400,38 @@ def keyword_flags(item: Signal) -> set[str]:
         if any(word in text for word in words):
             flags.add(flag)
     return flags
+
+
+def is_coding_signal(item: Signal) -> bool:
+    text = context_text(item).lower()
+    return any(
+        phrase in text
+        for phrase in [
+            "coder",
+            "-code",
+            " coding agent",
+            " coding agents",
+            "ai coding",
+            "code review",
+            "code is the code",
+            "llm distillation",
+            "cuda",
+            "rust server",
+        ]
+    )
+
+
+def is_design_signal(item: Signal) -> bool:
+    text = context_text(item).lower()
+    title = item.title.lower()
+    if "baoyu-design" in title or title.endswith("design") or "/design" in title:
+        return True
+    return any(phrase in text for phrase in ["ui mockup", "ui mockups", "wireframe", "wireframes", "figma", "prototype", "prototypes"])
+
+
+def is_writing_signal(item: Signal) -> bool:
+    text = context_text(item).lower()
+    return any(phrase in text for phrase in ["writing", "copywriting", "改写", "写作", "words without erasing"])
 
 
 def compact_raw(item: Signal, max_len: int = 180) -> str:
@@ -424,6 +484,14 @@ def why_now_sentence(item: Signal) -> str:
 def wedge_sentence(item: Signal) -> str:
     subject = display_subject(item)
     flags = keyword_flags(item)
+    if is_design_signal(item):
+        return f"切口不要做完整设计平台，先让 {subject} 服务一个窄任务：产品说明转首屏、组件稿或演示页。"
+    if is_writing_signal(item):
+        return f"切口不要做通用写作助手，先把 {subject} 固定到一种强风格，例如创始人公众号、产品更新或销售邮件。"
+    if "vision" in flags and "image" not in flags and not is_coding_signal(item):
+        return f"切口不要做泛视觉 demo，先把 {subject} 用在库存盘点、质检标注、安防检索或电商图片结构化。"
+    if is_coding_signal(item):
+        return f"切口不要做另一个通用编程助手，先把 {subject} 落到代码审查、遗留项目迁移、测试补全或团队规范检查。"
     if "docs" in flags:
         return "切口不要做“大而全知识库”，先做 GitHub PR/Issue 文档更新这一刀，贴近开发者工作流。"
     if "video" in flags:
@@ -434,16 +502,24 @@ def wedge_sentence(item: Signal) -> str:
         return f"切口不要把 {subject} 做成普通 TTS，先做多语言短视频配音或课程旁白，一次解决文本、声音和下载。"
     if "agent" in flags:
         return f"切口不要做通用 Agent 平台，先把 {subject} 映射到一个窄流程，例如开发协作、内容运营、SEO 外链或客服质检。"
-    if "design" in flags:
-        return "切口不要做完整设计平台，先做“产品说明到首屏/组件稿”的窄场景，服务独立开发者。"
     if "HF" in item.type or "GitHub" in item.type:
         return f"切口可以是 {subject} 的托管 demo、中文/英文教程、新词站承接页或一键部署包。"
-    return "切口要尽量小：只解决一个具体动作，先验证是否有人愿意留下邮箱、试用或付费。"
+    if "News" in item.type:
+        return f"切口围绕 {subject} 做一个能当天发布的承接动作：解释、替代方案、清单或最小工具。"
+    return f"切口围绕 {subject} 尽量小：只解决一个具体动作，先验证是否有人愿意留下邮箱、试用或付费。"
 
 
 def distribution_sentence(item: Signal) -> str:
     subject = display_subject(item)
     flags = keyword_flags(item)
+    if is_design_signal(item):
+        return f"分发找独立开发者和小 SaaS 团队，用 {subject} 展示“文字需求到高质量首屏”的前后对比。"
+    if is_writing_signal(item):
+        return f"分发靠 {subject} 的真实改写案例：同一段粗糙文字改成 3 种人味风格，发到小红书、即刻、公众号和创作者社群。"
+    if "vision" in flags and "image" not in flags and not is_coding_signal(item):
+        return f"分发靠行业样例：用 {subject} 跑 3 类真实图片集，发布检测/定位准确率和可视化结果，承接视觉 AI 长尾词。"
+    if is_coding_signal(item):
+        return f"分发靠开发者证据：用 {subject} 跑真实 repo 的前后对比，发到 GitHub、HN、X、V2EX 和 AI 编程社区。"
     if "video" in flags or "image" in flags:
         return f"分发靠 {subject} 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。"
     if "docs" in flags:
@@ -454,14 +530,24 @@ def distribution_sentence(item: Signal) -> str:
         return "分发优先做新词 SEO：模型名 + demo/free/tutorial/API/alternative，同时去 Hugging Face 评论区、Reddit、X 发可用入口。"
     if item.source.startswith("GitHub Search") or "GitHub" in item.type:
         return f"分发从 {subject} 所在 GitHub 生态切入：README 对比页、Issue 评论、相关 repo discussion、开发者社区和教程文章。"
-    return "分发先从来源社区反打回去，再补 SEO 页面承接长尾搜索。"
+    if "News" in item.type:
+        return f"分发先回到 {item.source} 的讨论区验证兴趣，再用 {subject} 相关关键词做 SEO 页面承接长尾搜索。"
+    return f"分发先从 {item.source} 反打回去，再补 {subject} 相关 SEO 页面承接长尾搜索。"
 
 
 def validation_sentence(item: Signal) -> str:
     subject = display_subject(item)
     flags = keyword_flags(item)
+    if is_design_signal(item):
+        return f"验证动作：找 5 个真实产品说明，用 {subject} 生成首屏和组件稿，问独立开发者是否愿意为可编辑版本付费。"
+    if is_writing_signal(item):
+        return f"验证动作：用 {subject} 手动帮 5 位创作者改写一篇内容，记录他们是否愿意持续付费保留个人风格。"
+    if "vision" in flags and "image" not in flags and not is_coding_signal(item):
+        return f"验证动作：找 30 张电商/仓储/质检图片，用 {subject} 跑定位结果，问 5 个运营或质检人员是否愿意试用。"
+    if is_coding_signal(item):
+        return f"验证动作：选 3 个真实 GitHub repo，用 {subject} 做代码审查/测试补全样例，记录节省时间和误报率。"
     if "HF" in item.type:
-        return "验证动作：今天建一个 landing page，标题包含模型/Space 名；放 3 个 demo 截图和 waitlist，看 24 小时点击/注册。"
+        return f"验证动作：今天建一个 {subject} 新词页，放调用方式、可运行 demo 和替代方案表，看 24 小时搜索点击/注册。"
     if "GitHub" in item.type:
         return f"验证动作：先读 {subject} 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。"
     if "video" in flags or "image" in flags:
@@ -470,7 +556,9 @@ def validation_sentence(item: Signal) -> str:
         return "验证动作：找 5 个活跃开源 repo，手动生成一次 PR 文档更新，问维护者是否愿意接入 Action。"
     if "agent" in flags:
         return "验证动作：人工先跑 3 单，把输入、执行、交付过程记录下来，再判断哪些步骤能自动化。"
-    return "验证动作：用一页纸说明问题、解法和价格，找 5 个目标用户确认是否愿意试用或预付。"
+    if "News" in item.type:
+        return f"验证动作：读 {subject} 的原文和评论，提炼 3 个搜索词，做一页承接页测试点击和邮箱。"
+    return f"验证动作：用一页纸说明 {subject} 的问题、解法和价格，找 5 个目标用户确认是否愿意试用或预付。"
 
 
 def decision_sentence(item: Signal) -> str:
@@ -513,6 +601,14 @@ def quality_gate(item: Signal) -> bool:
 def need_sentence(item: Signal) -> str:
     subject = display_subject(item)
     flags = keyword_flags(item)
+    if is_design_signal(item):
+        return f"围绕 {subject} 做设计交付辅助工具，帮助非设计团队快速得到可用界面或素材。"
+    if is_writing_signal(item):
+        return f"把 {subject} 包装成特定人群的写作/改写/发布助手，重点解决风格和流程问题。"
+    if "vision" in flags and "image" not in flags and not is_coding_signal(item):
+        return f"把 {subject} 这种视觉定位能力包装成可直接交付的图片理解工具，例如商品识别、瑕疵定位、库存盘点或标注助手。"
+    if is_coding_signal(item):
+        return f"把 {subject} 包装成开发团队能直接使用的代码任务助手，例如审查、测试、迁移、重构或规范落地。"
     if "docs" in flags:
         return f"围绕 {subject} 做“代码/PR 自动生成用户文档”的轻量工具，解决小团队文档总是落后的问题。"
     if "video" in flags:
@@ -525,10 +621,6 @@ def need_sentence(item: Signal) -> str:
         return f"把 {subject} 的 Agent/工作流能力产品化，帮用户完成一个明确任务，而不是只展示框架。"
     if "agent" in flags:
         return f"围绕 {subject} 做垂直 Agent：选一个岗位或场景，把通用 Agent 变成可交付的流程。"
-    if "writing" in flags:
-        return f"把 {subject} 包装成特定人群的写作/改写/发布助手，重点解决风格和流程问题。"
-    if "design" in flags:
-        return f"围绕 {subject} 做设计交付辅助工具，帮助非设计团队快速得到可用界面或素材。"
     if "security" in flags:
         return f"把 {subject} 做成 AI 应用安全/评测/策略检查工具，服务正在上线 Agent 的团队。"
     if "HF Trending" in item.type or "GitHub Trending" in item.type:
@@ -544,6 +636,14 @@ def need_sentence(item: Signal) -> str:
 
 def user_sentence(item: Signal) -> str:
     flags = keyword_flags(item)
+    if is_design_signal(item):
+        return "缺少专业设计资源的小型开发团队、独立开发者和 SaaS MVP 团队。"
+    if is_writing_signal(item):
+        return "创始人、内容创作者、知识付费团队、需要保留个人表达风格的运营人员。"
+    if "vision" in flags and "image" not in flags and not is_coding_signal(item):
+        return "电商运营、仓储盘点团队、质检团队、数据标注团队、需要批量理解图片的小型业务方。"
+    if is_coding_signal(item):
+        return "独立开发者、AI 编程重度用户、小型研发团队、需要把代码任务标准化的技术负责人。"
     if "video" in flags:
         return "短视频创作者、出海营销团队、内容工作室、需要批量生成视频素材的小团队。"
     if "image" in flags:
@@ -554,8 +654,6 @@ def user_sentence(item: Signal) -> str:
         return "频繁改代码但文档维护跟不上的开源作者、SaaS 小团队和开发者工具团队。"
     if "agent" in flags:
         return "想把重复流程交给 AI 的创业团队、运营人员、开发者和个人效率工具用户。"
-    if "design" in flags:
-        return "缺少专业设计资源的小型开发团队、独立开发者和 SaaS MVP 团队。"
     if "HF" in item.type or "GitHub" in item.type:
         return "AI 应用开发者、独立开发者、内容创作者、需要把模型能力落地到具体任务的人。"
     if "Complaint" in item.type:
@@ -568,6 +666,14 @@ def user_sentence(item: Signal) -> str:
 def gap_sentence(item: Signal) -> str:
     subject = display_subject(item)
     flags = keyword_flags(item)
+    if is_design_signal(item):
+        return "小团队知道界面重要，但缺少能持续产出高质量 UI 的设计资源；现有工具要么太专业，要么无法直接变成可用稿。"
+    if is_writing_signal(item):
+        return "写作工具很多，但多数会抹平个人风格；真正稀缺的是保留人味、适配具体发布渠道的工作流。"
+    if "vision" in flags and "image" not in flags and not is_coding_signal(item):
+        return "视觉模型能力在变强，但普通业务方缺少可上传、可批量处理、可导出结果的低门槛产品。"
+    if is_coding_signal(item):
+        return "AI 编程工具很多，但团队级流程、质量度量、上下文管理和可复用模板仍然不足。"
     if "local" in flags:
         return f"{subject} 可能满足本地/离线需求，但部署和配置门槛高，普通用户缺少一键安装和默认工作流。"
     if "video" in flags:
@@ -590,6 +696,14 @@ def gap_sentence(item: Signal) -> str:
 def mvp_sentence(item: Signal) -> str:
     subject = display_subject(item)
     flags = keyword_flags(item)
+    if is_design_signal(item):
+        return f"用 {subject} 做“上传产品说明→生成 landing page 首屏/组件稿”的最小工具，先服务独立开发者。"
+    if is_writing_signal(item):
+        return f"做一个 {subject} 改写页：输入草稿，选择个人风格和发布渠道，输出 3 个可直接发布版本。"
+    if "vision" in flags and "image" not in flags and not is_coding_signal(item):
+        return f"做一个 {subject} 批量图片分析页：上传图片夹，输出框选结果、CSV 和可复核的人工修正界面。"
+    if is_coding_signal(item):
+        return f"做一个 {subject} 实战页：输入 GitHub repo URL，输出审查摘要、测试建议和可复制的 agent 指令包。"
     if "docs" in flags:
         return "做 GitHub App/Action：用户在 PR 评论里触发，自动生成 changelog、README 片段和用户文档草稿。"
     if "video" in flags:
@@ -600,12 +714,10 @@ def mvp_sentence(item: Signal) -> str:
         return f"围绕 {subject} 做一个上传文本即可生成多语音版本的 demo，附带字幕/音频下载和按分钟计费。"
     if "agent" in flags:
         return f"选 {subject} 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。"
-    if "design" in flags:
-        return "做“上传产品说明→生成 landing page 首屏/组件稿”的最小工具，先服务独立开发者。"
     if "HF" in item.type or "GitHub" in item.type:
-        return "48 小时内做一个承接页 + Demo/教程 + 等候名单；能调用则做最小可用 Web 工具。"
+        return f"做 {subject} 承接页：解释用途、跑通 demo、列出替代方案，并收集等候名单或付费咨询线索。"
     if "News" in item.type:
-        return "做新词承接页、教程页、资源导航、替代入口或轻量转换/生成工具。"
+        return f"围绕 {subject} 做新词承接页：解释是什么、谁需要、可用替代方案，并放一个轻量工具或资源清单。"
     if "Complaint" in item.type:
         return "先做单一痛点的表单、脚本、插件或半自动服务，验证是否有人愿意试用/付费。"
     return "做一个只解决核心任务的轻量页面或工作流，先收集真实反馈。"
@@ -649,6 +761,96 @@ def recommendation(score: int) -> str:
     if score >= 16:
         return "观察"
     return "丢弃/低优先级"
+
+
+def source_family(item: Signal) -> str:
+    source = item.source.lower()
+    if "hugging face" in source:
+        return "Hugging Face"
+    if "github" in source:
+        return "GitHub"
+    if "hacker news" in source:
+        return "News"
+    if "reddit" in source:
+        return "Community"
+    if "product hunt" in source:
+        return "Product Hunt"
+    return "Other"
+
+
+def select_signals(signals: list[Signal], max_items: int = 20) -> list[Signal]:
+    """Select a decision-worthy, source-diverse report.
+
+    The report should not collapse into "20 GitHub repos". We bias toward the
+    user's stated priority: new-word/Hugging Face signals first, then GitHub
+    technical signals, then news/community/product launch evidence.
+    """
+
+    buckets: dict[str, list[Signal]] = {
+        "Hugging Face": [],
+        "GitHub": [],
+        "News": [],
+        "Community": [],
+        "Product Hunt": [],
+        "Other": [],
+    }
+    for item in signals:
+        buckets.setdefault(source_family(item), []).append(item)
+
+    for bucket in buckets.values():
+        bucket.sort(key=lambda item: item.score, reverse=True)
+
+    selected: list[Signal] = []
+    caps = {
+        "Hugging Face": 5,
+        "GitHub": 9,
+        "News": 3,
+        "Community": 2,
+        "Product Hunt": 2,
+        "Other": 1,
+    }
+
+    def add_from(family: str, count: int) -> None:
+        for item in buckets.get(family, [])[:count]:
+            if item not in selected and len(selected) < max_items:
+                selected.append(item)
+
+    # First pass: force strategic diversity when data exists.
+    add_from("Hugging Face", caps["Hugging Face"])
+    add_from("GitHub", caps["GitHub"])
+    add_from("News", caps["News"])
+    add_from("Community", caps["Community"])
+    add_from("Product Hunt", caps["Product Hunt"])
+    add_from("Other", caps["Other"])
+
+    # Second pass: fill remaining slots by score while respecting family caps.
+    counts: dict[str, int] = {}
+    for item in selected:
+        family = source_family(item)
+        counts[family] = counts.get(family, 0) + 1
+
+    for item in sorted(signals, key=lambda entry: entry.score, reverse=True):
+        if item in selected:
+            continue
+        family = source_family(item)
+        if counts.get(family, 0) >= caps.get(family, 1):
+            continue
+        selected.append(item)
+        counts[family] = counts.get(family, 0) + 1
+        if len(selected) >= max_items:
+            break
+
+    # If the cap logic leaves us below 10, fill by score. This keeps the report
+    # available, but audit_report.py will still fail if it degenerates too much.
+    if len(selected) < 10:
+        for item in sorted(signals, key=lambda entry: entry.score, reverse=True):
+            if item not in selected:
+                selected.append(item)
+            if len(selected) >= min(max_items, 10):
+                break
+
+    selected.sort(key=lambda item: item.score, reverse=True)
+    return selected[:max_items]
 
 
 def build_report(signals: list[Signal], today: str) -> str:
@@ -761,6 +963,27 @@ def append_csv(signals: list[Signal], today: str) -> None:
             })
 
 
+def validate_selected_signals(signals: list[Signal]) -> list[str]:
+    errors: list[str] = []
+    if len(signals) < 10:
+        errors.append(f"有效线索不足：{len(signals)} 条，不能生成日报。")
+    if len(signals) > 20:
+        errors.append(f"有效线索过多：{len(signals)} 条，日报应控制在 10-20 条。")
+
+    family_counts: dict[str, int] = {}
+    for item in signals:
+        family = source_family(item)
+        family_counts[family] = family_counts.get(family, 0) + 1
+
+    if family_counts.get("Hugging Face", 0) == 0:
+        errors.append("缺少 Hugging Face 线索，和当前采集侧重点不符。")
+    if len(family_counts) < 2:
+        errors.append(f"来源过于单一：{family_counts}")
+    if len(signals) >= 15 and family_counts.get("GitHub", 0) > 12:
+        errors.append(f"GitHub 来源过多：{family_counts.get('GitHub', 0)} / {len(signals)}。")
+    return errors
+
+
 def main() -> int:
     today = dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).strftime("%Y-%m-%d")
     collectors = [
@@ -785,7 +1008,14 @@ def main() -> int:
     signals = [item for item in signals if quality_gate(item)]
     signals.sort(key=lambda item: item.score, reverse=True)
 
-    selected = signals[:20] if len(signals) >= 20 else signals[: max(10, len(signals))]
+    selected = select_signals(signals)
+    validation_errors = validate_selected_signals(selected)
+    if validation_errors:
+        print("Demand mining failed quality gates:", file=sys.stderr)
+        for error in validation_errors:
+            print(f"- {error}", file=sys.stderr)
+        return 1
+
     DAILY_DIR.mkdir(exist_ok=True)
     report_path = DAILY_DIR / f"{today}.md"
     report_path.write_text(build_report(selected, today), encoding="utf-8")

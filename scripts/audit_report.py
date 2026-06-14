@@ -50,6 +50,21 @@ def field_value(item: str, field: str) -> str:
     return match.group(1).strip() if match else ""
 
 
+def source_family(source: str) -> str:
+    lowered = source.lower()
+    if "hugging face" in lowered:
+        return "Hugging Face"
+    if "github" in lowered:
+        return "GitHub"
+    if "hacker news" in lowered:
+        return "News"
+    if "reddit" in lowered:
+        return "Community"
+    if "product hunt" in lowered:
+        return "Product Hunt"
+    return "Other"
+
+
 def audit(markdown: str) -> list[str]:
     errors: list[str] = []
     items = split_items(markdown)
@@ -72,6 +87,15 @@ def audit(markdown: str) -> list[str]:
         if not any(word in conclusion for word in ["值得", "观察", "记录", "深挖"]):
             errors.append(f"第 {idx} 条结论没有明确判断。")
 
+    families = [source_family(field_value(item, "来源")) for item in items]
+    family_counts = Counter(families)
+    if len(family_counts) < 2:
+        errors.append(f"来源过于单一：{dict(family_counts)}")
+    if len(items) >= 15 and family_counts.get("GitHub", 0) > 12:
+        errors.append(f"GitHub 来源过多：{family_counts.get('GitHub', 0)} / {len(items)}，不符合新词站/Hugging Face 优先策略。")
+    if family_counts.get("Hugging Face", 0) == 0:
+        errors.append("缺少 Hugging Face 线索，不符合当前侧重点。")
+
     for phrase in GENERIC_BAD_PHRASES:
         count = markdown.count(phrase)
         if count >= 3:
@@ -88,6 +112,8 @@ def audit(markdown: str) -> list[str]:
     observe_count = markdown.count("- 建议：观察")
     if deep_count == 0 and observe_count == 0:
         errors.append("没有任何深挖或观察建议，报告无法支持决策。")
+    if deep_count > 5:
+        errors.append(f"深挖建议过多：{deep_count} 条。日报应帮助聚焦，而不是把太多线索都标成高优先级。")
 
     return errors
 
