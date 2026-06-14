@@ -381,6 +381,135 @@ def compact_raw(item: Signal, max_len: int = 180) -> str:
     return text if len(text) <= max_len else text[: max_len - 1] + "…"
 
 
+def evidence_sentence(item: Signal) -> str:
+    text = context_text(item)
+    if item.source.startswith("GitHub Search"):
+        stars = re.search(r"Stars:\s*(\d+)", text)
+        stars_text = f"短期内已有 {stars.group(1)} stars，" if stars else ""
+        return f"{stars_text}且项目创建时间新，说明开发者圈已经开始围绕这个能力聚集注意力。原始描述：{compact_raw(item, 120)}"
+    if "Hugging Face" in item.source:
+        likes = re.search(r"Likes:\s*(\d+|None)", text)
+        downloads = re.search(r"Downloads:\s*(\d+|None)", text)
+        bits = []
+        if downloads and downloads.group(1) != "None":
+            bits.append(f"下载 {downloads.group(1)}")
+        if likes and likes.group(1) != "None":
+            bits.append(f"点赞 {likes.group(1)}")
+        metric = "，".join(bits) if bits else "处在 Trending 列表"
+        return f"Hugging Face 上 {metric}，适合判断是否存在模型能力到产品入口之间的空档。"
+    if "Hacker News" in item.source:
+        return "Hacker News 已出现讨论，说明早期开发者和技术买家开始关注；需要重点看评论里是否有人抱怨部署、成本或替代方案。"
+    if "Reddit" in item.source:
+        return "Reddit 社区帖子通常更接近真实使用场景；如果评论里反复出现同类不爽，就可以进入抱怨池。"
+    if "Product Hunt" in item.source:
+        return "Product Hunt 新品发布可用来观察用户是否愿意尝试同类产品，以及评论区是否暴露差异化切口。"
+    return f"线索来自 {item.source}，需要继续核查搜索量、讨论密度和可交付性。"
+
+
+def why_now_sentence(item: Signal) -> str:
+    flags = keyword_flags(item)
+    if "HF" in item.type:
+        return "现在值得看，是因为模型/Space 进入 Trending 后，通常会先出现尝鲜搜索，再出现工具化供给。窗口很短。"
+    if item.source.startswith("GitHub Search"):
+        return "现在值得看，是因为它是近 10 天新出现的项目，适合抢在教程站、托管版和垂直模板变多之前判断入口。"
+    if "News" in item.type:
+        return "现在值得看，是因为新闻讨论先于成熟供给，适合做新词页、教程页或最小工具承接第一波搜索。"
+    if "Complaint" in item.type:
+        return "现在值得看，是因为用户已经在公开表达不爽，比问卷里的“我想要”更接近真实需求。"
+    if "video" in flags or "image" in flags:
+        return "现在值得看，是因为多模态生成能力变化快，用户更关心可直接交付的场景方案，而不是底层模型本身。"
+    return "现在值得看，是因为它可能处在需求已经出现、供给还没充分产品化的早期阶段。"
+
+
+def wedge_sentence(item: Signal) -> str:
+    subject = display_subject(item)
+    flags = keyword_flags(item)
+    if "docs" in flags:
+        return "切口不要做“大而全知识库”，先做 GitHub PR/Issue 文档更新这一刀，贴近开发者工作流。"
+    if "video" in flags:
+        return f"切口不要把 {subject} 做成通用视频生成器，先选一个高频模板，比如产品广告、TikTok 短剧分镜、课程切片。"
+    if "image" in flags:
+        return f"切口不要把 {subject} 做成通用出图站，先选一个能付费的垂直场景，比如电商主图、App Store 截图、角色设定图。"
+    if "voice" in flags:
+        return f"切口不要把 {subject} 做成普通 TTS，先做多语言短视频配音或课程旁白，一次解决文本、声音和下载。"
+    if "agent" in flags:
+        return f"切口不要做通用 Agent 平台，先把 {subject} 映射到一个窄流程，例如开发协作、内容运营、SEO 外链或客服质检。"
+    if "design" in flags:
+        return "切口不要做完整设计平台，先做“产品说明到首屏/组件稿”的窄场景，服务独立开发者。"
+    if "HF" in item.type or "GitHub" in item.type:
+        return f"切口可以是 {subject} 的托管 demo、中文/英文教程、新词站承接页或一键部署包。"
+    return "切口要尽量小：只解决一个具体动作，先验证是否有人愿意留下邮箱、试用或付费。"
+
+
+def distribution_sentence(item: Signal) -> str:
+    subject = display_subject(item)
+    flags = keyword_flags(item)
+    if "video" in flags or "image" in flags:
+        return f"分发靠 {subject} 的样例：把生成前后对比图/视频发到 X、小红书、Reddit、Product Hunt，再用模板页承接搜索。"
+    if "docs" in flags:
+        return "分发找开源项目维护者、SaaS changelog 场景和开发者工具社区，用免费开源仓库换私有仓库付费。"
+    if "agent" in flags:
+        return f"分发靠 {subject} 的案例：展示一个岗位任务从 30 分钟变 3 分钟，并把流程录屏发到 X、HN、独立开发者社区。"
+    if "HF" in item.type:
+        return "分发优先做新词 SEO：模型名 + demo/free/tutorial/API/alternative，同时去 Hugging Face 评论区、Reddit、X 发可用入口。"
+    if item.source.startswith("GitHub Search") or "GitHub" in item.type:
+        return f"分发从 {subject} 所在 GitHub 生态切入：README 对比页、Issue 评论、相关 repo discussion、开发者社区和教程文章。"
+    return "分发先从来源社区反打回去，再补 SEO 页面承接长尾搜索。"
+
+
+def validation_sentence(item: Signal) -> str:
+    subject = display_subject(item)
+    flags = keyword_flags(item)
+    if "HF" in item.type:
+        return "验证动作：今天建一个 landing page，标题包含模型/Space 名；放 3 个 demo 截图和 waitlist，看 24 小时点击/注册。"
+    if "GitHub" in item.type:
+        return f"验证动作：先读 {subject} 的 README 和 Issues，找 3 个部署/使用痛点；做一个教程页或 hosted demo，发到相关讨论区测点击。"
+    if "video" in flags or "image" in flags:
+        return f"验证动作：围绕 {subject} 做 5 个可展示样例，找 10 个目标用户问是否愿意为模板/批量生成付费。"
+    if "docs" in flags:
+        return "验证动作：找 5 个活跃开源 repo，手动生成一次 PR 文档更新，问维护者是否愿意接入 Action。"
+    if "agent" in flags:
+        return "验证动作：人工先跑 3 单，把输入、执行、交付过程记录下来，再判断哪些步骤能自动化。"
+    return "验证动作：用一页纸说明问题、解法和价格，找 5 个目标用户确认是否愿意试用或预付。"
+
+
+def decision_sentence(item: Signal) -> str:
+    flags = keyword_flags(item)
+    if item.score >= 21 and ("video" in flags or "image" in flags or "agent" in flags or "docs" in flags):
+        return "值得今天进入深挖池。它有明确新技术信号，也能落到一个可收费的窄场景。"
+    if item.score >= 21:
+        return "值得深挖，但先别开工；需要补一轮搜索量、竞品和真实用户动作核查。"
+    if item.score >= 18:
+        return "适合观察和做轻量验证。先用页面/样例测兴趣，不建议直接重投入开发。"
+    return "暂时只记录。除非后续出现搜索增长或重复抱怨，否则不进入开发队列。"
+
+
+def confidence_sentence(item: Signal) -> str:
+    raw_len = len(item.raw.strip())
+    if item.source.startswith("GitHub Search") and raw_len > 80:
+        return "中高：有项目描述和热度指标，但还缺用户评论与搜索量。"
+    if "Hugging Face" in item.source:
+        return "中：Trending 是早期信号，但要继续核查 demo 质量、license 和普通用户是否真的会搜。"
+    if "Hacker News" in item.source or "Reddit" in item.source:
+        return "中：有讨论信号，但需要阅读评论确认是不是具体痛点。"
+    return "低到中：需要补充更多证据。"
+
+
+def quality_gate(item: Signal) -> bool:
+    if not item.url.startswith("http"):
+        return False
+    if "fetch failed" in item.title.lower():
+        return False
+    text = context_text(item).lower()
+    if any(risky in text for risky in ["therapist", "medical diagnosis", "investment advice"]):
+        item.score = min(item.score, 15)
+    if "GitHub" in item.type or "HF" in item.type:
+        return bool(keyword_flags(item)) and len(item.raw.strip()) >= 30
+    if "News" in item.type or "Complaint" in item.type:
+        return is_relevant_ai_text(text)
+    return True
+
+
 def need_sentence(item: Signal) -> str:
     subject = display_subject(item)
     flags = keyword_flags(item)
@@ -448,11 +577,11 @@ def gap_sentence(item: Signal) -> str:
     if "docs" in flags:
         return "团队知道文档重要，但 PR 合并后文档经常滞后；现有方案要么太重，要么没有贴进 GitHub 流程。"
     if "agent" in flags:
-        return "Agent 框架很多，真正能让非技术用户直接完成一个业务动作的垂直产品仍然少。"
+        return f"{subject} 证明 Agent 生态还在快速长新工具，但多数仍停留在开发者框架，缺少面向具体业务动作的交付层。"
     if "HF" in item.type:
         return "模型能力可能已经出现，但普通用户缺少稳定入口、清晰场景、低门槛 UI 和可付费包装。"
     if "GitHub" in item.type:
-        return "开源项目通常部署、配置、文档和产品化不足，适合做托管版、模板版或垂直版。"
+        return f"{subject} 这类开源项目通常有技术势能，但部署、示例、文档和产品化入口还不够顺。"
     if "News" in item.type:
         return "信息热度先于产品供给，窗口期内用户会主动搜索入口、教程和替代方案。"
     return "现有供给可能存在慢、贵、复杂、场景不聚焦或缺少自动化的问题。"
@@ -464,11 +593,11 @@ def mvp_sentence(item: Signal) -> str:
     if "docs" in flags:
         return "做 GitHub App/Action：用户在 PR 评论里触发，自动生成 changelog、README 片段和用户文档草稿。"
     if "video" in flags:
-        return "做一个“输入主题→脚本→镜头提示词→生成队列”的单页工具，先支持 3 个固定视频模板。"
+        return f"围绕 {subject} 做一个“输入主题→脚本→镜头提示词→生成队列”的单页工具，先支持 3 个固定视频模板。"
     if "image" in flags:
-        return "做一个场景化生成页：固定 5-10 个模板、示例图和参数预设，先收集邮箱或 credits 付费。"
+        return f"围绕 {subject} 做一个场景化生成页：固定 5-10 个模板、示例图和参数预设，先收集邮箱或 credits 付费。"
     if "voice" in flags:
-        return "做一个上传文本即可生成多语音版本的 demo，附带字幕/音频下载和按分钟计费。"
+        return f"围绕 {subject} 做一个上传文本即可生成多语音版本的 demo，附带字幕/音频下载和按分钟计费。"
     if "agent" in flags:
         return f"选 {subject} 最明显的一个任务，做表单输入 + 后台脚本/半自动 Agent + 结果交付。"
     if "design" in flags:
@@ -553,13 +682,20 @@ def build_report(signals: list[Signal], today: str) -> str:
         lines.append(f"- 来源：{item.source}")
         lines.append(f"- 链接：{item.url}")
         lines.append(f"- 类型：{item.type}")
+        lines.append(f"- 结论：{decision_sentence(item)}")
         lines.append(f"- 原始信号：{compact_raw(item)}")
-        lines.append(f"- 一句话需求：{need_sentence(item)}")
+        lines.append(f"- 证据：{evidence_sentence(item)}")
+        lines.append(f"- 为什么现在：{why_now_sentence(item)}")
         lines.append(f"- 用户是谁：{user_sentence(item)}")
+        lines.append(f"- 真实需求：{need_sentence(item)}")
         lines.append(f"- 供需失衡：{gap_sentence(item)}")
+        lines.append(f"- 切入角度：{wedge_sentence(item)}")
         lines.append(f"- 可做 MVP：{mvp_sentence(item)}")
+        lines.append(f"- 分发路径：{distribution_sentence(item)}")
         lines.append(f"- 变现方式：{monetization_sentence(item)}")
         lines.append(f"- 风险：{risk_sentence(item)}")
+        lines.append(f"- 下一步验证：{validation_sentence(item)}")
+        lines.append(f"- 置信度：{confidence_sentence(item)}")
         lines.append(
             f"- 评分：需求强度 {demand} / 供给缺口 {gap} / Alpha 时效 {alpha} / "
             f"MVP 可行性 {mvp} / 变现潜力 {money}，总分 {total}"
@@ -646,6 +782,7 @@ def main() -> int:
         time.sleep(1)
 
     signals = [classify_and_score(item) for item in dedupe(signals)]
+    signals = [item for item in signals if quality_gate(item)]
     signals.sort(key=lambda item: item.score, reverse=True)
 
     selected = signals[:20] if len(signals) >= 20 else signals[: max(10, len(signals))]

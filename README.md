@@ -35,6 +35,25 @@
 - Fiverr / Upwork 服务产品化
 - 公开抱怨和差评
 
+## 报告标准
+
+日报按照“商业决策简报”来写，而不是简单列链接。每条线索必须包含：
+
+- 结论
+- 原始信号
+- 证据
+- 为什么现在
+- 用户是谁
+- 真实需求
+- 供需失衡
+- 切入角度
+- MVP
+- 分发路径
+- 变现方式
+- 风险
+- 下一步验证
+- 置信度
+
 ## 安全约定
 
 - 不把 API key 写入代码或 Markdown
@@ -49,9 +68,13 @@
 - `schedule`：每天 `00:00 UTC`，即北京时间 `08:00`
 - `workflow_dispatch`：支持在 GitHub 页面手动触发
 - 采集脚本：`scripts/collect_daily.py`
+- 测试用例：`tests/test_collect_daily.py`
+- 日报审查：`scripts/audit_report.py`
 - 静态站构建：`scripts/build_daily_site.py`
 - 自动提交范围：`daily/`、`data/`、`site/`
 - 微信推送：`scripts/wechat_test_push.js`
+
+工作流会先运行单元测试，再生成日报，然后运行日报审查。审查不通过时不会继续构建页面和推送微信，避免低质量日报进入结果库。
 
 如需微信推送，在 GitHub 仓库 `Settings > Secrets and variables > Actions` 配置：
 
