@@ -4,6 +4,16 @@ on:
   schedule:
     # 08:00 Beijing time
     - cron: "0 0 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/daily-demand-mining.yml"
+      - "scripts/**"
+      - "README.md"
+      - "docs/**"
+      - "templates/**"
+      - ".env.example"
   workflow_dispatch:
 
 permissions:
