@@ -124,7 +124,7 @@ def audit_evidence_report(markdown: str) -> list[str]:
         errors.append('缺少运行状态')
     seen = set()
     for idx, item in enumerate(split_items(markdown), 1):
-        for field in ('机会编号', '来源', '链接', '证据入口', '采集时间', '原始信号', '建议', '理由', '下一步', '未知事项'):
+        for field in ('机会编号', '来源', '链接', '证据入口', '采集时间', '建议', '理由', '下一步', '未知事项'):
             if not field_value(item, field):
                 errors.append(f'第 {idx} 条缺少 {field}')
         identity = field_value(item, '机会编号')
@@ -134,8 +134,11 @@ def audit_evidence_report(markdown: str) -> list[str]:
         recommendation = field_value(item, '建议')
         if recommendation not in ('深挖', '观察', '暂存', '放弃'):
             errors.append(f'第 {idx} 条建议无效')
-        if recommendation in ('深挖', '观察') and not field_value(item, '证据摘录'):
-            errors.append(f'第 {idx} 条推荐缺少证据摘录')
+        if recommendation in ('深挖', '观察'):
+            if not field_value(item, '英文原文'):
+                errors.append(f'第 {idx} 条推荐缺少英文原文')
+            if not field_value(item, '中文翻译'):
+                errors.append(f'第 {idx} 条推荐缺少中文翻译')
     return errors
 
 

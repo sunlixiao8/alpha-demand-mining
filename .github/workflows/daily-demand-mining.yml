@@ -51,8 +51,8 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: deepseek-flash
-          # Public-text transfer activation is pending user confirmation.
-          DEEPSEEK_ENABLED: "false"
+          # Only automatically collected public excerpts are sent for analysis.
+          DEEPSEEK_ENABLED: "true"
         run: |
           if [ "$DEEPSEEK_ENABLED" = "true" ]; then
             python scripts/collect_daily.py

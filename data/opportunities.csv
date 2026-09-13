@@ -415,133 +415,22 @@ date,title,type,source,url,user,need,supply_gap,mvp,monetization,risk,score,stat
 2026-09-13,ballerina-platform/module-ballerina-a2a,新技术,GitHub,https://github.com/ballerina-platform/module-ballerina-a2a,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
 2026-09-13,jisub-lee-0906/ai_integrated_prompt_glossary,新技术,GitHub,https://github.com/jisub-lee-0906/ai_integrated_prompt_glossary,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
 2026-09-13,ahilles107/gravity,新技术,GitHub,https://github.com/ahilles107/gravity,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Neopress,待分类,Product Hunt,https://www.producthunt.com/products/neopress,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Clipwise ,待分类,Product Hunt,https://www.producthunt.com/products/clipwise-notion-web-clipper,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Resurf,待分类,Product Hunt,https://www.producthunt.com/products/resurf-2,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Visiby,待分类,Product Hunt,https://www.producthunt.com/products/visiby,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,SHIUI,待分类,Product Hunt,https://www.producthunt.com/products/shiui-hinomaru-ink-ui-kit,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,GhostWriter by MyHandler,待分类,Product Hunt,https://www.producthunt.com/products/ghostwriter-by-myhandler,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Kirokune,待分类,Product Hunt,https://www.producthunt.com/products/kirokune,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,DemoTV,待分类,Product Hunt,https://www.producthunt.com/products/demotv,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Epilude Notetaker,待分类,Product Hunt,https://www.producthunt.com/products/epilude,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,ScreenCursor,待分类,Product Hunt,https://www.producthunt.com/products/screencursor,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Perplexity Hybrid Compute ,待分类,Product Hunt,https://www.producthunt.com/products/perplexity-ai,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Cognition's SWE-2,待分类,Product Hunt,https://www.producthunt.com/products/cognition-s-swe-2,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Calerto for Mac,待分类,Product Hunt,https://www.producthunt.com/products/calerto-meeting-alarms,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,DockFix 5.0,待分类,Product Hunt,https://www.producthunt.com/products/dockfix,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Stackness,待分类,Product Hunt,https://www.producthunt.com/products/stackness,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Wokyintosh,待分类,Product Hunt,https://www.producthunt.com/products/wokyintosh,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Cortex,待分类,Product Hunt,https://www.producthunt.com/products/cortex-25,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Relic,待分类,Product Hunt,https://www.producthunt.com/products/relic-copy-vault,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Youkti ,待分类,Product Hunt,https://www.producthunt.com/products/youkti,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,VoxelWall,待分类,Product Hunt,https://www.producthunt.com/products/voxelwall,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,FrameSketch,待分类,Product Hunt,https://www.producthunt.com/products/framesketch,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,LinkFlick,待分类,Product Hunt,https://www.producthunt.com/products/linkflick,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Work Life Panda,待分类,Product Hunt,https://www.producthunt.com/products/work-life-panda,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,SUDARI,待分类,Product Hunt,https://www.producthunt.com/products/sudari,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Captain Kill Switch,待分类,Product Hunt,https://www.producthunt.com/products/captain-kill-switch,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Marked Share,待分类,Product Hunt,https://www.producthunt.com/products/marked-share,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,ABrush,待分类,Product Hunt,https://www.producthunt.com/products/abrush-ai-2,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Kabza,待分类,Product Hunt,https://www.producthunt.com/products/kabza,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,QApilot MCP for Android,待分类,Product Hunt,https://www.producthunt.com/products/qapilot,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Pascal’s Pager,待分类,Product Hunt,https://www.producthunt.com/products/pascal-s-pager,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,kulkas2pintu/wan555,新技术,Hugging Face spaces,https://huggingface.co/spaces/kulkas2pintu/wan555,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,ravenrose996688/Krea-2-Turbo_I2I,新技术,Hugging Face spaces,https://huggingface.co/spaces/ravenrose996688/Krea-2-Turbo_I2I,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,kulkas2pintu/QWEN_EDIT_IMAGE,新技术,Hugging Face spaces,https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED,新技术,Hugging Face spaces,https://huggingface.co/spaces/Pepe104/MiniMax-H3-Turbo-Lora-UNCENSORED,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Cockdaddyfuck/Wan_2.2_I2V_14B_Custom_Lora_Wow,新技术,Hugging Face spaces,https://huggingface.co/spaces/Cockdaddyfuck/Wan_2.2_I2V_14B_Custom_Lora_Wow,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Xenova/fruit-fly-simulation,新技术,Hugging Face spaces,https://huggingface.co/spaces/Xenova/fruit-fly-simulation,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,aet256/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental,新技术,Hugging Face spaces,https://huggingface.co/spaces/aet256/Qwen-Image-Edit-Rapid-AIO-Loras-Experimental,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,pollen-robotics/microduck-simulator,新技术,Hugging Face spaces,https://huggingface.co/spaces/pollen-robotics/microduck-simulator,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,STCM/wan2-2-fp8da-aoti-preview-2c-finishing,新技术,Hugging Face spaces,https://huggingface.co/spaces/STCM/wan2-2-fp8da-aoti-preview-2c-finishing,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,selfit-camera/Omni-Image-Editor,新技术,Hugging Face spaces,https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Viggle/viggle-animate,新技术,Hugging Face spaces,https://huggingface.co/spaces/Viggle/viggle-animate,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,MiniMaxAI/MiniMax-H3-Turbo-Lora,新技术,Hugging Face spaces,https://huggingface.co/spaces/MiniMaxAI/MiniMax-H3-Turbo-Lora,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,openbmb/MiniCPM5-2B-Demo,新技术,Hugging Face spaces,https://huggingface.co/spaces/openbmb/MiniCPM5-2B-Demo,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,multimodalart/h3-acceleration-arena,新技术,Hugging Face spaces,https://huggingface.co/spaces/multimodalart/h3-acceleration-arena,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Akuyakufree/Omni-videos-custom-auto_prompt_high-quality,新技术,Hugging Face spaces,https://huggingface.co/spaces/Akuyakufree/Omni-videos-custom-auto_prompt_high-quality,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,tencent/AuK,新技术,Hugging Face spaces,https://huggingface.co/spaces/tencent/AuK,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,huawei-bayerlab/marigold-v2-web,新技术,Hugging Face spaces,https://huggingface.co/spaces/huawei-bayerlab/marigold-v2-web,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA,新技术,Hugging Face spaces,https://huggingface.co/spaces/M3st3rJ4k3l/FLUX.2-Klein-Multi-LoRA,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,embedl/hfviewer,新技术,Hugging Face spaces,https://huggingface.co/spaces/embedl/hfviewer,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,suvadityamuk/3d-representations-guide,新技术,Hugging Face spaces,https://huggingface.co/spaces/suvadityamuk/3d-representations-guide,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,deepseek-ai/DeepSeek-V4.1-Flash,新技术,Hugging Face models,https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,openbmb/MiniCPM5-2B,新技术,Hugging Face models,https://huggingface.co/openbmb/MiniCPM5-2B,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Edge0/Edge0-35B-A3B-preview,新技术,Hugging Face models,https://huggingface.co/Edge0/Edge0-35B-A3B-preview,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,nex-agi/Nex-N2.5-mini,新技术,Hugging Face models,https://huggingface.co/nex-agi/Nex-N2.5-mini,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Qwen/Qwen3.8-27B,新技术,Hugging Face models,https://huggingface.co/Qwen/Qwen3.8-27B,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,XHToken/Spark-X2.5-4B,新技术,Hugging Face models,https://huggingface.co/XHToken/Spark-X2.5-4B,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,nex-agi/Nex-N2.5-Pro,新技术,Hugging Face models,https://huggingface.co/nex-agi/Nex-N2.5-Pro,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF,新技术,Hugging Face models,https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Lightricks/LTX-2.5,新技术,Hugging Face models,https://huggingface.co/Lightricks/LTX-2.5,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,m-a-p/YuE2-3B,新技术,Hugging Face models,https://huggingface.co/m-a-p/YuE2-3B,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,unsloth/Qwen3.8-27B-GGUF,新技术,Hugging Face models,https://huggingface.co/unsloth/Qwen3.8-27B-GGUF,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF,新技术,Hugging Face models,https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,WarmBloodAban/Minimax-h3_Singularity,新技术,Hugging Face models,https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,dealignai/GLM-5.3-CYBERSECURITY-FP8,新技术,Hugging Face models,https://huggingface.co/dealignai/GLM-5.3-CYBERSECURITY-FP8,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,google/timesfm-3.0-pytorch,新技术,Hugging Face models,https://huggingface.co/google/timesfm-3.0-pytorch,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,sentence-transformers/all-MiniLM-L6-v2,新技术,Hugging Face models,https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,MiniMaxAI/MiniMax-H3,新技术,Hugging Face models,https://huggingface.co/MiniMaxAI/MiniMax-H3,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,openbmb/MiniCPM5-2B-GGUF,新技术,Hugging Face models,https://huggingface.co/openbmb/MiniCPM5-2B-GGUF,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,openai-community/gpt2,新技术,Hugging Face models,https://huggingface.co/openai-community/gpt2,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Qwen/Qwen3.8-Flash-Next,新技术,Hugging Face models,https://huggingface.co/Qwen/Qwen3.8-Flash-Next,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,crwdla/tokentab,新技术,GitHub,https://github.com/crwdla/tokentab,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Colafornia/short-video-generator-AI,新技术,GitHub,https://github.com/Colafornia/short-video-generator-AI,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,unstablebuild/rune,新技术,GitHub,https://github.com/unstablebuild/rune,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,kruzovic7/ai-data-extractor,新技术,GitHub,https://github.com/kruzovic7/ai-data-extractor,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,yudaprasetya007/routeVSCODE,新技术,GitHub,https://github.com/yudaprasetya007/routeVSCODE,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Loopera-ai/loopera,新技术,GitHub,https://github.com/Loopera-ai/loopera,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,aimeoa/hanshuang-codex,新技术,GitHub,https://github.com/aimeoa/hanshuang-codex,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,FankChen/tracecrate,新技术,GitHub,https://github.com/FankChen/tracecrate,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Noisyxl/brier,新技术,GitHub,https://github.com/Noisyxl/brier,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,tshemsedinov/reslop,新技术,GitHub,https://github.com/tshemsedinov/reslop,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,paveldevyatov/refund-anything-ai-prompt,新技术,GitHub,https://github.com/paveldevyatov/refund-anything-ai-prompt,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Xu123-Bob/Baize,新技术,GitHub,https://github.com/Xu123-Bob/Baize,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,ruc-datalab/SkillAdam,新技术,GitHub,https://github.com/ruc-datalab/SkillAdam,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Raymondhou0917/ai-level-check,新技术,GitHub,https://github.com/Raymondhou0917/ai-level-check,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,gonzalo-cordova-pou/voice-ai-benchmarks,新技术,GitHub,https://github.com/gonzalo-cordova-pou/voice-ai-benchmarks,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,sreenidhbonagiri/remedi,新技术,GitHub,https://github.com/sreenidhbonagiri/remedi,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,tshmieldev/sharp,新技术,GitHub,https://github.com/tshmieldev/sharp,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,z-liu-xiugou/research-workbench-assistant,新技术,GitHub,https://github.com/z-liu-xiugou/research-workbench-assistant,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,NitrusAphalion/tessra,新技术,GitHub,https://github.com/NitrusAphalion/tessra,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,yinyuepingguo/linktokenview-docs,新技术,GitHub,https://github.com/yinyuepingguo/linktokenview-docs,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,mohdhd/strat-hunter,新技术,GitHub,https://github.com/mohdhd/strat-hunter,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Delinor-Hens/Vortex,新技术,GitHub,https://github.com/Delinor-Hens/Vortex,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,oalanicolas/alanstudio-framework,新技术,GitHub,https://github.com/oalanicolas/alanstudio-framework,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,wundercorp/loki,新技术,GitHub,https://github.com/wundercorp/loki,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,emelia-io/claude-outreach,新技术,GitHub,https://github.com/emelia-io/claude-outreach,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Heyosseus/sloppy,新技术,GitHub,https://github.com/Heyosseus/sloppy,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,ballerina-platform/module-ballerina-a2a,新技术,GitHub,https://github.com/ballerina-platform/module-ballerina-a2a,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,jisub-lee-0906/ai_integrated_prompt_glossary,新技术,GitHub,https://github.com/jisub-lee-0906/ai_integrated_prompt_glossary,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,zapsyq/tracord_release,新技术,GitHub,https://github.com/zapsyq/tracord_release,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,ahilles107/gravity,新技术,GitHub,https://github.com/ahilles107/gravity,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Libraries Run Rust Inside Python (With PyO3),待分类,Hacker News,https://news.ycombinator.com/item?id=49685037,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Predictive intelligence to anticipate anything.,待分类,Hacker News,https://news.ycombinator.com/item?id=49684879,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Astra and Fable still hack on simple variants of alignment evals from 2025,待分类,Hacker News,https://news.ycombinator.com/item?id=49684393,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Houthis Used Claude Code to Develop Missile Guidance Software: Anthropic,待分类,Hacker News,https://news.ycombinator.com/item?id=49684266,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,"Ask HN: What would ""slowing down"" AI look like?",待分类,Hacker News,https://news.ycombinator.com/item?id=49684204,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,"Security through obscurity is dead, and AI delivered the fatal blow",待分类,Hacker News,https://news.ycombinator.com/item?id=49684180,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,"Key symbols we lost to time, pt. 1: The PC side",待分类,Hacker News,https://news.ycombinator.com/item?id=49684101,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,AI Writing Is Fine,待分类,Hacker News,https://news.ycombinator.com/item?id=49684082,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Your car is selling your data,待分类,Hacker News,https://news.ycombinator.com/item?id=49683953,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Flock worker calls police on reporter filming public camera installation,待分类,Hacker News,https://news.ycombinator.com/item?id=49683853,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,"Mars astronauts could live in houses made of yeast and jello, say scientists",待分类,Hacker News,https://news.ycombinator.com/item?id=49683844,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,AI models don't kill people – people kill people,待分类,Hacker News,https://news.ycombinator.com/item?id=49683834,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,US Customs supervisor busted for stealing hardware from Homeland Security PCs,待分类,Hacker News,https://news.ycombinator.com/item?id=49683729,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Gemma 4 26B on a 24 GB Mac Mini M4: from 66% CPU to 100% GPU,待分类,Hacker News,https://news.ycombinator.com/item?id=49683450,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Matt Mullenweg reportedly returns as Automattic CEO 2 days after getting booted,待分类,Hacker News,https://news.ycombinator.com/item?id=49683265,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Why is the x86 undefined instruction called ud2? Why 2?,待分类,Hacker News,https://news.ycombinator.com/item?id=49683262,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,'Fingerprints' inside the Sun could reveal if it once swallowed a planet,待分类,Hacker News,https://news.ycombinator.com/item?id=49683033,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Show HN: Analyst Index – analysts who make money telling you good stock calls,待分类,Hacker News,https://news.ycombinator.com/item?id=49682946,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Ask HN: Career paths to consider if I am better at supporting than creating?,待分类,Hacker News,https://news.ycombinator.com/item?id=49682920,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Caroline Ellison takes finance ops role at EA charity Manifund,待分类,Hacker News,https://news.ycombinator.com/item?id=49682791,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,"U.S. in Highest-Risk Category for Civil War, Coup, or Collapse in CIA Model",待分类,Hacker News,https://news.ycombinator.com/item?id=49682752,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,"Nvidia dismisses ""circular financing"", says every $1 it invests brings back $100",待分类,Hacker News,https://news.ycombinator.com/item?id=49682319,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Do You Report Litter?,待分类,Hacker News,https://news.ycombinator.com/item?id=49682156,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Revolut confirms customer data breach through fake government requests,待分类,Hacker News,https://news.ycombinator.com/item?id=49682087,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,My First Week with GPT-6 Astra,待分类,Hacker News,https://news.ycombinator.com/item?id=49682013,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,The Effect of Cold Showering on Health and Work,待分类,Hacker News,https://news.ycombinator.com/item?id=49681950,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Norton Neo Browser,待分类,Hacker News,https://news.ycombinator.com/item?id=49681724,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Musk's secretive backer builds $40B SpaceX stake,待分类,Hacker News,https://news.ycombinator.com/item?id=49681720,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Homebrew 7.0.0,待分类,Hacker News,https://news.ycombinator.com/item?id=49681545,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
-2026-09-14,Ask HN: Should we start airgapping our personal devices?,待分类,Hacker News,https://news.ycombinator.com/item?id=49681380,待验证,待验证,待验证,待验证,待验证,待验证,,暂存
+2026-09-14,kulkas2pintu/QWEN_EDIT_IMAGE,新技术,Hugging Face spaces,https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE,待验证：可能是需要批量改人像的电商或社媒运营、写真与摄影修图者；原文未给出任何用户描述。,上传一张人像并写一句提示词，改变服装、姿势或场景，同时保持人脸一致；可选风格 LoRA、第二张参考图、修手开关与输出尺寸。,保人脸一致与手部畸形是这类改图的常见痛点，原文把「preserve_identity」「fix_hands」做成显式可调参数；但痛点是否被用户确认、愿不愿为此换工具，均无证据。,单页在线小工具：上传 1 张人像 + 一句中文提示 → 返回保持人脸的改图结果；固定 1–2 个用途（换服装、换姿势），显示剩余额度与排队状态，不做通用编辑器。,原文未提。可核查的只是按次/包月额度是否有人接受，或作为既有修图流程中的 API 增值项；不能先假定成立。,上游模型许可与商用条款未核实；肖像权与深度伪造合规风险；免费 Space 的排队与可用性不可控；把 292 个点赞直接当成需求会误判。,,观察
+2026-09-14,deepseek-ai/DeepSeek-V4.1-Flash,新技术,Hugging Face models,https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash,待验证：需要处理超长输入或代理型负载的开发者与团队,待验证：对长文档、图片等做多模态理解与代理式处理,原文称在输入密集型代理负载下 prefill 每 token 仅激活 8B、全局 KV cache 约为上一代 1/4，成本结构更省,以可得 API 为前提，做长上下文批处理小工具：输入文档或图片，输出结构化摘要与抽取结果，先验证真实场景而不是先开工,待验证：按调用量加价或按处理文档量订阅,仅有技术报告与自评榜单，缺少第三方复现；成本优势可能只在大规模代理负载上成立；API 可得性未知,,观察
+2026-09-14,openbmb/MiniCPM5-2B,新技术,Hugging Face models,https://huggingface.co/openbmb/MiniCPM5-2B,待验证：可能在无独显或弱显卡的个人电脑、内网或隐私敏感环境下使用本地模型的个人开发者与小团队，具体身份与规模未在证据中出现。,待验证：在资源受限设备上本地运行可离线、支持长上下文与工具调用的语言模型，并完成量化、部署与端侧 agent 类任务。,待验证：是否缺少低门槛的中文选型与量化部署指引、端侧 agent 的可复用模板、不同硬件下的实测速度与效果对照。,验证型轻量页：输入为设备配置与用途（中文问答／工具调用／长文档），输出为可执行的 Ollama 或 llama.cpp 命令、应选量化版本与实测速度、中文任务小样本结果。由个人开发者用自有设备跑 2B 与 1B 多格式版本，产出与同级模型的横向实测表，作为唯一内容。,待验证：可设想部署模板、内网部署咨询或硬件适配选型服务，但目前无任何付费意愿或成交证据支持。,官方自述的 SOTA 属宣传口径；下载量、点赞数与数据集发布不能等同于付费需求；模型格式与版本迭代快，内容可能迅速过时；本地部署门槛使付费意愿难以判断。,,观察
+2026-09-14,Edge0/Edge0-35B-A3B-preview,新技术,Hugging Face models,https://huggingface.co/Edge0/Edge0-35B-A3B-preview,待验证：拥有 Apple Silicon 机器、重视数据本地化的开发者或小团队,待验证：本地离线的对话、推理与批量服务,以往 35B 级 MoE 需要大显存；原文称权重留在存储、专家按需流式加载，RAM 只保留活跃权重,不一定做新产品，可先做“本地一键跑起来”的脚本或本地网页界面：输入本地模型目录，输出可对话、可批处理的界面，先在一台 Apple Silicon 机器实测,待验证：配置模板或向导一次性收费等，缺乏付费证据,预览版能力有限、代理任务弱；生态绑定 Apple Silicon；许可为 Apache 2.0，但基座与框架的商用细节仍需核对,,观察
+2026-09-14,XHToken/Spark-X2.5-4B,新技术,Hugging Face models,https://huggingface.co/XHToken/Spark-X2.5-4B,待验证：可能是需要在本地处理超长文档或代码库的开发者/小团队,待验证：长上下文文档问答、代码库级检索与 agent 工作流,待验证：小尺寸模型能否在个人可承担的硬件上稳定跑长上下文，以及是否足够易用,先不做产品。以个人自有机器为输入环境，用 vLLM/llama.cpp/MLX 跑通该模型，记录上下文长度、显存占用、首 token 延迟；若可行，再考虑做一个输入超长文档、输出结构化摘要或问答的命令行小工具。,待验证：开源权重本身难直接收费，可能来自部署/微调/评测服务，但无付费证据,模型卡为厂商宣传口径；许可与商用限制不明；同类开源模型迭代极快，窗口可能很短,,观察
+2026-09-14,m-a-p/YuE2-3B,新技术,Hugging Face models,https://huggingface.co/m-a-p/YuE2-3B,待验证。可能是需要快速产出带人声歌曲小样的独立音乐人、短视频/播客创作者或小型内容工作室；材料未提供任何真实用户证据。,把歌词与风格提示变成含人声与伴奏的完整歌曲，并按音乐性反馈迭代旋律、和弦与歌词。,待验证。材料显示该模型支持自带 ABC 乐谱、旋律/和弦规划与代理式编辑，指向“改一次歌不必从头重来”的编辑闭环，但这是项目方能力描述，不等于用户已存在的痛点。,若继续验证，可做一个单人可用的最小网页流程：输入歌词与风格→生成歌曲→用一句自然语言反馈生成下一版，并导出 ABC 乐谱与音频；不做曲库、不做公开分发。,待验证。按次生成额度、编辑工作流托管等只是设想，材料中没有任何定价或付费信息。,榜单与“前沿质量”为模型方自评，未独立验证；翻唱涉及现有歌曲与歌词版权；GPU 与推理时间成本；Suno 等云端产品迭代快，可能快速覆盖该能力。,,观察
+2026-09-14,DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF,新技术,Hugging Face models,https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF,待验证：可能为在消费级硬件上运行本地大模型的开发者、编码者、写作者或 AI 工具爱好者。,待验证：在本地硬件上获得更低思考 token、更高质量输出的量化模型，用于编码、创意写作或工具调用等任务。,模型卡声称可在消费级硬件上实现更高智能并大幅减少思考 token，但独立验证、真实任务效果、部署工具链与支持服务尚不明确。,待验证后再定；若社区出现重复任务，可做轻量评测/部署辅助页：输入模型名与硬件配置，输出可用 GGUF 量化版本、显存/速度/任务表现对比，不先做模型训练本身。,可能为评测报告、部署咨询、托管或订阅；当前证据无付费意愿，不能作为结论。,模型卡宣传可能夸大，指标未独立验证；下载量可能被自动抓取放大；存在上游模型许可证、再分发限制、量化质量、硬件兼容与闭源 API 竞争风险；爱好者关注未必等于付费需求。,,观察
+2026-09-14,WarmBloodAban/Minimax-h3_Singularity,新技术,Hugging Face models,https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity,待验证：ComfyUI 视频创作者、特效或动画制作者、短视频制作者,待验证：生成 HDR 画质、动态动作、远景人脸和 VFX 的视频,模型声称解决高步训练伪影、远景人脸模糊、动态运动与特效等，但未证明这些是付费痛点,暂不定义 MVP；可先做 1 个 ComfyUI 工作流模板或效果对比页验证是否有人索取,待验证：付费工作流、托管生成、定制微调,模型许可不明、赛道拥挤、GPU 成本高、平台依赖,,观察
+2026-09-14,crwdla/tokentab,新技术,GitHub,https://github.com/crwdla/tokentab,同时使用 Claude Code、Codex、Gemini CLI 等命令行 AI 编程工具的开发者；是否由团队或公司代付 token 费用未知，团队型用户是否存在待验证。,弄清自己（或团队）在 AI 编程工具上花了多少 token 与费用，按模型、项目、日期、会话类型拆分，并找出缓存命中率长期偏低、大模型被用于大量小任务等浪费点。,跨工具统一口径（Claude 拆分缓存读写、Gemini 的输入含缓存部分）、按项目与团队归因、超阈值提醒、多机/多人汇总；README 自述价格为人工维护表，模型名匹配失败时显示 $0.00，活动类型（编码/调试/重构等）是基于首条消息的确定性猜测。,假设性方向、待验证：在“本地日志解析层”之上做一层成本归因与提醒薄层——输入为指定工具的会话日志目录，输出为按项目/模型的日费用报表与缓存命中率异常提示，外加单条规则告警（如某项目近 7 天费用超阈值）。先只锁定一个精确场景验证，不重写解析器。,待验证。本地运行、无账号的产品形态下，直接订阅收费缺乏依据；需先核实是否有人愿为团队汇总、阈值告警、多机同步或部署定制付费，还是只用免费开源版即可。,免费开源替代已存在且功能完整；token 与项目信息敏感，托管方案会引入隐私顾虑；各家日志格式与定价频繁变动，维护成本高；厂商自带账单面板可能直接吞掉该需求；把 723 star 当作市场需求证据不成立。,,观察
+2026-09-14,Colafornia/short-video-generator-AI,新技术,GitHub,https://github.com/Colafornia/short-video-generator-AI,YouTube 长视频创作者、播客主、访谈/教育内容运营者，以及想免费替代 OpusClip/Vidyo.ai 的人。,把长视频自动切成 9:16 竖屏高光短片，加字幕、翻译、配音和开场钩子。,通用 SaaS 有付费/水印/额度限制；免费开源方案部署有门槛；特定语种、垂类的高光判断和版权合规仍需人工。,选一个垂类，做托管式网页：输入 YouTube/本地文件，输出 3-5 条竖屏短片+字幕+标题/钩子；先人工审核高光，再逐步自动化。验证对象是中文播客/教育创作者。,个人免费/限量，付费解锁批量、高清、去水印、模板和优先算力；也可按条代运营收费。,免费开源替代已存在，通用工具容易被替代；视频版权、平台政策、肖像/音乐版权风险；LLM 高光质量可能不稳定。,,观察
+2026-09-14,kruzovic7/ai-data-extractor,新技术,GitHub,https://github.com/kruzovic7/ai-data-extractor,同时使用多个 AI 编码助手的开发者、技术团队，需要备份/迁移/分析对话的人。,从 Claude Code、Cursor 等本地存储提取聊天记录，统一成 JSONL，用于备份、微调或个人分析。,各工具存储格式不统一且部分未文档化；缺少非技术用户的一键备份、跨工具迁移和团队级知识留存。,桌面或本地网页导出器：自动检测已安装工具，选择来源，导出可筛选的 JSONL；先做 macOS/Windows 一键包，再加简单搜索/去重，后续尝试加密备份。,个人备份免费；团队/合规加密备份、知识库检索或托管服务订阅收费；直接卖本地导出器难。,聊天记录含密钥和代码，隐私安全责任大；各工具可能改格式导致维护成本高；个人备份低频，付费意愿弱；开源脚本可能直接覆盖。,,观察
+2026-09-14,Xu123-Bob/Baize,新技术,GitHub,https://github.com/Xu123-Bob/Baize,待验证：原文面向中文开发者，尤其是想用终端、想接本地模型的人；没有用户调研证据。,在终端用自然语言完成写脚本、检查类型错误、批量替换依赖等编码任务，并可切换云端或本地模型。,多后端自由切换、本地 Ollama 零成本、中文交互，以及技能/子代理/钩子扩展，是原文强调的差异点；但这属于作者自述，尚未被用户验证。,不做通用 CLI 复刻。先做一个很窄的可交付物，例如「某类项目的 Baize 技能包 + 一键配置」（如 pandas 探索性数据分析技能、代码审查子代理模板），用现成的白泽承载。,原文未提。可核查的方向是技能包/模板售卖或企业内部署支持是否有人付费，但不能先假定成立。,同类编码工具多、用户切换成本高，上游官方功能可能直接覆盖；把攒 star 当成需求；密钥与安全配置出错会损伤信任；许可证与商标问题未核实。,,观察
+2026-09-14,mohdhd/strat-hunter,新技术,GitHub,https://github.com/mohdhd/strat-hunter,能操作终端、使用 Docker 和 AI 账号的个人交易研究者或开发者；原文限定为一名受信任操作者。,把自然语言交易想法交给 AI 编码助手，生成策略代码并回测，记录尝试，在 Web 仪表盘中查看、比较和导出。,自然语言想法到策略代码、回测执行、尝试记录与结果查看的自动化衔接；但安装、配置、数据源和 AI 账号仍需人工处理。,单用户本地 Web 工作台：输入一句策略想法，选择市场和回测引擎，调用一个 AI 助手生成代码并跑回测，输出指标、日志和可导出 ZIP；先不做自动交易。,开源本体免费；若要收费，先验证是否有人为免安装托管、数据接入、回测算力或 AI 额度打包付费，不能预设订阅。,回测过拟合且“完成”不等于策略有效；AI 成本不可控；项目无应用登录且代理权限宽，存在凭据与文件安全风险；交易合规与数据授权风险。,,观察
+2026-09-14,wundercorp/loki,新技术,GitHub,https://github.com/wundercorp/loki,希望云端常驻、跨聊天平台使用的个人开发者与自托管用户（原文自述）。,让智能体长期驻留，从使用中积累技能与记忆，并按定时任务在多个聊天平台上工作。,原文主张的差异是内置学习循环与不绑定本地笔记本的多后端运行。,不做整体框架，只做“跨会话记忆检索＋一小类技能自动沉淀”的单一插件，在一个聊天平台上验证。,原文未提；开源项目常见路径是托管服务或企业支持，需先有使用证据。,赛道拥挤、维护成本高、宣称效果未经独立验证。,,观察
+2026-09-14,Heyosseus/sloppy,新技术,GitHub,https://github.com/Heyosseus/sloppy,待验证：使用 AI 编码代理的 PHP/Laravel 团队与开发者,待验证：在提交或 CI 阶段发现新引入的坏味道并阻止合并,原文称覆盖 god method、吞异常、疑似 N+1、控制器内写业务逻辑等模式，并用指纹区分“新引入”与“继承”的问题，减少 diff 行号漂移带来的噪声,若按暗影复刻思路做其他语言，可先选 TypeScript 或 Python，做约 10 条确定性规则加 git diff 只报新增问题，输出 JSON 接入 CI；输入为仓库与变更，输出为可操作清单,待验证：开源核心加团队版、CI 托管或规则包收费，均需先验证付费意愿,静态规则容易误报而被弃用；需求可能仅限作者本人；把“AI 生成”与代码质量问题绑定的叙事需谨慎，原文也明确不做作者判定,,观察
+2026-09-14,Libraries Run Rust Inside Python (With PyO3),新技术,Hacker News,https://news.ycombinator.com/item?id=49685037,维护 Rust 扩展或 Rust CLI 并面向 Python 用户的库作者、科研工具维护者。,把 Rust 实现打包成 Python 可 pip 安装的包，并兼顾 manylinux 与 Pyodide/WASM。,跨平台 ABI、Pyodide 兼容、发布配置和调试仍可能有成本；但现有工具已覆盖大部分，未证明普遍痛点或付费意愿。,先做检查或模板，不做平台：输入一个 Rust+Python 扩展项目，输出 PyPI 打包配置和 Pyodide 兼容性报告；面向已有库维护者。,暂无可靠付费路径；可验证赞助、一次性打包咨询或托管构建，但不能假设。,现有开源工具可能已覆盖；需求窄且多由志愿者维护，付费意愿低。,,观察
+2026-09-14,AI Writing Is Fine,个人抱怨,Hacker News,https://news.ycombinator.com/item?id=49684082,技术写作者、开发者关系人员、小团队内容运营者,让 AI 辅助写出的发布公告、技术博客或对外邮件更像本人或团队语气，减少冗长与过度解释,模型缺少受众共享知识、取舍判断和团队口吻；通用工具按语法或风格检查，难判断哪些内容对特定受众可省略,上传若干过往发布公告或博客作为风格上下文，对草稿标记可删冗句、过度解释和口吻偏离，生成带理由的修改建议；输入草稿与历史样本，输出批注版和改写对照,按文档或月订阅，面向小团队；先验证重复使用，再考虑团队版,需求可能只是主观偏好；大模型厂商或写作工具内置类似能力；效果难以量化；免费替代多,,观察
+2026-09-14,Show HN: Analyst Index – analysts who make money telling you good stock calls,暗影复刻,Hacker News,https://news.ycombinator.com/item?id=49682946,想跟随分析师荐股的零售投资者；被低估且无受众的分析师或研究员。,投资者判断哪些分析师值得听、哪些股票可买；分析师用可验证预测记录建立信誉并变现。,把预测按到期日打分，并以分析师直接订阅分成来对齐激励；但证据未证明这能提高预测质量。,轻量网站：分析师发布带到期日的目标价，系统按实际股价打分，公开榜单；先免登录浏览，再接收费订阅与抽成。,分析师自定订阅价，平台抽10%；未上支付。,评分可被操纵、目标价是否含信息存疑、监管与数据来源风险、冷启动失败。,,观察
+2026-09-14,Revolut confirms customer data breach through fake government requests,新闻窗口,Hacker News,https://news.ycombinator.com/item?id=49682087,金融科技或支付公司的合规、法务、信任与安全团队；处理执法与政府数据请求的一线人员,核验执法或政府数据请求是否真实且发送方有权索取数据，并在紧急请求下最小化披露,域名只能证明发送者，不能证明有权索取；缺少可公开核对的渠道清单、案件号验证、统一回调和数据最小化硬规则,内部工作流：执法请求登记、要求案件号与公开渠道匹配、强制使用独立查得的电话回拨、按请求类型限制可导出字段；输入请求邮件或 PDF，输出核验清单与最小数据集,B2B SaaS 按席位或请求量订阅，或合规咨询加工具,数据敏感与合规责任；渠道清单维护成本；企业销售周期长；现有 GRC 或法务工具可能扩展覆盖；错误核验造成严重后果,,观察

@@ -49,11 +49,18 @@ class MiningTest(unittest.TestCase):
         report = mining.render_report([item], {}, '2026-09-13')
         self.assertNotIn('Invoice export', report)
 
-    def test_single_source_more_than_twenty_not_capped(self):
-        items = [self.sample(f'https://example.com/{i}') for i in range(25)]
+    def test_report_shows_at_most_twenty_analyzed_opportunities(self):
+        items = []
+        for i in range(25):
+            item = self.sample(f'https://example.com/{i}')
+            item['selected_for_analysis'] = True
+            item['analysis_mode'] = 'model'
+            item['analysis'] = self.analyzed(item)
+            items.append(item)
         report = mining.render_report(items, {}, '2026-09-13')
-        self.assertEqual(report.count('\n### '), 25)
-        self.assertNotIn('总分', report)
+        self.assertEqual(report.count('\n### '), 20)
+        self.assertIn('原始线索：25 条', report)
+        self.assertIn('日报展示：20 条', report)
 
     def test_empty_report_is_auditable(self):
         from scripts.audit_report import audit
@@ -61,9 +68,7 @@ class MiningTest(unittest.TestCase):
 
     def test_valid_model_response_and_fabricated_quote(self):
         item = self.sample()
-        value = mining.fallback(item)
-        value['recommendation'] = '深挖'
-        value['facts'] = [{'evidence_id': item['id'], 'quote': 'Export invoices as CSV'}]
+        value = self.analyzed(item)
         self.assertEqual(mining.validate_analysis(value, [item]), value)
         value['facts'][0]['quote'] = '100 paying customers'
         with self.assertRaises(ValueError):
@@ -78,7 +83,10 @@ class MiningTest(unittest.TestCase):
                 self.assertEqual(mining.run(root, use_model=False), 0)
             report = next((root / 'daily').glob('*.md')).read_text()
             self.assertEqual(audit(report), [])
-            self.assertIn('href="https://example.com/tool"', markdown_to_html(report))
+            html = markdown_to_html(report)
+            self.assertIn('进入 DeepSeek 分析：1 条', html)
+            self.assertIn('日报展示：0 条', html)
+            self.assertNotIn('href="https://example.com/tool"', html)
             self.assertTrue((root / 'data/history.json').exists())
 
     def test_all_failed_has_diagnostics_and_failure_exit(self):
@@ -110,15 +118,160 @@ class MiningTest(unittest.TestCase):
     def test_model_protocol_is_grounded_and_uses_requested_name(self):
         import json
         item = self.sample()
-        analysis = mining.fallback(item)
-        analysis['facts'] = [{'evidence_id': item['id'], 'quote': 'Export invoices as CSV'}]
-        analysis['recommendation'] = '观察'
+        analysis = self.analyzed(item, recommendation='观察')
         response = json.dumps({'choices': [{'message': {'content': json.dumps({'analyses': [analysis]})}}]})
         with patch.dict('os.environ', {'DEEPSEEK_API_KEY': 'test-only', 'DEEPSEEK_MODEL': 'deepseek-flash'}):
             with patch.object(mining.sources, 'request', return_value=response) as request:
                 result = mining.analyze_batch([item])
                 self.assertEqual(request.call_args.args[1]['model'], 'deepseek-flash')
         self.assertEqual(result[item['id']]['recommendation'], '观察')
+
+    def test_failed_batch_is_split_so_valid_items_survive(self):
+        items = [self.sample(f'https://example.com/{i}') for i in range(4)]
+
+        def analyze(batch):
+            if len(batch) > 1:
+                raise ValueError('one malformed analysis poisoned the batch')
+            if batch[0] is items[-1]:
+                raise ValueError('Unverifiable quotation')
+            return {batch[0]['id']: self.analyzed(batch[0], recommendation='观察')}
+
+        with patch.object(mining, 'analyze_batch', side_effect=analyze):
+            mapping, errors = mining.analyze_resilient(items)
+        self.assertEqual(set(mapping), {item['id'] for item in items[:-1]})
+        self.assertEqual(errors, {items[-1]['id']: 'Unverifiable quotation'})
+
+    def analyzed(self, item, recommendation='深挖'):
+        value = mining.fallback(item)
+        value.update({
+            'title_zh': '发票导出工具',
+            'recommendation': recommendation,
+            'facts': [{
+                'evidence_id': item['id'],
+                'quote': 'Export invoices as CSV',
+                'translation_zh': '将发票导出为 CSV',
+            }],
+        })
+        return value
+
+    def test_prefilter_caps_model_input_and_removes_thin_launches(self):
+        useful = [
+            self.sample(f'https://example.com/useful-{i}',
+                        f'Users need to export invoices, replace manual copy and automate recurring billing workflow {i}.')
+            for i in range(50)
+        ]
+        thin = mining.evidence('New launch', 'https://example.com/thin', 'Product Hunt', '待分类', 'Discussion | Link')
+        selected, rejected = mining.prefilter(useful + [thin], limit=40)
+        self.assertEqual(len(selected), 40)
+        self.assertNotIn(thin, selected)
+        self.assertIn(thin, rejected)
+
+    def test_prefilter_uses_category_specific_evidence(self):
+        technology = mining.evidence('Local model', 'https://example.com/model', 'Hugging Face models', '新技术',
+                                     'A small on-device model reduces memory and inference cost for offline document processing.')
+        complaint = mining.evidence('Export broken', 'https://example.com/complaint', 'Hacker News', '个人抱怨',
+                                    'I pay for this service but CSV export keeps failing, so I copy every invoice manually.')
+        service = mining.evidence('Translation service', 'https://example.com/service', '手动公开证据', '服务产品化',
+                                  'Delivered 120 subtitle translation orders with the same input and output format.')
+        selected, _ = mining.prefilter([technology, complaint, service], limit=40)
+        self.assertEqual({x['id'] for x in selected}, {technology['id'], complaint['id'], service['id']})
+
+    def test_explicit_demand_outranks_long_technology_marketing(self):
+        technology = mining.evidence(
+            'Large model launch', 'https://example.com/large-model', 'Hugging Face models', '新技术',
+            ('Open source local multimodal model inference API with faster image video audio agent support. ' * 80),
+        )
+        complaint = mining.evidence(
+            'CSV export keeps failing', 'https://example.com/export-failure', 'Hacker News', '个人抱怨',
+            'I pay for this service, but CSV export keeps failing. I manually copy every invoice each week.',
+        )
+        self.assertGreater(mining.candidate_score(complaint), mining.candidate_score(technology))
+
+    def test_unclassified_public_sources_are_typed_before_ranking(self):
+        ask = mining.evidence('Ask HN: How do you export this?', 'https://example.com/ask',
+                              'Hacker News', '待分类', 'I keep doing this manually every week.')
+        show = mining.evidence('Show HN: Exporter', 'https://example.com/show',
+                               'Hacker News', '待分类', 'A tool for recurring CSV exports.')
+        news = mining.evidence('Vendor changes API pricing', 'https://example.com/news',
+                               'Hacker News', '待分类', '评论 1: This is now too expensive.')
+        launch = mining.evidence('Exporter', 'https://example.com/launch',
+                                 'Product Hunt', '待分类', 'Automate recurring CSV export.')
+        mining.prefilter([ask, show, news, launch])
+        self.assertEqual([ask['method'], show['method'], news['method'], launch['method']],
+                         ['个人抱怨', '暗影复刻', '新闻窗口', '暗影复刻'])
+
+    def test_multi_comment_discussion_can_outrank_generic_technology(self):
+        technology = mining.evidence(
+            'Generic model', 'https://example.com/generic-model', 'Hugging Face models', '新技术',
+            ('Open source local multimodal model inference API with faster agent support. ' * 40),
+        )
+        discussion = mining.evidence(
+            'Vendor changes pricing', 'https://example.com/discussion', 'Hacker News', '待分类',
+            '评论 1: It is too expensive.\n评论 2: We now export manually.\n评论 3: I need an alternative.',
+        )
+        mining.prefilter([technology, discussion])
+        self.assertGreater(mining.candidate_score(discussion), mining.candidate_score(technology))
+
+    def test_translation_is_required_and_english_precedes_chinese(self):
+        item = self.sample()
+        item['selected_for_analysis'] = True
+        item['analysis_mode'] = 'model'
+        item['analysis'] = self.analyzed(item)
+        report = mining.render_report([item], {}, '2026-09-13')
+        english = report.index('英文原文：Export invoices as CSV')
+        chinese = report.index('中文翻译：将发票导出为 CSV')
+        self.assertLess(english, chinese)
+        del item['analysis']['facts'][0]['translation_zh']
+        with self.assertRaises(ValueError):
+            mining.validate_analysis(item['analysis'], [item])
+
+    def test_translation_field_must_really_be_chinese(self):
+        item = self.sample(text='一个开源工具')
+        value = self.analyzed(item)
+        value['facts'][0] = {
+            'evidence_id': item['id'],
+            'quote': '一个开源工具',
+            'translation_zh': 'An open-source tool',
+        }
+        with self.assertRaisesRegex(ValueError, 'Chinese translation required'):
+            mining.validate_analysis(value, [item])
+
+    def test_model_state_counts_cached_and_new_valid_analyses(self):
+        items = [self.sample(f'https://example.com/{i}') for i in range(2)]
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            mapping = {items[0]['id']: self.analyzed(items[0], recommendation='观察')}
+            with patch.dict('os.environ', {'DEEPSEEK_API_KEY': 'test-only'}):
+                with patch.object(mining.sources, 'adapters', return_value={'test': lambda: items}):
+                    with patch.object(mining, 'analyze_resilient', return_value=(mapping, {items[1]['id']: 'bad'})):
+                        mining.run(root)
+            saved = mining.load_json(next((root / 'data/runs').glob('*.json')), {})
+            self.assertEqual(saved['sources']['模型分析']['state'], '部分失败')
+            self.assertEqual(saved['sources']['模型分析']['count'], 1)
+
+    def test_unanalyzed_candidates_are_not_dumped_into_report(self):
+        items = [self.sample(f'https://example.com/{i}') for i in range(130)]
+        report = mining.render_report(items, {}, '2026-09-13')
+        self.assertEqual(report.count('\n### '), 0)
+        self.assertIn('原始线索：130 条', report)
+        self.assertIn('日报展示：0 条', report)
+
+    def test_translated_report_passes_audit(self):
+        from scripts.audit_report import audit
+        item = self.sample()
+        item['selected_for_analysis'] = True
+        item['analysis_mode'] = 'model'
+        item['analysis'] = self.analyzed(item)
+        self.assertEqual(audit(mining.render_report([item], {}, '2026-09-13')), [])
+
+    def test_end_to_end_handles_prefiltered_out_items(self):
+        items = [self.sample(f'https://example.com/useful-{i}',
+                             f'Users need recurring invoice export and batch workflow automation {i}.')
+                 for i in range(45)]
+        items.append(mining.evidence('Thin launch', 'https://example.com/thin', 'Product Hunt', '待分类', 'Discussion | Link'))
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.object(mining.sources, 'adapters', return_value={'test': lambda: items}):
+                self.assertEqual(mining.run(Path(tmp), use_model=False), 0)
 
     def test_new_analysis_is_a_change_even_when_source_unchanged(self):
         with tempfile.TemporaryDirectory() as tmp:

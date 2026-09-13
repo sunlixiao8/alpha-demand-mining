@@ -66,6 +66,7 @@ def collect_sources(adapters):
 
 def fallback(item):
     return {'method': item.get('method', '待分类'), 'recommendation': '暂存',
+            'title_zh': '待翻译',
             'reason': '已保留原始资料；尚未完成商业分析，不能据此确认需求。',
             'evidence_ids': [item['id']], 'facts': [], 'unknowns': ['需求、现有供给、付费与个人适配尚待核实'],
             'strategy': '', **{field: '待验证' for field in FIELDS},
@@ -76,6 +77,87 @@ def has_context(raw):
     return bool(raw.strip()) and raw.strip() != 'Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference'
 
 
+def classify_method(item):
+    """Assign a collection-stage evidence type without making an opportunity claim."""
+    if item.get('method') != '待分类':
+        return item['method']
+    title = item.get('title', '').strip().lower()
+    if item.get('source') == 'Hacker News':
+        if title.startswith('ask hn:'):
+            item['method'] = '个人抱怨'
+        elif title.startswith('show hn:'):
+            item['method'] = '暗影复刻'
+        else:
+            item['method'] = '新闻窗口'
+    elif item.get('source') == 'Product Hunt':
+        item['method'] = '暗影复刻'
+    return item['method']
+
+
+def candidate_score(item):
+    """Rank evidence for analysis using method-specific, observable signals."""
+    raw = item.get('raw', '').strip()
+    if not has_context(raw):
+        return -1
+    text = (item.get('title', '') + ' ' + raw).lower()
+    if item.get('source') == 'Product Hunt' and raw.lower() in ('discussion | link', 'discussion link'):
+        return -1
+
+    common_actions = [
+        'export', 'import', 'convert', 'generate', 'deploy', 'install', 'migrate',
+        'workflow', 'automate', 'batch', 'translate', 'subtitle', 'invoice',
+        '导出', '导入', '转换', '生成', '部署', '安装', '迁移', '工作流', '自动化', '批量',
+    ]
+    complaint_signals = [
+        'broken', 'failing', 'hard to', 'difficult', 'expensive', 'too slow',
+        'alternative', 'manual', 'copy and paste', 'pay for', 'cannot', "can't",
+        '坏了', '失败', '太难', '太贵', '太慢', '替代', '手动', '付费', '不能',
+    ]
+    technology_signals = [
+        'on-device', 'local', 'open source', 'api', 'model', 'inference', 'cost',
+        'memory', 'faster', 'agent', 'image', 'video', 'audio', 'multimodal',
+        '端侧', '本地', '开源', '模型', '推理', '成本', '显存', '更快', '智能体', '多模态',
+    ]
+    market_signals = [
+        'orders', 'customers', 'clients', 'reviews', 'pricing', 'subscription',
+        'roadmap', 'delivered', 'revenue', 'search volume', 'trend',
+        '订单', '客户', '评论', '定价', '订阅', '路线图', '交付', '收入', '搜索量', '趋势',
+    ]
+
+    score = min(len(raw) // 500, 2)
+    method = classify_method(item)
+    if method != '新技术':
+        score += min(sum(word in text for word in common_actions), 3)
+    if item.get('source') == 'Hacker News':
+        score += min(raw.count('评论 '), 3)
+    if method == '个人抱怨':
+        score += min(sum(word in text for word in complaint_signals), 5)
+        if any(word in text for word in ('every day', 'every week', 'every month', 'keeps ', 'again',
+                                         '每天', '每周', '每月', '反复', '总是')):
+            score += 2
+    elif method == '新技术':
+        score += min(sum(word in text for word in technology_signals), 3)
+        metrics = item.get('metrics', {})
+        if any(isinstance(value, (int, float)) and value > 0 for value in metrics.values()):
+            score += 1
+    elif method in ('服务产品化', '暗影复刻', '搜索词'):
+        score += min(sum(word in text for word in market_signals + complaint_signals), 6)
+    else:
+        score += min(sum(word in text for word in complaint_signals + market_signals), 4)
+    return score
+
+
+def prefilter(items, limit=40):
+    for item in items:
+        classify_method(item)
+    ranked = sorted(((candidate_score(item), item) for item in items),
+                    key=lambda pair: (-pair[0], pair[1]['id']))
+    selected = [item for score, item in ranked if score >= 3][:limit]
+    selected_ids = {item['id'] for item in selected}
+    rejected = [item for item in items if item['id'] not in selected_ids]
+    return selected, rejected
+
+
 def validate_analysis(value, items):
     allowed = {x['id']: x for x in items}
     ids = value.get('evidence_ids')
@@ -83,7 +165,7 @@ def validate_analysis(value, items):
         raise ValueError('Unknown evidence reference')
     if value.get('method') not in METHODS or value.get('recommendation') not in ('深挖', '观察', '暂存', '放弃'):
         raise ValueError('Invalid recommendation')
-    for field in FIELDS + ['reason', 'strategy']:
+    for field in FIELDS + ['reason', 'strategy', 'title_zh']:
         if not isinstance(value.get(field), str) or len(value[field]) > 1500:
             raise ValueError('Missing or oversized analysis field')
     if not isinstance(value.get('unknowns'), list) or not value['unknowns'] or any(not isinstance(x, str) for x in value['unknowns']):
@@ -96,6 +178,10 @@ def validate_analysis(value, items):
         quote = fact.get('quote')
         if not isinstance(quote, str) or not quote.strip() or quote not in allowed[fact['evidence_id']]['raw']:
             raise ValueError('Unverifiable quotation')
+        translation = fact.get('translation_zh')
+        if (not isinstance(translation, str) or not translation.strip() or len(translation) > 1500
+                or not re.search(r'[\u3400-\u9fff]', translation)):
+            raise ValueError('Chinese translation required')
     if value['recommendation'] in ('深挖', '观察') and not value['facts']:
         raise ValueError('Recommended items require quoted evidence')
     return value
@@ -109,12 +195,12 @@ def analyze_batch(items):
 新词站是 strategy 打法，不是配额。成熟搜索、抱怨、暗影复刻看实际任务与供给；新技术看能力改变；服务看交付重复性。
 无比例、无分数、无深挖上限。证据不足可暂存，早期窗口也可以深挖，但不能声称已证明有市场。
 新词48小时可承接MVP、新闻两三天、普通机会七天是参考，不是统一淘汰线。
-facts 仅包含原文逐字摘录 quote 与 evidence_id，不改写原文；其余字段都是待验证分析，不写成确定事实。
+facts 仅包含原文逐字摘录 quote、对应中文翻译 translation_zh 与 evidence_id。quote 不改写；translation_zh 必须用中文忠实翻译，即使 quote 本身已有中文也要用中文释义，绝不能反向翻成英文；其余字段是待验证分析，不写成确定事实。
 避免空泛“做个工具”“按订阅收费”，明确输入输出、谁用、怎样找到首批用户、先核查什么，不能建议先开工再找需求。
 不要把报道、宣传或单个评论等同于付费需求。非产品线索暂存或放弃。
 返回JSON对象 analyses 数组，每个输入恰好一个对象，不遗漏：
-evidence_ids（本条id数组，仅本条）, method, strategy, recommendation（深挖/观察/暂存/放弃）, reason,
-facts（[{evidence_id,quote}]，引用简短且连续）, unknowns（字符串数组）, user, task, current_solution, gap, mvp,
+evidence_ids（本条id数组，仅本条）, title_zh（中文标题，专有名词保留）, method, strategy, recommendation（深挖/观察/暂存/放弃）, reason,
+ facts（[{evidence_id,quote,translation_zh}]；深挖/观察只摘录1至2段简短连续原文）, unknowns（字符串数组）, user, task, current_solution, gap, mvp,
 distribution, monetization, fit, next_step, risk。除引用外所有内容用简明中文。'''
     payload = {'model': os.getenv('DEEPSEEK_MODEL', 'deepseek-flash'), 'temperature': 0.2,
                'response_format': {'type': 'json_object'},
@@ -135,6 +221,19 @@ distribution, monetization, fit, next_step, risk。除引用外所有内容用�
     if set(mapping) != {x['id'] for x in items}:
         raise ValueError('Missing analysis')
     return mapping
+
+
+def analyze_resilient(items):
+    """Split validation failures until only genuinely invalid items are rejected."""
+    try:
+        return analyze_batch(items), {}
+    except ValueError as exc:
+        if len(items) == 1:
+            return {}, {items[0]['id']: str(exc)}
+        middle = len(items) // 2
+        left, left_errors = analyze_resilient(items[:middle])
+        right, right_errors = analyze_resilient(items[middle:])
+        return {**left, **right}, {**left_errors, **right_errors}
 
 
 def fingerprint(item):
@@ -168,11 +267,14 @@ def line(value):
 def render_report(items, states, date):
     public = [x for x in items if not x.get('private')]
     rank = {'深挖': 0, '观察': 1, '暂存': 2, '放弃': 3}
-    public.sort(key=lambda x: (x.get('change') == '无变化', rank.get(x.get('analysis', fallback(x))['recommendation'], 2), x['id']))
+    reportable = [x for x in public if x.get('selected_for_analysis') and x.get('analysis_mode') == 'model'
+                  and x.get('analysis', fallback(x))['recommendation'] in ('深挖', '观察')]
+    reportable.sort(key=lambda x: (x.get('change') == '无变化', rank[x['analysis']['recommendation']], x.get('candidate_rank', 999), x['id']))
+    reportable = reportable[:20]
     lines = [f'# {date} 需求机会日报', '', '<!-- evidence-report-v2 -->', '', '## 今日摘要', '']
     lines += [f'- 运行状态：{"部分来源失败" if any(s["state"] == "失败" for s in states.values()) else "完成"}',
-              f'- 原始线索：{len(public)} 条；完整列表含候选，不代表全部值得开发。']
-    highlights = [x for x in public if x.get('change') != '无变化' and x.get('analysis', fallback(x))['recommendation'] in ('深挖', '观察')]
+              f'- 原始线索：{len(public)} 条；进入 DeepSeek 分析：{sum(bool(x.get("selected_for_analysis")) for x in public)} 条；日报展示：{len(reportable)} 条。']
+    highlights = [x for x in reportable if x.get('change') != '无变化']
     if not highlights:
         lines.append('- 今日没有新增的已完成分析且值得推荐的机会；候选及运行状态见下方。')
     for item in highlights[:5]:
@@ -181,22 +283,23 @@ def render_report(items, states, date):
     lines += ['', '## 来源覆盖', '']
     for name, state in sorted(states.items()):
         lines.append(f'- {line(name)}：{state["state"]}，{state.get("count", 0)} 条' + (f'；{line(state["error"])}' if state.get('error') else ''))
-    lines += ['', '## 完整机会与候选', '']
+    lines += ['', '## 筛选后的机会', '']
     labels = {'user': '目标用户假设', 'task': '任务假设', 'current_solution': '现有办法待核查',
               'gap': '供给缺口假设', 'mvp': '最小验证与交付', 'distribution': '获客验证', 'monetization': '收费假设',
               'fit': '个人适配待确认', 'next_step': '下一步', 'risk': '风险与反证'}
-    for i, item in enumerate(public, 1):
+    for i, item in enumerate(reportable, 1):
         a = item.get('analysis') or fallback(item)
-        lines += [f'### {i}. {line(item["title"])}', '', f'- 机会编号：{item["id"]}',
+        title_zh = line(a.get('title_zh') or '待翻译')
+        lines += [f'### {i}. {line(item["title"])} / {title_zh}', '', f'- 机会编号：{item["id"]}',
                   f'- 来源：{line(item["source"])}', f'- 链接：[{line(item["title"])}]({item["url"]})',
                   f'- 证据入口：[原始资料]({item.get("evidence_url", item["url"])})',
                   f'- 发布时间：{line(item.get("published_at") or "未知")}', f'- 采集时间：{item["collected_at"]}',
                   f'- 历史变化：{item.get("change", "新增")}；首次 {item.get("first_seen", date)}',
                   f'- 方法：{a["method"]}；打法：{line(a.get("strategy") or "未指定")}',
-                  f'- 建议：{a["recommendation"]}', f'- 理由：{line(a["reason"])}',
-                  f'- 原始信号：{line(item["raw"][:700]) or "未获取正文，暂存补查"}']
+                  f'- 建议：{a["recommendation"]}', f'- 理由：{line(a["reason"])}']
         for fact in a.get('facts', []):
-            lines.append(f'- 证据摘录：{line(fact["quote"])}')
+            lines.append(f'- 英文原文：{line(fact["quote"])}')
+            lines.append(f'- 中文翻译：{line(fact["translation_zh"])}')
         for key, label in labels.items():
             lines.append(f'- {label}：{line(a[key])}')
         lines += [f'- 未知事项：{line("；".join(a["unknowns"]))}', '']
@@ -226,15 +329,25 @@ def run(root=ROOT, use_model=True, replay=None):
         if not item.get('private'):
             items.setdefault(item['id'], item)
     items = list(items.values())
+    selected, rejected = prefilter(items)
+    for rank_number, item in enumerate(selected, 1):
+        item['selected_for_analysis'] = True
+        item['candidate_rank'] = rank_number
+    for item in rejected:
+        item['selected_for_analysis'] = False
+    states['规则初筛'] = {'state': '正常', 'count': len(selected), 'rejected': len(rejected)}
     history_path = root / 'data' / 'history.json'
     history = load_json(history_path, {})
     pending = []
-    for item in items:
+    for item in selected:
         old = history.get(item['id'], {})
         if old.get('fingerprint') == fingerprint(item) and old.get('analysis_mode') == 'model':
-            item['analysis'] = old['analysis']
-            item['analysis_mode'] = 'model'
-        else:
+            try:
+                item['analysis'] = validate_analysis(old['analysis'], [item])
+                item['analysis_mode'] = 'model'
+            except (KeyError, TypeError, ValueError):
+                item['analysis_mode'] = 'pending'
+        if item.get('analysis_mode') != 'model':
             item['analysis'] = fallback(item)
             item['analysis_mode'] = 'pending'
             if has_context(item['raw']):
@@ -244,17 +357,23 @@ def run(root=ROOT, use_model=True, replay=None):
     if use_model and os.getenv('DEEPSEEK_API_KEY'):
         batches = [pending[i:i + 4] for i in range(0, len(pending), 4)]
         with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
-            jobs = {pool.submit(analyze_batch, batch): batch for batch in batches}
+            jobs = {pool.submit(analyze_resilient, batch): batch for batch in batches}
             for job in concurrent.futures.as_completed(jobs):
                 try:
-                    mapping = job.result()
+                    mapping, errors = job.result()
                     for item in jobs[job]:
-                        item['analysis'] = mapping[item['id']]
-                        item['analysis_mode'] = 'model'
+                        if item['id'] in mapping:
+                            item['analysis'] = mapping[item['id']]
+                            item['analysis_mode'] = 'model'
+                    failures += len(errors)
+                    for reason in sorted(set(errors.values())):
+                        count = sum(value == reason for value in errors.values())
+                        print(f'Analysis validation incomplete: {count} {reason}', flush=True)
                 except Exception as exc:
                     failures += len(jobs[job])
                     print('Analysis batch incomplete:', type(exc).__name__, flush=True)
-        states['模型分析'] = {'state': '失败' if failures else '正常', 'count': len(pending) - failures,
+        valid_count = sum(item.get('analysis_mode') == 'model' for item in selected)
+        states['模型分析'] = {'state': '部分失败' if failures else '正常', 'count': valid_count,
                            'error': f'{failures} 条分析未完成' if failures else ''}
     else:
         states['模型分析'] = {'state': '未配置或已禁用；保留证据待分析', 'count': 0}
@@ -274,6 +393,9 @@ def run(root=ROOT, use_model=True, replay=None):
         writer.writeheader()
         writer.writerows(old_rows)
         for item in items:
+            if not (item.get('selected_for_analysis') and item.get('analysis_mode') == 'model'
+                    and item.get('analysis', {}).get('recommendation') in ('深挖', '观察')):
+                continue
             a = item['analysis']
             writer.writerow(dict(date=date, title=item['title'], type=a['method'], source=item['source'], url=item['url'],
                                  user=a['user'], need=a['task'], supply_gap=a['gap'], mvp=a['mvp'], monetization=a['monetization'],
