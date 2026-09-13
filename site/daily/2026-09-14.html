@@ -76,8 +76,12 @@
 <h2>今日摘要</h2>
 <ul>
 <li>运行状态：部分来源失败</li>
-<li>原始线索：130 条；规则候选：40 条；有效模型分析：35 条；日报展示：15 条。</li>
-<li>Libraries Run Rust Inside Python (With PyO3)：HN 讨论显示 Rust 扩展进入 Python 分发的技术窗口，涉及跨平台安装、manylinux 与 Pyodide/WASM 兼容；但只是开发者体验与兼容性讨论，未见明确付费或重复任务，不足以证明市场。</li>
+<li>原始线索：130 条；规则候选：40 条；有效模型分析：40 条；日报展示：15 条。</li>
+<li>Ask HN: One month, zero paying customers – keep it or kill it?：有创始人明确付费失败抱怨和评论者具体反馈，可深挖从1美元自助审计转向面向本地企业/代理商的交付式网站审计，但必须验证付费意愿。</li>
+<li>Show HN: I made an automated day-by-day itinerary organizer for my trip to Spain：原文作者明确描述手动整理预订信息带来的痛点，并已做出可运行产品；同时承认规划侧和航班提醒缺失，存在细分改进空间，但仅为单人自述，尚未证明市场规模与付费。</li>
+<li>Fable 5.1 Solves the Cyphral Distich, a 370-year-old cipher：评论展示了可复现的任务链：LLM 编写标注工具、人工标注少量地图切片、CV 批量推断，说明能力变化可能服务于历史研究者；但尚无付费证据，需要继续验证数字人文工具的需求与现有替代。</li>
+<li>Why is Google still serving dodgy ads?：评论提供了具体个人抱怨（父亲看到“立即更新 PDF”的广告后卸载 YouTube），但尚无现有供给、付费或小团队可分发渠道证据；作为广告反诈辅助值得继续观察，不能认定有市场。</li>
+<li>Docket – Per-commit evidence records for agent-written code：评论显示两个具体争议：证据引用可能被git prune清掉；以及不知道给谁看、是否只是用新流程弥补流程问题。说明有真实开发场景，但需求方和付费意愿未证实，值得小范围验证。</li>
 </ul>
 <h2>来源覆盖</h2>
 <ul>
@@ -89,122 +93,120 @@
 <li>Reddit：失败，0 条；HTTPError</li>
 <li>搜索数据：未自动接入；支持手动证据，0 条</li>
 <li>服务订单：未自动接入；支持手动证据，0 条</li>
-<li>模型分析：未配置或已禁用；复用已校验历史分析，35 条；5 条新候选待分析</li>
+<li>模型分析：正常，40 条</li>
 <li>竞品付费与Roadmap：未自动接入；支持手动证据，0 条</li>
 <li>规则初筛：正常，40 条</li>
 </ul>
 <h2>筛选后的机会</h2>
-<h3>1. Show HN: Analyst Index – analysts who make money telling you good stock calls / Show HN：Analyst Index——靠告诉你好选股而赚钱的分析师</h3>
+<h3>1. Ask HN: One month, zero paying customers – keep it or kill it? / Ask HN：一个月，零付费用户——该保留还是关掉？</h3>
 <ul>
-<li>机会编号：e15d6a55ab4bf2fdb265</li>
+<li>机会编号：cab119cd09b689e78240</li>
 <li>来源：Hacker News</li>
-<li>链接：<a href="https://news.ycombinator.com/item?id=49682946" target="_blank" rel="noopener noreferrer">Show HN: Analyst Index – analysts who make money telling you good stock calls</a></li>
-<li>证据入口：<a href="https://news.ycombinator.com/item?id=49682946" target="_blank" rel="noopener noreferrer">原始资料</a></li>
-<li>发布时间：2026-09-13T11:50:35Z</li>
-<li>采集时间：2026-09-13T16:57:42.078611+00:00</li>
-<li>历史变化：无变化；首次 2026-09-13</li>
-<li>方法：暗影复刻；打法：把现有分析师评级评分平台复刻到个人订阅分成模式：先用公开评分记录建立分析师信誉，再让分析师直接向读者收费并抽成。</li>
-<li>建议：观察</li>
-<li>理由：上线者给出具体用户、替代方案、当前MVP与计划收费，可跟踪；但仅3只股票、44条目标，供给冷启动、评分有效性、合规与滥用风险均未验证，不能视为已证明需求。</li>
-<li>英文原文：On what already exists: TipRanks has scored analysts since 2009 and Benzinga sells accuracy scores through an API, so this isn’t entirely new. The difference here is that analyst incentives are aligned with that of investors through a subscription.</li>
-<li>中文翻译：关于已有产品：TipRanks 从 2009 年起就为分析师评分，Benzinga 通过 API 出售准确率评分，所以这并非全新。这里的区别在于，通过订阅让分析师的激励与投资者一致。</li>
-<li>英文原文：What&#x27;s live: 44 price targets from 25 analysts across 3 tickers, browsable without an account. What isn&#x27;t: no analyst signup yet, no payments, and no paywall enforcement — anyone can currently subscribe to anyone and see everything.</li>
-<li>中文翻译：已上线的是：来自 25 位分析师、覆盖 3 只股票的 44 个目标价，无需账户即可浏览。尚未上线的是：分析师注册、支付和付费墙执行——目前任何人都能订阅任何人并查看全部内容。</li>
-<li>目标用户假设：想跟随分析师荐股的零售投资者；被低估且无受众的分析师或研究员。</li>
-<li>任务假设：投资者判断哪些分析师值得听、哪些股票可买；分析师用可验证预测记录建立信誉并变现。</li>
-<li>现有办法待核查：TipRanks、Benzinga 等聚合卖方评级并卖评分或数据给投资者；分析师通常不分享投资者收入。</li>
-<li>供给缺口假设：把预测按到期日打分，并以分析师直接订阅分成来对齐激励；但证据未证明这能提高预测质量。</li>
-<li>最小验证与交付：轻量网站：分析师发布带到期日的目标价，系统按实际股价打分，公开榜单；先免登录浏览，再接收费订阅与抽成。</li>
-<li>获客验证：HN与投资社区冷启动；核心难点是无受众的好分析师供给和需求侧流量。</li>
-<li>收费假设：分析师自定订阅价，平台抽10%；未上支付。</li>
-<li>个人适配待确认：轻量网站和评分展示适合个人或小团队，但金融数据、合规、防作弊和冷启动超出常规轻量项目。</li>
-<li>下一步：先访谈10名零售投资者和5名无受众分析师，验证付费意愿与发布动力；同时核查TipRanks、Benzinga定价、评分方法和合规要求，再决定是否做最小评分页。</li>
-<li>风险与反证：评分可被操纵、目标价是否含信息存疑、监管与数据来源风险、冷启动失败。</li>
-<li>未知事项：零售投资者是否为分析师评分付费；评分方法是否能产生有效信号；分析师供给冷启动能否解决；合规边界与滥用防范成本；与TipRanks/Benzinga的差异是否足够</li>
-</ul>
-<h3>2. Libraries Run Rust Inside Python (With PyO3) / 库在 Python 内运行 Rust（使用 PyO3）</h3>
-<ul>
-<li>机会编号：e0070077e8d944c2d60c</li>
-<li>来源：Hacker News</li>
-<li>链接：<a href="https://news.ycombinator.com/item?id=49685037" target="_blank" rel="noopener noreferrer">Libraries Run Rust Inside Python (With PyO3)</a></li>
-<li>证据入口：<a href="https://news.ycombinator.com/item?id=49685037" target="_blank" rel="noopener noreferrer">原始资料</a></li>
-<li>发布时间：2026-09-13T15:24:05Z</li>
-<li>采集时间：2026-09-13T16:57:40.899294+00:00</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49687256" target="_blank" rel="noopener noreferrer">Ask HN: One month, zero paying customers – keep it or kill it?</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49687256" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-13T18:42:10Z</li>
+<li>采集时间：2026-09-13T23:27:01.015025+00:00</li>
 <li>历史变化：新增；首次 2026-09-14</li>
-<li>方法：新闻窗口；打法：新技术基础设施观察：围绕 Python 打包与 Rust/WASM 兼容性做窄工具验证</li>
-<li>建议：观察</li>
-<li>理由：HN 讨论显示 Rust 扩展进入 Python 分发的技术窗口，涉及跨平台安装、manylinux 与 Pyodide/WASM 兼容；但只是开发者体验与兼容性讨论，未见明确付费或重复任务，不足以证明市场。</li>
-<li>英文原文：This is a nice party trick! I use it to provide easy installation of software that is written in rust, but is primarily used by Python users. (e.g.: Biology tools) They can do <code>pip install ＜name＞</code>, since some people prefer this over downloading executables/installers. Bonus: Maturin/PyO3 can build &quot;manylinux&quot; binaries automatically, which helps with the Linux ABI diaspora.</li>
-<li>中文翻译：这是个不错的把戏！我用它来让主要面向 Python 用户的 Rust 软件更容易安装（例如生物工具）。用户可以 <code>pip install ＜name＞</code>，因为有些人更喜欢这种方式，而不是下载可执行文件/安装程序。额外好处：Maturin/PyO3 能自动构建 &quot;manylinux&quot; 二进制，这有助于缓解 Linux ABI 的碎片化问题。</li>
-<li>英文原文：But does it work everywhere Python works? My main issue with this Rust move has always been compatibility. Python can be embedded and ran in a heck of a lot of places. What&#x27;s the story when libraries that I may want to depend on are actually implemented in Rust and my target doesn&#x27;t/can&#x27;t handle the toolchain and there&#x27;s no build target?</li>
-<li>中文翻译：但它在所有能运行 Python 的地方都能工作吗？我对这股 Rust 潮流的主要顾虑一直是兼容性。Python 可以被嵌入并运行在非常多的地方。当我可能想依赖的库实际上是用 Rust 实现，而我的目标环境不处理/无法处理工具链，并且没有对应构建目标时，该怎么办？</li>
-<li>目标用户假设：含 Rust 扩展的 Python 包维护者；偏好 pip 安装的生物/科研工具用户；需要嵌入式或 WASM 环境运行 Python 的开发者。</li>
-<li>任务假设：让 Rust 实现的 Python 库跨平台安装和运行，包括 manylinux 与 Pyodide/WASM。</li>
-<li>现有办法待核查：Maturin/PyO3 自动构建 manylinux 二进制；PyPI 可发布 WASM 构建；部分人选择 C 扩展。</li>
-<li>供给缺口假设：并非所有 Python 运行环境都有 Rust 工具链/构建目标；兼容性与可移植性仍不确定。</li>
-<li>最小验证与交付：候选：输入 PyPI 包名或仓库，输出各平台/ABI/Pyodide 的兼容性矩阵与缺失构建目标提示的轻量网站。</li>
-<li>获客验证：先到 HN、Python 打包社区、Maturin/PyO3 文档社区与生物信息工具社区找维护者验证。</li>
-<li>收费假设：暂不明确；可验证企业 CI 构建托管、兼容性报告或顾问服务，但证据不足。</li>
-<li>个人适配待确认：轻量查询站适合个人/小团队；持续维护跨平台构建矩阵成本高，宜做窄工具。</li>
-<li>下一步：搜索打包兼容性抱怨，查看 Maturin/PyO3 未解决问题，访谈 5 位含 Rust 扩展的 Python 包维护者。</li>
-<li>风险与反证：现有工具可能已覆盖多数场景；WASM 生态变化快；免费替代多，付费意愿未知。</li>
-<li>未知事项：目标用户是包维护者、科研用户还是企业部署团队？；兼容性问题多常发生，是否已有 Maturin/PyO3 或 CI 工具覆盖？；是否愿意为兼容性检查或托管构建付费？；Pyodide/WASM 需求是否足够集中？；个人/小团队能否持续维护构建矩阵？</li>
+<li>方法：个人抱怨；打法：服务产品化</li>
+<li>建议：深挖</li>
+<li>理由：有创始人明确付费失败抱怨和评论者具体反馈，可深挖从1美元自助审计转向面向本地企业/代理商的交付式网站审计，但必须验证付费意愿。</li>
+<li>英文原文：When I created the site scanmypage.com, I genuinely believed that many business owners would use it — especially because of the price: just $1 for a website analysis.</li>
+<li>中文翻译：当我创建 scanmypage.com 时，我真的相信很多企业主会使用它——尤其是因为价格：一次网站分析只要 1 美元。</li>
+<li>英文原文：Consider that the vast majority of business owners outsource their websites to agencies and don&#x27;t know HTML from a roller coaster, and that might indicate that your ICP (ideal customer profile) might be wrong.</li>
+<li>中文翻译：考虑到绝大多数企业主把网站外包给代理商，他们连 HTML 和过山车都分不清，这可能表明你的 ICP（理想客户画像）可能错了。</li>
+<li>目标用户假设：待验证：本地非技术小企业主及其网站代理商；原产品实际可能吸引技术型开发者</li>
+<li>任务假设：获得可执行的网站/SEO问题清单并修复；代理商需要向客户交付审计报告</li>
+<li>现有办法待核查：通用SEO工具、手动检查、让LLM直接分析HTML、代理商内部流程</li>
+<li>供给缺口假设：原产品分析不准确、隐藏付费内容可被DevTools绕过、未证明为什么不能直接用Claude/GPT；对非技术企业主缺少信任与交付感</li>
+<li>最小验证与交付：面向代理商的半自动网站审计：输入URL，输出结构化问题清单（技术/SEO/性能/内容），含可复现证据、优先级、修复建议，支持白标导出；先人工复核保证准确，不做1美元自助</li>
+<li>获客验证：先找5至10家本地小企业和3至5家网站代理商做免费人工审计换访谈；在Indie Hackers/HN发布失败复盘吸引代理商反馈</li>
+<li>收费假设：待验证：按报告收费或代理商月订阅；先确认代理商愿为白标报告付费，而非继续1美元自助</li>
+<li>个人适配待确认：符合个人/小团队轻量网站与服务产品化；需JS渲染和结构化提取，人工复核可能限制规模</li>
+<li>下一步：先联系本地小企业和代理商，用人工方式交付审计报告，观察谁愿意付费；不要先开发自助产品</li>
+<li>风险与反证：可能被LLM免费替代；代理商已有内部流程；技术审计准确性要求高；单个抱怨样本不能证明付费</li>
+<li>未知事项：本地小企业主是否愿为人工审计报告付费；网站代理商是否愿为白标审计工具或服务付费；需要多少次人工复核才能保证报告准确；此类审计是否已被现有SEO工具和代理商内部流程覆盖</li>
 </ul>
-<h3>3. Astra and Fable still hack on simple variants of alignment evals from 2025 / Astra 与 Fable 仍在 2025 年对齐评估的简单变体上作弊</h3>
+<h3>2. Show HN: I made an automated day-by-day itinerary organizer for my trip to Spain / Show HN：我为西班牙之行做了一个自动逐日行程整理器</h3>
 <ul>
-<li>机会编号：9b4ba29175dedddc28b3</li>
+<li>机会编号：e62e77c2bb34abbcc80d</li>
 <li>来源：Hacker News</li>
-<li>链接：<a href="https://news.ycombinator.com/item?id=49684393" target="_blank" rel="noopener noreferrer">Astra and Fable still hack on simple variants of alignment evals from 2025</a></li>
-<li>证据入口：<a href="https://news.ycombinator.com/item?id=49684393" target="_blank" rel="noopener noreferrer">原始资料</a></li>
-<li>发布时间：2026-09-13T14:28:36Z</li>
-<li>采集时间：2026-09-13T16:57:41.188369+00:00</li>
-<li>历史变化：无变化；首次 2026-09-13</li>
-<li>方法：新闻窗口；打法：抱怨/安全服务化观察：从持续安全测试需求切入</li>
-<li>建议：观察</li>
-<li>理由：讨论包含安全测试需求信号：希望像 fuzz 一样每夜跑渗透测试，并让 LLM 在攻击性安全语境中不被拒绝；但这是对齐评估帖子下的个体评论，缺少采购与持续任务证据。</li>
-<li>英文原文：You can have nightly penetration testing. You should have nighty pentests like we fuzz releases today.</li>
-<li>中文翻译：你可以做每夜渗透测试。你应该像今天跑发布模糊测试那样做每夜渗透测试。</li>
-<li>英文原文：It feels like there’s a missing nuance from this discussion of alignment that alignment is context dependent.</li>
-<li>中文翻译：感觉这场对齐讨论缺少一个细微之处：对齐是依赖语境的。</li>
-<li>目标用户假设：关注代码安全测试与发布前加固的开发者/安全工程师；希望用 LLM 做攻击性测试的人。</li>
-<li>任务假设：在代码上线前持续发现可被利用的漏洞，像 fuzz 一样做夜间渗透测试。</li>
-<li>现有办法待核查：发布前模糊测试、常规安全扫描、人工渗透测试；模型安全策略可能拒绝攻击性请求。</li>
-<li>供给缺口假设：缺少持续、自动化且能给出可执行 exploit 级别结果的安全测试，以及能区分语境的对齐行为。</li>
-<li>最小验证与交付：候选：输入 Git 仓库或容器镜像，定时输出轻量级漏洞与修复建议报告的 CI 工具；先限定 Web/依赖/配置检查。</li>
-<li>获客验证：在安全社区、DevOps 社群、HN 与开源维护者群体验证需求。</li>
-<li>收费假设：可探索按仓库/CI 订阅或一次性审计报告，但需先证明持续使用意愿。</li>
-<li>个人适配待确认：个人/小团队不宜声称完整渗透测试；可做细分检查或报告生成，责任与合规门槛高。</li>
-<li>下一步：访谈安全工程师，核查现有自动化安全测试流程与痛点，确认是否愿意为夜间测试付费。</li>
-<li>风险与反证：误报、漏报与合规风险；大厂已有安全产品；单条 HN 评论不能证明付费需求；模型政策变化。</li>
-<li>未知事项：安全团队是否已用 LLM 做夜间渗透测试？；现有 SAST/DAST/模糊测试覆盖到什么程度？；误报率与合规责任如何？；谁付费，个人小团队能否交付可信结果？</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49689049" target="_blank" rel="noopener noreferrer">Show HN: I made an automated day-by-day itinerary organizer for my trip to Spain</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49689049" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-13T21:47:09Z</li>
+<li>采集时间：2026-09-13T23:27:00.012353+00:00</li>
+<li>历史变化：新增；首次 2026-09-14</li>
+<li>方法：暗影复刻；打法：暗影复刻：把个人整理旅行预订信息的流程做成轻量解析工具，先验证整理价值，不先做完整规划</li>
+<li>建议：深挖</li>
+<li>理由：原文作者明确描述手动整理预订信息带来的痛点，并已做出可运行产品；同时承认规划侧和航班提醒缺失，存在细分改进空间，但仅为单人自述，尚未证明市场规模与付费。</li>
+<li>英文原文：Most of this was poorly organized (manually) in my phone&#x27;s Notes app, with references to specific emails for more information.</li>
+<li>中文翻译：大部分内容都被我手动、糟糕地整理在手机的Notes应用里，还要引用特定邮件来获取更多信息。</li>
+<li>英文原文：However, the tool doesn&#x27;t do anything to assist on the planning side and doesn&#x27;t provide true flight alert pushes, despite having live flight status syncing.</li>
+<li>中文翻译：然而，这个工具在规划一侧不做任何辅助，也不提供真正的航班提醒推送，尽管它有实时航班状态同步。</li>
+<li>目标用户假设：自由行、多城市旅行者，小团体旅行组织者</li>
+<li>任务假设：把分散在邮件、PDF、截图里的航班、酒店、餐厅、车票等预订整理成按天行程，并快速找到确认号和地址</li>
+<li>现有办法待核查：手机Notes、邮箱搜索、手动截图和日历</li>
+<li>供给缺口假设：手动整理易漏易乱；已有产品不做规划辅助和真正航班提醒</li>
+<li>最小验证与交付：上传邮件、PDF或截图，自动解析出时间、地点、确认号，生成按天行程与离线可查卡片；先不做完整规划，只验证解析与整理价值</li>
+<li>获客验证：Hacker News Show HN、旅行社区、针对预订确认邮件整理或行程生成的搜索内容，先获取试用反馈</li>
+<li>收费假设：免费试用验证留存；后续可考虑订阅或按行程、解析次数收费，需先验证付费意愿</li>
+<li>个人适配待确认：高；轻量网站加LLM解析符合个人或小团队，技术栈如Cloudflare Workers可低成本验证</li>
+<li>下一步：访谈10名多预订自由行用户；收集10份不同格式预订文件测试解析准确率；核查现有行程管理工具与搜索需求，再决定是否做MVP</li>
+<li>风险与反证：免费竞品多、解析长尾格式成本高、航班提醒依赖第三方数据、单人需求不代表市场</li>
+<li>未知事项：有多少旅行者反复遇到多预订文件整理问题；现有行程管理工具的覆盖和定价；用户是否愿意为自动解析或提醒付费；解析准确率和文件类型覆盖成本；航班提醒数据来源与合规</li>
 </ul>
-<h3>4. AI Writing Is Fine / AI 写作没问题</h3>
+<h3>3. Fable 5.1 Solves the Cyphral Distich, a 370-year-old cipher / Fable 5.1 破解 370 年历史的 Cyphral Distich 密码</h3>
 <ul>
-<li>机会编号：2cc950788b6af05af8cc</li>
+<li>机会编号：15cd44eed22ee8e66e93</li>
 <li>来源：Hacker News</li>
-<li>链接：<a href="https://news.ycombinator.com/item?id=49684082" target="_blank" rel="noopener noreferrer">AI Writing Is Fine</a></li>
-<li>证据入口：<a href="https://news.ycombinator.com/item?id=49684082" target="_blank" rel="noopener noreferrer">原始资料</a></li>
-<li>发布时间：2026-09-13T13:59:12Z</li>
-<li>采集时间：2026-09-13T16:57:41.523627+00:00</li>
-<li>历史变化：无变化；首次 2026-09-13</li>
-<li>方法：个人抱怨；打法：从写作者对 AI 味的抱怨切入，观察文风约束与删冗工具</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49688695" target="_blank" rel="noopener noreferrer">Fable 5.1 Solves the Cyphral Distich, a 370-year-old cipher</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49688695" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-13T21:06:13Z</li>
+<li>采集时间：2026-09-13T23:27:00.022411+00:00</li>
+<li>历史变化：新增；首次 2026-09-14</li>
+<li>方法：新技术；打法：利用前沿 LLM 在历史密码/古籍研究中的能力变化，观察数字人文研究者的半自动标注与破译工作流是否可产品化。</li>
+<li>建议：深挖</li>
+<li>理由：评论展示了可复现的任务链：LLM 编写标注工具、人工标注少量地图切片、CV 批量推断，说明能力变化可能服务于历史研究者；但尚无付费证据，需要继续验证数字人文工具的需求与现有替代。</li>
+<li>英文原文：I myself recently used Claude to finally do an relatively exhaustive study of the location of heretofore-unlisted formal gardens in Ireland in the early 1800s and early 1900s, by having Claude write the tooling for me to manually annotate a few dozen on tiles of historic maps, and then running some CV model across the rest of the tiles using my input.</li>
+<li>中文翻译：我自己最近用 Claude 终于完成了一项相对详尽的研究，考察 19 世纪初和 20 世纪初爱尔兰此前未列出的正规花园的位置：我让 Claude 为我编写工具，在历史地图切片上手动标注几十个花园，然后用某种 CV 模型根据我的输入跑完其余切片。</li>
+<li>目标用户假设：历史研究者、档案馆工作人员、数字人文项目成员及有长期研究爱好的个人</li>
+<li>任务假设：对古地图、古籍或密码文本进行人工标注、批量识别与候选破译，缩短多年手动整理时间。</li>
+<li>现有办法待核查：通用 LLM 生成一次性脚本、QGIS/标注软件、CV 模型、人工查阅档案；流程需要自己拼装。</li>
+<li>供给缺口假设：缺少面向非程序员的低门槛工作流：把少量人工标注、LLM 辅助破译和 CV 批量处理串起来，并保留可追溯证据。</li>
+<li>最小验证与交付：轻量网页工具：上传公开古地图切片或文本，手动标注少量样本后调用用户自带 API key 的模型生成候选识别/破译结果，输出带置信度和来源链接的 CSV/地图图层；先不做全自动破解。</li>
+<li>获客验证：数字人文邮件列表、历史系/档案馆社群、HN、Reddit r/AskHistorians/r/Genealogy；与地方历史学会合作。</li>
+<li>收费假设：按项目/月订阅或研究服务费；先验证机构是否有预算，个人爱好者可用免费额度。</li>
+<li>个人适配待确认：适合个人小团队做轻量工具，但需要领域知识和 API 成本控制；通用 LLM 也可直接做，差异化在标注工作流与档案合规。</li>
+<li>下一步：访谈 3-5 位数字人文研究者，问他们最近一次标注/破译任务用了什么工具、卡在哪；用一个古地图小样本做手动流程原型，测算模型成本与准确率。</li>
+<li>风险与反证：能力演示不等于稳定可靠；学术研究要求可复现与证据链；通用模型迭代可能吞掉工具价值；版权与隐私限制。</li>
+<li>未知事项：历史研究者/档案馆是否已有常用标注与破译工具及其不足；目标用户愿意为什么环节付费；古地图/手稿的版权与数据使用限制；小团队能否处理低资源语言/密码的准确率与求证成本</li>
+</ul>
+<h3>4. Why is Google still serving dodgy ads? / Google 为什么仍在投放可疑广告？</h3>
+<ul>
+<li>机会编号：dabafe02ef0fe0918644</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49686445" target="_blank" rel="noopener noreferrer">Why is Google still serving dodgy ads?</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49686445" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-13T17:37:44Z</li>
+<li>采集时间：2026-09-13T23:27:01.447606+00:00</li>
+<li>历史变化：新增；首次 2026-09-14</li>
+<li>方法：新闻窗口；打法：从 HN 评论中的个人受骗经历与平台治理讨论，观察“可疑广告提醒/举报聚合”是否有独立小工具空间。</li>
 <li>建议：观察</li>
-<li>理由：评论给出具体抱怨：AI 文本冗长、过度解释、缺少受众共享知识判断，并提出用过往同类稿件作示例；但属于写作社区观点，未看到付费或采购证据，且通用写作工具供给成熟。</li>
-<li>英文原文：Good writing is dense and concise, transmitting an idea or information efficiently. Virtually all AI writing fails that hurdle and does not try to be concise even when prompted to do so.</li>
-<li>中文翻译：好的写作是密集而简洁的，能高效传递一个想法或信息。几乎所有 AI 写作都过不了这一关，即使被提示要简洁，它也不尝试简洁。</li>
-<li>英文原文：What does work is giving AI examples in context of past iterations of the same piece of work i.e. release announcements etc. that your LLM can copy. But it&#x27;s still not perfect.</li>
-<li>中文翻译：真正有效的是给 AI 提供同一作品过往迭代的上下文示例，比如发布公告等，让 LLM 可以模仿。但仍然不完美。</li>
-<li>目标用户假设：技术写作者、开发者关系人员、小团队内容运营者</li>
-<li>任务假设：让 AI 辅助写出的发布公告、技术博客或对外邮件更像本人或团队语气，减少冗长与过度解释</li>
-<li>现有办法待核查：手工编辑；用提示词要求简洁；把过往同类稿件作为少样本示例喂给模型</li>
-<li>供给缺口假设：模型缺少受众共享知识、取舍判断和团队口吻；通用工具按语法或风格检查，难判断哪些内容对特定受众可省略</li>
-<li>最小验证与交付：上传若干过往发布公告或博客作为风格上下文，对草稿标记可删冗句、过度解释和口吻偏离，生成带理由的修改建议；输入草稿与历史样本，输出批注版和改写对照</li>
-<li>获客验证：先在 HN、技术写作社区、开发者关系 Slack 或 Discord 用免费样本报告吸引试用；开源轻量插件或 CLI</li>
-<li>收费假设：按文档或月订阅，面向小团队；先验证重复使用，再考虑团队版</li>
-<li>个人适配待确认：个人可做轻量原型，但需要写作领域判断，且面临通用写作工具竞争</li>
-<li>下一步：访谈 10 名经常写发布公告或技术博客的人，收集他们对 AI 草稿的真实修改记录，确认重复出现的删改类型和是否愿付费</li>
-<li>风险与反证：需求可能只是主观偏好；大模型厂商或写作工具内置类似能力；效果难以量化；免费替代多</li>
-<li>未知事项：写作者是否愿意为降低 AI 味付费；现有工具能否覆盖发布公告或技术博客场景；上下文示例的准确率与人工编辑成本；目标用户规模与获客渠道</li>
+<li>理由：评论提供了具体个人抱怨（父亲看到“立即更新 PDF”的广告后卸载 YouTube），但尚无现有供给、付费或小团队可分发渠道证据；作为广告反诈辅助值得继续观察，不能认定有市场。</li>
+<li>英文原文：My father saw a similar ad and got worried. The ad said you need to update your pdf version immediately. He uninstalled the YouTube because he knew it was irregular and thought his phone was hacked.</li>
+<li>中文翻译：我父亲看到一则类似的广告后很担心。广告说你需要立即更新 PDF 版本。他卸载了 YouTube，因为他知道这不正常，并以为自己的手机被黑了。</li>
+<li>英文原文：I suspect this boils down to a cost/benefit tradeoff. The cost of strictly enforcing stated rules for ads is felt immediately and fully by Google. It is concrete, measurable, and probably non-insignificant; the benefit is essentially goodwill from the narrow sliver of the web that is verbal about this.</li>
+<li>中文翻译：我怀疑这归根结底是成本/收益权衡。严格执行广告规则的代价会立刻且完全由 Google 感受到。它是具体、可衡量且可能不小的；而收益本质上只是来自网络上少数会公开谈论此事的人的好感。</li>
+<li>目标用户假设：对平台广告警觉性较低、容易把可疑广告当成系统提示的普通用户，尤其是年长用户及其家属</li>
+<li>任务假设：识别并避免 YouTube/Google 上的诈骗式广告，减少误点与恐慌。</li>
+<li>现有办法待核查：人工判断后举报；卸载相关应用；使用广告拦截器；依赖平台事后审核。</li>
+<li>供给缺口假设：缺少面向非技术用户的实时可疑广告提醒或低门槛举报聚合；现有平台举报反馈慢且不透明。</li>
+<li>最小验证与交付：一个浏览器扩展/轻量网页，收录可公开验证的可疑广告关键词与版式，用户可一键粘贴广告文案或截图（本地处理）获得风险提示并生成举报模板；先不做平台内自动拦截。</li>
+<li>获客验证：老年人数字安全社区、家庭技术支持群、HN/Reddit 反诈骗板块；与反诈内容创作者合作。</li>
+<li>收费假设：暂不确定；可考虑捐赠、反诈机构合作或企业安全培训，但需先验证付费方。</li>
+<li>个人适配待确认：轻量网页/扩展符合个人小团队，但广告拦截与平台数据获取有技术和合规门槛，需谨慎。</li>
+<li>下一步：先收集 20-30 条 HN/Reddit 上可公开验证的诈骗广告样本，确认是否能用文案规则识别；访谈 5 位家有长辈的用户，问他们现在如何提醒家人。</li>
+<li>风险与反证：平台广告形态变化快；自动拦截可能违反平台条款或法律；误报会损害信任；仅有抱怨不足以证明付费需求。</li>
+<li>未知事项：可疑广告在 YouTube 等平台上的具体出现频率与可检测信号；目标用户（如老年人及其家属）是否愿意使用或付费；现有广告拦截/举报工具的实际效果与供给格局；小团队合法获取广告样本与分发提醒的渠道</li>
 </ul>
 <h3>5. Colafornia/short-video-generator-AI / Colafornia/short-video-generator-AI：开源 AI 短视频生成器</h3>
 <ul>
@@ -213,7 +215,7 @@
 <li>链接：<a href="https://github.com/Colafornia/short-video-generator-AI" target="_blank" rel="noopener noreferrer">Colafornia/short-video-generator-AI</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/Colafornia/short-video-generator-AI/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-08T14:55:47Z</li>
-<li>采集时间：2026-09-13T16:57:41.635266+00:00</li>
+<li>采集时间：2026-09-13T23:27:00.625693+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：开源复刻 OpusClip/Vidyo.ai，把长视频切片能力本地化；个人可做垂类托管或代运营，而非通用工具。</li>
 <li>建议：观察</li>
@@ -241,7 +243,7 @@
 <li>链接：<a href="https://github.com/kruzovic7/ai-data-extractor" target="_blank" rel="noopener noreferrer">kruzovic7/ai-data-extractor</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/kruzovic7/ai-data-extractor/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-11T18:12:58Z</li>
-<li>采集时间：2026-09-13T16:57:41.635701+00:00</li>
+<li>采集时间：2026-09-13T23:27:00.626344+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：把分散的 AI 编码助手本地存储统一导出为 JSONL；先做个人备份/迁移，再试探团队知识留存。</li>
 <li>建议：观察</li>
@@ -267,7 +269,7 @@
 <li>链接：<a href="https://github.com/crwdla/tokentab" target="_blank" rel="noopener noreferrer">crwdla/tokentab</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/crwdla/tokentab/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-07T17:18:31Z</li>
-<li>采集时间：2026-09-13T16:57:41.634763+00:00</li>
+<li>采集时间：2026-09-13T23:27:00.625407+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：非新词站打法。作为“新技术带来的能力变化 + 现有免费供给”样本观察：先核实真实任务与付费信号，不做配额式深挖。</li>
 <li>建议：观察</li>
@@ -295,7 +297,7 @@
 <li>链接：<a href="https://github.com/wundercorp/loki" target="_blank" rel="noopener noreferrer">wundercorp/loki</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/wundercorp/loki/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-11T17:31:16Z</li>
-<li>采集时间：2026-09-13T16:57:42.537105+00:00</li>
+<li>采集时间：2026-09-13T23:27:01.271558+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：新技术能力观察：自建技能、跨会话记忆、多平台网关与定时任务，寻找其中可独立成立的小环节</li>
 <li>建议：观察</li>
@@ -325,7 +327,7 @@
 <li>链接：<a href="https://github.com/mohdhd/strat-hunter" target="_blank" rel="noopener noreferrer">mohdhd/strat-hunter</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/mohdhd/strat-hunter/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-08T12:59:34Z</li>
-<li>采集时间：2026-09-13T16:57:42.479886+00:00</li>
+<li>采集时间：2026-09-13T23:27:01.297328+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：新技术观察：跟踪 AI 代理 + 回测工作流的可用性、成本与真实任务频次，不急于复刻或做新词站。</li>
 <li>建议：观察</li>
@@ -353,7 +355,7 @@
 <li>链接：<a href="https://github.com/Heyosseus/sloppy" target="_blank" rel="noopener noreferrer">Heyosseus/sloppy</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/Heyosseus/sloppy/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-10T07:41:59Z</li>
-<li>采集时间：2026-09-13T16:57:42.640950+00:00</li>
+<li>采集时间：2026-09-13T23:27:01.354331+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：聚焦 AI 编码代理留下的 PHP 代码质量模式，用 diff 门禁切入。</li>
 <li>建议：观察</li>
@@ -381,7 +383,7 @@
 <li>链接：<a href="https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE" target="_blank" rel="noopener noreferrer">kulkas2pintu/QWEN_EDIT_IMAGE</a></li>
 <li>证据入口：<a href="https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-07-29T16:23:58.000Z</li>
-<li>采集时间：2026-09-13T16:57:40.717700+00:00</li>
+<li>采集时间：2026-09-13T23:26:59.858473+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：把已开源的改图能力收窄到单一场景（如保持人脸换服装/换姿势），做成轻量在线小工具或 API 加一层，而不是做通用修图产品。</li>
 <li>建议：观察</li>
@@ -402,14 +404,42 @@
 <li>风险与反证：上游模型许可与商用条款未核实；肖像权与深度伪造合规风险；免费 Space 的排队与可用性不可控；把 292 个点赞直接当成需求会误判。</li>
 <li>未知事项：真实使用者是谁（电商运营、写真修图、社媒头像等），原文没有用户证据；是否有人愿意为改图按次或包月付费；同类在线改图服务的供给情况与价格；单次推理成本、排队时长与稳定性，原文未提及；上游模型许可、商用条款与肖像权/深度伪造合规边界</li>
 </ul>
-<h3>12. m-a-p/YuE2-3B / YuE2-3B：带可编辑乐谱与代理编辑的开源音乐生成模型</h3>
+<h3>12. Docket – Per-commit evidence records for agent-written code / Docket：为AI智能体编写的代码提供逐提交证据记录</h3>
+<ul>
+<li>机会编号：029e48d300953ed22f2b</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49685642" target="_blank" rel="noopener noreferrer">Docket – Per-commit evidence records for agent-written code</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49685642" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-13T16:17:07Z</li>
+<li>采集时间：2026-09-13T23:27:01.930349+00:00</li>
+<li>历史变化：新增；首次 2026-09-14</li>
+<li>方法：新技术；打法：无明确策略</li>
+<li>建议：观察</li>
+<li>理由：评论显示两个具体争议：证据引用可能被git prune清掉；以及不知道给谁看、是否只是用新流程弥补流程问题。说明有真实开发场景，但需求方和付费意愿未证实，值得小范围验证。</li>
+<li>英文原文：Interesting approach to documenting an audit record of changes instead of dumping info into commit description that clutters history. The one major risk not addressed by this vibe code is orphaned references are not a safe storage location. A <code>git prune</code> will delete them all since they are not part any head reference. https://git-scm.com/docs/git-prune</li>
+<li>中文翻译：有趣的做法：把变更的审计记录单独记录下来，而不是把信息倾倒进提交说明里弄乱历史。这个 vibe code 没有解决的一个主要风险是，孤儿引用不是安全的存储位置。<code>git prune</code> 会删除它们全部，因为它们不属于任何头引用。https://git-scm.com/docs/git-prune</li>
+<li>英文原文：Who is this for? Who&#x27;s looking at it? It seems like this is solving an engineering culture/process failure by introducing new engineering process.</li>
+<li>中文翻译：这是给谁用的？谁在看它？看起来这是通过引入新的工程流程来解决工程文化或流程失败。</li>
+<li>目标用户假设：待验证；可能是使用AI智能体写代码、需要审计或合规记录的开发团队。</li>
+<li>任务假设：为每次提交保存可追溯的证据或意图记录，便于事后审计或复盘。</li>
+<li>现有办法待核查：待验证；评论提到用提交说明、CI、强制评审或PR来组织变更，但未说明这是否足够。</li>
+<li>供给缺口假设：证据记录不应只是放进易被清理的Git孤儿引用；需要可靠存储，并明确查看者与触发场景。</li>
+<li>最小验证与交付：可做Git提交证据记录的最小工具：把每次AI代理提交的意图、测试或验证结果存到不易被prune的持久位置，并提供审计导出视图；先在单一团队试用。</li>
+<li>获客验证：待验证；可在Hacker News、AI编程社区、开源仓库收集反馈，但不应假设有规模需求。</li>
+<li>收费假设：待验证；可能团队版或自托管订阅，但无付费证据。</li>
+<li>个人适配待确认：待验证；与个人或小团队做开发者工具的方向可能匹配，但需确认是否只是小众开源需求。</li>
+<li>下一步：先访谈3至5个用AI代理提交代码的团队，确认谁查看证据、多久一次、现有做法为何不够，并验证 git prune 风险是否真实影响使用。</li>
+<li>风险与反证：把Hacker News上的技术新奇当付费需求；若只服务极少数vibe coding团队，市场可能过小。</li>
+<li>未知事项：目标用户是AI辅助开发团队还是个人开发者；审计记录的真实使用场景和频率；是否愿付费或只是开源工具；git prune 等存储风险能否被可靠解决</li>
+</ul>
+<h3>13. m-a-p/YuE2-3B / YuE2-3B：带可编辑乐谱与代理编辑的开源音乐生成模型</h3>
 <ul>
 <li>机会编号：2d1e190b309f2b26868b</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/m-a-p/YuE2-3B" target="_blank" rel="noopener noreferrer">m-a-p/YuE2-3B</a></li>
 <li>证据入口：<a href="https://huggingface.co/m-a-p/YuE2-3B/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-09T18:30:33.000Z</li>
-<li>采集时间：2026-09-13T16:57:40.859715+00:00</li>
+<li>采集时间：2026-09-13T23:27:00.070137+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：以开源模型能力变化为切入点，观察“歌词+风格→整首歌，并能按自然语言反馈改版”的编辑闭环是否可被小团队做成轻量产品化服务；不作为新词站打法。</li>
 <li>建议：观察</li>
@@ -430,14 +460,14 @@
 <li>风险与反证：榜单与“前沿质量”为模型方自评，未独立验证；翻唱涉及现有歌曲与歌词版权；GPU 与推理时间成本；Suno 等云端产品迭代快，可能快速覆盖该能力。</li>
 <li>未知事项：是否有创作者愿意为“可编辑、可反复改版”的音乐生成付费；翻唱与歌词来源的版权合规边界；实际生成延迟、显存占用与单曲成本；与 Suno 等云端产品相比，用户切换动力是否足够</li>
 </ul>
-<h3>13. XHToken/Spark-X2.5-4B / XHToken 发布 Spark-X2.5-4B 与 Spark-X2.5-1.7B 开源模型</h3>
+<h3>14. XHToken/Spark-X2.5-4B / XHToken 发布 Spark-X2.5-4B 与 Spark-X2.5-1.7B 开源模型</h3>
 <ul>
 <li>机会编号：3e587c7e7418aff92118</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/XHToken/Spark-X2.5-4B" target="_blank" rel="noopener noreferrer">XHToken/Spark-X2.5-4B</a></li>
 <li>证据入口：<a href="https://huggingface.co/XHToken/Spark-X2.5-4B/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-08-24T06:34:34.000Z</li>
-<li>采集时间：2026-09-13T16:57:40.692181+00:00</li>
+<li>采集时间：2026-09-13T23:26:59.832168+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：能力红利观察：跟踪小尺寸模型的原生长上下文与多硬件/多推理框架兼容，是否让此前个人跑不动或成本过高的任务变为可行。</li>
 <li>建议：观察</li>
@@ -458,14 +488,14 @@
 <li>风险与反证：模型卡为厂商宣传口径；许可与商用限制不明；同类开源模型迭代极快，窗口可能很短</li>
 <li>未知事项：消费级硬件上 1M 上下文的真实显存与速度表现；1.7B/4B 两档的实际能力边界与幻觉率；模型权重许可证与商业使用限制（原文未提及）；是否已有用户为长上下文本地部署付费；个人用户的算力条件未知</li>
 </ul>
-<h3>14. deepseek-ai/DeepSeek-V4.1-Flash / DeepSeek-V4.1-Flash：把 KV Cache 压缩推向极限的多模态 MoE</h3>
+<h3>15. deepseek-ai/DeepSeek-V4.1-Flash / DeepSeek-V4.1-Flash：把 KV Cache 压缩推向极限的多模态 MoE</h3>
 <ul>
 <li>机会编号：5c348986a15182f2f224</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener noreferrer">deepseek-ai/DeepSeek-V4.1-Flash</a></li>
 <li>证据入口：<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-10T02:17:58.000Z</li>
-<li>采集时间：2026-09-13T16:57:40.687795+00:00</li>
+<li>采集时间：2026-09-13T23:26:59.818901+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：跟踪长上下文推理成本下降是否改变小团队可交付的服务形态</li>
 <li>建议：观察</li>
@@ -489,34 +519,6 @@
 <li>下一步：核查权重与许可、是否有平价推理 API、1M 上下文实测质量与单价，再判断是否做编排层原型</li>
 <li>风险与反证：仅有技术报告与自评榜单，缺少第三方复现；成本优势可能只在大规模代理负载上成立；API 可得性未知</li>
 <li>未知事项：权重是否开放及许可条件；第三方推理 API 是否可得与单价；1M 上下文的实际质量与延迟；多模态输入的真实可用性；与现有模型的成本差是否足以支撑新服务</li>
-</ul>
-<h3>15. openbmb/MiniCPM5-2B / MiniCPM5-2B：面向端侧与本地部署的 2B 级开源模型发布</h3>
-<ul>
-<li>机会编号：6db7a09f6b2d61e8fae8</li>
-<li>来源：Hugging Face models</li>
-<li>链接：<a href="https://huggingface.co/openbmb/MiniCPM5-2B" target="_blank" rel="noopener noreferrer">openbmb/MiniCPM5-2B</a></li>
-<li>证据入口：<a href="https://huggingface.co/openbmb/MiniCPM5-2B/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
-<li>发布时间：2026-09-06T11:12:19.000Z</li>
-<li>采集时间：2026-09-13T16:57:40.688099+00:00</li>
-<li>历史变化：无变化；首次 2026-09-13</li>
-<li>方法：新技术；打法：看能力改变：2B 稠密模型可在本地/端侧运行，提供 GGUF、MLX、GPTQ、LiteRT 等多种运行时格式，上下文 13 万 token，并宣称在编码、数学、长上下文、工具调用与 agent 任务上相对同级模型有优势；这些是能力信号，不等于已验证市场。</li>
-<li>建议：观察</li>
-<li>理由：这是一次模型能力与可部署形态的更新，可能降低个人在无 GPU 或弱 GPU 设备上跑本地模型、做工具调用与端侧 agent 的门槛，但页面全部为官方自述，缺少真实用户抱怨、搜索需求与付费供给证据，暂不构成可开工的产品机会。</li>
-<li>英文原文：It is a dense 2B Transformer that scales up the same training recipe, built for on-device, local deployment, and resource-constrained scenarios, reaching 2B-class open-source SOTA.</li>
-<li>中文翻译：它是一款稠密 2B Transformer，沿用同一训练配方并放大规模，面向端侧、本地部署和资源受限场景，达到 2B 级开源 SOTA。</li>
-<li>英文原文：comprising 500K agent training samples to enhance comprehensive on-device agent capabilities</li>
-<li>中文翻译：包含 50 万条 agent 训练样本，用于增强端侧 agent 的综合能力。</li>
-<li>目标用户假设：待验证：可能在无独显或弱显卡的个人电脑、内网或隐私敏感环境下使用本地模型的个人开发者与小团队，具体身份与规模未在证据中出现。</li>
-<li>任务假设：待验证：在资源受限设备上本地运行可离线、支持长上下文与工具调用的语言模型，并完成量化、部署与端侧 agent 类任务。</li>
-<li>现有办法待核查：待验证：页面列出 llama.cpp / Ollama / LM Studio 等运行时与 GGUF、MLX、GPTQ、LiteRT 等格式，说明运行路径已存在，但用户当前实际用什么、哪里卡住，证据未说明。</li>
-<li>供给缺口假设：待验证：是否缺少低门槛的中文选型与量化部署指引、端侧 agent 的可复用模板、不同硬件下的实测速度与效果对照。</li>
-<li>最小验证与交付：验证型轻量页：输入为设备配置与用途（中文问答／工具调用／长文档），输出为可执行的 Ollama 或 llama.cpp 命令、应选量化版本与实测速度、中文任务小样本结果。由个人开发者用自有设备跑 2B 与 1B 多格式版本，产出与同级模型的横向实测表，作为唯一内容。</li>
-<li>获客验证：在 Hugging Face 与 ModelScope 该模型页讨论区、llama.cpp / Ollama 社区、本地部署相关论坛发布实测贴与 issue，用可复现命令换取反馈，不做泛关键词铺量。</li>
-<li>收费假设：待验证：可设想部署模板、内网部署咨询或硬件适配选型服务，但目前无任何付费意愿或成交证据支持。</li>
-<li>个人适配待确认：与个人/小团队、轻量网站、新技术兴趣的匹配度中等：内容形式轻、可自测，但需要真实硬件与实测工时，且内容易随模型迭代过时，护城河不明。</li>
-<li>下一步：先在一台普通笔记本上用 GGUF 与 MLX 版本实测模型体积、内存占用、生成速度、中文问答与工具调用表现，并检索本地部署者的搜索词与抱怨，确认是否存在重复出现的具体任务后再决定是否做内容或工具。</li>
-<li>风险与反证：官方自述的 SOTA 属宣传口径；下载量、点赞数与数据集发布不能等同于付费需求；模型格式与版本迭代快，内容可能迅速过时；本地部署门槛使付费意愿难以判断。</li>
-<li>未知事项：下载量与点赞数能否反映真实使用与持续使用，未知；宣称的 2B 级 SOTA 与其他同级开源模型相比的独立评测结果，未知；本地部署者当前的具体任务、抱怨点与愿意付费的场景，未知；中文优先用户在该模型上的实际表现与选型偏好，未知；是否存在已提供部署支持、量化打包或端侧 agent 模板的现有供给，未知</li>
 </ul>
     </article>
   </main>
