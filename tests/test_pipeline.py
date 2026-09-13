@@ -49,7 +49,7 @@ class MiningTest(unittest.TestCase):
         report = mining.render_report([item], {}, '2026-09-13')
         self.assertNotIn('Invoice export', report)
 
-    def test_report_shows_at_most_twenty_analyzed_opportunities(self):
+    def test_report_shows_at_most_fifteen_analyzed_opportunities(self):
         items = []
         for i in range(25):
             item = self.sample(f'https://example.com/{i}')
@@ -58,9 +58,25 @@ class MiningTest(unittest.TestCase):
             item['analysis'] = self.analyzed(item)
             items.append(item)
         report = mining.render_report(items, {}, '2026-09-13')
-        self.assertEqual(report.count('\n### '), 20)
+        self.assertEqual(report.count('\n### '), 15)
         self.assertIn('原始线索：25 条', report)
-        self.assertIn('日报展示：20 条', report)
+        self.assertIn('日报展示：15 条', report)
+
+    def test_actionable_repository_outranks_generic_model_card_for_display(self):
+        model = mining.evidence('Generic model', 'https://example.com/model-card',
+                                'Hugging Face models', '新技术',
+                                'Open source local model API for image and video inference.')
+        tool = mining.evidence('Export tool', 'https://example.com/export-tool',
+                               'GitHub', '新技术',
+                               'Export local AI session logs to normalized JSON for backup and migration.')
+        for rank, item in enumerate((model, tool), 1):
+            item['candidate_rank'] = rank
+            item['selected_for_analysis'] = True
+            item['analysis_mode'] = 'model'
+            item['analysis'] = self.analyzed(item, recommendation='观察')
+            item['analysis']['facts'][0]['quote'] = item['raw'].split('.')[0]
+        report = mining.render_report([model, tool], {}, '2026-09-13')
+        self.assertLess(report.index('### 1. Export tool'), report.index('### 2. Generic model'))
 
     def test_empty_report_is_auditable(self):
         from scripts.audit_report import audit

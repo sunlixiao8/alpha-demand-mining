@@ -268,13 +268,29 @@ def contains_chinese(value):
     return bool(re.search(r'[\u3400-\u9fff]', value or ''))
 
 
+def display_score(item):
+    """Prioritize decision-useful evidence without imposing category quotas."""
+    analysis = item.get('analysis') or fallback(item)
+    score = candidate_score(item)
+    if analysis.get('recommendation') == '深挖':
+        score += 100
+    if analysis.get('method') != '新技术':
+        score += 5
+    if item.get('source') == 'GitHub':
+        score += 3
+    elif item.get('source') == 'Hugging Face spaces':
+        score += 1
+    return score
+
+
 def render_report(items, states, date):
     public = [x for x in items if not x.get('private')]
     rank = {'深挖': 0, '观察': 1, '暂存': 2, '放弃': 3}
     reportable = [x for x in public if x.get('selected_for_analysis') and x.get('analysis_mode') == 'model'
                   and x.get('analysis', fallback(x))['recommendation'] in ('深挖', '观察')]
-    reportable.sort(key=lambda x: (x.get('change') == '无变化', rank[x['analysis']['recommendation']], x.get('candidate_rank', 999), x['id']))
-    reportable = reportable[:20]
+    reportable.sort(key=lambda x: (rank[x['analysis']['recommendation']], -display_score(x),
+                                   x.get('change') == '无变化', x.get('candidate_rank', 999), x['id']))
+    reportable = reportable[:15]
     lines = [f'# {date} 需求机会日报', '', '<!-- evidence-report-v2 -->', '', '## 今日摘要', '']
     candidate_count = sum(bool(x.get('selected_for_analysis')) for x in public)
     analyzed_count = sum(bool(x.get('selected_for_analysis') and x.get('analysis_mode') == 'model') for x in public)

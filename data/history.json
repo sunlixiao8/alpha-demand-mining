@@ -65,7 +65,7 @@
     "collected_at": "2026-09-13T16:40:18.042288+00:00",
     "private": false,
     "selected_for_analysis": false,
-    "change": "更新",
+    "change": "无变化",
     "first_seen": "2026-09-13",
     "last_recommended": "",
     "fingerprint": "0895011eb2e17ef38025ddc6bcfbc70ce027f42abb09363737c0e2197b27fb8d",
@@ -2045,33 +2045,47 @@
     "selected_for_analysis": true,
     "candidate_rank": 4,
     "analysis": {
-      "method": "新闻窗口",
-      "recommendation": "暂存",
-      "title_zh": "待翻译",
-      "reason": "已保留原始资料；尚未完成商业分析，不能据此确认需求。",
       "evidence_ids": [
         "9b4ba29175dedddc28b3"
       ],
-      "facts": [],
-      "unknowns": [
-        "需求、现有供给、付费与个人适配尚待核实"
+      "title_zh": "Astra 与 Fable 仍在 2025 年对齐评估的简单变体上作弊",
+      "method": "新闻窗口",
+      "strategy": "抱怨/安全服务化观察：从持续安全测试需求切入",
+      "recommendation": "观察",
+      "reason": "讨论包含安全测试需求信号：希望像 fuzz 一样每夜跑渗透测试，并让 LLM 在攻击性安全语境中不被拒绝；但这是对齐评估帖子下的个体评论，缺少采购与持续任务证据。",
+      "facts": [
+        {
+          "evidence_id": "9b4ba29175dedddc28b3",
+          "quote": "You can have nightly penetration testing. You should have nighty pentests like we fuzz releases today.",
+          "translation_zh": "你可以做每夜渗透测试。你应该像今天跑发布模糊测试那样做每夜渗透测试。"
+        },
+        {
+          "evidence_id": "9b4ba29175dedddc28b3",
+          "quote": "It feels like there’s a missing nuance from this discussion of alignment that alignment is context dependent.",
+          "translation_zh": "感觉这场对齐讨论缺少一个细微之处：对齐是依赖语境的。"
+        }
       ],
-      "strategy": "",
-      "user": "待验证",
-      "task": "待验证",
-      "current_solution": "待验证",
-      "gap": "待验证",
-      "mvp": "待验证",
-      "distribution": "待验证",
-      "monetization": "待验证",
-      "fit": "待验证",
-      "next_step": "先核对原文的用户任务与现有解决办法，再决定是否值得继续。",
-      "risk": "待验证"
+      "unknowns": [
+        "安全团队是否已用 LLM 做夜间渗透测试？",
+        "现有 SAST/DAST/模糊测试覆盖到什么程度？",
+        "误报率与合规责任如何？",
+        "谁付费，个人小团队能否交付可信结果？"
+      ],
+      "user": "关注代码安全测试与发布前加固的开发者/安全工程师；希望用 LLM 做攻击性测试的人。",
+      "task": "在代码上线前持续发现可被利用的漏洞，像 fuzz 一样做夜间渗透测试。",
+      "current_solution": "发布前模糊测试、常规安全扫描、人工渗透测试；模型安全策略可能拒绝攻击性请求。",
+      "gap": "缺少持续、自动化且能给出可执行 exploit 级别结果的安全测试，以及能区分语境的对齐行为。",
+      "mvp": "候选：输入 Git 仓库或容器镜像，定时输出轻量级漏洞与修复建议报告的 CI 工具；先限定 Web/依赖/配置检查。",
+      "distribution": "在安全社区、DevOps 社群、HN 与开源维护者群体验证需求。",
+      "monetization": "可探索按仓库/CI 订阅或一次性审计报告，但需先证明持续使用意愿。",
+      "fit": "个人/小团队不宜声称完整渗透测试；可做细分检查或报告生成，责任与合规门槛高。",
+      "next_step": "访谈安全工程师，核查现有自动化安全测试流程与痛点，确认是否愿意为夜间测试付费。",
+      "risk": "误报、漏报与合规风险；大厂已有安全产品；单条 HN 评论不能证明付费需求；模型政策变化。"
     },
-    "analysis_mode": "pending",
-    "change": "更新",
+    "analysis_mode": "model",
+    "change": "无变化",
     "first_seen": "2026-09-13",
-    "last_recommended": "",
+    "last_recommended": "2026-09-14",
     "fingerprint": "5159c93a558d4383b132d8ef3abda0a93ccee27401df12673b8db4b2ffe3fab4",
     "last_seen": "2026-09-14"
   },
@@ -4009,31 +4023,47 @@
     "selected_for_analysis": true,
     "candidate_rank": 34,
     "analysis": {
-      "method": "新技术",
-      "recommendation": "暂存",
-      "title_zh": "待翻译",
-      "reason": "已保留原始资料；尚未完成商业分析，不能据此确认需求。",
       "evidence_ids": [
         "75ce5d2748ccc8a41acd"
       ],
-      "facts": [],
-      "unknowns": [
-        "需求、现有供给、付费与个人适配尚待核实"
+      "title_zh": "Heyosseus/sloppy：面向 AI 编码产物的 PHP 静态分析",
+      "method": "新技术",
+      "strategy": "聚焦 AI 编码代理留下的 PHP 代码质量模式，用 diff 门禁切入。",
+      "recommendation": "观察",
+      "reason": "README 清楚描述 AI 编码代理留下的代码质量模式，提供本地确定性静态分析、diff 门禁和 CI 输出；已有 11 stars 但仍是早期开源项目，痛点与付费意愿未验证，适合观察。",
+      "facts": [
+        {
+          "evidence_id": "75ce5d2748ccc8a41acd",
+          "quote": "Static analysis for the code-quality patterns AI coding agents leave behind. Deterministic, local, framework-agnostic — with extra rules for Laravel. No model, no API key, no network.",
+          "translation_zh": "针对 AI 编码代理留下的代码质量模式做静态分析。确定性、本地、框架无关——并为 Laravel 增加额外规则。无需模型、无需 API 密钥、无需网络。"
+        },
+        {
+          "evidence_id": "75ce5d2748ccc8a41acd",
+          "quote": "Sloppy reads your PHP with a real parser and reports the shapes that turn into maintenance cost: god methods, swallowed exceptions, likely N+1 queries, business logic in controllers, abstractions that never earned their keep.",
+          "translation_zh": "Sloppy 用真正的解析器读取你的 PHP，并报告那些会转化为维护成本的形态：上帝方法、被吞掉的异常、可能的 N+1 查询、控制器里的业务逻辑、从未证明自身价值的抽象。"
+        }
       ],
-      "strategy": "",
-      "user": "待验证",
-      "task": "待验证",
-      "current_solution": "待验证",
-      "gap": "待验证",
-      "mvp": "待验证",
-      "distribution": "待验证",
-      "monetization": "待验证",
-      "fit": "待验证",
-      "next_step": "先核对原文的用户任务与现有解决办法，再决定是否值得继续。",
-      "risk": "待验证"
+      "unknowns": [
+        "PHP/Laravel 团队是否因 AI 编码代理而愿意为代码质量门禁付费",
+        "Sloppy 与 PHPStan/Psalm/SonarQube/Laravel Pint 的差异是否足够",
+        "24 条规则的误报率和实际修复率",
+        "11 stars 是否代表早期项目，维护者能否持续",
+        "是否只适合 Laravel，其他 PHP 项目是否采用",
+        "CI 集成是自托管还是存在托管服务需求"
+      ],
+      "user": "使用 AI 编码代理的 PHP/Laravel 团队的技术负责人、代码审查者和 CI 维护者。",
+      "task": "在提交/合并前检查 AI 生成或快速产出的代码质量问题：上帝方法、吞异常、可能 N+1、控制器业务逻辑、无价值抽象。",
+      "current_solution": "人工 review、PHPStan/Psalm、Laravel Pint、SonarQube 等静态分析/代码规范工具；Sloppy 自身提供 24 条规则、baseline、diff 模式和 JSON CI 输出。",
+      "gap": "现有工具多关注类型/风格，未必针对 AI 编码代理留下的特定质量模式；但差异和需求仍待验证。",
+      "mvp": "先验证方向：为 PHP 项目提供本地 diff 质量门禁，输出 JSON 给 CI，并统计新引入问题；不先做托管平台。",
+      "distribution": "GitHub、Laravel/PHP 社区、AI 编码代理用户群、Hacker News；用开源仓库和 CI 示例获取反馈。",
+      "monetization": "未知；可能企业规则包/托管仪表盘/支持，但当前只有 11 stars，不能判定付费需求。",
+      "fit": "个人/小团队可做规则和 CLI，但需持续维护规则、降低误报，并与成熟 PHP 工具竞争。",
+      "next_step": "核查 GitHub stars/issue 与真实使用；找 5 位 Laravel 团队试用 diff 模式，记录误报和是否愿付费。",
+      "risk": "误报导致放弃、成熟静态分析工具覆盖、AI 代理快速变化、开源免费、规则维护成本高。"
     },
-    "analysis_mode": "pending",
-    "change": "更新",
+    "analysis_mode": "model",
+    "change": "无变化",
     "first_seen": "2026-09-13",
     "last_recommended": "2026-09-14",
     "fingerprint": "d1d440a6d02b411b591056ea7af01a1bd71d8bff6db7ce228402866f5471dc5e",
@@ -4167,30 +4197,45 @@
     "selected_for_analysis": true,
     "candidate_rank": 3,
     "analysis": {
-      "method": "新闻窗口",
-      "recommendation": "暂存",
-      "title_zh": "待翻译",
-      "reason": "已保留原始资料；尚未完成商业分析，不能据此确认需求。",
       "evidence_ids": [
         "e0070077e8d944c2d60c"
       ],
-      "facts": [],
-      "unknowns": [
-        "需求、现有供给、付费与个人适配尚待核实"
+      "title_zh": "库在 Python 内运行 Rust（使用 PyO3）",
+      "method": "新闻窗口",
+      "strategy": "新技术基础设施观察：围绕 Python 打包与 Rust/WASM 兼容性做窄工具验证",
+      "recommendation": "观察",
+      "reason": "HN 讨论显示 Rust 扩展进入 Python 分发的技术窗口，涉及跨平台安装、manylinux 与 Pyodide/WASM 兼容；但只是开发者体验与兼容性讨论，未见明确付费或重复任务，不足以证明市场。",
+      "facts": [
+        {
+          "evidence_id": "e0070077e8d944c2d60c",
+          "quote": "This is a nice party trick! I use it to provide easy installation of software that is written in rust, but is primarily used by Python users. (e.g.: Biology tools) They can do `pip install <name>`, since some people prefer this over downloading executables/installers. Bonus: Maturin/PyO3 can build \"manylinux\" binaries automatically, which helps with the Linux ABI diaspora.",
+          "translation_zh": "这是个不错的把戏！我用它来让主要面向 Python 用户的 Rust 软件更容易安装（例如生物工具）。用户可以 `pip install <name>`，因为有些人更喜欢这种方式，而不是下载可执行文件/安装程序。额外好处：Maturin/PyO3 能自动构建 \"manylinux\" 二进制，这有助于缓解 Linux ABI 的碎片化问题。"
+        },
+        {
+          "evidence_id": "e0070077e8d944c2d60c",
+          "quote": "But does it work everywhere Python works? My main issue with this Rust move has always been compatibility. Python can be embedded and ran in a heck of a lot of places. What's the story when libraries that I may want to depend on are actually implemented in Rust and my target doesn't/can't handle the toolchain and there's no build target?",
+          "translation_zh": "但它在所有能运行 Python 的地方都能工作吗？我对这股 Rust 潮流的主要顾虑一直是兼容性。Python 可以被嵌入并运行在非常多的地方。当我可能想依赖的库实际上是用 Rust 实现，而我的目标环境不处理/无法处理工具链，并且没有对应构建目标时，该怎么办？"
+        }
       ],
-      "strategy": "",
-      "user": "待验证",
-      "task": "待验证",
-      "current_solution": "待验证",
-      "gap": "待验证",
-      "mvp": "待验证",
-      "distribution": "待验证",
-      "monetization": "待验证",
-      "fit": "待验证",
-      "next_step": "先核对原文的用户任务与现有解决办法，再决定是否值得继续。",
-      "risk": "待验证"
+      "unknowns": [
+        "目标用户是包维护者、科研用户还是企业部署团队？",
+        "兼容性问题多常发生，是否已有 Maturin/PyO3 或 CI 工具覆盖？",
+        "是否愿意为兼容性检查或托管构建付费？",
+        "Pyodide/WASM 需求是否足够集中？",
+        "个人/小团队能否持续维护构建矩阵？"
+      ],
+      "user": "含 Rust 扩展的 Python 包维护者；偏好 pip 安装的生物/科研工具用户；需要嵌入式或 WASM 环境运行 Python 的开发者。",
+      "task": "让 Rust 实现的 Python 库跨平台安装和运行，包括 manylinux 与 Pyodide/WASM。",
+      "current_solution": "Maturin/PyO3 自动构建 manylinux 二进制；PyPI 可发布 WASM 构建；部分人选择 C 扩展。",
+      "gap": "并非所有 Python 运行环境都有 Rust 工具链/构建目标；兼容性与可移植性仍不确定。",
+      "mvp": "候选：输入 PyPI 包名或仓库，输出各平台/ABI/Pyodide 的兼容性矩阵与缺失构建目标提示的轻量网站。",
+      "distribution": "先到 HN、Python 打包社区、Maturin/PyO3 文档社区与生物信息工具社区找维护者验证。",
+      "monetization": "暂不明确；可验证企业 CI 构建托管、兼容性报告或顾问服务，但证据不足。",
+      "fit": "轻量查询站适合个人/小团队；持续维护跨平台构建矩阵成本高，宜做窄工具。",
+      "next_step": "搜索打包兼容性抱怨，查看 Maturin/PyO3 未解决问题，访谈 5 位含 Rust 扩展的 Python 包维护者。",
+      "risk": "现有工具可能已覆盖多数场景；WASM 生态变化快；免费替代多，付费意愿未知。"
     },
-    "analysis_mode": "pending",
+    "analysis_mode": "model",
     "change": "新增",
     "first_seen": "2026-09-14",
     "last_recommended": "2026-09-14",
@@ -4212,30 +4257,30 @@
     "selected_for_analysis": true,
     "candidate_rank": 8,
     "analysis": {
-      "method": "新闻窗口",
-      "recommendation": "暂存",
-      "title_zh": "待翻译",
-      "reason": "已保留原始资料；尚未完成商业分析，不能据此确认需求。",
       "evidence_ids": [
         "409d0b32b9f4f76e9dd2"
       ],
+      "title_zh": "我们随时间丢失的按键符号，第 1 部分：PC 侧",
+      "method": "新闻窗口",
+      "strategy": "非产品线索，暂不采用产品打法",
+      "recommendation": "放弃",
+      "reason": "评论只是对按键符号历史的个人回忆与使用习惯，没有可产品化的任务、抱怨或付费信号。",
       "facts": [],
       "unknowns": [
-        "需求、现有供给、付费与个人适配尚待核实"
+        "无具体产品线索；不适用"
       ],
-      "strategy": "",
-      "user": "待验证",
-      "task": "待验证",
-      "current_solution": "待验证",
-      "gap": "待验证",
-      "mvp": "待验证",
-      "distribution": "待验证",
-      "monetization": "待验证",
-      "fit": "待验证",
-      "next_step": "先核对原文的用户任务与现有解决办法，再决定是否值得继续。",
-      "risk": "待验证"
+      "user": "不适用（非产品线索）",
+      "task": "不适用",
+      "current_solution": "不适用",
+      "gap": "不适用",
+      "mvp": "不适用",
+      "distribution": "不适用",
+      "monetization": "不适用",
+      "fit": "不适用",
+      "next_step": "不跟踪。",
+      "risk": "无产品风险；不适用。"
     },
-    "analysis_mode": "pending",
+    "analysis_mode": "model",
     "change": "新增",
     "first_seen": "2026-09-14",
     "last_recommended": "",
@@ -4257,30 +4302,33 @@
     "selected_for_analysis": true,
     "candidate_rank": 22,
     "analysis": {
-      "method": "新闻窗口",
-      "recommendation": "暂存",
-      "title_zh": "待翻译",
-      "reason": "已保留原始资料；尚未完成商业分析，不能据此确认需求。",
       "evidence_ids": [
         "432de83ffb1065e48d0a"
       ],
+      "title_zh": "预测智能，声称可预见一切（Prior）",
+      "method": "新闻窗口",
+      "strategy": "无；证据不足。",
+      "recommendation": "放弃",
+      "reason": "只有产品宣传页式描述和评论质疑/故障，缺乏真实用户任务、付费或替代方案证据；按非产品线索暂不跟进。",
       "facts": [],
       "unknowns": [
-        "需求、现有供给、付费与个人适配尚待核实"
+        "是否有任何可验证的预测能力",
+        "是否有用户付费",
+        "真实使用场景与数据来源",
+        "团队与商业模式"
       ],
-      "strategy": "",
-      "user": "待验证",
-      "task": "待验证",
-      "current_solution": "待验证",
-      "gap": "待验证",
-      "mvp": "待验证",
-      "distribution": "待验证",
-      "monetization": "待验证",
-      "fit": "待验证",
-      "next_step": "先核对原文的用户任务与现有解决办法，再决定是否值得继续。",
-      "risk": "待验证"
+      "user": "待验证；目前只有 Prior 产品宣传和 HN 评论者，不能确认付费用户。",
+      "task": "待验证；表面是向聊天产品提问体育、市场、选举等预测问题。",
+      "current_solution": "Prior 聊天产品；评论提到免费提问次数、服务器挂起和未给出答案。",
+      "gap": "证据不足；无法判断预测能力、数据来源或真实用户未被满足的任务。",
+      "mvp": "不建议基于当前证据做 MVP。",
+      "distribution": "无可靠证据。",
+      "monetization": "未知；页面可能以注册/免费提问引流，但未证实付费。",
+      "fit": "低；只有营销与质疑，缺少可验证任务。",
+      "next_step": "暂不跟进；若出现独立评测、付费用户或可复现预测准确率再重新评估。",
+      "risk": "预测不可靠、营销夸大、金融/选举等敏感预测的合规与误导风险。"
     },
-    "analysis_mode": "pending",
+    "analysis_mode": "model",
     "change": "新增",
     "first_seen": "2026-09-14",
     "last_recommended": "",
@@ -4359,30 +4407,34 @@
     "selected_for_analysis": true,
     "candidate_rank": 37,
     "analysis": {
-      "method": "新闻窗口",
-      "recommendation": "暂存",
-      "title_zh": "待翻译",
-      "reason": "已保留原始资料；尚未完成商业分析，不能据此确认需求。",
       "evidence_ids": [
         "8102cfe8ad0eb90e76fd"
       ],
+      "title_zh": "Cpak：面向 Linux 桌面、服务器和设备的 OCI 应用包格式",
+      "method": "新闻窗口",
+      "strategy": "无；先观察标准采用。",
+      "recommendation": "暂存",
+      "reason": "Cpak 声称轻量 OCI 应用包格式，复用 Dockerfile、无需 daemon、去重共享；但评论只涉及宣传和课程/考试，没有用户任务或抱怨，个人/小团队切入标准基础设施难度高，暂存。",
       "facts": [],
       "unknowns": [
-        "需求、现有供给、付费与个人适配尚待核实"
+        "Cpak 是否被真实用户采用",
+        "与 Docker/Podman/Nix 相比的实际迁移痛点",
+        "课程/考试凭证是否为主要收入来源",
+        "运行时维护与生态兼容成本",
+        "目标用户是桌面、服务器还是设备开发者"
       ],
-      "strategy": "",
-      "user": "待验证",
-      "task": "待验证",
-      "current_solution": "待验证",
-      "gap": "待验证",
-      "mvp": "待验证",
-      "distribution": "待验证",
-      "monetization": "待验证",
-      "fit": "待验证",
-      "next_step": "先核对原文的用户任务与现有解决办法，再决定是否值得继续。",
-      "risk": "待验证"
+      "user": "待验证；可能是 Linux 桌面/服务器/设备上的应用打包者、开发者和运维。",
+      "task": "用 OCI 风格格式打包和运行应用，复用 Dockerfile，避免 daemon，去重共享数据。",
+      "current_solution": "Docker、Podman、Nix、cpak；cpak 声称只有两个二进制、运行时 LGPL2。",
+      "gap": "证据不足；评论只提到课程、考试和公开凭证，没有用户抱怨或实际采用痛点。",
+      "mvp": "不建议基于当前证据做 MVP；先判断标准是否被采用。",
+      "distribution": "无可靠证据；可能依赖官网课程/考试，但未证明用户来源。",
+      "monetization": "未知；官网可能通过课程/认证收费，但不属于个人轻量产品机会。",
+      "fit": "低至中；基础设施标准竞争激烈，个人/小团队难以切入 OCI 打包生态。",
+      "next_step": "暂存；观察 cpak 的采用、issue、用户文档和与 Docker/Podman/Nix 的差异，若出现明确迁移抱怨再评估。",
+      "risk": "Docker/Podman/Nix 生态强势、标准采用不确定、文档与课程营销混杂、维护运行时成本高。"
     },
-    "analysis_mode": "pending",
+    "analysis_mode": "model",
     "change": "新增",
     "first_seen": "2026-09-14",
     "last_recommended": "",
@@ -4404,33 +4456,49 @@
     "selected_for_analysis": true,
     "candidate_rank": 9,
     "analysis": {
-      "method": "新闻窗口",
-      "recommendation": "暂存",
-      "title_zh": "待翻译",
-      "reason": "已保留原始资料；尚未完成商业分析，不能据此确认需求。",
       "evidence_ids": [
         "8d3752e3809eb2762d64"
       ],
-      "facts": [],
-      "unknowns": [
-        "需求、现有供给、付费与个人适配尚待核实"
+      "title_zh": "Windows 上的 AMD CUDA 兼容方案",
+      "method": "新闻窗口",
+      "strategy": "围绕 Windows 上 AMD GPU 运行 CUDA 的兼容性数据与检测入口切入，不先做完整运行时。",
+      "recommendation": "观察",
+      "reason": "HN 上作者征集 AMD GPU 兼容性报告，另有 RDNA1 用户抱怨显卡闲置；任务具体，但仅单个开源项目和少量评论，尚不能推断付费需求，适合继续核实兼容性痛点与人群规模。",
+      "facts": [
+        {
+          "evidence_id": "8d3752e3809eb2762d64",
+          "quote": "I’ve been working on a Windows setup that lets CUDA-targeted applications run on AMD GPUs using ZLUDA + ROCm/HIP. Repo: https://github.com/Speedstu/CUDA-for-AMD-Windows",
+          "translation_zh": "我一直在开发一种 Windows 配置，让面向 CUDA 的应用程序能通过 ZLUDA + ROCm/HIP 在 AMD GPU 上运行。仓库：https://github.com/Speedstu/CUDA-for-AMD-Windows"
+        },
+        {
+          "evidence_id": "8d3752e3809eb2762d64",
+          "quote": "I wish there were a way to use RDNA1 cards with CUDA for AMD. My 5700XTs are sitting in a drawer.",
+          "translation_zh": "我希望有办法让 RDNA1 显卡用于 AMD 上的 CUDA。我的 5700XT 显卡们正躺在抽屉里。"
+        }
       ],
-      "strategy": "",
-      "user": "待验证",
-      "task": "待验证",
-      "current_solution": "待验证",
-      "gap": "待验证",
-      "mvp": "待验证",
-      "distribution": "待验证",
-      "monetization": "待验证",
-      "fit": "待验证",
-      "next_step": "先核对原文的用户任务与现有解决办法，再决定是否值得继续。",
-      "risk": "待验证"
+      "unknowns": [
+        "Windows 上 AMD GPU 用户是否愿意为兼容方案或支持付费，还是只接受开源免费",
+        "兼容性报告的需求规模，以及 RDNA1/RX 6000/7000/9000 的失败率",
+        "ZLUDA/ROCm/HIP 的许可与稳定性是否允许产品化",
+        "作者项目是个人开源，是否有维护者或团队可承接",
+        "现有用户如何解决：换 N 卡、云 GPU、Linux、WSL，还是放弃",
+        "目标用户是 AI 训练个人开发者、LibTorch 用户，还是更广的 CUDA 应用用户"
+      ],
+      "user": "在 Windows 上使用 AMD GPU、需要运行 CUDA 目标应用（如 LibTorch / AI 训练）的个人开发者或研究者；以及希望复用闲置 RDNA1 显卡的用户。",
+      "task": "让 CUDA 目标应用在 AMD GPU 上运行；自动检测 GPU 型号、gfx 架构、ROCm/HIP 与驱动；提交工作/失败兼容性报告。",
+      "current_solution": "ZLUDA + ROCm/HIP 手动搭建；项目作者只在 RX 9060 XT（gfx1200）验证；其他用户可能让显卡闲置或改用 N 卡/云 GPU。",
+      "gap": "缺少跨 RX 6000/7000/9000 与 RDNA1 的兼容性数据、自动检测和低门槛安装；只有作者单卡验证。",
+      "mvp": "先做只读式兼容性检测 CLI 与公开兼容数据库：扫描 GPU 型号、gfx 架构、ROCm/HIP 版本、驱动和成功/失败任务；不承诺训练性能。",
+      "distribution": "GitHub issue 模板、r/AMD、r/LocalLLaMA、Hacker News、ZLUDA/ROCm 社区；让用户提交报告换取兼容列表。",
+      "monetization": "未知；可验证方向是开源捐赠、付费安装支持或企业兼容性测试，但当前证据不支持确定收费。",
+      "fit": "个人/小团队适合做轻量 CLI 与数据库，但维护多卡兼容矩阵和 ROCm 变化成本高。",
+      "next_step": "先核对仓库 issue/PR 中已有兼容报告数量和失败模式；访谈 5-10 位 Windows AMD GPU 用户，确认是否愿意付费或贡献数据。",
+      "risk": "ROCm/ZLUDA 上游变动、硬件碎片化、许可与法律风险、开源免费替代、AMD 官方驱动变化。"
     },
-    "analysis_mode": "pending",
+    "analysis_mode": "model",
     "change": "新增",
     "first_seen": "2026-09-14",
-    "last_recommended": "",
+    "last_recommended": "2026-09-14",
     "fingerprint": "78248fae8ec0ac47cf21161c7e49ef7ad90d2207578fe310ea04732012dd22a4",
     "last_seen": "2026-09-14"
   },
@@ -4449,30 +4517,30 @@
     "selected_for_analysis": true,
     "candidate_rank": 5,
     "analysis": {
-      "method": "新闻窗口",
-      "recommendation": "暂存",
-      "title_zh": "待翻译",
-      "reason": "已保留原始资料；尚未完成商业分析，不能据此确认需求。",
       "evidence_ids": [
         "b0b286df68ea841bc6b5"
       ],
+      "title_zh": "让初创公司变得强大",
+      "method": "新闻窗口",
+      "strategy": "非产品线索，暂不采用产品打法",
+      "recommendation": "放弃",
+      "reason": "评论主要围绕初创公司权力、全栈吃客户、唱片公司及 YC 影响，属于战略/社会争论，没有具体用户任务、现有供给或产品交付线索。",
       "facts": [],
       "unknowns": [
-        "需求、现有供给、付费与个人适配尚待核实"
+        "无具体产品线索；不适用"
       ],
-      "strategy": "",
-      "user": "待验证",
-      "task": "待验证",
-      "current_solution": "待验证",
-      "gap": "待验证",
-      "mvp": "待验证",
-      "distribution": "待验证",
-      "monetization": "待验证",
-      "fit": "待验证",
-      "next_step": "先核对原文的用户任务与现有解决办法，再决定是否值得继续。",
-      "risk": "待验证"
+      "user": "不适用（非产品线索）",
+      "task": "不适用",
+      "current_solution": "不适用",
+      "gap": "不适用",
+      "mvp": "不适用",
+      "distribution": "不适用",
+      "monetization": "不适用",
+      "fit": "不适用",
+      "next_step": "不跟踪；若需继续，只能作为创业战略阅读素材暂存。",
+      "risk": "无产品风险；不适用。"
     },
-    "analysis_mode": "pending",
+    "analysis_mode": "model",
     "change": "新增",
     "first_seen": "2026-09-14",
     "last_recommended": "",
