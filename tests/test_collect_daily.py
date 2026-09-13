@@ -171,6 +171,49 @@ class CollectDailyTest(unittest.TestCase):
             signals.append(self.make_signal(f"demo/ai-agent-{idx}", "AI agent workflow automation with deployment templates. Stars: 100."))
         self.assertEqual(c.validate_selected_signals(signals), [])
 
+    def test_audit_allows_many_deep_recommendations(self):
+        item = """
+### 1. demo
+
+- 来源：SOURCE
+- 链接：https://example.com/IDX
+- 类型：TYPE
+- 结论：值得深挖，但需要先复核真实需求。
+- 原始信号：这是足够长的原始信号 IDX，包含用户动作、热度和可复核上下文。
+- 证据：证据 IDX 显示这个方向有早期关注。
+- 为什么现在：窗口 IDX 正在出现，适合快速验证。
+- 用户是谁：用户 IDX。
+- 真实需求：需求 IDX
+- 供需失衡：供给缺口 IDX。
+- 切入角度：切口 IDX
+- 可做 MVP：MVP IDX
+- 分发路径：分发 IDX
+- 变现方式：订阅 IDX。
+- 风险：风险 IDX。
+- 下一步验证：验证 IDX
+- 置信度：中。
+- 评分：需求强度 4 / 供给缺口 4 / Alpha 时效 5 / MVP 可行性 4 / 变现潜力 4，总分 21
+- 建议：深挖
+"""
+        sources = [
+            ("Hugging Face Trending", "HF Trending"),
+            ("Hugging Face Trending", "HF Trending"),
+            ("Hugging Face Trending", "HF Trending"),
+            ("GitHub Search: test", "GitHub Trending / New Tech"),
+            ("GitHub Search: test", "GitHub Trending / New Tech"),
+            ("GitHub Search: test", "GitHub Trending / New Tech"),
+            ("Hacker News: AI", "News Window"),
+            ("Hacker News: AI", "News Window"),
+            ("Product Hunt", "Product Launch"),
+            ("Reddit: AI", "Community Pain"),
+        ]
+        report = "# report\n" + "\n".join(
+            item.replace("IDX", str(idx)).replace("SOURCE", source).replace("TYPE", type_)
+            for idx, (source, type_) in enumerate(sources, 1)
+        )
+
+        self.assertEqual(audit_report.audit(report), [])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -66,6 +66,8 @@ def source_family(source: str) -> str:
 
 
 def audit(markdown: str) -> list[str]:
+    if '<!-- evidence-report-v2 -->' in markdown:
+        return audit_evidence_report(markdown)
     errors: list[str] = []
     items = split_items(markdown)
     if not (10 <= len(items) <= 20):
@@ -112,9 +114,28 @@ def audit(markdown: str) -> list[str]:
     observe_count = markdown.count("- 建议：观察")
     if deep_count == 0 and observe_count == 0:
         errors.append("没有任何深挖或观察建议，报告无法支持决策。")
-    if deep_count > 5:
-        errors.append(f"深挖建议过多：{deep_count} 条。日报应帮助聚焦，而不是把太多线索都标成高优先级。")
 
+    return errors
+
+
+def audit_evidence_report(markdown: str) -> list[str]:
+    errors = []
+    if not field_value(markdown, '运行状态'):
+        errors.append('缺少运行状态')
+    seen = set()
+    for idx, item in enumerate(split_items(markdown), 1):
+        for field in ('机会编号', '来源', '链接', '证据入口', '采集时间', '原始信号', '建议', '理由', '下一步', '未知事项'):
+            if not field_value(item, field):
+                errors.append(f'第 {idx} 条缺少 {field}')
+        identity = field_value(item, '机会编号')
+        if identity in seen:
+            errors.append(f'重复机会编号 {identity}')
+        seen.add(identity)
+        recommendation = field_value(item, '建议')
+        if recommendation not in ('深挖', '观察', '暂存', '放弃'):
+            errors.append(f'第 {idx} 条建议无效')
+        if recommendation in ('深挖', '观察') and not field_value(item, '证据摘录'):
+            errors.append(f'第 {idx} 条推荐缺少证据摘录')
     return errors
 
 

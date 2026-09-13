@@ -1025,4 +1025,12 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    # Retain legacy helpers for historical reports; production uses evidence v2.
+    sys.path.insert(0, str(ROOT))
+    from scripts.mining import run
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--no-model', action='store_true')
+    parser.add_argument('--replay', help='Reuse a saved public run without fetching sources')
+    args = parser.parse_args()
+    raise SystemExit(run(use_model=not args.no_model, replay=args.replay))

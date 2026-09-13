@@ -40,7 +40,7 @@ async function getAccessToken(appId, appSecret) {
   url.searchParams.set("appid", appId);
   url.searchParams.set("secret", appSecret);
 
-  const response = await fetch(url);
+  const response = await fetch(url, { signal: AbortSignal.timeout(20000) });
   const json = await response.json();
   if (!json.access_token) {
     throw new Error(`Failed to get WeChat access_token: ${safeJson(json)}`);
@@ -67,6 +67,7 @@ async function sendTemplateMessage({ accessToken, openid, templateId, content, d
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(20000),
   });
   const json = await response.json();
   if (json.errcode !== 0) {
@@ -88,15 +89,12 @@ function readBrief(date) {
   if (fs.existsSync(dailyPath)) {
     return fs.readFileSync(dailyPath, "utf8").trim();
   }
-  return [
-    `# Alpha 需求线索日报｜${date}`,
-    "",
-    "今天的日报文件还不存在。可以先用这条测试消息确认微信推送链路。",
-  ].join("\n");
+  throw new Error(`Daily report missing: ${date}`);
 }
 
 function compactForWeChat(markdown, maxChars = 1500) {
   const text = markdown
+    .replace(/<!--.*?-->/g, "")
     .replace(/^#{1,6}\s+/gm, "")
     .replace(/\*\*/g, "")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
@@ -106,7 +104,8 @@ function compactForWeChat(markdown, maxChars = 1500) {
 }
 
 function summarizeForWeChat(markdown, detailUrl, maxChars = 1200) {
-  const text = compactForWeChat(markdown, maxChars);
+  const summary = markdown.includes('## 来源覆盖') ? markdown.split('## 来源覆盖')[0] : markdown;
+  const text = compactForWeChat(summary, maxChars);
   if (!detailUrl) return text;
   return `${text}\n\n完整版本见详情链接。`;
 }
@@ -122,6 +121,7 @@ async function main() {
   const args = new Set(process.argv.slice(2));
   const dryRun = args.has("--dry-run");
   const testMessage = args.has("--test-message");
+  const failed = args.has("--failure");
 
   const dotenv = readEnvFile(path.join(ROOT, ".env"));
   const sources = [process.env, dotenv];
@@ -136,7 +136,7 @@ async function main() {
   assertPresent(config, ["WECHAT_APP_ID", "WECHAT_APP_SECRET", "WECHAT_OPENID", "WECHAT_TEMPLATE_ID"]);
 
   const date = todayInShanghai();
-  const content = testMessage
+  const content = failed ? `需求日报运行异常｜${date}\n采集、发布或推送未全部完成，请点击查看运行记录。` : testMessage
     ? `微信推送链路测试成功｜${date}\n\n如果你看到这条消息，说明 Alpha 需求线索日报的微信推送配置已经打通。`
     : summarizeForWeChat(readBrief(date), config.WECHAT_DETAIL_URL);
 
@@ -157,7 +157,10 @@ async function main() {
   console.log("WeChat template message sent.");
 }
 
-main().catch((error) => {
-  console.error(error.message);
-  process.exit(1);
-});
+module.exports = { compactForWeChat, summarizeForWeChat, readBrief, safeJson };
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error.message);
+    process.exit(1);
+  });
+}

@@ -7,3 +7,6 @@
 # Local secrets.
 .env
 *.key
+.local/
+__pycache__/
+*.pyc

@@ -10,6 +10,8 @@ on:
     paths:
       - ".github/workflows/daily-demand-mining.yml"
       - "scripts/**"
+      - "tests/**"
+      - "data/manual-evidence.json"
       - "README.md"
       - "docs/**"
       - "templates/**"
@@ -28,6 +30,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,8 +43,22 @@ jobs:
       - name: Run unit tests
         run: python -m unittest discover -s tests
 
+      - name: Test WeChat formatting
+        run: node --test tests/wechat.test.js
+
       - name: Collect demand signals
-        run: python scripts/collect_daily.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-flash
+          # Public-text transfer activation is pending user confirmation.
+          DEEPSEEK_ENABLED: "false"
+        run: |
+          if [ "$DEEPSEEK_ENABLED" = "true" ]; then
+            python scripts/collect_daily.py
+          else
+            python scripts/collect_daily.py --no-model
+          fi
 
       - name: Audit generated report
         run: python scripts/audit_report.py
@@ -69,6 +86,8 @@ jobs:
           echo "url=${{ steps.deployment.outputs.page_url }}daily/$TODAY.html" >> "$GITHUB_OUTPUT"
 
       - name: Push daily report with WeChat test account
+        id: wechat
+        continue-on-error: true
         env:
           WECHAT_APP_ID: ${{ secrets.WECHAT_APP_ID }}
           WECHAT_APP_SECRET: ${{ secrets.WECHAT_APP_SECRET }}
@@ -79,7 +98,8 @@ jobs:
           if [ -n "$WECHAT_APP_ID" ] && [ -n "$WECHAT_APP_SECRET" ] && [ -n "$WECHAT_OPENID" ] && [ -n "$WECHAT_TEMPLATE_ID" ]; then
             node scripts/wechat_test_push.js
           else
-            echo "WeChat test account secrets are incomplete; skip WeChat push."
+            echo "WeChat configuration incomplete; notification not delivered."
+            exit 1
           fi
 
       - name: Commit daily report
@@ -93,3 +113,25 @@ jobs:
             git commit -m "daily: add opportunities $(TZ=Asia/Shanghai date +%F)"
             git push
           fi
+
+      - name: Keep run diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mining-run-${{ github.run_id }}
+          path: data/runs/
+          if-no-files-found: ignore
+
+      - name: Notify failed run
+        if: failure() || steps.wechat.outcome == 'failure'
+        env:
+          WECHAT_APP_ID: ${{ secrets.WECHAT_APP_ID }}
+          WECHAT_APP_SECRET: ${{ secrets.WECHAT_APP_SECRET }}
+          WECHAT_OPENID: ${{ secrets.WECHAT_OPENID }}
+          WECHAT_TEMPLATE_ID: ${{ secrets.WECHAT_TEMPLATE_ID }}
+          WECHAT_DETAIL_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/wechat_test_push.js --failure
+
+      - name: Mark unsuccessful notification
+        if: steps.wechat.outcome == 'failure'
+        run: exit 1
