@@ -76,9 +76,8 @@
 <h2>今日摘要</h2>
 <ul>
 <li>运行状态：部分来源失败</li>
-<li>原始线索：130 条；进入 DeepSeek 分析：40 条；日报展示：19 条。</li>
-<li>Libraries Run Rust Inside Python (With PyO3)：评论展示了具体能力变化：Rust 实现、主要面向 Python 用户的工具可通过 pip 安装，Maturin/PyO3 自动构建 manylinux，且 Pyodide/WASM 兼容正在被解决。这是新技术线索，但还没有搜索词、竞品付费或维护者抱怨，适合观察并验证。</li>
-<li>kulkas2pintu/QWEN_EDIT_IMAGE：原文展示了可直接调用的 /edit 接口、保身份与修手开关、多种风格 LoRA，还支持 MCP 调用，说明能力侧已经就绪；但全文只有模型与参数说明，没有任何用户抱怨、搜索词、价格或付费证据，需求强度未知。先观察并做小验证，不能当作已有市场。</li>
+<li>原始线索：130 条；进入 DeepSeek 分析：40 条；日报展示：16 条。</li>
+<li>今日没有新增的已完成分析且值得推荐的机会；候选及运行状态见下方。</li>
 </ul>
 <h2>来源覆盖</h2>
 <ul>
@@ -90,75 +89,19 @@
 <li>Reddit：失败，0 条；HTTPError</li>
 <li>搜索数据：未自动接入；支持手动证据，0 条</li>
 <li>服务订单：未自动接入；支持手动证据，0 条</li>
-<li>模型分析：正常，40 条</li>
+<li>模型分析：未配置或已禁用；保留证据待分析，0 条</li>
 <li>竞品付费与Roadmap：未自动接入；支持手动证据，0 条</li>
 <li>规则初筛：正常，40 条</li>
 </ul>
 <h2>筛选后的机会</h2>
-<h3>1. Libraries Run Rust Inside Python (With PyO3) / 在 Python 中运行 Rust 的库（使用 PyO3）</h3>
-<ul>
-<li>机会编号：e0070077e8d944c2d60c</li>
-<li>来源：Hacker News</li>
-<li>链接：<a href="https://news.ycombinator.com/item?id=49685037" target="_blank" rel="noopener noreferrer">Libraries Run Rust Inside Python (With PyO3)</a></li>
-<li>证据入口：<a href="https://news.ycombinator.com/item?id=49685037" target="_blank" rel="noopener noreferrer">原始资料</a></li>
-<li>发布时间：2026-09-13T15:24:05Z</li>
-<li>采集时间：2026-09-13T16:08:31.260540+00:00</li>
-<li>历史变化：新增；首次 2026-09-14</li>
-<li>方法：新技术；打法：新技术看能力改变：先确认 Rust+Python 发布环节是否仍有重复摩擦，不套用新词站。</li>
-<li>建议：观察</li>
-<li>理由：评论展示了具体能力变化：Rust 实现、主要面向 Python 用户的工具可通过 pip 安装，Maturin/PyO3 自动构建 manylinux，且 Pyodide/WASM 兼容正在被解决。这是新技术线索，但还没有搜索词、竞品付费或维护者抱怨，适合观察并验证。</li>
-<li>英文原文：This is a nice party trick! I use it to provide easy installation of software that is written in rust, but is primarily used by Python users. (e.g.: Biology tools) They can do <code>pip install ＜name＞</code>, since some people prefer this over downloading executables/installers.</li>
-<li>中文翻译：这是个不错的把戏！我用它来让主要为 Python 用户使用的 Rust 软件更容易安装（例如：生物学工具）。他们可以 <code>pip install ＜名称＞</code>，因为有些人更喜欢这种方式，而不是下载可执行文件或安装程序。</li>
-<li>英文原文：I was a bit nervous about this trend when it started picking up because I care about Pyodide (Python running via WebAssembly) and libraries that use PyO3 might not work in Pyodide. Thankfully that&#x27;s now been mostly solved - you can compile and publish WASM builds of Rust or C extensions on PyPI now and a Pyodide can then use them.</li>
-<li>中文翻译：当这个趋势开始兴起时我有点紧张，因为我关心 Pyodide（通过 WebAssembly 运行的 Python），而使用 PyO3 的库可能无法在 Pyodide 中工作。谢天谢地，现在这基本解决了——你现在可以在 PyPI 上编译并发布 Rust 或 C 扩展的 WASM 构建，然后 Pyodide 就能使用它们。</li>
-<li>目标用户假设：维护 Rust 扩展或 Rust CLI 并面向 Python 用户的库作者、科研工具维护者。</li>
-<li>任务假设：把 Rust 实现打包成 Python 可 pip 安装的包，并兼顾 manylinux 与 Pyodide/WASM。</li>
-<li>现有办法待核查：Maturin/PyO3 自动构建 manylinux；PyPI 发布 WASM 构建；也可下载可执行文件或安装程序。</li>
-<li>供给缺口假设：跨平台 ABI、Pyodide 兼容、发布配置和调试仍可能有成本；但现有工具已覆盖大部分，未证明普遍痛点或付费意愿。</li>
-<li>最小验证与交付：先做检查或模板，不做平台：输入一个 Rust+Python 扩展项目，输出 PyPI 打包配置和 Pyodide 兼容性报告；面向已有库维护者。</li>
-<li>获客验证：在 PyO3、Maturin、Pyodide 社区、相关 GitHub issue 和 HN 讨论中找 10 位维护者访谈，并发布示例仓库。</li>
-<li>收费假设：暂无可靠付费路径；可验证赞助、一次性打包咨询或托管构建，但不能假设。</li>
-<li>个人适配待确认：与个人或小团队、轻量网站、新技术兴趣匹配；需要 Python 和 Rust 打包能力。</li>
-<li>下一步：收集 Maturin、PyO3、Pyodide 近 90 天 issue 和用户抱怨，访谈 5 位维护者，确认现有工具是否已足够。</li>
-<li>风险与反证：现有开源工具可能已覆盖；需求窄且多由志愿者维护，付费意愿低。</li>
-<li>未知事项：有多少维护者需要这种分发方式；现有 Maturin/PyO3 等工具是否已足够；Pyodide 相关痛点是否仍有付费或赞助空间；目标用户是否愿意为打包或发布服务付费</li>
-</ul>
-<h3>2. kulkas2pintu/QWEN_EDIT_IMAGE / Qwen-Image-Edit 人像改图 Space：保身份、可调 API 与 MCP</h3>
-<ul>
-<li>机会编号：52acb0ba14da98d33a94</li>
-<li>来源：Hugging Face spaces</li>
-<li>链接：<a href="https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE" target="_blank" rel="noopener noreferrer">kulkas2pintu/QWEN_EDIT_IMAGE</a></li>
-<li>证据入口：<a href="https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
-<li>发布时间：2026-07-29T16:23:58.000Z</li>
-<li>采集时间：2026-09-13T16:08:31.148252+00:00</li>
-<li>历史变化：分析完成；首次 2026-09-13</li>
-<li>方法：新技术；打法：把已开源的改图能力收窄到单一场景（如保持人脸换服装/换姿势），做成轻量在线小工具或 API 加一层，而不是做通用修图产品。</li>
-<li>建议：观察</li>
-<li>理由：原文展示了可直接调用的 /edit 接口、保身份与修手开关、多种风格 LoRA，还支持 MCP 调用，说明能力侧已经就绪；但全文只有模型与参数说明，没有任何用户抱怨、搜索词、价格或付费证据，需求强度未知。先观察并做小验证，不能当作已有市场。</li>
-<li>英文原文：Prompt-based image editing on <strong>Qwen-Image-Edit-2511</strong>, with identity preservation (change pose/clothes/scene while keeping the person&#x27;s face), HD output, and an anti-deformed-hands option.</li>
-<li>中文翻译：基于 Qwen-Image-Edit-2511 的提示词图像编辑，支持身份保持（在改变姿势/服装/场景的同时保留人物面部）、高清输出，以及一个防止手部畸形的选项。</li>
-<li>英文原文：The Space exposes one endpoint: <strong><code>/edit</code></strong>.</li>
-<li>中文翻译：该 Space 只暴露一个端点：<strong><code>/edit</code></strong>。</li>
-<li>目标用户假设：待验证：可能是需要批量改人像的电商或社媒运营、写真与摄影修图者；原文未给出任何用户描述。</li>
-<li>任务假设：上传一张人像并写一句提示词，改变服装、姿势或场景，同时保持人脸一致；可选风格 LoRA、第二张参考图、修手开关与输出尺寸。</li>
-<li>现有办法待核查：原文只说明本 Space 自己的网页/API/MCP 调用方式，没有交代用户此前用什么替代（如传统修图软件或其他改图模型）。</li>
-<li>供给缺口假设：保人脸一致与手部畸形是这类改图的常见痛点，原文把「preserve_identity」「fix_hands」做成显式可调参数；但痛点是否被用户确认、愿不愿为此换工具，均无证据。</li>
-<li>最小验证与交付：单页在线小工具：上传 1 张人像 + 一句中文提示 → 返回保持人脸的改图结果；固定 1–2 个用途（换服装、换姿势），显示剩余额度与排队状态，不做通用编辑器。</li>
-<li>获客验证：原文未给渠道。可先核查 HF Space 的点赞与评论来源、MCP 客户端生态的实际使用，以及摄影/电商社群中关于「保持人脸改图」的真实讨论，再定渠道。</li>
-<li>收费假设：原文未提。可核查的只是按次/包月额度是否有人接受，或作为既有修图流程中的 API 增值项；不能先假定成立。</li>
-<li>个人适配待确认：与个人/小团队做轻量网站的形态匹配度较高，但需自付上游推理成本并承担稳定性，个人能否承受成本未验证。</li>
-<li>下一步：先做三件事：一是在该 Space 及其社区里找真实使用反馈和复现请求，确认任务频次；二是核查同类改图在线服务的定价与等待时间；三是用最小页面只收集「上传人像+提示词」的真实使用与留资，再决定是否投入。</li>
-<li>风险与反证：上游模型许可与商用条款未核实；肖像权与深度伪造合规风险；免费 Space 的排队与可用性不可控；把 292 个点赞直接当成需求会误判。</li>
-<li>未知事项：真实使用者是谁（电商运营、写真修图、社媒头像等），原文没有用户证据；是否有人愿意为改图按次或包月付费；同类在线改图服务的供给情况与价格；单次推理成本、排队时长与稳定性，原文未提及；上游模型许可、商用条款与肖像权/深度伪造合规边界</li>
-</ul>
-<h3>3. Show HN: Analyst Index – analysts who make money telling you good stock calls / Show HN：Analyst Index——靠告诉你好选股而赚钱的分析师</h3>
+<h3>1. Show HN: Analyst Index – analysts who make money telling you good stock calls / Show HN：Analyst Index——靠告诉你好选股而赚钱的分析师</h3>
 <ul>
 <li>机会编号：e15d6a55ab4bf2fdb265</li>
 <li>来源：Hacker News</li>
 <li>链接：<a href="https://news.ycombinator.com/item?id=49682946" target="_blank" rel="noopener noreferrer">Show HN: Analyst Index – analysts who make money telling you good stock calls</a></li>
 <li>证据入口：<a href="https://news.ycombinator.com/item?id=49682946" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-13T11:50:35Z</li>
-<li>采集时间：2026-09-13T16:08:32.432656+00:00</li>
+<li>采集时间：2026-09-13T16:40:19.893899+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：暗影复刻；打法：把现有分析师评级评分平台复刻到个人订阅分成模式：先用公开评分记录建立分析师信誉，再让分析师直接向读者收费并抽成。</li>
 <li>建议：观察</li>
@@ -179,14 +122,14 @@
 <li>风险与反证：评分可被操纵、目标价是否含信息存疑、监管与数据来源风险、冷启动失败。</li>
 <li>未知事项：零售投资者是否为分析师评分付费；评分方法是否能产生有效信号；分析师供给冷启动能否解决；合规边界与滥用防范成本；与TipRanks/Benzinga的差异是否足够</li>
 </ul>
-<h3>4. AI Writing Is Fine / AI 写作没问题</h3>
+<h3>2. AI Writing Is Fine / AI 写作没问题</h3>
 <ul>
 <li>机会编号：2cc950788b6af05af8cc</li>
 <li>来源：Hacker News</li>
 <li>链接：<a href="https://news.ycombinator.com/item?id=49684082" target="_blank" rel="noopener noreferrer">AI Writing Is Fine</a></li>
 <li>证据入口：<a href="https://news.ycombinator.com/item?id=49684082" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-13T13:59:12Z</li>
-<li>采集时间：2026-09-13T16:08:31.632055+00:00</li>
+<li>采集时间：2026-09-13T16:40:19.131353+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：个人抱怨；打法：从写作者对 AI 味的抱怨切入，观察文风约束与删冗工具</li>
 <li>建议：观察</li>
@@ -207,42 +150,14 @@
 <li>风险与反证：需求可能只是主观偏好；大模型厂商或写作工具内置类似能力；效果难以量化；免费替代多</li>
 <li>未知事项：写作者是否愿意为降低 AI 味付费；现有工具能否覆盖发布公告或技术博客场景；上下文示例的准确率与人工编辑成本；目标用户规模与获客渠道</li>
 </ul>
-<h3>5. Revolut confirms customer data breach through fake government requests / Revolut 确认通过伪造政府请求导致客户数据泄露</h3>
-<ul>
-<li>机会编号：4cda6c0fb96300e7fa20</li>
-<li>来源：Hacker News</li>
-<li>链接：<a href="https://news.ycombinator.com/item?id=49682087" target="_blank" rel="noopener noreferrer">Revolut confirms customer data breach through fake government requests</a></li>
-<li>证据入口：<a href="https://news.ycombinator.com/item?id=49682087" target="_blank" rel="noopener noreferrer">原始资料</a></li>
-<li>发布时间：2026-09-13T09:59:58Z</li>
-<li>采集时间：2026-09-13T16:08:32.782875+00:00</li>
-<li>历史变化：无变化；首次 2026-09-13</li>
-<li>方法：新闻窗口；打法：从企业合规执法请求核验缺口，观察核验与数据最小化工作流产品化</li>
-<li>建议：观察</li>
-<li>理由：评论区一线从业者描述执法请求核验缺口：域名被当作授权、缺少公开渠道清单、回调与案件号核验，以及紧急请求最小化数据；痛点具体，但面向受监管企业，个人或小团队获客和信任门槛高。</li>
-<li>英文原文：The interesting failure here is not phishing, it is that &quot;the email came from the real government domain&quot; was accepted as authorization. A domain proves who sent the message, not that the sender was entitled to ask.</li>
-<li>中文翻译：这里有趣的失败不是钓鱼，而是“邮件来自真实的政府域名”被接受为授权。域名只能证明谁发送了消息，不能证明发送者有权提出请求。</li>
-<li>英文原文：Ran an LE request desk for a while and the whole thing was PDFs from .gov-ish email addresses. Only real control we had was calling the agency back on a number we looked up ourselves, not the one on the letterhead.</li>
-<li>中文翻译：我运营过一段时间的执法请求台，整个流程就是来自 .gov 类邮箱地址的 PDF。我们唯一真正的控制措施是自己查到号码后回拨机构，而不是拨打信头上的号码。</li>
-<li>目标用户假设：金融科技或支付公司的合规、法务、信任与安全团队；处理执法与政府数据请求的一线人员</li>
-<li>任务假设：核验执法或政府数据请求是否真实且发送方有权索取数据，并在紧急请求下最小化披露</li>
-<li>现有办法待核查：人工查看来自 .gov 域名的邮件或 PDF，按主题行紧急程度判断；有时自行查找机构电话回拨；DKIM 或域名验证</li>
-<li>供给缺口假设：域名只能证明发送者，不能证明有权索取；缺少可公开核对的渠道清单、案件号验证、统一回调和数据最小化硬规则</li>
-<li>最小验证与交付：内部工作流：执法请求登记、要求案件号与公开渠道匹配、强制使用独立查得的电话回拨、按请求类型限制可导出字段；输入请求邮件或 PDF，输出核验清单与最小数据集</li>
-<li>获客验证：先与支付或金融科技合规从业者访谈；通过合规社区、行业会议、现有 GRC 工具集成获客</li>
-<li>收费假设：B2B SaaS 按席位或请求量订阅，或合规咨询加工具</li>
-<li>个人适配待确认：痛点高但属受监管企业采购，个人或小团队获客与信任门槛高；适合先做知识库或轻量清单验证</li>
-<li>下一步：访谈 5 至 10 名处理执法请求的合规人员，确认核验步骤是否已标准化、现有系统缺什么，以及是否有预算采购外部工具</li>
-<li>风险与反证：数据敏感与合规责任；渠道清单维护成本；企业销售周期长；现有 GRC 或法务工具可能扩展覆盖；错误核验造成严重后果</li>
-<li>未知事项：合规或法务团队是否愿意采购外部核验工具；现有法律请求管理系统是否已覆盖回调与案件号核验；个人小团队能否进入受监管企业采购；不同司法辖区的执法请求渠道数据能否获取并维护</li>
-</ul>
-<h3>6. m-a-p/YuE2-3B / YuE2-3B：带可编辑乐谱与代理编辑的开源音乐生成模型</h3>
+<h3>3. m-a-p/YuE2-3B / YuE2-3B：带可编辑乐谱与代理编辑的开源音乐生成模型</h3>
 <ul>
 <li>机会编号：2d1e190b309f2b26868b</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/m-a-p/YuE2-3B" target="_blank" rel="noopener noreferrer">m-a-p/YuE2-3B</a></li>
 <li>证据入口：<a href="https://huggingface.co/m-a-p/YuE2-3B/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-09T18:30:33.000Z</li>
-<li>采集时间：2026-09-13T16:08:31.425299+00:00</li>
+<li>采集时间：2026-09-13T16:40:18.179152+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：以开源模型能力变化为切入点，观察“歌词+风格→整首歌，并能按自然语言反馈改版”的编辑闭环是否可被小团队做成轻量产品化服务；不作为新词站打法。</li>
 <li>建议：观察</li>
@@ -263,14 +178,14 @@
 <li>风险与反证：榜单与“前沿质量”为模型方自评，未独立验证；翻唱涉及现有歌曲与歌词版权；GPU 与推理时间成本；Suno 等云端产品迭代快，可能快速覆盖该能力。</li>
 <li>未知事项：是否有创作者愿意为“可编辑、可反复改版”的音乐生成付费；翻唱与歌词来源的版权合规边界；实际生成延迟、显存占用与单曲成本；与 Suno 等云端产品相比，用户切换动力是否足够</li>
 </ul>
-<h3>7. Colafornia/short-video-generator-AI / Colafornia/short-video-generator-AI：开源 AI 短视频生成器</h3>
+<h3>4. Colafornia/short-video-generator-AI / Colafornia/short-video-generator-AI：开源 AI 短视频生成器</h3>
 <ul>
 <li>机会编号：378bc05252a724fffe98</li>
 <li>来源：GitHub</li>
 <li>链接：<a href="https://github.com/Colafornia/short-video-generator-AI" target="_blank" rel="noopener noreferrer">Colafornia/short-video-generator-AI</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/Colafornia/short-video-generator-AI/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-08T14:55:47Z</li>
-<li>采集时间：2026-09-13T16:08:32.071771+00:00</li>
+<li>采集时间：2026-09-13T16:40:18.722219+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：开源复刻 OpusClip/Vidyo.ai，把长视频切片能力本地化；个人可做垂类托管或代运营，而非通用工具。</li>
 <li>建议：观察</li>
@@ -291,14 +206,14 @@
 <li>风险与反证：免费开源替代已存在，通用工具容易被替代；视频版权、平台政策、肖像/音乐版权风险；LLM 高光质量可能不稳定。</li>
 <li>未知事项：目标用户是否愿意为更好用/更垂直的切片工具付费；OpusClip/Vidyo.ai 用户的具体抱怨与搜索量；免费开源方案的实际部署门槛和生成质量；版权、平台政策与商用风险</li>
 </ul>
-<h3>8. kruzovic7/ai-data-extractor / kruzovic7/ai-data-extractor：AI 编码助手聊天记录导出器</h3>
+<h3>5. kruzovic7/ai-data-extractor / kruzovic7/ai-data-extractor：AI 编码助手聊天记录导出器</h3>
 <ul>
 <li>机会编号：3926451c8cd5d4389a8d</li>
 <li>来源：GitHub</li>
 <li>链接：<a href="https://github.com/kruzovic7/ai-data-extractor" target="_blank" rel="noopener noreferrer">kruzovic7/ai-data-extractor</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/kruzovic7/ai-data-extractor/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-11T18:12:58Z</li>
-<li>采集时间：2026-09-13T16:08:32.074849+00:00</li>
+<li>采集时间：2026-09-13T16:40:18.722910+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：把分散的 AI 编码助手本地存储统一导出为 JSONL；先做个人备份/迁移，再试探团队知识留存。</li>
 <li>建议：观察</li>
@@ -317,14 +232,14 @@
 <li>风险与反证：聊天记录含密钥和代码，隐私安全责任大；各工具可能改格式导致维护成本高；个人备份低频，付费意愿弱；开源脚本可能直接覆盖。</li>
 <li>未知事项：开发者是否真的会定期备份或迁移聊天记录；团队是否愿意为加密备份/知识留存付费；各工具存储格式变动频率与维护成本；用户对聊天记录中密钥和代码隐私的顾虑程度</li>
 </ul>
-<h3>9. XHToken/Spark-X2.5-4B / XHToken 发布 Spark-X2.5-4B 与 Spark-X2.5-1.7B 开源模型</h3>
+<h3>6. XHToken/Spark-X2.5-4B / XHToken 发布 Spark-X2.5-4B 与 Spark-X2.5-1.7B 开源模型</h3>
 <ul>
 <li>机会编号：3e587c7e7418aff92118</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/XHToken/Spark-X2.5-4B" target="_blank" rel="noopener noreferrer">XHToken/Spark-X2.5-4B</a></li>
 <li>证据入口：<a href="https://huggingface.co/XHToken/Spark-X2.5-4B/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-08-24T06:34:34.000Z</li>
-<li>采集时间：2026-09-13T16:08:31.125865+00:00</li>
+<li>采集时间：2026-09-13T16:40:17.980411+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：能力红利观察：跟踪小尺寸模型的原生长上下文与多硬件/多推理框架兼容，是否让此前个人跑不动或成本过高的任务变为可行。</li>
 <li>建议：观察</li>
@@ -345,14 +260,14 @@
 <li>风险与反证：模型卡为厂商宣传口径；许可与商用限制不明；同类开源模型迭代极快，窗口可能很短</li>
 <li>未知事项：消费级硬件上 1M 上下文的真实显存与速度表现；1.7B/4B 两档的实际能力边界与幻觉率；模型权重许可证与商业使用限制（原文未提及）；是否已有用户为长上下文本地部署付费；个人用户的算力条件未知</li>
 </ul>
-<h3>10. crwdla/tokentab / tokentab：本地汇总 Claude Code / Codex / Gemini CLI 的 token 用量与成本</h3>
+<h3>7. crwdla/tokentab / tokentab：本地汇总 Claude Code / Codex / Gemini CLI 的 token 用量与成本</h3>
 <ul>
 <li>机会编号：4fae818e12debee8b012</li>
 <li>来源：GitHub</li>
 <li>链接：<a href="https://github.com/crwdla/tokentab" target="_blank" rel="noopener noreferrer">crwdla/tokentab</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/crwdla/tokentab/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-07T17:18:31Z</li>
-<li>采集时间：2026-09-13T16:08:32.071346+00:00</li>
+<li>采集时间：2026-09-13T16:40:18.721953+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：非新词站打法。作为“新技术带来的能力变化 + 现有免费供给”样本观察：先核实真实任务与付费信号，不做配额式深挖。</li>
 <li>建议：观察</li>
@@ -373,14 +288,42 @@
 <li>风险与反证：免费开源替代已存在且功能完整；token 与项目信息敏感，托管方案会引入隐私顾虑；各家日志格式与定价频繁变动，维护成本高；厂商自带账单面板可能直接吞掉该需求；把 723 star 当作市场需求证据不成立。</li>
 <li>未知事项：使用多款 AI 编程 CLI 的开发者是否把“按项目/团队归因费用”当成需要付费解决的问题；该仓库 issues、讨论区是否出现过真实付费或托管需求（本次未提供）；同类付费供给（厂商自带账单面板、第三方 LLM 成本平台）覆盖范围与价格；目标人群规模、个人是否具备该领域经验与获客渠道；各工具日志格式与计费口径变化的频率，对维护成本的影响</li>
 </ul>
-<h3>11. deepseek-ai/DeepSeek-V4.1-Flash / DeepSeek-V4.1-Flash：把 KV Cache 压缩推向极限的多模态 MoE</h3>
+<h3>8. kulkas2pintu/QWEN_EDIT_IMAGE / Qwen-Image-Edit 人像改图 Space：保身份、可调 API 与 MCP</h3>
+<ul>
+<li>机会编号：52acb0ba14da98d33a94</li>
+<li>来源：Hugging Face spaces</li>
+<li>链接：<a href="https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE" target="_blank" rel="noopener noreferrer">kulkas2pintu/QWEN_EDIT_IMAGE</a></li>
+<li>证据入口：<a href="https://huggingface.co/spaces/kulkas2pintu/QWEN_EDIT_IMAGE/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-07-29T16:23:58.000Z</li>
+<li>采集时间：2026-09-13T16:40:17.951920+00:00</li>
+<li>历史变化：无变化；首次 2026-09-13</li>
+<li>方法：新技术；打法：把已开源的改图能力收窄到单一场景（如保持人脸换服装/换姿势），做成轻量在线小工具或 API 加一层，而不是做通用修图产品。</li>
+<li>建议：观察</li>
+<li>理由：原文展示了可直接调用的 /edit 接口、保身份与修手开关、多种风格 LoRA，还支持 MCP 调用，说明能力侧已经就绪；但全文只有模型与参数说明，没有任何用户抱怨、搜索词、价格或付费证据，需求强度未知。先观察并做小验证，不能当作已有市场。</li>
+<li>英文原文：Prompt-based image editing on <strong>Qwen-Image-Edit-2511</strong>, with identity preservation (change pose/clothes/scene while keeping the person&#x27;s face), HD output, and an anti-deformed-hands option.</li>
+<li>中文翻译：基于 Qwen-Image-Edit-2511 的提示词图像编辑，支持身份保持（在改变姿势/服装/场景的同时保留人物面部）、高清输出，以及一个防止手部畸形的选项。</li>
+<li>英文原文：The Space exposes one endpoint: <strong><code>/edit</code></strong>.</li>
+<li>中文翻译：该 Space 只暴露一个端点：<strong><code>/edit</code></strong>。</li>
+<li>目标用户假设：待验证：可能是需要批量改人像的电商或社媒运营、写真与摄影修图者；原文未给出任何用户描述。</li>
+<li>任务假设：上传一张人像并写一句提示词，改变服装、姿势或场景，同时保持人脸一致；可选风格 LoRA、第二张参考图、修手开关与输出尺寸。</li>
+<li>现有办法待核查：原文只说明本 Space 自己的网页/API/MCP 调用方式，没有交代用户此前用什么替代（如传统修图软件或其他改图模型）。</li>
+<li>供给缺口假设：保人脸一致与手部畸形是这类改图的常见痛点，原文把「preserve_identity」「fix_hands」做成显式可调参数；但痛点是否被用户确认、愿不愿为此换工具，均无证据。</li>
+<li>最小验证与交付：单页在线小工具：上传 1 张人像 + 一句中文提示 → 返回保持人脸的改图结果；固定 1–2 个用途（换服装、换姿势），显示剩余额度与排队状态，不做通用编辑器。</li>
+<li>获客验证：原文未给渠道。可先核查 HF Space 的点赞与评论来源、MCP 客户端生态的实际使用，以及摄影/电商社群中关于「保持人脸改图」的真实讨论，再定渠道。</li>
+<li>收费假设：原文未提。可核查的只是按次/包月额度是否有人接受，或作为既有修图流程中的 API 增值项；不能先假定成立。</li>
+<li>个人适配待确认：与个人/小团队做轻量网站的形态匹配度较高，但需自付上游推理成本并承担稳定性，个人能否承受成本未验证。</li>
+<li>下一步：先做三件事：一是在该 Space 及其社区里找真实使用反馈和复现请求，确认任务频次；二是核查同类改图在线服务的定价与等待时间；三是用最小页面只收集「上传人像+提示词」的真实使用与留资，再决定是否投入。</li>
+<li>风险与反证：上游模型许可与商用条款未核实；肖像权与深度伪造合规风险；免费 Space 的排队与可用性不可控；把 292 个点赞直接当成需求会误判。</li>
+<li>未知事项：真实使用者是谁（电商运营、写真修图、社媒头像等），原文没有用户证据；是否有人愿意为改图按次或包月付费；同类在线改图服务的供给情况与价格；单次推理成本、排队时长与稳定性，原文未提及；上游模型许可、商用条款与肖像权/深度伪造合规边界</li>
+</ul>
+<h3>9. deepseek-ai/DeepSeek-V4.1-Flash / DeepSeek-V4.1-Flash：把 KV Cache 压缩推向极限的多模态 MoE</h3>
 <ul>
 <li>机会编号：5c348986a15182f2f224</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank" rel="noopener noreferrer">deepseek-ai/DeepSeek-V4.1-Flash</a></li>
 <li>证据入口：<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-10T02:17:58.000Z</li>
-<li>采集时间：2026-09-13T16:08:31.120084+00:00</li>
+<li>采集时间：2026-09-13T16:40:17.969379+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：跟踪长上下文推理成本下降是否改变小团队可交付的服务形态</li>
 <li>建议：观察</li>
@@ -405,14 +348,14 @@
 <li>风险与反证：仅有技术报告与自评榜单，缺少第三方复现；成本优势可能只在大规模代理负载上成立；API 可得性未知</li>
 <li>未知事项：权重是否开放及许可条件；第三方推理 API 是否可得与单价；1M 上下文的实际质量与延迟；多模态输入的真实可用性；与现有模型的成本差是否足以支撑新服务</li>
 </ul>
-<h3>12. wundercorp/loki / Loki Agent：带自学习循环的开源个人智能体</h3>
+<h3>10. wundercorp/loki / Loki Agent：带自学习循环的开源个人智能体</h3>
 <ul>
 <li>机会编号：66fba3b06397e2b7b016</li>
 <li>来源：GitHub</li>
 <li>链接：<a href="https://github.com/wundercorp/loki" target="_blank" rel="noopener noreferrer">wundercorp/loki</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/wundercorp/loki/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-11T17:31:16Z</li>
-<li>采集时间：2026-09-13T16:08:32.901848+00:00</li>
+<li>采集时间：2026-09-13T16:40:19.330834+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：新技术能力观察：自建技能、跨会话记忆、多平台网关与定时任务，寻找其中可独立成立的小环节</li>
 <li>建议：观察</li>
@@ -435,14 +378,14 @@
 <li>风险与反证：赛道拥挤、维护成本高、宣称效果未经独立验证。</li>
 <li>未知事项：自学习循环的实际效果与稳定性；真实使用人数与留存；运行与托管成本、维护负担；与同类开源智能体的差异；是否存在付费版本</li>
 </ul>
-<h3>13. openbmb/MiniCPM5-2B / MiniCPM5-2B：面向端侧与本地部署的 2B 级开源模型发布</h3>
+<h3>11. openbmb/MiniCPM5-2B / MiniCPM5-2B：面向端侧与本地部署的 2B 级开源模型发布</h3>
 <ul>
 <li>机会编号：6db7a09f6b2d61e8fae8</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/openbmb/MiniCPM5-2B" target="_blank" rel="noopener noreferrer">openbmb/MiniCPM5-2B</a></li>
 <li>证据入口：<a href="https://huggingface.co/openbmb/MiniCPM5-2B/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-06T11:12:19.000Z</li>
-<li>采集时间：2026-09-13T16:08:31.120556+00:00</li>
+<li>采集时间：2026-09-13T16:40:17.972400+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：看能力改变：2B 稠密模型可在本地/端侧运行，提供 GGUF、MLX、GPTQ、LiteRT 等多种运行时格式，上下文 13 万 token，并宣称在编码、数学、长上下文、工具调用与 agent 任务上相对同级模型有优势；这些是能力信号，不等于已验证市场。</li>
 <li>建议：观察</li>
@@ -463,14 +406,14 @@
 <li>风险与反证：官方自述的 SOTA 属宣传口径；下载量、点赞数与数据集发布不能等同于付费需求；模型格式与版本迭代快，内容可能迅速过时；本地部署门槛使付费意愿难以判断。</li>
 <li>未知事项：下载量与点赞数能否反映真实使用与持续使用，未知；宣称的 2B 级 SOTA 与其他同级开源模型相比的独立评测结果，未知；本地部署者当前的具体任务、抱怨点与愿意付费的场景，未知；中文优先用户在该模型上的实际表现与选型偏好，未知；是否存在已提供部署支持、量化打包或端侧 agent 模板的现有供给，未知</li>
 </ul>
-<h3>14. Edge0/Edge0-35B-A3B-preview / Edge0-35B-A3B-preview：在 3 GiB 活跃内存内运行的 35B MoE</h3>
+<h3>12. Edge0/Edge0-35B-A3B-preview / Edge0-35B-A3B-preview：在 3 GiB 活跃内存内运行的 35B MoE</h3>
 <ul>
 <li>机会编号：6f2a3553732373b622b7</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/Edge0/Edge0-35B-A3B-preview" target="_blank" rel="noopener noreferrer">Edge0/Edge0-35B-A3B-preview</a></li>
 <li>证据入口：<a href="https://huggingface.co/Edge0/Edge0-35B-A3B-preview/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-08T13:56:18.000Z</li>
-<li>采集时间：2026-09-13T16:08:31.121265+00:00</li>
+<li>采集时间：2026-09-13T16:40:17.972713+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：跟踪本地与端侧推理能力是否足以支撑离线小产品</li>
 <li>建议：观察</li>
@@ -495,14 +438,14 @@
 <li>风险与反证：预览版能力有限、代理任务弱；生态绑定 Apple Silicon；许可为 Apache 2.0，但基座与框架的商用细节仍需核对</li>
 <li>未知事项：非 Apple Silicon 平台的支持时间；长上下文下的真实内存占用；中文与目标语言的实际表现；是否有真实用户需要本地跑 35B 级模型；基座与框架的商用与再分发条件</li>
 </ul>
-<h3>15. mohdhd/strat-hunter / Strat Hunter：用 AI 编码助手研究交易想法并整理到 Web 仪表盘</h3>
+<h3>13. mohdhd/strat-hunter / Strat Hunter：用 AI 编码助手研究交易想法并整理到 Web 仪表盘</h3>
 <ul>
 <li>机会编号：6f461c76255b13cd0558</li>
 <li>来源：GitHub</li>
 <li>链接：<a href="https://github.com/mohdhd/strat-hunter" target="_blank" rel="noopener noreferrer">mohdhd/strat-hunter</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/mohdhd/strat-hunter/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-08T12:59:34Z</li>
-<li>采集时间：2026-09-13T16:08:32.785009+00:00</li>
+<li>采集时间：2026-09-13T16:40:19.308628+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：新技术观察：跟踪 AI 代理 + 回测工作流的可用性、成本与真实任务频次，不急于复刻或做新词站。</li>
 <li>建议：观察</li>
@@ -523,14 +466,14 @@
 <li>风险与反证：回测过拟合且“完成”不等于策略有效；AI 成本不可控；项目无应用登录且代理权限宽，存在凭据与文件安全风险；交易合规与数据授权风险。</li>
 <li>未知事项：真实用户规模与使用频率未知；是否有人愿意付费未知；AI 与数据成本、回测可信度、合规边界未验证；与现有回测/量化工具的替代关系未验证；安装和运行门槛是否影响实际使用未知</li>
 </ul>
-<h3>16. DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF / DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF（模型卡）</h3>
+<h3>14. DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF / DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF（模型卡）</h3>
 <ul>
 <li>机会编号：73e1243414bd6b3f62ef</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF" target="_blank" rel="noopener noreferrer">DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF</a></li>
 <li>证据入口：<a href="https://huggingface.co/DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-01T07:01:09.000Z</li>
-<li>采集时间：2026-09-13T16:08:31.489187+00:00</li>
+<li>采集时间：2026-09-13T16:40:18.249678+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：新技术信号观察：先追踪独立复现、社区任务与消费级硬件部署反馈，再判断是否形成评测、量化或部署辅助的小站/工具机会。</li>
 <li>建议：观察</li>
@@ -551,46 +494,14 @@
 <li>风险与反证：模型卡宣传可能夸大，指标未独立验证；下载量可能被自动抓取放大；存在上游模型许可证、再分发限制、量化质量、硬件兼容与闭源 API 竞争风险；爱好者关注未必等于付费需求。</li>
 <li>未知事项：ARC-C/ARC-E、工具调用等指标是否经过独立第三方验证；下载量与点赞中真实用户、重复下载、自动抓取各占多少；真实目标用户是本地推理玩家、编码者、写作者还是企业开发者；用户是否愿意为量化、评测、部署辅助或托管付费；官方 Qwen、其他社区微调与闭源 API 的实际替代关系；在消费级硬件上的显存占用、生成速度、稳定性和许可证限制</li>
 </ul>
-<h3>17. Heyosseus/sloppy / Heyosseus/sloppy：检测 AI 编码代理遗留代码质量问题的 PHP 静态分析工具</h3>
-<ul>
-<li>机会编号：75ce5d2748ccc8a41acd</li>
-<li>来源：GitHub</li>
-<li>链接：<a href="https://github.com/Heyosseus/sloppy" target="_blank" rel="noopener noreferrer">Heyosseus/sloppy</a></li>
-<li>证据入口：<a href="https://raw.githubusercontent.com/Heyosseus/sloppy/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
-<li>发布时间：2026-09-10T07:41:59Z</li>
-<li>采集时间：2026-09-13T16:08:33.064630+00:00</li>
-<li>历史变化：无变化；首次 2026-09-13</li>
-<li>方法：新技术；打法：观察“AI 生成代码质量”这一新抱怨能否形成可复刻到其他语言的付费需求</li>
-<li>建议：观察</li>
-<li>理由：它把 AI 代理产出代码带来的维护成本变成确定性、本地、可进 CI 的规则检查，且不依赖模型；但仓库仅 11 stars，缺用户量、真实抱怨原文与付费信号，无法确认需求规模，适合先观察并做复刻可行性验证。</li>
-<li>英文原文：Static analysis for the code-quality patterns AI coding agents leave behind.</li>
-<li>中文翻译：针对 AI 编码代理留下的代码质量模式做静态分析。</li>
-<li>英文原文：Deterministic, local, framework-agnostic — with extra rules for Laravel. No model, no API key, no network.</li>
-<li>中文翻译：确定性、本地、与框架无关——另有 Laravel 专用规则。不用模型、不需要 API key、不联网。</li>
-<li>英文原文：It ships 24 rules, a git-diff review mode, a baseline for existing projects, and JSON output for CI.</li>
-<li>中文翻译：它内置 24 条规则、git diff 审查模式、面向存量项目的 baseline，以及供 CI 使用的 JSON 输出。</li>
-<li>英文原文：Findings are matched by fingerprint, not by line number.</li>
-<li>中文翻译：发现项按指纹匹配，而不是按行号匹配。</li>
-<li>目标用户假设：待验证：使用 AI 编码代理的 PHP/Laravel 团队与开发者</li>
-<li>任务假设：待验证：在提交或 CI 阶段发现新引入的坏味道并阻止合并</li>
-<li>现有办法待核查：待验证：人工 review、通用静态分析工具、现有 linter 与 CI 规则</li>
-<li>供给缺口假设：原文称覆盖 god method、吞异常、疑似 N+1、控制器内写业务逻辑等模式，并用指纹区分“新引入”与“继承”的问题，减少 diff 行号漂移带来的噪声</li>
-<li>最小验证与交付：若按暗影复刻思路做其他语言，可先选 TypeScript 或 Python，做约 10 条确定性规则加 git diff 只报新增问题，输出 JSON 接入 CI；输入为仓库与变更，输出为可操作清单</li>
-<li>获客验证：待验证：从 GitHub、CI 工具渠道与使用 AI 编码代理的开发者社区寻找首批用户</li>
-<li>收费假设：待验证：开源核心加团队版、CI 托管或规则包收费，均需先验证付费意愿</li>
-<li>个人适配待确认：与个人/小团队和轻量网站契合度高：无需模型与联网、可本地运行、交付物明确，是可考虑的复刻候选</li>
-<li>下一步：核实该仓库的真实使用情况（issue、star 增长、谁在 CI 中使用），并在一个真实使用 AI 代理的代码库上试跑，统计误报率与新增问题命中率，再决定是否复刻到其他语言</li>
-<li>风险与反证：静态规则容易误报而被弃用；需求可能仅限作者本人；把“AI 生成”与代码质量问题绑定的叙事需谨慎，原文也明确不做作者判定</li>
-<li>未知事项：真实使用量与留存；是否有人愿意付费；其他语言与技术栈是否存在同类需求；AI 生成代码引发的问题是否长期存在；规则的误报率与维护成本</li>
-</ul>
-<h3>18. WarmBloodAban/Minimax-h3_Singularity / WarmBloodAban/Minimax-h3_Singularity：MiniMax-H3 多模态视频生成微调模型</h3>
+<h3>15. WarmBloodAban/Minimax-h3_Singularity / WarmBloodAban/Minimax-h3_Singularity：MiniMax-H3 多模态视频生成微调模型</h3>
 <ul>
 <li>机会编号：8a4aa676e0f80f353214</li>
 <li>来源：Hugging Face models</li>
 <li>链接：<a href="https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity" target="_blank" rel="noopener noreferrer">WarmBloodAban/Minimax-h3_Singularity</a></li>
 <li>证据入口：<a href="https://huggingface.co/WarmBloodAban/Minimax-h3_Singularity/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-05T18:51:01.000Z</li>
-<li>采集时间：2026-09-13T16:08:31.608809+00:00</li>
+<li>采集时间：2026-09-13T16:40:18.311359+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：新技术观察，围绕视频生成工作流验证付费</li>
 <li>建议：观察</li>
@@ -609,14 +520,14 @@
 <li>风险与反证：模型许可不明、赛道拥挤、GPU 成本高、平台依赖</li>
 <li>未知事项：下载量是否来自真实创作任务；用户是否愿意为工作流、托管或微调付费；模型许可证与商业使用限制；与基础 MiniMax-H3 及其他视频模型的实际质量差异</li>
 </ul>
-<h3>19. Xu123-Bob/Baize / 白泽 Baize：开源中文 AI 编码 Agent CLI</h3>
+<h3>16. Xu123-Bob/Baize / 白泽 Baize：开源中文 AI 编码 Agent CLI</h3>
 <ul>
 <li>机会编号：8cec8a406862b963a235</li>
 <li>来源：GitHub</li>
 <li>链接：<a href="https://github.com/Xu123-Bob/Baize" target="_blank" rel="noopener noreferrer">Xu123-Bob/Baize</a></li>
 <li>证据入口：<a href="https://raw.githubusercontent.com/Xu123-Bob/Baize/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
 <li>发布时间：2026-09-12T05:17:38Z</li>
-<li>采集时间：2026-09-13T16:08:32.396083+00:00</li>
+<li>采集时间：2026-09-13T16:40:19.030402+00:00</li>
 <li>历史变化：无变化；首次 2026-09-13</li>
 <li>方法：新技术；打法：不做又一个通用编码 CLI，而是在中文开发者场景做配套：配置模板、技能包/子代理模板，以及本地 Ollama 私有化用法，借现成 CLI 分发。</li>
 <li>建议：观察</li>
