@@ -135,10 +135,23 @@ def audit_evidence_report(markdown: str) -> list[str]:
         if recommendation not in ('深挖', '观察', '暂存', '放弃'):
             errors.append(f'第 {idx} 条建议无效')
         if recommendation in ('深挖', '观察'):
-            if not field_value(item, '英文原文'):
-                errors.append(f'第 {idx} 条推荐缺少英文原文')
-            if not field_value(item, '中文翻译'):
-                errors.append(f'第 {idx} 条推荐缺少中文翻译')
+            english = field_value(item, '英文原文')
+            chinese = field_value(item, '中文原文')
+            if not english and not chinese:
+                errors.append(f'第 {idx} 条推荐缺少原文证据')
+            if english and not field_value(item, '中文翻译'):
+                errors.append(f'第 {idx} 条英文证据缺少中文翻译')
+            lines = item.splitlines()
+            for line_number, line in enumerate(lines):
+                if not line.startswith('- 英文原文：'):
+                    continue
+                following = lines[line_number + 1] if line_number + 1 < len(lines) else ''
+                if not following.startswith('- 中文翻译：'):
+                    errors.append(f'第 {idx} 条英文原文后必须紧跟中文翻译')
+                    continue
+                translation = following.removeprefix('- 中文翻译：').strip()
+                if not re.search(r'[\u3400-\u9fff]', translation):
+                    errors.append(f'第 {idx} 条翻译内容不是中文')
     return errors
 
 

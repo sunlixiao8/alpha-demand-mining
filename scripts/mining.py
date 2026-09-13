@@ -264,6 +264,10 @@ def line(value):
     return re.sub(r'\s+', ' ', str(value)).replace('<', '＜').replace('>', '＞').replace('[', '［').replace(']', '］').strip()
 
 
+def contains_chinese(value):
+    return bool(re.search(r'[\u3400-\u9fff]', value or ''))
+
+
 def render_report(items, states, date):
     public = [x for x in items if not x.get('private')]
     rank = {'深挖': 0, '观察': 1, '暂存': 2, '放弃': 3}
@@ -272,8 +276,10 @@ def render_report(items, states, date):
     reportable.sort(key=lambda x: (x.get('change') == '无变化', rank[x['analysis']['recommendation']], x.get('candidate_rank', 999), x['id']))
     reportable = reportable[:20]
     lines = [f'# {date} 需求机会日报', '', '<!-- evidence-report-v2 -->', '', '## 今日摘要', '']
+    candidate_count = sum(bool(x.get('selected_for_analysis')) for x in public)
+    analyzed_count = sum(bool(x.get('selected_for_analysis') and x.get('analysis_mode') == 'model') for x in public)
     lines += [f'- 运行状态：{"部分来源失败" if any(s["state"] == "失败" for s in states.values()) else "完成"}',
-              f'- 原始线索：{len(public)} 条；进入 DeepSeek 分析：{sum(bool(x.get("selected_for_analysis")) for x in public)} 条；日报展示：{len(reportable)} 条。']
+              f'- 原始线索：{len(public)} 条；规则候选：{candidate_count} 条；有效模型分析：{analyzed_count} 条；日报展示：{len(reportable)} 条。']
     highlights = [x for x in reportable if x.get('change') != '无变化']
     if not highlights:
         lines.append('- 今日没有新增的已完成分析且值得推荐的机会；候选及运行状态见下方。')
@@ -298,8 +304,11 @@ def render_report(items, states, date):
                   f'- 方法：{a["method"]}；打法：{line(a.get("strategy") or "未指定")}',
                   f'- 建议：{a["recommendation"]}', f'- 理由：{line(a["reason"])}']
         for fact in a.get('facts', []):
-            lines.append(f'- 英文原文：{line(fact["quote"])}')
-            lines.append(f'- 中文翻译：{line(fact["translation_zh"])}')
+            if contains_chinese(fact['quote']):
+                lines.append(f'- 中文原文：{line(fact["quote"])}')
+            else:
+                lines.append(f'- 英文原文：{line(fact["quote"])}')
+                lines.append(f'- 中文翻译：{line(fact["translation_zh"])}')
         for key, label in labels.items():
             lines.append(f'- {label}：{line(a[key])}')
         lines += [f'- 未知事项：{line("；".join(a["unknowns"]))}', '']
@@ -376,7 +385,10 @@ def run(root=ROOT, use_model=True, replay=None):
         states['模型分析'] = {'state': '部分失败' if failures else '正常', 'count': valid_count,
                            'error': f'{failures} 条分析未完成' if failures else ''}
     else:
-        states['模型分析'] = {'state': '未配置或已禁用；保留证据待分析', 'count': 0}
+        valid_count = sum(item.get('analysis_mode') == 'model' for item in selected)
+        state = '未配置或已禁用；复用已校验历史分析' if valid_count else '未配置或已禁用；保留证据待分析'
+        states['模型分析'] = {'state': state, 'count': valid_count,
+                           'error': f'{len(selected) - valid_count} 条新候选待分析' if len(selected) > valid_count else ''}
     items = update_history(items, history_path, date)
     save_json(root / 'data' / 'runs' / f'{date}.json', {'date': date, 'sources': states, 'items': items})
     report = render_report(items, states, date)

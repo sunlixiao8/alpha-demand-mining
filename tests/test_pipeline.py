@@ -84,7 +84,8 @@ class MiningTest(unittest.TestCase):
             report = next((root / 'daily').glob('*.md')).read_text()
             self.assertEqual(audit(report), [])
             html = markdown_to_html(report)
-            self.assertIn('进入 DeepSeek 分析：1 条', html)
+            self.assertIn('规则候选：1 条', html)
+            self.assertIn('有效模型分析：0 条', html)
             self.assertIn('日报展示：0 条', html)
             self.assertNotIn('href="https://example.com/tool"', html)
             self.assertTrue((root / 'data/history.json').exists())
@@ -212,6 +213,26 @@ class MiningTest(unittest.TestCase):
         mining.prefilter([technology, discussion])
         self.assertGreater(mining.candidate_score(discussion), mining.candidate_score(technology))
 
+    def test_prefilter_has_no_category_quota(self):
+        complaints = [
+            mining.evidence(
+                f'Recurring export failure {i}', f'https://example.com/complaint-{i}',
+                'Reddit', '个人抱怨',
+                f'I pay for this but CSV export keeps failing every week, so I copy invoices manually. Case {i}.',
+            )
+            for i in range(45)
+        ]
+        technology = [
+            mining.evidence(
+                f'Model launch {i}', f'https://example.com/model-{i}',
+                'Hugging Face models', '新技术', 'Open source local model API.',
+            )
+            for i in range(45)
+        ]
+        selected, _ = mining.prefilter(technology + complaints, limit=40)
+        self.assertEqual(len(selected), 40)
+        self.assertEqual({item['method'] for item in selected}, {'个人抱怨'})
+
     def test_translation_is_required_and_english_precedes_chinese(self):
         item = self.sample()
         item['selected_for_analysis'] = True
@@ -224,6 +245,21 @@ class MiningTest(unittest.TestCase):
         del item['analysis']['facts'][0]['translation_zh']
         with self.assertRaises(ValueError):
             mining.validate_analysis(item['analysis'], [item])
+
+    def test_chinese_source_is_not_labeled_as_english(self):
+        item = self.sample(text='一个开源工具，支持批量导出。')
+        item['selected_for_analysis'] = True
+        item['analysis_mode'] = 'model'
+        item['analysis'] = self.analyzed(item)
+        item['analysis']['facts'][0] = {
+            'evidence_id': item['id'],
+            'quote': '一个开源工具',
+            'translation_zh': '这是一个开源工具',
+        }
+        report = mining.render_report([item], {'模型分析': {'state': '正常', 'count': 1}}, '2026-09-13')
+        self.assertIn('中文原文：一个开源工具', report)
+        self.assertNotIn('英文原文：一个开源工具', report)
+        self.assertNotIn('中文翻译：这是一个开源工具', report)
 
     def test_translation_field_must_really_be_chinese(self):
         item = self.sample(text='一个开源工具')
@@ -249,11 +285,42 @@ class MiningTest(unittest.TestCase):
             self.assertEqual(saved['sources']['模型分析']['state'], '部分失败')
             self.assertEqual(saved['sources']['模型分析']['count'], 1)
 
+    def test_invalid_cached_translation_is_reanalyzed(self):
+        item = self.sample()
+        invalid = self.analyzed(item)
+        invalid['facts'][0]['translation_zh'] = 'Export invoices as CSV'
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            mining.save_json(root / 'data/history.json', {
+                item['id']: {**item, 'fingerprint': mining.fingerprint(item),
+                             'analysis_mode': 'model', 'analysis': invalid, 'first_seen': '2026-09-13'},
+            })
+            corrected = self.analyzed(item, recommendation='观察')
+            with patch.dict('os.environ', {'DEEPSEEK_API_KEY': 'test-only'}):
+                with patch.object(mining.sources, 'adapters', return_value={'test': lambda: [item]}):
+                    with patch.object(mining, 'analyze_resilient', return_value=({item['id']: corrected}, {})) as analyze:
+                        mining.run(root)
+            self.assertEqual(analyze.call_args.args[0][0]['id'], item['id'])
+
+    def test_manual_evidence_is_never_sent_to_model(self):
+        item = self.sample()
+        item['private'] = False
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            mining.save_json(root / 'data/manual-evidence.json', [item])
+            with patch.dict('os.environ', {'DEEPSEEK_API_KEY': 'test-only'}):
+                with patch.object(mining.sources, 'adapters', return_value={'test': lambda: []}):
+                    with patch.object(mining, 'analyze_resilient') as analyze:
+                        mining.run(root)
+            analyze.assert_not_called()
+
     def test_unanalyzed_candidates_are_not_dumped_into_report(self):
         items = [self.sample(f'https://example.com/{i}') for i in range(130)]
         report = mining.render_report(items, {}, '2026-09-13')
         self.assertEqual(report.count('\n### '), 0)
         self.assertIn('原始线索：130 条', report)
+        self.assertIn('规则候选：0 条', report)
+        self.assertIn('有效模型分析：0 条', report)
         self.assertIn('日报展示：0 条', report)
 
     def test_translated_report_passes_audit(self):
@@ -262,6 +329,40 @@ class MiningTest(unittest.TestCase):
         item['selected_for_analysis'] = True
         item['analysis_mode'] = 'model'
         item['analysis'] = self.analyzed(item)
+        self.assertEqual(audit(mining.render_report([item], {}, '2026-09-13')), [])
+
+    def test_audit_rejects_translation_that_is_not_immediately_after_english(self):
+        from scripts.audit_report import audit
+        item = self.sample()
+        item['selected_for_analysis'] = True
+        item['analysis_mode'] = 'model'
+        item['analysis'] = self.analyzed(item)
+        report = mining.render_report([item], {}, '2026-09-13')
+        report = report.replace(
+            '- 英文原文：Export invoices as CSV\n- 中文翻译：将发票导出为 CSV',
+            '- 中文翻译：将发票导出为 CSV\n- 英文原文：Export invoices as CSV',
+        )
+        self.assertTrue(any('紧跟中文翻译' in error for error in audit(report)))
+
+    def test_audit_rejects_non_chinese_translation_text(self):
+        from scripts.audit_report import audit
+        item = self.sample()
+        item['selected_for_analysis'] = True
+        item['analysis_mode'] = 'model'
+        item['analysis'] = self.analyzed(item)
+        report = mining.render_report([item], {}, '2026-09-13').replace('中文翻译：将发票导出为 CSV',
+                                                                        '中文翻译：Export invoices as CSV')
+        self.assertTrue(any('翻译内容不是中文' in error for error in audit(report)))
+
+    def test_chinese_source_report_passes_audit_without_duplicate_translation(self):
+        from scripts.audit_report import audit
+        item = self.sample(text='一个开源工具，支持批量导出。')
+        item['selected_for_analysis'] = True
+        item['analysis_mode'] = 'model'
+        item['analysis'] = self.analyzed(item)
+        item['analysis']['facts'][0] = {
+            'evidence_id': item['id'], 'quote': '一个开源工具', 'translation_zh': '这是一个开源工具',
+        }
         self.assertEqual(audit(mining.render_report([item], {}, '2026-09-13')), [])
 
     def test_end_to_end_handles_prefiltered_out_items(self):
