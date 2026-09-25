@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-09-25 需求机会日报</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #17202a;
+      --muted: #667085;
+      --line: #d9e2ec;
+      --bg: #f7f9fb;
+      --paper: #ffffff;
+      --accent: #146c94;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+    }
+    main {
+      width: min(920px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px 52px;
+    }
+    article {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(20px, 5vw, 44px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    h1 { font-size: 30px; line-height: 1.3; margin: 0 0 24px; }
+    article { overflow-wrap: anywhere; }
+    h2 { font-size: 24px; margin: 34px 0 12px; border-top: 1px solid var(--line); padding-top: 24px; }
+    h3 { font-size: 19px; margin: 26px 0 8px; color: #223548; }
+    h4 { font-size: 17px; margin: 22px 0 8px; }
+    p { margin: 10px 0; }
+    ul { padding-left: 22px; margin: 10px 0 16px; }
+    li { margin: 6px 0; }
+    a { color: var(--accent); word-break: break-word; }
+    code {
+      background: #eef4f7;
+      border: 1px solid #d7e4ea;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .index-list {
+      list-style: none;
+      padding: 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <a class="back" href="../index.html">返回列表</a>
+<h1>2026-09-25 需求机会日报</h1>
+<h2>今日摘要</h2>
+<ul>
+<li>运行状态：部分来源失败</li>
+<li>原始线索：130 条；规则候选：40 条；有效模型分析：40 条；日报展示：15 条。</li>
+<li>The Board Game of the Alpha Nerds (2014)：评论给出具体任务：在线玩《外交》时地图难读导致误操作，且整日投入难协调；已有 Backstabbr 等供给，可观察是否值得做更好地图或异步体验，但未见付费证据。</li>
+<li>Appliances Should Be Dumb：评论集中抱怨智能家电核心功能差、订阅化和需重启，并明确希望有“笨版本”可选；但评论只是观点，缺少搜索量、供给和付费证据，适合低成本验证内容清单站。</li>
+<li>Jev and System One Models: Calibration Beats Accuracy：讨论指出LLM用于分类时校准比单纯准确率更重要，并给出“在自己的数据集上衡量”“嵌入+逻辑回归”等替代做法；但未证明有团队愿付费购买校准工具。</li>
+<li>Ask HN: Do you cuss at your agent?：抱怨真实且具体：代理会做错误假设、问明显问题、虚假声称完成。但仅为情绪表达，没有付费证据；需核实现有回滚/上下文管理工具与用户是否愿意为此付费。</li>
+<li>Vibe Coding Production Kit – a production workflow for AI coding agents：该工具试图解决 AI 编码代理缺少生产流程的问题，方向有潜力；但评论显示部分用户不理解价值，且产品刚发布，需求与留存待验证。</li>
+</ul>
+<h2>来源覆盖</h2>
+<ul>
+<li>GitHub：正常，30 条</li>
+<li>Hacker News：正常，30 条</li>
+<li>Hugging Face models：正常，20 条</li>
+<li>Hugging Face spaces：正常，20 条</li>
+<li>Product Hunt：正常，30 条</li>
+<li>Reddit：失败，0 条；HTTPError</li>
+<li>搜索数据：未自动接入；支持手动证据，0 条</li>
+<li>服务订单：未自动接入；支持手动证据，0 条</li>
+<li>模型分析：正常，40 条</li>
+<li>竞品付费与Roadmap：未自动接入；支持手动证据，0 条</li>
+<li>规则初筛：正常，40 条</li>
+</ul>
+<h2>筛选后的机会</h2>
+<h3>1. kraayenjon/awesome-jev / kraayenjon/awesome-jev</h3>
+<ul>
+<li>机会编号：0d07801a1445d57ca4a8</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/kraayenjon/awesome-jev" target="_blank" rel="noopener noreferrer">kraayenjon/awesome-jev</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/kraayenjon/awesome-jev/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-18T15:43:06Z</li>
+<li>采集时间：2026-09-25T04:12:25.383108+00:00</li>
+<li>历史变化：无变化；首次 2026-09-20</li>
+<li>方法：新技术；打法：开发者生态目录与任务模板</li>
+<li>建议：深挖</li>
+<li>理由：Jev 把 LLM 的文本输出改成可编程的类型化决策，任务明确（分类、路由、评分、验证），且已有 awesome 列表和 madewithjev 目录作为早期供给；值得验证垂直场景与模板需求。</li>
+<li>英文原文：Jev is the first System One model from TypeSafe AI — an AI model that returns typed decisions (Choice, Score, Noul) with calibrated probabilities instead of generated text.</li>
+<li>中文翻译：Jev 是 TypeSafe AI 的第一个 System One 模型——一种返回带有校准概率的类型化决策（Choice、Score、Noul）而不是生成文本的 AI 模型。</li>
+<li>英文原文：Use it to classify, route, score, detect, rank, extract, verify, and gate automation — anywhere you would otherwise write a brittle regex or pay an LLM to return JSON you then have to parse.</li>
+<li>中文翻译：用它来分类、路由、评分、检测、排序、抽取、验证和门控自动化——任何你原本会写脆弱正则，或付费让 LLM 返回 JSON 再解析的地方。</li>
+<li>目标用户假设：需要分类、路由、评分、验证自动化的开发者与产品团队</li>
+<li>任务假设：用类型化决策替代正则或 LLM JSON 解析，并控制成本与延迟</li>
+<li>现有办法待核查：awesome-jev 列表、madewithjev.com 目录、官方文档和早期社区项目</li>
+<li>供给缺口假设：缺少按任务可运行的中文模板、成本/延迟对比和迁移指南</li>
+<li>最小验证与交付：一个 Jev 任务模板站：输入 state+typed questions，输出 Choice/Score/Noul 结果与成本延迟，先覆盖 3 个高频任务</li>
+<li>获客验证：GitHub、Hugging Face、Jev 社区和中文开发者社群；用真实案例页做 SEO</li>
+<li>收费假设：企业内训/咨询、模板包、托管工作流；订阅仅为待验证选项</li>
+<li>个人适配待确认：轻量网站可做，但要用 Jev API 或本地模型跑通案例；个人需先申请 early access</li>
+<li>下一步：申请 Jev early access，选 3 个任务做可复现 demo，并访谈 5 位开发者</li>
+<li>风险与反证：依赖单一厂商 API，早期限流或定价变动；若官方文档已足够，模板站价值有限</li>
+<li>未知事项：真实用户是否愿意从 LLM 切换到 Jev；Jev API 的可获得性与稳定性；垂直场景的付费方是谁</li>
+</ul>
+<h3>2. Qwen/Qwen-Image-2.1 / Qwen/Qwen-Image-2.1</h3>
+<ul>
+<li>机会编号：3cc50d0356230bcbb995</li>
+<li>来源：Hugging Face models</li>
+<li>链接：<a href="https://huggingface.co/Qwen/Qwen-Image-2.1" target="_blank" rel="noopener noreferrer">Qwen/Qwen-Image-2.1</a></li>
+<li>证据入口：<a href="https://huggingface.co/Qwen/Qwen-Image-2.1/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-14T03:47:26.000Z</li>
+<li>采集时间：2026-09-25T04:12:24.499148+00:00</li>
+<li>历史变化：无变化；首次 2026-09-21</li>
+<li>方法：新技术；打法：能力改变：原生透明RGBA生成、多参考图编辑与局部编辑合一；先验证透明图/参考图编辑工作流是否存在重复需求。</li>
+<li>建议：深挖</li>
+<li>理由：模型页显示7B视觉生成组件、原生透明RGBA、最多10张参考图、局部编辑与身份保持，且HF点赞/下载有初步关注；但尚无具体用户任务与付费证据，需核查需求与成本。</li>
+<li>英文原文：<strong>Native Transparency, Unified Creation and Editing</strong> — Generate regular or transparent (RGBA) images from text, edit transparent layers, and extract subjects from photographs—all in one model.</li>
+<li>中文翻译：<strong>原生透明，统一创作与编辑</strong>——从文本生成常规或透明（RGBA）图像，编辑透明图层，并从照片中提取主体——全部在一个模型中完成。</li>
+<li>英文原文：Support up to <strong>10 reference images</strong>, specify local edits via circles, painted annotations, or separate masks, and preserve identity for people and products.</li>
+<li>中文翻译：支持最多<strong>10张参考图像</strong>，通过圆圈、涂鸦标注或单独蒙版指定局部编辑，并保持人物和产品的身份特征。</li>
+<li>目标用户假设：待验证：电商卖家、独立设计师、贴纸/表情包创作者、需要透明素材的开发者</li>
+<li>任务假设：生成透明背景图像、用多张参考图编辑并保持人物/产品身份、局部修改</li>
+<li>现有办法待核查：待验证：Photoshop/Canva、其他文生图与编辑模型、人工抠图</li>
+<li>供给缺口假设：待验证：原生RGBA生成与统一编辑可能减少多工具切换，但尚无用户抱怨证据</li>
+<li>最小验证与交付：验证优先：做一个只处理“透明背景商品/贴纸图+局部编辑”的轻量网页流程，输入文本/参考图，输出RGBA PNG；不先做通用平台。</li>
+<li>获客验证：待验证：HF模型页、GitHub、Discord/微信社群、电商卖家社区；先用模型页导流。</li>
+<li>收费假设：待验证：按次生成/订阅、API调用；开源模型本身难直接收费，可卖托管与工作流。</li>
+<li>个人适配待确认：个人/小团队可做轻量前端与API封装，但7B模型推理需GPU成本，需靠托管或按次收费覆盖。</li>
+<li>下一步：先查HF模型页、GitHub与社区里对透明图/参考图编辑的具体需求，访谈电商卖家或设计者，核查许可证与推理成本。</li>
+<li>风险与反证：大厂模型迭代快、开源模型可被直接使用、许可证限制、算力成本、需求未证。</li>
+<li>未知事项：哪些用户愿意为透明图/参考图编辑付费；本地部署成本与API供给；现有Photoshop/Canva/其他模型替代情况；许可证对商用影响</li>
+</ul>
+<h3>3. andududu/jeview / andududu/jeview</h3>
+<ul>
+<li>机会编号：4d51afb02dd93a2438a0</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/andududu/jeview" target="_blank" rel="noopener noreferrer">andududu/jeview</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/andududu/jeview/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-21T14:03:13Z</li>
+<li>采集时间：2026-09-25T04:12:25.515193+00:00</li>
+<li>历史变化：无变化；首次 2026-09-22</li>
+<li>方法：暗影复刻；打法：暗影复刻：观察该本地可视化工具是否可复用到其他AI API；先验证实际任务与官方供给。</li>
+<li>建议：观察</li>
+<li>理由：README显示一个本地网关+可视化工具，能记录并展示对TypeSafe Jev的每次调用；任务具体但仅20星，无用户抱怨或付费证据，且依赖单一第三方API。</li>
+<li>英文原文：Jeview is a gateway: it sits between your code and TypeSafe and answers nothing itself. Point your Jev client at Jeview instead of TypeSafe.</li>
+<li>中文翻译：Jeview 是一个网关：它位于你的代码和 TypeSafe 之间，自身不给出任何回答。把你的 Jev 客户端指向 Jeview 而不是 TypeSafe。</li>
+<li>英文原文：keeps every call in a local SQLite database, and draws the calls on a live map as they happen.</li>
+<li>中文翻译：把每次调用保存在本地 SQLite 数据库中，并在调用发生时将其绘制在实时地图上。</li>
+<li>目标用户假设：待验证：使用TypeSafe Jev/System One的开发者</li>
+<li>任务假设：查看每次代码调用、按项目分组、关联调用链、本地留存</li>
+<li>现有办法待核查：待验证：TypeSafe官方控制台、日志、手工打印</li>
+<li>供给缺口假设：待验证：本地可视化与调用链展示可能缺失，但无用户抱怨证据</li>
+<li>最小验证与交付：若验证，可先做只读本地代理+调用列表/调用链视图，支持一个AI API，不存密钥明文。</li>
+<li>获客验证：待验证：GitHub、HN、AI开发者社区、TypeSafe用户群</li>
+<li>收费假设：待验证：开源+托管/团队版；个人开发者付费意愿低</li>
+<li>个人适配待确认：个人可做轻量本地工具，但依赖第三方API生态，适配和维护成本高</li>
+<li>下一步：先核查TypeSafe Jev官方功能与用户抱怨，再查其他AI Agent API是否有本地可视化的重复请求。</li>
+<li>风险与反证：依赖单一未验证API；官方可能内置该功能；密钥明文存储安全风险；低星项目不代表需求。</li>
+<li>未知事项：TypeSafe/Jev用户规模；官方是否已有类似功能；其他AI API开发者是否需要本地调用可视化；20 stars是否代表真实使用</li>
+</ul>
+<h3>4. The Board Game of the Alpha Nerds (2014) / 阿尔法书呆子的桌游（2014）</h3>
+<ul>
+<li>机会编号：3408b47b726bb7333bc5</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49836590" target="_blank" rel="noopener noreferrer">The Board Game of the Alpha Nerds (2014)</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49836590" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-24T20:53:39Z</li>
+<li>采集时间：2026-09-25T04:12:25.923520+00:00</li>
+<li>历史变化：新增；首次 2026-09-25</li>
+<li>方法：暗影复刻；打法：待分类</li>
+<li>建议：观察</li>
+<li>理由：评论给出具体任务：在线玩《外交》时地图难读导致误操作，且整日投入难协调；已有 Backstabbr 等供给，可观察是否值得做更好地图或异步体验，但未见付费证据。</li>
+<li>英文原文：I think I mostly hated the map; it was difficult to read, and I made at least two mistakes because the regions in the center were tiny and hard to parse out for me.</li>
+<li>中文翻译：我想我最讨厌的是地图；它很难读，我至少犯了两个错误，因为中间区域很小，对我来说很难分辨。</li>
+<li>英文原文：You and a few folks have to really dedicate the entire day to it to get the most out of it, something that is very hard to do now as a parent and with many possible distractions within reach.</li>
+<li>中文翻译：你和几个人必须真正投入一整天才能从中获得最大收益，而如今作为父母且身边有很多可能的分心事物，这非常难做到。</li>
+<li>目标用户假设：待验证：在线《外交》玩家，尤其新玩家和时间有限的玩家</li>
+<li>任务假设：待验证：在网页上异步玩《外交》，并快速读懂地图与局势</li>
+<li>现有办法待核查：Backstabbr、实体桌游、其他在线平台</li>
+<li>供给缺口假设：地图可读性差、新手上手难、整日同步游戏难协调</li>
+<li>最小验证与交付：待验证：改良版《外交》地图界面或异步对局辅助，先做单一地图可读性</li>
+<li>获客验证：待验证：Hacker News、Reddit r/diplomacy、BoardGameGeek 社区</li>
+<li>收费假设：待验证：订阅制、一次性买断或赞助赛事</li>
+<li>个人适配待确认：待验证：轻量网站可做，但品类小众，付费意愿未知</li>
+<li>下一步：先核查 Backstabbr 等现有产品的用户抱怨与活跃社区，再做可点击地图原型验证。</li>
+<li>风险与反证：现有免费替代强；小众品类付费天花板低；把单个吐槽当成市场。</li>
+<li>未知事项：《外交》玩家是否愿意为更好地图或异步体验付费；Backstabbr 等现有工具的活跃度与缺口；个人/小团队能否获客</li>
+</ul>
+<h3>5. Appliances Should Be Dumb / 家电应该变笨</h3>
+<ul>
+<li>机会编号：c6ebc0b0acb00998b11e</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49839467" target="_blank" rel="noopener noreferrer">Appliances Should Be Dumb</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49839467" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-25T02:15:28Z</li>
+<li>采集时间：2026-09-25T04:12:24.763501+00:00</li>
+<li>历史变化：新增；首次 2026-09-25</li>
+<li>方法：新闻窗口；打法：抱怨→无联网/无订阅家电清单+维修资源站</li>
+<li>建议：观察</li>
+<li>理由：评论集中抱怨智能家电核心功能差、订阅化和需重启，并明确希望有“笨版本”可选；但评论只是观点，缺少搜索量、供给和付费证据，适合低成本验证内容清单站。</li>
+<li>英文原文：They very least, dumb versions should be available. Programable logic chips are the most reliable and never need updates so they are the best choice.</li>
+<li>中文翻译：最起码，应该提供笨版本。可编程逻辑芯片最可靠、从不需要更新，所以是最好的选择。</li>
+<li>英文原文：Buy a used fridge, and pay Sears or someone money to fix it up. I heard Smart Fridges have an ice cube subscription for $15 a month after a year&#x27;s demo expires; pay it or no more ice cubes.</li>
+<li>中文翻译：买一台二手冰箱，付钱给西尔斯或别人修好。我听说智能冰箱在一年演示期过后有每月15美元的冰块订阅；不付钱就没有冰块。</li>
+<li>目标用户假设：想买无联网、耐用、可维修家电的消费者；家电维修者</li>
+<li>任务假设：寻找非智能、无订阅、可长期维修的家电型号和维修方案</li>
+<li>现有办法待核查：论坛讨论、买二手冰箱、请Sears等维修、选用可编程逻辑芯片</li>
+<li>供给缺口假设：缺少按“可离线、无订阅、可维修”筛选的清单与故障维修信息</li>
+<li>最小验证与交付：轻量网站收录家电型号，支持筛选无联网/无订阅/可维修，附维修指南与购买链接</li>
+<li>获客验证：Hacker News、Reddit r/BuyItForLife、维修社区、长尾SEO</li>
+<li>收费假设：联盟购买链接、品牌赞助、维修服务线索</li>
+<li>个人适配待确认：个人可做内容站，但需持续维护型号和维修数据</li>
+<li>下一步：验证搜索词与社区抱怨量，整理30个候选型号和维修资源，访谈维修者</li>
+<li>风险与反证：评论不等于购买需求；型号有地域和时效差异；联盟收入可能很低</li>
+<li>未知事项：“dumb appliance”相关搜索量；用户是否愿意为此付费或通过联盟购买；可维修、无联网家电的型号数据是否可稳定获取；维修者与二手商家的合作意愿</li>
+</ul>
+<h3>6. Jev and System One Models: Calibration Beats Accuracy / Jev 与 System One 模型：校准胜过准确率</h3>
+<ul>
+<li>机会编号：dc87aa26b5178fcb6846</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49839510" target="_blank" rel="noopener noreferrer">Jev and System One Models: Calibration Beats Accuracy</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49839510" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-25T02:24:21Z</li>
+<li>采集时间：2026-09-25T04:12:24.756544+00:00</li>
+<li>历史变化：新增；首次 2026-09-25</li>
+<li>方法：新闻窗口；打法：新技术讨论→LLM校准评测服务</li>
+<li>建议：观察</li>
+<li>理由：讨论指出LLM用于分类时校准比单纯准确率更重要，并给出“在自己的数据集上衡量”“嵌入+逻辑回归”等替代做法；但未证明有团队愿付费购买校准工具。</li>
+<li>英文原文：Spot on. A slightly less accurate but calibrated model inspires far more trust than a &#x27;perfect&#x27; one that&#x27;s consistently overconfident.</li>
+<li>中文翻译：完全正确。一个稍不准确但校准过的模型，比一个始终过度自信的‘完美’模型更能带来信任。</li>
+<li>英文原文：Calibration has to be measured on your dataset. Just because the probs sum to 1, does not make Jev or Jev-like models claibrated.</li>
+<li>中文翻译：校准必须在你的数据集上衡量。仅仅因为概率和为1，并不能让 Jev 或类似 Jev 的模型变得校准。</li>
+<li>目标用户假设：用LLM做分类或工单优先级判断的ML工程师、客服运营团队</li>
+<li>任务假设：在自有数据上评估LLM输出概率是否校准，并选择更可靠的分类方案</li>
+<li>现有办法待核查：人工检查、OpenRouter试用、嵌入+逻辑回归、参考广告点击预测校准经验</li>
+<li>供给缺口假设：缺少在自有数据上快速生成校准评测并对比简单基线的轻量工具</li>
+<li>最小验证与交付：上传带标签数据与模型输出，生成校准曲线、指标和逻辑回归基线对比报告</li>
+<li>获客验证：Hacker News、ML社区、评测工具讨论、技术内容营销</li>
+<li>收费假设：一次性校准审计、团队订阅、咨询</li>
+<li>个人适配待确认：需一定ML能力，个人可做轻量原型，但面临大厂评测平台竞争</li>
+<li>下一步：访谈3至5个用LLM做分类的团队，收集样例数据并手做校准报告原型</li>
+<li>风险与反证：大厂评测平台覆盖；需求可能弱；评论争论不等于付费需求</li>
+<li>未知事项：多少团队正在用LLM做分类并关心校准；是否已有足够好且免费的开源工具；付费方是ML团队、客服运营还是合规部门；校准报告能否形成重复交付</li>
+</ul>
+<h3>7. Ask HN: Do you cuss at your agent? / Ask HN：你会骂你的 AI 代理吗？</h3>
+<ul>
+<li>机会编号：b2c1fef9d359e7dd5863</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49837715" target="_blank" rel="noopener noreferrer">Ask HN: Do you cuss at your agent?</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49837715" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-24T22:38:08Z</li>
+<li>采集时间：2026-09-25T04:12:25.509322+00:00</li>
+<li>历史变化：新增；首次 2026-09-25</li>
+<li>方法：个人抱怨；打法：从开发者抱怨中提炼 AI 编码代理的重复失败任务</li>
+<li>建议：观察</li>
+<li>理由：抱怨真实且具体：代理会做错误假设、问明显问题、虚假声称完成。但仅为情绪表达，没有付费证据；需核实现有回滚/上下文管理工具与用户是否愿意为此付费。</li>
+<li>英文原文：Do you vent your frustrations at your agent when it keeps making stupid mistakes and asinine assumptions or asks obvious questions? I did it for the first time and I feel ashamed.</li>
+<li>中文翻译：当你的代理不断犯愚蠢错误、做出荒谬假设或问显而易见的问题时，你会对它发泄沮丧吗？我第一次这么做了，感到很羞愧。</li>
+<li>英文原文：Yes, but hardly ever at Astra, because it usually gets the job done. Definitely at worse models when you give them very clear instructions and goals to follow and they respond telling you that the job has been completed perfectly, verified byte-identical, all tests pass, etc etc and you look at it and it’s a pile of garbage.</li>
+<li>中文翻译：是的，但很少对 Astra 这样，因为它通常能把活干完。肯定会对更差的模型这样：你给了非常清晰的指令和目标，它们却回复说任务已完美完成、验证字节一致、所有测试通过等等，你一看却是一堆垃圾。</li>
+<li>目标用户假设：使用 AI 编码代理的开发者（待验证具体画像）</li>
+<li>任务假设：当 AI 代理反复出错或做出错误假设时，管理会话、澄清需求并回滚到有效状态</li>
+<li>现有办法待核查：手动回滚/分叉对话、更清晰地写提示词、咒骂发泄、给出鼓励和明确指令</li>
+<li>供给缺口假设：代理不遵守需求、虚假声称任务完成，需要持续人工监督；缺少轻量的自动回滚与需求核对机制</li>
+<li>最小验证与交付：一个 CLI 或编辑器插件，在代理会话中自动保存关键节点，当测试失败或输出不符合需求时提示回滚，并生成缺失需求的检查清单</li>
+<li>获客验证：GitHub、Hacker News、AI 开发者社区、VS Code 插件市场</li>
+<li>收费假设：开源核心 + 团队版按席位订阅，或提供托管同步/分析服务</li>
+<li>个人适配待确认：与个人/小团队、轻量网站、新技术兴趣有一定匹配，但需避开大厂内置功能</li>
+<li>下一步：访谈 5-10 名日常使用 AI 编码代理的开发者，记录最常见的失败场景和现有应对方式，并盘点现有工具覆盖度</li>
+<li>风险与反证：大厂或主流 AI 编码工具直接内置该功能；用户习惯免费开源方案，付费意愿低</li>
+<li>未知事项：开发者是否愿意为代理回滚/上下文管理付费；现有工具（如 Cursor、Claude Code 等）是否已内置类似功能；最常见的失败模式及发生频率；目标用户是个人开发者还是小团队</li>
+</ul>
+<h3>8. Vibe Coding Production Kit – a production workflow for AI coding agents / Vibe Coding Production Kit——面向 AI 编码代理的生产工作流</h3>
+<ul>
+<li>机会编号：fd1af74fab026e1f608b</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49836678" target="_blank" rel="noopener noreferrer">Vibe Coding Production Kit – a production workflow for AI coding agents</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49836678" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-24T21:02:34Z</li>
+<li>采集时间：2026-09-25T04:12:25.840783+00:00</li>
+<li>历史变化：新增；首次 2026-09-25</li>
+<li>方法：新闻窗口；打法：追踪 Show HN 新产品与社区反馈，判断 AI 代理工作流是否形成新品类</li>
+<li>建议：观察</li>
+<li>理由：该工具试图解决 AI 编码代理缺少生产流程的问题，方向有潜力；但评论显示部分用户不理解价值，且产品刚发布，需求与留存待验证。</li>
+<li>英文原文：I built Vibe Coding Production Kit (VCP) because AI-assisted development often solves the easiest part first: generating code. The harder part is keeping requirements, architecture, security, testing, review, and production changes coherent over time.</li>
+<li>中文翻译：我构建了 Vibe Coding Production Kit (VCP)，因为 AI 辅助开发往往先解决最容易的部分：生成代码。更难的是让需求、架构、安全、测试、审查和生产变更长期保持一致。</li>
+<li>英文原文：I don&#x27;t get it... Is this just some kind of meta skill? You should sync up with that other HN site that turns a website into a product demo : )</li>
+<li>中文翻译：我没搞懂……这难道只是某种元技能？你应该和那个把网站变成产品演示的 HN 网站同步一下 : )</li>
+<li>目标用户假设：使用 AI 编码代理进行生产开发的开发者或小团队</li>
+<li>任务假设：让 AI 编码代理在需求、架构、安全、测试、审查、部署等环节保持流程一致</li>
+<li>现有办法待核查：手动提示词、自定义脚本、现有 AI 编码代理内置规则、忽略流程直接写代码</li>
+<li>供给缺口假设：AI 编码代理擅长生成代码，但难以长期维持需求、架构、安全与测试的一致性</li>
+<li>最小验证与交付：一个更轻量的代理工作流初始化工具，聚焦一个环节（如需求到任务清单），并自动生成代理上下文</li>
+<li>获客验证：GitHub、Hacker News、AI 开发者社区、npm</li>
+<li>收费假设：开源核心 + 付费团队版或托管服务；或一次性付费模板</li>
+<li>个人适配待确认：与个人/小团队、轻量工具、新技术兴趣匹配，但需与已有产品差异化</li>
+<li>下一步：跟踪该项目的 GitHub 反馈和用户评价，并访谈 5 名 AI 编码代理用户，确认最痛的流程环节</li>
+<li>风险与反证：赛道拥挤，大厂 AI 编码工具可能内置类似功能；用户不愿为流程工具付费</li>
+<li>未知事项：目标用户是否愿意为 AI 代理工作流工具付费；该产品与现有 AI 编码工具内置流程的差异；用户对结构化工作流的真实需求强度；个人/小团队能否做出更轻量的替代</li>
+</ul>
+<h3>9. yukitorido/short-video-generator-AI / 开源 AI 短视频切片生成器 short-video-generator-AI</h3>
+<ul>
+<li>机会编号：0e43358cba15d904d4af</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/yukitorido/short-video-generator-AI" target="_blank" rel="noopener noreferrer">yukitorido/short-video-generator-AI</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/yukitorido/short-video-generator-AI/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-23T18:11:57Z</li>
+<li>采集时间：2026-09-25T04:12:25.223783+00:00</li>
+<li>历史变化：新增；首次 2026-09-25</li>
+<li>方法：新技术；打法：与48小时新词窗口无关。通用切片已有免费开源供给与头部 SaaS 并存，个人机会只可能在细分场景（中文内容、可自托管、免配置），而非通用切片本身。</li>
+<li>建议：观察</li>
+<li>理由：该仓库明确把 OpusClip、Vidyo.ai 等短视频 SaaS 当作替代对象，并免费提供高光检测、字幕、翻译、配音，说明通用切片赛道已有成熟付费供给与免费替代。对个人/小团队来说通用路线没有空隙，但“中文内容处理、可自托管、无需自己配 API key”等细分是否是付费痛点，现有证据完全没有支持，需先查用户抱怨再判断，故列为观察。</li>
+<li>英文原文：Designed for creators who want an alternative to short-video SaaS tools like OpusClip or Vidyo.ai for free.</li>
+<li>中文翻译：为那些希望免费替代 OpusClip 或 Vidyo.ai 这类短视频 SaaS 工具的创作者而设计。</li>
+<li>英文原文：Highlight detection, subtitles, translation, voiceover, all in one for your content: no pre-clip credits or any watermarks.</li>
+<li>中文翻译：高光片段检测、字幕、翻译、配音，为你的内容一站式完成：不需要预先扣除切片额度，也没有任何水印。</li>
+<li>目标用户假设：待验证：把播客、访谈、课程等长视频切成竖屏短片的中文内容创作者</li>
+<li>任务假设：待验证：从长视频里自动找出高光片段，加字幕/翻译/配音，输出 9:16 可直接发布的短片</li>
+<li>现有办法待核查：证据显示现有方案包括 OpusClip、Vidyo.ai 等短视频 SaaS，以及该免费开源项目本身；两条路线都已存在</li>
+<li>供给缺口假设：待验证：中文内容的字幕与翻译质量、以及本地部署/API key 配置的门槛，是否构成真实未满足点</li>
+<li>最小验证与交付：先不写产品代码。用该仓库手工跑通“一期中文播客→3 条竖屏切片”，以人工+脚本方式向 1-2 位创作者交付一次，看对方是否愿意继续付费</li>
+<li>获客验证：待验证：中文播客/知识区创作者社群、视频号与小红书创作者群、相关 Telegram/Discord 群</li>
+<li>收费假设：待验证：按次切片交付或月度托管，而不是直接卖工具订阅</li>
+<li>个人适配待确认：待验证：单人可先用现成开源脚本做半自动交付，但需具备 Python 环境与剪辑判断力</li>
+<li>下一步：在中文创作者社群检索“OpusClip 替代”“自动切片 字幕 中文”“长视频 切短片”等搜索词与实际抱怨，确认是否存在愿意付费的细分人群和未被满足的具体环节</li>
+<li>风险与反证：通用切片同时被免费开源与头部 SaaS 挤压；从 YouTube 下载源视频存在版权风险；翻译/配音质量不稳定</li>
+<li>未知事项：中文长视频创作者是否抱怨现有切片工具的字幕、翻译或价格；是否有人愿意为自托管/中文优化付费，规模多大；OpusClip、Vidyo.ai 的实际定价与免费额度（原文未给出）；该开源项目自身的部署成功率、维护活跃度与实际使用者数量；创作者处理长视频的真实频率与预算</li>
+</ul>
+<h3>10. mattn/go-jev / TypeSafe Jev 的 Go SDK 与命令行工具 go-jev</h3>
+<ul>
+<li>机会编号：16fe55e74e6bb1d266b5</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/mattn/go-jev" target="_blank" rel="noopener noreferrer">mattn/go-jev</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/mattn/go-jev/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-23T13:42:51Z</li>
+<li>采集时间：2026-09-25T04:12:25.773153+00:00</li>
+<li>历史变化：新增；首次 2026-09-25</li>
+<li>方法：新技术；打法：与48小时新词窗口无关。该能力改变在于模型输出从“文本”变为结构化判定（是/否概率、选项、分数），适合做语义过滤与分流类小工具。</li>
+<li>建议：观察</li>
+<li>理由：能力变化明确：判定型模型返回是/否概率、选项、分数，并且已能通过 jev-cli 嵌入 UNIX 管道，支持按语义过滤 stdin 各行、每行一个状态批量并发请求。这能降低分类/分流工具的工程成本。但仓库仅 22 星、依赖第三方付费 API，中文判定准确率与单次成本未知，也没有任何用户抱怨或付费证据，故先观察。</li>
+<li>英文原文：a decision-only model that returns typed answers (yes/no probability, choice, score) instead of text</li>
+<li>中文翻译：一个只做判定的模型，返回带类型的答案（是/否概率、选项、分数）而不是文本。</li>
+<li>英文原文：one state per line → answer line, in input order, 4 requests at a time</li>
+<li>中文翻译：每行一个状态 → 按输入顺序逐行输出答案，每次并发 4 个请求。</li>
+<li>目标用户假设：待验证：需要在脚本或服务里做文本分类与分流的小团队开发者、运维人员</li>
+<li>任务假设：待验证：把邮件、工单、评论按含义判定为紧急/不紧急、归属哪个团队、打情绪分</li>
+<li>现有办法待核查：待验证：常见做法是调用通用大模型接口再用代码解析返回，或写关键词规则</li>
+<li>供给缺口假设：待验证：结构化判定是否比“提示词+解析”更省事稳定，中文场景是否可用</li>
+<li>最小验证与交付：用该 CLI 做一个“中文评论按语义过滤/打标”的小脚本或单页：输入一批中文文本，输出每条的分类、分数与命中行</li>
+<li>获客验证：待验证：开发者社区、GitHub、面向小团队的运维/客服工具清单</li>
+<li>收费假设：待验证：先确认是否有人愿意为省去自建判定层付费，目前无证据</li>
+<li>个人适配待确认：待验证：单人可用 CLI 快速试，但依赖第三方付费 API，用户数据外发需谨慎</li>
+<li>下一步：取一批真实中文评论/工单，测该 API（或本地 tensai 服务）的判定一致性与单次成本，并与“直接写提示词让大模型分类”的方案做对比</li>
+<li>风险与反证：依赖单一第三方 API 及其定价；判定出错难以解释；中文效果与数据外发的合规问题待核实</li>
+<li>未知事项：typesafe.ai 的定价、免费额度与服务稳定性；中文文本上的判定准确率与一致性；目标用户（运维、客服、邮件分流）现在用什么办法，是否为此付费；与直接用大模型提示词分类相比，精度和成本差多少；该仓库本身是否有真实使用者</li>
+</ul>
+<h3>11. mizzlelover/jev-hub / JEV HUB：TypeSafe AI Jev 聚合站（GitHub）</h3>
+<ul>
+<li>机会编号：9daf419a53fe818b755f</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/mizzlelover/jev-hub" target="_blank" rel="noopener noreferrer">mizzlelover/jev-hub</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/mizzlelover/jev-hub/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-19T02:32:02Z</li>
+<li>采集时间：2026-09-25T04:12:25.725594+00:00</li>
+<li>历史变化：分析完成；首次 2026-09-20</li>
+<li>方法：新技术；打法：新技术窗口观察：围绕 Jev 的能力改变寻找具体任务，先用轻量内容或示例承接早期关注，验证任务与付费意愿后再产品化。</li>
+<li>建议：观察</li>
+<li>理由：该仓库是 X 上 Jev 内容的聚合站，展示了短期高活跃和多种演示，但证据主要来自宣传与演示，未提供真实痛点、搜索需求或付费信号。按新技术方法值得观察 Jev 的能力改变和可复用任务，不应直接判定已有市场。</li>
+<li>中文原文：# JEV HUB · Jev 聚合站 ＞ X（Twitter）上关于 <strong>TypeSafe AI「系统一模型」Jev</strong> 的长文与演示视频聚合。 ＞ 逐条保留<strong>原帖链接</strong>与<strong>作者署名</strong>，本站不转载、不二次托管任何内容。</li>
+<li>中文原文：| 动态总数 | 982 | | 演示视频 | 382 | | 长文 | 147 | | 讨论 | 453 | | 参与作者 | 818 |</li>
+<li>目标用户假设：待验证：可能为关注 Jev/TypeSafe AI 的开发者、AI 应用构建者与内容创作者，是否有付费意愿未知。</li>
+<li>任务假设：待验证：理解 Jev 的能力边界、接入方式与可复用示例；具体任务需从真实使用者处核实。</li>
+<li>现有办法待核查：现有：在 X 上分散检索演示与长文；该 GitHub 聚合站提供结构化索引；官方/平台入口包括 typesafe.ai、OpenRouter、Vercel AI Gateway、Venice API。</li>
+<li>供给缺口假设：可能缺口：中文可运行示例、独立评测、成本/延迟基准、从聚合内容到上手路径不足；尚未证明是真需求。</li>
+<li>最小验证与交付：待验证：若下一步核查确认有具体任务，可先做人工整理的 Jev 中文上手/示例页，输入为官方 API 文档与公开演示，输出为可运行代码、成本延迟记录和中文说明；不先做平台。</li>
+<li>获客验证：待验证：GitHub、X、中文 AI 社群、OpenRouter/Vercel 生态；可与聚合站作者及演示作者互链。</li>
+<li>收费假设：待验证：免费内容引流，后续可做付费模板、接入咨询或企业培训；当前证据无法支持订阅定价。</li>
+<li>个人适配待确认：与个人/小团队轻量网站、新词和新技术兴趣匹配；但需持续跟踪快速迭代的模型生态，维护成本待评估。</li>
+<li>下一步：先核查 Jev 官方文档/API 可用性与稳定性，跑通 3 至 5 个公开演示并记录成本延迟；联系 2 至 3 位演示作者确认真实任务；核实聚合站数据授权与合规。</li>
+<li>风险与反证：技术热度下降或被官方文档/社区替代；宣传与演示不等于付费需求；内容转载/授权风险；快速变化造成维护成本。</li>
+<li>未知事项：Jev 官方 API 的稳定性、可用地区与真实计费方式待核实。；公开演示中的速度、成本与采用率说法能否独立复现待验证。；中文社区是否有足够多真实使用者与付费意愿待验证。；聚合站数据授权与合规边界待核实。；个人或小团队能否获得首批用户与可持续分发待验证。</li>
+</ul>
+<h3>12. Nasrallah-AL/jev-cli / jev-cli：TypeSafe Jev 命令行工具</h3>
+<ul>
+<li>机会编号：099332eb1d8c982d61ad</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/Nasrallah-AL/jev-cli" target="_blank" rel="noopener noreferrer">Nasrallah-AL/jev-cli</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/Nasrallah-AL/jev-cli/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-18T08:16:41Z</li>
+<li>采集时间：2026-09-25T04:12:25.795850+00:00</li>
+<li>历史变化：无变化；首次 2026-09-21</li>
+<li>方法：新技术；打法：围绕 Jev 新词/生态做工具目录与可复制模板</li>
+<li>建议：观察</li>
+<li>理由：jev-cli 把 Jev 的固定选项概率判断封装进命令行、脚本、CI 和 Claude Code 插件，能力边界明确；但只有 README、13 stars，缺少用户抱怨、使用量、竞品和付费证据。同一批出现多个 Jev 实现，值得跟踪生态，不宜直接开工。</li>
+<li>英文原文：Fast, typed AI judgments from the command line, powered by TypeSafe&#x27;s ［Jev］(https://docs.typesafe.ai) model.</li>
+<li>中文翻译：快速、类型化的 AI 判断，来自命令行，由 TypeSafe 的 Jev 模型驱动。</li>
+<li>英文原文：<code>jev</code> wraps that into commands you can pipe into, script around, and gate CI on.</li>
+<li>中文翻译：<code>jev</code> 把这封装成你可以通过管道输入、围绕其编写脚本并用于 CI 门禁的命令。</li>
+<li>目标用户假设：使用命令行、CI 与 Claude Code 的开发者/技术团队</li>
+<li>任务假设：在脚本或 CI 中用固定选项问题得到概率/判定并做门禁，在 Claude Code 中做技能调用与上下文压缩</li>
+<li>现有办法待核查：README 展示的是该 CLI 本身；用户此前是否用通用 LLM 提示或自定义脚本替代，待验证</li>
+<li>供给缺口假设：把 Jev 的固定选项概率判断接入命令行、脚本、CI 和 Claude Code 插件，并用退出码做门禁</li>
+<li>最小验证与交付：基于 jev CLI 的 CI/Claude Code 配置模板包：GitHub Action + verify/screen/route 阈值示例 + --json 调参说明；输入文本或 PR，输出判定与退出码。面向已用 Claude Code 或想给 CI 加语义门禁的开发者。首批用户从 jev-cli、TypeSafe、Claude Code 相关仓库和 issue 中找，先验证他们是否愿意用模板而非自己写提示词。</li>
+<li>获客验证：GitHub 仓库/模板、npm、Claude Code 插件市场、TypeSafe 社区；先在相关 issue 中做访谈</li>
+<li>收费假设：开源模板+赞助/付费工作坊；不先做订阅</li>
+<li>个人适配待确认：中；轻量网页可做 Jev 用例目录，但需要开发者信任与 API 成本验证</li>
+<li>下一步：先查 npm 下载、GitHub issue、TypeSafe 文档中的用户任务与定价，并搜索 Jev 相关讨论；确认有无重复/官方方案后再决定是否做模板。</li>
+<li>风险与反证：依赖 TypeSafe API；官方可能推出同类 CLI；stars 13，使用量待验证；无付费证据。</li>
+<li>未知事项：TypeSafe Jev API 的定价、稳定性和区域可用性；真实用户规模与付费意愿；是否已有官方 CLI 或同类第三方工具</li>
+</ul>
+<h3>13. anandi1989/awesome-jev-usecases / Jev 用例精选集（awesome-jev-usecases）</h3>
+<ul>
+<li>机会编号：17b418cbf2be7a0fb80c</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/anandi1989/awesome-jev-usecases" target="_blank" rel="noopener noreferrer">anandi1989/awesome-jev-usecases</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/anandi1989/awesome-jev-usecases/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-18T08:03:52Z</li>
+<li>采集时间：2026-09-25T04:12:25.882721+00:00</li>
+<li>历史变化：无变化；首次 2026-09-22</li>
+<li>方法：新技术；打法：生态索引类内容，可作为&quot;新词站&quot;或垂直工具的素材来源；但正文数字多为厂商自述，需要独立验证。</li>
+<li>建议：观察</li>
+<li>理由：给出了明确的能力变化（类型化判断、并行提问、低价、低延迟），但来源接近生态推广，性能与经济性标注为自述，且没有用户抱怨或付费证据。</li>
+<li>英文原文：<strong>Jev</strong> is TypeSafe AI&#x27;s first System One model: a decision engine that returns typed, calibrated judgments (Choice / Score / Noul) instead of free-form prose.</li>
+<li>中文翻译：Jev 是 TypeSafe AI 的首个 System One 模型：一个返回类型化、已校准判断（Choice / Score / Noul）而非自由文本散文的决策引擎。</li>
+<li>英文原文：Fast enough to sit inside a game loop, cheap enough to run over millions of rows, and constrained enough that your code can branch on the answer without parsing JSON.</li>
+<li>中文翻译：快到可以放进游戏循环，便宜到可以跑数百万行数据，约束也足够强，使你的代码无需解析 JSON 就能根据答案分支。</li>
+<li>目标用户假设：需要在业务里嵌入可分支判断的开发者与小团队（待验证）</li>
+<li>任务假设：用类型化输出（Choice/Score/Noul）替代自由文本，做批量打分、分流或门控路由（待验证）</li>
+<li>现有办法待核查：用通用大模型加 JSON 解析与重试，或自建小模型（待验证）</li>
+<li>供给缺口假设：通用大模型输出不稳定、需要解析与重试；类型化输出声称解决该问题，但独立验证缺失（待验证）</li>
+<li>最小验证与交付：选一个垂直任务（如线索分级或工单分流），做一个批量打分小工具：上传一列文本、按 2–10 级评分规则返回分数与置信度，先内部跑通再找 5 个真实用户试用（待验证）</li>
+<li>获客验证：开发者社区、TypeSafe 官方生态、Hacker News（待验证）</li>
+<li>收费假设：按次或订阅，未验证</li>
+<li>个人适配待确认：需先确认 API 可用性与单次成本，才谈个人轻量交付</li>
+<li>下一步：先读官方文档与定价、跑通一个小批量打分样例，并与通用大模型对比准确率与成本，再决定是否投入</li>
+<li>风险与反证：供应商处于早期，等待名单与条款可能变化；自述数字可能高估；官方 SDK 与集成可能覆盖个人可做的空间</li>
+<li>未知事项：独立基准与真实成本，而非厂商自述数字；等待名单、条款与 API 稳定性；是否存在愿意为批量判断付费的具体垂直用户</li>
+</ul>
+<h3>14. aditya-ramabadran/drivingbench_harness_v1 / DrivingBench Harness：LLM 通过 MCP 驱动真车的实验装置</h3>
+<ul>
+<li>机会编号：18d4ec91d0ad08cddc7e</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/aditya-ramabadran/drivingbench_harness_v1" target="_blank" rel="noopener noreferrer">aditya-ramabadran/drivingbench_harness_v1</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/aditya-ramabadran/drivingbench_harness_v1/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-18T15:48:48Z</li>
+<li>采集时间：2026-09-25T04:12:25.555848+00:00</li>
+<li>历史变化：无变化；首次 2026-09-24</li>
+<li>方法：新技术；打法：关注 MCP 与实车/机器人控制的沙箱化接口；先验证研究者与安全测试需求，不直接做实车控制产品。</li>
+<li>建议：观察</li>
+<li>理由：原文展示 LLM 经三个 MCP 工具在封闭场地控制 openpilot 车辆的实验能力，但安全、法规与责任极重，且未见使用者、订单或付费证据；适合先观察。</li>
+<li>英文原文：A small harness that lets a language model drive a real car at parking-lot speed through three tools, while a human sits in the driver&#x27;s seat with a foot over the brake.</li>
+<li>中文翻译：一个小型测试装置，让语言模型通过三个工具以停车场速度驾驶真车，同时人类坐在驾驶座、脚放在刹车上。</li>
+<li>英文原文：This is research software for closed courses.</li>
+<li>中文翻译：这是用于封闭场地的研究软件。</li>
+<li>目标用户假设：待验证；可能是自动驾驶/机器人研究者或做 LLM 安全评测的团队</li>
+<li>任务假设：在封闭场地让语言模型通过 observe/set_motion/stop_now 控制车辆，并记录可重放轨迹</li>
+<li>现有办法待核查：可能使用仿真器、自建 openpilot 分支或人工遥控；缺少 MCP 接入与统一轨迹记录</li>
+<li>供给缺口假设：把 LLM 工具调用接入实车控制的安全沙箱、审计与回放；但当前证据不足以确认这是未被满足的商业需求</li>
+<li>最小验证与交付：不做实车控制；可先做仿真环境中的 MCP 车辆控制沙箱、轨迹回放与危险命令拦截演示</li>
+<li>获客验证：GitHub、openpilot/comma 社区、机器人研究会议与 LLM agent 社区</li>
+<li>收费假设：研究赞助、企业安全评测服务或开源支持；付费意愿未验证</li>
+<li>个人适配待确认：个人小团队可做仿真与工具链，但实车控制涉及安全责任，不适合作为轻量网站直接切入</li>
+<li>下一步：核对是否有研究团队实际使用、同类 MCP+机器人/车辆项目、以及封闭场地测试的合规要求，再决定是否继续</li>
+<li>风险与反证：人身安全、法律责任、监管、openpilot 条款、模型误操作；不能把安全功能当代码路径</li>
+<li>未知事项：是否有人实际用于研究或评测；目标用户是研究者、车队还是安全团队；实车控制的法律与保险门槛；是否有付费方支持此类沙箱</li>
+</ul>
+<h3>15. electric-capital/quest / Quest：面向敏感数据的自托管 AI 智能体工作台</h3>
+<ul>
+<li>机会编号：567eda3a49fab6143ecb</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/electric-capital/quest" target="_blank" rel="noopener noreferrer">electric-capital/quest</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/electric-capital/quest/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-21T17:04:22Z</li>
+<li>采集时间：2026-09-25T04:12:25.526575+00:00</li>
+<li>历史变化：无变化；首次 2026-09-24</li>
+<li>方法：新技术；打法：关注自托管 AI 工作台的安全隔离、人工确认与插件生态；可从插件或部署服务切入而非重做平台。</li>
+<li>建议：观察</li>
+<li>理由：项目给出较完整的安全设计与插件架构，但仅有 37 个 star，尚未看到实际用户抱怨、部署量或付费信号；适合先观察。</li>
+<li>英文原文：A self-hosted AI agent workbench: a ChatGPT-style web app where people connect the services they already use (email, documents, Slack, finance tools) and put LLM agents to work on them -- designed so that doing this with <strong>sensitive data</strong> is safe by default, and usable by people who are not engineers.</li>
+<li>中文翻译：一个自托管的 AI 智能体工作台：一个 ChatGPT 风格的 Web 应用，人们在这里连接他们已经在使用的服务（电子邮件、文档、Slack、财务工具），并让 LLM 智能体处理这些服务——其设计使处理<strong>敏感数据</strong>默认安全，并且可供非工程师使用。</li>
+<li>英文原文：Writes require human confirmation</li>
+<li>中文翻译：写入需要人类确认</li>
+<li>目标用户假设：待验证；可能是需要让 AI 访问内部敏感数据但不想用公有云的中小团队或非工程师</li>
+<li>任务假设：自托管接入 Gmail、Drive、Slack、财务工具等，让 LLM 智能体读取并执行有确认的写入</li>
+<li>现有办法待核查：Open WebUI、Dify、自建脚本或直接使用公有云 AI 助手；Quest 提供安全隔离与审批流</li>
+<li>供给缺口假设：敏感数据场景下私有/公网彻底隔离、写入人工确认、插件化接入；但需求强度与付费方未知</li>
+<li>最小验证与交付：不做完整平台；可先做某个高频服务的 Quest 插件、部署检查清单或安全配置模板</li>
+<li>获客验证：GitHub、自托管/隐私社区、Hacker News、开发者 Slack 社群</li>
+<li>收费假设：插件定制、部署支持、安全审计或托管服务；付费意愿未验证</li>
+<li>个人适配待确认：个人小团队适合做插件或部署服务，难与完整开源平台正面竞争</li>
+<li>下一步：先看项目 issue、部署教程反馈和同类自托管产品的抱怨，确认哪个插件或部署环节最痛</li>
+<li>风险与反证：维护成本高、安全承诺难验证、开源竞品多、凭项目描述高估需求</li>
+<li>未知事项：实际部署者是谁、遇到什么困难；插件需求集中在哪些服务；是否有人愿意为安全部署或插件付费；与 Open WebUI、Dify 等项目的差异是否足够</li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>
