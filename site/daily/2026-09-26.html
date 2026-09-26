@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-09-26 需求机会日报</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #17202a;
+      --muted: #667085;
+      --line: #d9e2ec;
+      --bg: #f7f9fb;
+      --paper: #ffffff;
+      --accent: #146c94;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.75;
+    }
+    main {
+      width: min(920px, 100%);
+      margin: 0 auto;
+      padding: 28px 18px 52px;
+    }
+    article {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: clamp(20px, 5vw, 44px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+    h1 { font-size: 30px; line-height: 1.3; margin: 0 0 24px; }
+    article { overflow-wrap: anywhere; }
+    h2 { font-size: 24px; margin: 34px 0 12px; border-top: 1px solid var(--line); padding-top: 24px; }
+    h3 { font-size: 19px; margin: 26px 0 8px; color: #223548; }
+    h4 { font-size: 17px; margin: 22px 0 8px; }
+    p { margin: 10px 0; }
+    ul { padding-left: 22px; margin: 10px 0 16px; }
+    li { margin: 6px 0; }
+    a { color: var(--accent); word-break: break-word; }
+    code {
+      background: #eef4f7;
+      border: 1px solid #d7e4ea;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .index-list {
+      list-style: none;
+      padding: 0;
+    }
+    .index-list li {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <a class="back" href="../index.html">返回列表</a>
+<h1>2026-09-26 需求机会日报</h1>
+<h2>今日摘要</h2>
+<ul>
+<li>运行状态：部分来源失败</li>
+<li>原始线索：130 条；规则候选：40 条；有效模型分析：40 条；日报展示：15 条。</li>
+<li>stefw/lkclean：README 给出了可运行的 Chrome 扩展和具体输入输出，证明类型化分类模型能以低成本逐条判断帖子；但需求、付费和平台条款均未验证，适合在投入前做用户与合规核查，而不是直接开工。</li>
+<li>lobehub/acceptance：它描述了一个明确的能力变化和一组具体的待检事项（主题切换、长文案小屏、键盘流、录屏回放），任务与交付物（一次运行产出的可分享报告、每项可接受或退回）清楚且可重复，符合可交付化的条件。但文档是 LobeHub 的项目自述，没有用户抱怨、搜索词或付费证据，不能据此认为市场已被证明，也不能凭名称推断竞品与订单。</li>
+<li>&quot;Someone just sent me an ad that features an AI version of me. What do I do?&quot;：单个当事人求助，暴露AI广告肖像盗用后的取证与追责痛点，但案例少、法律与平台依赖重，尚不能视为付费需求。</li>
+<li>Yamtam.nyc – yet another mass-transit all-in-one map：已上线产品，给出具体任务和形态；但无付费需求、留存或获客证据，适合观察而非认定机会。</li>
+<li>Show HN: A game about fake news and memes：评论区给出了具体、可复现的抱怨：桌面端布局笨拙、真假标签在高分屏上难找、内容偏都市传说而非时事、示例素材播不了、打开就请求通知权限。这说明任务存在且已有人在做，但仅一条 HN 帖与少量评论，不能证明付费需求；题库与事实核查的持续投入才是这个方向的真实门槛。</li>
+</ul>
+<h2>来源覆盖</h2>
+<ul>
+<li>GitHub：正常，30 条</li>
+<li>Hacker News：正常，30 条</li>
+<li>Hugging Face models：正常，20 条</li>
+<li>Hugging Face spaces：正常，20 条</li>
+<li>Product Hunt：正常，30 条</li>
+<li>Reddit：失败，0 条；HTTPError</li>
+<li>搜索数据：未自动接入；支持手动证据，0 条</li>
+<li>服务订单：未自动接入；支持手动证据，0 条</li>
+<li>模型分析：正常，40 条</li>
+<li>竞品付费与Roadmap：未自动接入；支持手动证据，0 条</li>
+<li>规则初筛：正常，40 条</li>
+</ul>
+<h2>筛选后的机会</h2>
+<h3>1. stefw/lkclean / lkclean：用类型化分类模型清理 LinkedIn 信息流的 Chrome 扩展</h3>
+<ul>
+<li>机会编号：110b1f0ad71af61ed19c</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/stefw/lkclean" target="_blank" rel="noopener noreferrer">stefw/lkclean</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/stefw/lkclean/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-19T18:53:01Z</li>
+<li>采集时间：2026-09-26T04:16:51.230220+00:00</li>
+<li>历史变化：新增；首次 2026-09-26</li>
+<li>方法：新技术；打法：观察类型化分类 API 能否把“逐条信息流过滤”从模型能力变成轻量可分发产品：先验证托管版与多语言是否解决自备 API key 的门槛。</li>
+<li>建议：深挖</li>
+<li>理由：README 给出了可运行的 Chrome 扩展和具体输入输出，证明类型化分类模型能以低成本逐条判断帖子；但需求、付费和平台条款均未验证，适合在投入前做用户与合规核查，而不是直接开工。</li>
+<li>英文原文：A Chrome extension (Manifest V3, TypeScript) that cleans up your LinkedIn feed. Every post is sent to <strong>Jev</strong>, the typed classification model from ［TypeSafe AI］(https://typesafe.ai), which returns probabilities instead of prose.</li>
+<li>中文翻译：一个 Chrome 扩展（Manifest V3、TypeScript），用于清理你的 LinkedIn 信息流。每条帖子都会被发送给 <strong>Jev</strong>，即来自 TypeSafe AI 的类型化分类模型，它返回概率而不是文本。</li>
+<li>英文原文：Roughly $0.042 per million input tokens: a scrolling session costs a fraction of a cent.</li>
+<li>中文翻译：大约每百万输入 token 收费 0.042 美元：一次滚动浏览会话的成本不到一美分。</li>
+<li>目标用户假设：LinkedIn 高频读者，尤其是被 engagement bait、自我推广、离题和赞助帖干扰、想按兴趣控制信息流的人。</li>
+<li>任务假设：浏览 LinkedIn 信息流时，自动折叠/隐藏噪音帖，并给出每条判定的原因和分数。</li>
+<li>现有办法待核查：开源 Chrome 扩展 lkclean：用户自备 TypeSafe API key，通过开发者模式加载，UI 当前为法语。</li>
+<li>供给缺口假设：可能缺口：非技术用户需要自备 API key、手动安装和法语 UI，缺少免配置、多语言、可代管推理的商业化版本；该缺口是否有人付费待验证。</li>
+<li>最小验证与交付：托管版信息流过滤器：用户无需自备 API key，登录后设置兴趣/屏蔽主题/阈值，扩展内展示隐藏原因；先只支持 LinkedIn 英文/中文信息流。</li>
+<li>获客验证：先访谈 GitHub 项目现有使用者和 LinkedIn 效率讨论区用户；上线 Chrome Web Store，并通过隐私/效率工具列表和开发者社区获取首批用户。</li>
+<li>收费假设：在 TypeSafe API 成本上加价，按托管分析帖数收费；可提供免费额度，付费解锁更多平台或团队规则同步。</li>
+<li>个人适配待确认：与个人/小团队做轻量浏览器扩展较契合：核心是前端扩展加 API 调用，无需重后端；但需处理 API key 托管、隐私合规和平台风控。</li>
+<li>下一步：先核查 TypeSafe API 商用条款、价格与模型稳定性，以及 Chrome/LinkedIn 对这类扩展的政策；再访谈 5–10 名高频 LinkedIn 用户确认免配置过滤的付费意愿。</li>
+<li>风险与反证：平台依赖与风控（LinkedIn 前端变化、扩展政策）、隐私（帖子内容发往第三方 API）、TypeSafe 条款与成本变化、模型准确率，以及需求与付费均未验证。</li>
+<li>未知事项：LinkedIn 用户是否愿为免配置过滤付费；TypeSafe API 商用条款与长期价格；LinkedIn/Chrome 对这类扩展的政策与风控；非英语用户的实际需求与付费意愿；模型准确率与阈值调优体验；除 LinkedIn 外还有哪些信息流可复用</li>
+</ul>
+<h3>2. lobehub/acceptance / lobehub/acceptance</h3>
+<ul>
+<li>机会编号：65dae76abcf84de4f59c</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/lobehub/acceptance" target="_blank" rel="noopener noreferrer">lobehub/acceptance</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/lobehub/acceptance/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-21T08:13:32Z</li>
+<li>采集时间：2026-09-26T04:16:51.201685+00:00</li>
+<li>历史变化：新增；首次 2026-09-26</li>
+<li>方法：新技术；打法：能力变化切分：编码 agent 已能自己跑真实产品并留下证据，人的角色从「跑测试」变成「审阅证据」。可只做其中一小段交付——不绑定 LobeHub 工作区、面向独立开发者的证据报告与逐项回退。</li>
+<li>建议：深挖</li>
+<li>理由：它描述了一个明确的能力变化和一组具体的待检事项（主题切换、长文案小屏、键盘流、录屏回放），任务与交付物（一次运行产出的可分享报告、每项可接受或退回）清楚且可重复，符合可交付化的条件。但文档是 LobeHub 的项目自述，没有用户抱怨、搜索词或付费证据，不能据此认为市场已被证明，也不能凭名称推断竞品与订单。</li>
+<li>英文原文：Your agent says it&#x27;s done. Acceptance shows you the screenshots and recordings, on one link your team can review, wherever the agent ran.</li>
+<li>中文翻译：你的 agent 说它做完了。Acceptance 会把截图和录屏展示给你，放在一个你团队可以审阅的链接里，无论 agent 在哪里运行。</li>
+<li>英文原文：Tests prove the code runs. They don&#x27;t notice a clipped menu, a label that vanishes in dark mode, or a German button spilling off a 320px screen.</li>
+<li>中文翻译：测试只能证明代码能跑。它们不会注意到被裁掉的菜单、在深色模式下消失的标签，或者德语按钮在 320px 屏幕上溢出。</li>
+<li>目标用户假设：用编码 agent 交付 Web 或 CLI 产品的独立开发者，以及 2-10 人的小团队（待验证）</li>
+<li>任务假设：收到 agent 说「已完成」之后，按可复现的证据逐项验收，并把有问题的单项退回</li>
+<li>现有办法待核查：自己手动点一遍并截图；Playwright/Cypress 测试；CI 报告；预览部署；或直接用 acceptance（开源，报告需要 LobeHub 工作区）</li>
+<li>供给缺口假设：自动化测试不覆盖视觉、主题、长文案与键盘流；人工验收没有留痕，退回项无法逐条跟踪；报告散落在本地或 CI 中，设计、产品等非工程角色难以参与</li>
+<li>最小验证与交付：一个 agent skill 或 CLI：按给定流程跑指定页面，输出浅色/深色同状态截图、关键交互录屏与日志，生成一个可分享链接，每个检查项支持「接受/退回」并留评论；先只做 Web、先只做单链接分享，不做全平台</li>
+<li>获客验证：GitHub 开源发布，配一篇「我如何验收 agent 产出」的教程；在 Claude Code、Codex 等 agent 用户社区与 HN、Reddit 前端板块发布；对已有开源方案做诚实对比</li>
+<li>收费假设：自托管免费 + 托管报告按项目或席位订阅，历史留存与团队协作作为付费点（待验证，不能先假定能收钱）</li>
+<li>个人适配待确认：核心（浏览器驱动 + 报告页）个人可做，但录屏与截图的存储托管有成本，且与 LobeHub 等现有开源方案正面重叠</li>
+<li>下一步：先访谈 3-5 位用 agent 写前端的开发者：上次他们怎么判断「改好了」、有没有把截图发给别人、有没有为类似工具付过钱；同时核查 LobeHub 托管定价、Playwright trace viewer、视觉回归类开源项目已覆盖到什么程度；确认后再动手</li>
+<li>风险与反证：上游 agent 平台或 LobeHub 自己就可能内置同类能力；截图录屏托管涉及隐私与存储成本；开源免费替代多，付费意愿未证；把项目自述当成需求验证是主要误判风险</li>
+<li>未知事项：谁真的会为验收报告付费，是独立开发者还是团队；用户是否愿意把截图与录屏上传到第三方托管；与 CI、Playwright trace、预览部署之间的替代关系；LobeHub 托管版的定价与开源版的功能边界；小团队的复购与留存</li>
+</ul>
+<h3>3. Qwen/Qwen-Image-2.1 / Qwen/Qwen-Image-2.1</h3>
+<ul>
+<li>机会编号：3cc50d0356230bcbb995</li>
+<li>来源：Hugging Face models</li>
+<li>链接：<a href="https://huggingface.co/Qwen/Qwen-Image-2.1" target="_blank" rel="noopener noreferrer">Qwen/Qwen-Image-2.1</a></li>
+<li>证据入口：<a href="https://huggingface.co/Qwen/Qwen-Image-2.1/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-14T03:47:26.000Z</li>
+<li>采集时间：2026-09-26T04:16:50.056001+00:00</li>
+<li>历史变化：无变化；首次 2026-09-21</li>
+<li>方法：新技术；打法：能力改变：原生透明RGBA生成、多参考图编辑与局部编辑合一；先验证透明图/参考图编辑工作流是否存在重复需求。</li>
+<li>建议：深挖</li>
+<li>理由：模型页显示7B视觉生成组件、原生透明RGBA、最多10张参考图、局部编辑与身份保持，且HF点赞/下载有初步关注；但尚无具体用户任务与付费证据，需核查需求与成本。</li>
+<li>英文原文：<strong>Native Transparency, Unified Creation and Editing</strong> — Generate regular or transparent (RGBA) images from text, edit transparent layers, and extract subjects from photographs—all in one model.</li>
+<li>中文翻译：<strong>原生透明，统一创作与编辑</strong>——从文本生成常规或透明（RGBA）图像，编辑透明图层，并从照片中提取主体——全部在一个模型中完成。</li>
+<li>英文原文：Support up to <strong>10 reference images</strong>, specify local edits via circles, painted annotations, or separate masks, and preserve identity for people and products.</li>
+<li>中文翻译：支持最多<strong>10张参考图像</strong>，通过圆圈、涂鸦标注或单独蒙版指定局部编辑，并保持人物和产品的身份特征。</li>
+<li>目标用户假设：待验证：电商卖家、独立设计师、贴纸/表情包创作者、需要透明素材的开发者</li>
+<li>任务假设：生成透明背景图像、用多张参考图编辑并保持人物/产品身份、局部修改</li>
+<li>现有办法待核查：待验证：Photoshop/Canva、其他文生图与编辑模型、人工抠图</li>
+<li>供给缺口假设：待验证：原生RGBA生成与统一编辑可能减少多工具切换，但尚无用户抱怨证据</li>
+<li>最小验证与交付：验证优先：做一个只处理“透明背景商品/贴纸图+局部编辑”的轻量网页流程，输入文本/参考图，输出RGBA PNG；不先做通用平台。</li>
+<li>获客验证：待验证：HF模型页、GitHub、Discord/微信社群、电商卖家社区；先用模型页导流。</li>
+<li>收费假设：待验证：按次生成/订阅、API调用；开源模型本身难直接收费，可卖托管与工作流。</li>
+<li>个人适配待确认：个人/小团队可做轻量前端与API封装，但7B模型推理需GPU成本，需靠托管或按次收费覆盖。</li>
+<li>下一步：先查HF模型页、GitHub与社区里对透明图/参考图编辑的具体需求，访谈电商卖家或设计者，核查许可证与推理成本。</li>
+<li>风险与反证：大厂模型迭代快、开源模型可被直接使用、许可证限制、算力成本、需求未证。</li>
+<li>未知事项：哪些用户愿意为透明图/参考图编辑付费；本地部署成本与API供给；现有Photoshop/Canva/其他模型替代情况；许可证对商用影响</li>
+</ul>
+<h3>4. andududu/jeview / andududu/jeview</h3>
+<ul>
+<li>机会编号：4d51afb02dd93a2438a0</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/andududu/jeview" target="_blank" rel="noopener noreferrer">andududu/jeview</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/andududu/jeview/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-21T14:03:13Z</li>
+<li>采集时间：2026-09-26T04:16:50.876152+00:00</li>
+<li>历史变化：无变化；首次 2026-09-22</li>
+<li>方法：暗影复刻；打法：暗影复刻：观察该本地可视化工具是否可复用到其他AI API；先验证实际任务与官方供给。</li>
+<li>建议：观察</li>
+<li>理由：README显示一个本地网关+可视化工具，能记录并展示对TypeSafe Jev的每次调用；任务具体但仅20星，无用户抱怨或付费证据，且依赖单一第三方API。</li>
+<li>英文原文：Jeview is a gateway: it sits between your code and TypeSafe and answers nothing itself. Point your Jev client at Jeview instead of TypeSafe.</li>
+<li>中文翻译：Jeview 是一个网关：它位于你的代码和 TypeSafe 之间，自身不给出任何回答。把你的 Jev 客户端指向 Jeview 而不是 TypeSafe。</li>
+<li>英文原文：keeps every call in a local SQLite database, and draws the calls on a live map as they happen.</li>
+<li>中文翻译：把每次调用保存在本地 SQLite 数据库中，并在调用发生时将其绘制在实时地图上。</li>
+<li>目标用户假设：待验证：使用TypeSafe Jev/System One的开发者</li>
+<li>任务假设：查看每次代码调用、按项目分组、关联调用链、本地留存</li>
+<li>现有办法待核查：待验证：TypeSafe官方控制台、日志、手工打印</li>
+<li>供给缺口假设：待验证：本地可视化与调用链展示可能缺失，但无用户抱怨证据</li>
+<li>最小验证与交付：若验证，可先做只读本地代理+调用列表/调用链视图，支持一个AI API，不存密钥明文。</li>
+<li>获客验证：待验证：GitHub、HN、AI开发者社区、TypeSafe用户群</li>
+<li>收费假设：待验证：开源+托管/团队版；个人开发者付费意愿低</li>
+<li>个人适配待确认：个人可做轻量本地工具，但依赖第三方API生态，适配和维护成本高</li>
+<li>下一步：先核查TypeSafe Jev官方功能与用户抱怨，再查其他AI Agent API是否有本地可视化的重复请求。</li>
+<li>风险与反证：依赖单一未验证API；官方可能内置该功能；密钥明文存储安全风险；低星项目不代表需求。</li>
+<li>未知事项：TypeSafe/Jev用户规模；官方是否已有类似功能；其他AI API开发者是否需要本地调用可视化；20 stars是否代表真实使用</li>
+</ul>
+<h3>5. &quot;Someone just sent me an ad that features an AI version of me. What do I do?&quot; / 有人刚给我发了一条用AI版我的形象做的广告，我该怎么办？</h3>
+<ul>
+<li>机会编号：20763c74bcac60a7dc9d</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49850042" target="_blank" rel="noopener noreferrer">&quot;Someone just sent me an ad that features an AI version of me. What do I do?&quot;</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49850042" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-25T21:15:55Z</li>
+<li>采集时间：2026-09-26T04:16:51.385953+00:00</li>
+<li>历史变化：新增；首次 2026-09-26</li>
+<li>方法：新闻窗口；打法：观察AI肖像盗用的取证与下架需求，偏服务化验证</li>
+<li>建议：观察</li>
+<li>理由：单个当事人求助，暴露AI广告肖像盗用后的取证与追责痛点，但案例少、法律与平台依赖重，尚不能视为付费需求。</li>
+<li>英文原文：If the response is &quot;This is what the image AI produced from a generic prompt&quot; (if there even is a response), then what? Who do you sue, and how much does THAT cost?</li>
+<li>中文翻译：如果回应是“这是图像AI根据通用提示词生成的”（如果真有回应的话），那又怎样？你起诉谁，那又要花多少钱？</li>
+<li>目标用户假设：肖像被AI广告使用的个人，尤其是公众人物、模特或广告从业者</li>
+<li>任务假设：确认广告是否盗用本人形象，判断是否AI生成，收集证据并寻求下架/追责</li>
+<li>现有办法待核查：手动反向图片搜索、联系平台、咨询律师；评论中提到查摄影师/广告作品来源</li>
+<li>供给缺口假设：难以证明图像就是本人，追责对象和成本不明确</li>
+<li>最小验证与交付：上传一组本人照片和姓名，定期扫描公开广告/社交平台，输出疑似盗用链接、相似度线索和可保存证据包</li>
+<li>获客验证：先找艺人经纪、模特经纪、MCN或法务服务商做人工验证；再到创作者社区</li>
+<li>收费假设：按次取证报告、监测订阅或与律所分成</li>
+<li>个人适配待确认：个人可做轻量监测和报告，但平台覆盖、法律有效性和图像鉴定是重投入</li>
+<li>下一步：访谈3-5位有被AI广告盗用经历的创作者/经纪人，确认他们实际搜索、取证和付费步骤</li>
+<li>风险与反证：误报与法律风险；大平台可能不配合；单案例不代表普遍付费需求</li>
+<li>未知事项：被AI广告盗用的普遍频率；当事人是否愿意付费；平台与法律对AI肖像盗用的实际处理；现有监测/取证供给</li>
+</ul>
+<h3>6. Yamtam.nyc – yet another mass-transit all-in-one map / Yamtam.nyc – 又一个纽约市公共交通一体化地图</h3>
+<ul>
+<li>机会编号：140b7a0435cd73b267d7</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49852559" target="_blank" rel="noopener noreferrer">Yamtam.nyc – yet another mass-transit all-in-one map</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49852559" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-26T02:19:07Z</li>
+<li>采集时间：2026-09-26T04:16:50.458567+00:00</li>
+<li>历史变化：新增；首次 2026-09-26</li>
+<li>方法：新闻窗口；打法：无；先观察供给与数据许可</li>
+<li>建议：观察</li>
+<li>理由：已上线产品，给出具体任务和形态；但无付费需求、留存或获客证据，适合观察而非认定机会。</li>
+<li>英文原文：The origin story: I wanted to provide updated accessibility info at a given subway station, which escalators and elevators were working or out, which this does.</li>
+<li>中文翻译：起因是：我想提供某个地铁站最新的无障碍信息，哪些自动扶梯和电梯正在运行或停运，这个产品做到了。</li>
+<li>英文原文：Once you add this as a Home Screen app and load it up once, you can put your phone in airplane mode and the app will keep working (of course, if sudden acts happen, it won&#x27;t know) for 30 minutes to 2 hours depending on the system.</li>
+<li>中文翻译：一旦把它添加到主屏幕并加载一次，你就可以把手机设为飞行模式，应用会继续工作（当然，如果突发情况发生，它不会知道），根据系统不同可持续30分钟到2小时。</li>
+<li>目标用户假设：待验证：纽约地区公共交通乘客，尤其需要地铁站无障碍状态和弱网/离线地图的人</li>
+<li>任务假设：待验证：查询地铁站电梯/扶梯是否运行，以及离线查看纽约地区公共交通网络和换乘信息</li>
+<li>现有办法待核查：待验证：原文仅提到 MTA 数据与 Patrick Weaver、Sunny Ng 等人的工具和想法，未描述用户此前具体用什么替代</li>
+<li>供给缺口假设：待验证：是否现有官方或商业地图在无障碍实时状态、离线可用、多交通系统整合上不足；原评论未给出用户调研或付费证据</li>
+<li>最小验证与交付：不直接复刻。若验证，可先做单一城市/单一系统（如电梯扶梯实时状态+离线缓存）的轻量页面，输入车站/线路，输出状态、告警和离线地图；但需先确认需求。</li>
+<li>获客验证：待验证：原评论通过 HN 发布，产品形态是网页/PWA/CLI；首批用户如何获取未知</li>
+<li>收费假设：待验证：原文未提定价、订阅或收入；可观察是否有人愿为实时告警/离线包付费，但不能假设</li>
+<li>个人适配待确认：待验证：个人/小团队可做轻量网站，但依赖公开交通数据，纽约以外的适配和获客未知</li>
+<li>下一步：观察。先核查原讨论中是否有用户反馈具体缺口，再查目标城市公开交通数据许可与更新频率，不要直接开工复刻。</li>
+<li>风险与反证：数据源许可与稳定性、官方应用竞争、单一城市规模有限、把个人作品发布等同于市场需求。</li>
+<li>未知事项：纽约地区乘客是否真的需要一体化离线地图，是否有付费意愿未知；现有官方或商业地图的覆盖与体验未知；MTA 等数据源许可、更新频率和长期稳定性未知；除 HN 发布外，首批用户如何获取未知；个人/小团队维护多交通系统数据的成本未知</li>
+</ul>
+<h3>7. Show HN: A game about fake news and memes / Show HN：一款关于假新闻与模因的游戏</h3>
+<ul>
+<li>机会编号：4c88472f61d4eb140945</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49851776" target="_blank" rel="noopener noreferrer">Show HN: A game about fake news and memes</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49851776" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-26T00:11:33Z</li>
+<li>采集时间：2026-09-26T04:16:50.868885+00:00</li>
+<li>历史变化：新增；首次 2026-09-26</li>
+<li>方法：暗影复刻；打法：复刻已被验证的「每日真假判断」任务形态（Wordle 式），但把内容供给做扎实：真实来源、定期更新、对每题给出判断依据，而不是只做谜题。</li>
+<li>建议：观察</li>
+<li>理由：评论区给出了具体、可复现的抱怨：桌面端布局笨拙、真假标签在高分屏上难找、内容偏都市传说而非时事、示例素材播不了、打开就请求通知权限。这说明任务存在且已有人在做，但仅一条 HN 帖与少量评论，不能证明付费需求；题库与事实核查的持续投入才是这个方向的真实门槛。</li>
+<li>英文原文：I like it, its a bit clunky on the desktop though. the real and fake took me a while to find on a big high rest screen.</li>
+<li>中文翻译：我喜欢它，不过在桌面上有点笨拙。在大尺寸高分辨率屏幕上，我花了好一会儿才找到真/假（标签）。</li>
+<li>英文原文：None of the videos for the fake/real news examples work for me</li>
+<li>中文翻译：假/真新闻示例里的视频在我这里都播不了。</li>
+<li>目标用户假设：想练媒体素养的普通网民；可能的机构向使用者为教师或家长（待验证）</li>
+<li>任务假设：每天花几分钟判断一条内容是真还是假，并想知道自己为什么判断错</li>
+<li>现有办法待核查：该游戏本身（unspin.app）、Wordle 式每日答题、媒体素养课程与测验</li>
+<li>供给缺口假设：题库更新慢、偏都市传说与老话；桌面与高分屏下判定入口不显眼；结果反馈未说明错在哪里；图片/视频素材不稳定；一上来就索要通知权限</li>
+<li>最小验证与交付：每日一条真实来源的时事类判断题（配图或短视频），提交后展示判定依据要点与来源链接；单页 Web，先只做一个垂直领域（如某地新闻或某类谣言）的 30 天题库，不做账号体系</li>
+<li>获客验证：每日结果分享卡（可发到群与社媒）；联系中学/高校媒体素养课教师做班级使用；在 HN、Reddit 相关板块与事实核查社区发布</li>
+<li>收费假设：每日免费 + 订阅题库或教师班级版；机构赞助与合作（待验证）</li>
+<li>个人适配待确认：轻量网站技术上可行、个人可维护；但内容源、审校与更新节奏是长期负担，需先确认自己能否持续供给</li>
+<li>下一步：先统计该帖评论中「内容过时/素材故障/桌面难用」的重复次数，再找 2-3 位媒体素养课教师或事实核查内容作者访谈，问他们现在用什么、是否愿意每周用新题；不要先写代码</li>
+<li>风险与反证：误判真假的准确性与声誉风险；玩法极易被免费复刻；单条帖子与少量评论样本过小，把报道和单个评论当成付费需求会误导方向</li>
+<li>未知事项：有多少人只是好奇玩一次，有多少人会每日回访；教师、家长等机构向使用者是否愿意为此付费；内容源与审校成本能否被一人承担；unspin.app 之外是否已有同类成熟产品与规模</li>
+</ul>
+<h3>8. amitshekhariitbhu/ai-system-design / amitshekhariitbhu/ai-system-design：AI 系统设计学习指南</h3>
+<ul>
+<li>机会编号：08a2531986b8fc497406</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/amitshekhariitbhu/ai-system-design" target="_blank" rel="noopener noreferrer">amitshekhariitbhu/ai-system-design</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/amitshekhariitbhu/ai-system-design/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-25T04:50:06Z</li>
+<li>采集时间：2026-09-26T04:16:50.728548+00:00</li>
+<li>历史变化：新增；首次 2026-09-26</li>
+<li>方法：新技术；打法：知识库/学习路径观察；不先做内容站</li>
+<li>建议：观察</li>
+<li>理由：README 展示了一份系统化的 AI system design 学习目录，覆盖 LLM 推理、GPU、KV Cache、RAG、Agents、评测、成本优化和面试框架，并有 Outcome School 课程入口。它说明新技术学习材料在快速扩张，但免费指南与课程并存，不能据此证明付费缺口。</li>
+<li>英文原文：<strong>AI System Design - A complete guide to learn AI System Design step by step - from LLM inference, GPUs, KV Cache, and caching to RAG, Vector Databases, AI Agents, MCP, Multi-Agent Systems, Voice AI, Guardrails, Evaluation, Observability, Cost Optimization, and a step-by-step framework to crack any AI System Design interview. Everything in one place, explained in simple words, with detailed blogs for every deep dive.</strong></li>
+<li>中文翻译：<strong>AI 系统设计——一份逐步学习 AI 系统设计的完整指南——从 LLM 推理、GPU、KV Cache 和缓存，到 RAG、向量数据库、AI Agent、MCP、多智能体系统、语音 AI、护栏、评估、可观测性、成本优化，以及一套逐步拆解任何 AI 系统设计面试的框架。所有内容都在一处，用简单的话解释，并为每次深入探讨提供详细博客。</strong></li>
+<li>目标用户假设：想转 AI 工程、准备 AI system design 面试的工程师（待验证）</li>
+<li>任务假设：系统学习 LLM 推理、RAG、Agent、评测与成本设计，并应对面试（待验证）</li>
+<li>现有办法待核查：免费 GitHub 指南、Outcome School 课程、博客和视频（原文可见）</li>
+<li>供给缺口假设：待验证；免费阅读与实际设计/反馈之间是否有缺口，证据未证明</li>
+<li>最小验证与交付：待验证；可测试交互式 AI system design 题库加模拟评审，但需先访谈确认付费。</li>
+<li>获客验证：待验证；不能编造渠道。可先核查该指南的受众与课程转化。</li>
+<li>收费假设：待验证；课程/订阅/企业培训均未证实</li>
+<li>个人适配待确认：待验证；内容更新快，个人/小团队维护成本可能高</li>
+<li>下一步：先核查搜索量、课程评价和同类付费产品，确认学习者是否缺练习与反馈，而非缺阅读材料。</li>
+<li>风险与反证：免费替代多、作者自身已有课程与流量，内容更新快；把 README 当成需求证明。</li>
+<li>未知事项：学习者是否愿意为交互式练习/模拟面试付费；免费指南是否已满足大多数学习任务；Outcome School 课程转化和定价不明；个人/小团队能否在更新速度上竞争</li>
+</ul>
+<h3>9. Mocas-12/ai-model-rankings / Mocas-12/ai-model-rankings：水墨风大模型实时战力榜</h3>
+<ul>
+<li>机会编号：94c2947dd520827b2a40</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/Mocas-12/ai-model-rankings" target="_blank" rel="noopener noreferrer">Mocas-12/ai-model-rankings</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/Mocas-12/ai-model-rankings/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-22T17:30:02Z</li>
+<li>采集时间：2026-09-26T04:16:51.281084+00:00</li>
+<li>历史变化：新增；首次 2026-09-26</li>
+<li>方法：新技术；打法：用公开 API + 定时快照，把易变的模型数据做成可视化榜单内容站的轻量打法（待验证）</li>
+<li>建议：观察</li>
+<li>理由：该仓库展示了新的可行能力：浏览器并发调用 OpenRouter 公开接口、用 ECharts 渲染，并用每日 CI 提交 costPerRequest 快照以在无后端的情况下生成价格变动榜。但仅有 README 与 16 个 star，未见用户反馈、订阅或付费证据，无法据此判断有市场需求；适合作为个人可复现的技术与内容形态样本继续观察。</li>
+<li>中文原文：AI Model Rankings Real-time AI model power rankings on an ink-wash dashboard (水墨风大模型实时战力榜) — usage, benchmarks, price-performance, speed &amp; trends at a glance.</li>
+<li>英文原文：A daily CI job commits a <code>costPerRequest</code> snapshot into <code>data/snapshots/</code> — the price-drop board diffs the last two, giving a static site a history without a backend.</li>
+<li>中文翻译：每日 CI 任务会把 <code>costPerRequest</code> 快照提交到 <code>data/snapshots/</code>，降价榜对最近两次快照做差，从而让静态站点在没有后端的情况下拥有历史记录。</li>
+<li>目标用户假设：待验证。原文未指明用户，只描述了榜单内容；可能的候选是 AI 应用选型者与模型评测爱好者，需通过实际访问与访谈确认。</li>
+<li>任务假设：待验证。原文隐含的任务是比较模型的用量、智力/编程等分类排名、性价比（每次请求成本对比智力指数）、P50 延迟与吞吐，以及近 30 天趋势。</li>
+<li>现有办法待核查：待验证。README 提到数据来自 OpenRouter 公开 API、Artificial Analysis 与 Design Arena ELO，说明用户目前可能直接查看这些上游来源，但未提供任何使用行为或替代方案的证据。</li>
+<li>供给缺口假设：待验证。原文只呈现了功能清单（用量 Top 12、分类榜首、性价比散点、速度散点、30 天趋势、厂商份额、暗马与新模型、对比工具、降价榜、成本计算器），没有说明这些功能解决了谁的、什么未被满足的问题。</li>
+<li>最小验证与交付：待验证的设想：先只做一个垂直榜单（例如“中文开发者常用模型的每日性价比与延迟变化”），输入为 OpenRouter 公开接口 + 每日 CI 提交的快照文件，输出为一个静态页面加一条可订阅的每日变更摘要；先手动确认数据源条款与更新稳定性，再决定是否扩到多维度榜单。</li>
+<li>获客验证：待验证。可观察的线索只有 README 中列出的 Streamlit 在线演示与 GitHub Pages 入口；首批用户从何而来、是否能被找到，均无证据。</li>
+<li>收费假设：待验证。仓库未展示任何收费、赞助或广告安排，不能推断存在付费意愿或可行的变现方式。</li>
+<li>个人适配待确认：与“个人/小团队、轻量网站、对新词新技术有兴趣”的背景较为契合（无后端静态站 + CI 快照 + 免费托管），但预算、行业经验与获客资源未知，无法判断能否持续投入。</li>
+<li>下一步：先核查：① OpenRouter、Artificial Analysis、Design Arena 的数据使用条款与接口稳定性；② 现有同类榜单的访问量与用户评论；③ 自己能否长期维护每日快照。在完成核查前不建议先开工做完整产品。</li>
+<li>风险与反证：上游接口变更或限流导致数据中断；数据全部公开可得、差异化低，容易被复制；仅有 16 个 star，既不能证明需求也不能证明分发能力；榜单数据准确性若出错会直接损害可信度。</li>
+<li>未知事项：实际访问量、留存与用户是谁，README 未提供；是否有任何人愿意为这类榜单付费；Artificial Analysis、Design Arena、OpenRouter 等上游数据的授权与使用条款是否允许二次展示；上游接口限流或字段变化时的维护成本；是否已存在同类榜单及其流量与用户反馈</li>
+</ul>
+<h3>10. yukitorido/short-video-generator-AI / 开源 AI 短视频切片生成器 short-video-generator-AI</h3>
+<ul>
+<li>机会编号：0e43358cba15d904d4af</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/yukitorido/short-video-generator-AI" target="_blank" rel="noopener noreferrer">yukitorido/short-video-generator-AI</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/yukitorido/short-video-generator-AI/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-23T18:11:57Z</li>
+<li>采集时间：2026-09-26T04:16:50.723603+00:00</li>
+<li>历史变化：无变化；首次 2026-09-25</li>
+<li>方法：新技术；打法：与48小时新词窗口无关。通用切片已有免费开源供给与头部 SaaS 并存，个人机会只可能在细分场景（中文内容、可自托管、免配置），而非通用切片本身。</li>
+<li>建议：观察</li>
+<li>理由：该仓库明确把 OpusClip、Vidyo.ai 等短视频 SaaS 当作替代对象，并免费提供高光检测、字幕、翻译、配音，说明通用切片赛道已有成熟付费供给与免费替代。对个人/小团队来说通用路线没有空隙，但“中文内容处理、可自托管、无需自己配 API key”等细分是否是付费痛点，现有证据完全没有支持，需先查用户抱怨再判断，故列为观察。</li>
+<li>英文原文：Designed for creators who want an alternative to short-video SaaS tools like OpusClip or Vidyo.ai for free.</li>
+<li>中文翻译：为那些希望免费替代 OpusClip 或 Vidyo.ai 这类短视频 SaaS 工具的创作者而设计。</li>
+<li>英文原文：Highlight detection, subtitles, translation, voiceover, all in one for your content: no pre-clip credits or any watermarks.</li>
+<li>中文翻译：高光片段检测、字幕、翻译、配音，为你的内容一站式完成：不需要预先扣除切片额度，也没有任何水印。</li>
+<li>目标用户假设：待验证：把播客、访谈、课程等长视频切成竖屏短片的中文内容创作者</li>
+<li>任务假设：待验证：从长视频里自动找出高光片段，加字幕/翻译/配音，输出 9:16 可直接发布的短片</li>
+<li>现有办法待核查：证据显示现有方案包括 OpusClip、Vidyo.ai 等短视频 SaaS，以及该免费开源项目本身；两条路线都已存在</li>
+<li>供给缺口假设：待验证：中文内容的字幕与翻译质量、以及本地部署/API key 配置的门槛，是否构成真实未满足点</li>
+<li>最小验证与交付：先不写产品代码。用该仓库手工跑通“一期中文播客→3 条竖屏切片”，以人工+脚本方式向 1-2 位创作者交付一次，看对方是否愿意继续付费</li>
+<li>获客验证：待验证：中文播客/知识区创作者社群、视频号与小红书创作者群、相关 Telegram/Discord 群</li>
+<li>收费假设：待验证：按次切片交付或月度托管，而不是直接卖工具订阅</li>
+<li>个人适配待确认：待验证：单人可先用现成开源脚本做半自动交付，但需具备 Python 环境与剪辑判断力</li>
+<li>下一步：在中文创作者社群检索“OpusClip 替代”“自动切片 字幕 中文”“长视频 切短片”等搜索词与实际抱怨，确认是否存在愿意付费的细分人群和未被满足的具体环节</li>
+<li>风险与反证：通用切片同时被免费开源与头部 SaaS 挤压；从 YouTube 下载源视频存在版权风险；翻译/配音质量不稳定</li>
+<li>未知事项：中文长视频创作者是否抱怨现有切片工具的字幕、翻译或价格；是否有人愿意为自托管/中文优化付费，规模多大；OpusClip、Vidyo.ai 的实际定价与免费额度（原文未给出）；该开源项目自身的部署成功率、维护活跃度与实际使用者数量；创作者处理长视频的真实频率与预算</li>
+</ul>
+<h3>11. mattn/go-jev / TypeSafe Jev 的 Go SDK 与命令行工具 go-jev</h3>
+<ul>
+<li>机会编号：16fe55e74e6bb1d266b5</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/mattn/go-jev" target="_blank" rel="noopener noreferrer">mattn/go-jev</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/mattn/go-jev/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-23T13:42:51Z</li>
+<li>采集时间：2026-09-26T04:16:51.083458+00:00</li>
+<li>历史变化：无变化；首次 2026-09-25</li>
+<li>方法：新技术；打法：与48小时新词窗口无关。该能力改变在于模型输出从“文本”变为结构化判定（是/否概率、选项、分数），适合做语义过滤与分流类小工具。</li>
+<li>建议：观察</li>
+<li>理由：能力变化明确：判定型模型返回是/否概率、选项、分数，并且已能通过 jev-cli 嵌入 UNIX 管道，支持按语义过滤 stdin 各行、每行一个状态批量并发请求。这能降低分类/分流工具的工程成本。但仓库仅 22 星、依赖第三方付费 API，中文判定准确率与单次成本未知，也没有任何用户抱怨或付费证据，故先观察。</li>
+<li>英文原文：a decision-only model that returns typed answers (yes/no probability, choice, score) instead of text</li>
+<li>中文翻译：一个只做判定的模型，返回带类型的答案（是/否概率、选项、分数）而不是文本。</li>
+<li>英文原文：one state per line → answer line, in input order, 4 requests at a time</li>
+<li>中文翻译：每行一个状态 → 按输入顺序逐行输出答案，每次并发 4 个请求。</li>
+<li>目标用户假设：待验证：需要在脚本或服务里做文本分类与分流的小团队开发者、运维人员</li>
+<li>任务假设：待验证：把邮件、工单、评论按含义判定为紧急/不紧急、归属哪个团队、打情绪分</li>
+<li>现有办法待核查：待验证：常见做法是调用通用大模型接口再用代码解析返回，或写关键词规则</li>
+<li>供给缺口假设：待验证：结构化判定是否比“提示词+解析”更省事稳定，中文场景是否可用</li>
+<li>最小验证与交付：用该 CLI 做一个“中文评论按语义过滤/打标”的小脚本或单页：输入一批中文文本，输出每条的分类、分数与命中行</li>
+<li>获客验证：待验证：开发者社区、GitHub、面向小团队的运维/客服工具清单</li>
+<li>收费假设：待验证：先确认是否有人愿意为省去自建判定层付费，目前无证据</li>
+<li>个人适配待确认：待验证：单人可用 CLI 快速试，但依赖第三方付费 API，用户数据外发需谨慎</li>
+<li>下一步：取一批真实中文评论/工单，测该 API（或本地 tensai 服务）的判定一致性与单次成本，并与“直接写提示词让大模型分类”的方案做对比</li>
+<li>风险与反证：依赖单一第三方 API 及其定价；判定出错难以解释；中文效果与数据外发的合规问题待核实</li>
+<li>未知事项：typesafe.ai 的定价、免费额度与服务稳定性；中文文本上的判定准确率与一致性；目标用户（运维、客服、邮件分流）现在用什么办法，是否为此付费；与直接用大模型提示词分类相比，精度和成本差多少；该仓库本身是否有真实使用者</li>
+</ul>
+<h3>12. electric-capital/quest / Quest：面向敏感数据的自托管 AI 智能体工作台</h3>
+<ul>
+<li>机会编号：567eda3a49fab6143ecb</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/electric-capital/quest" target="_blank" rel="noopener noreferrer">electric-capital/quest</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/electric-capital/quest/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-21T17:04:22Z</li>
+<li>采集时间：2026-09-26T04:16:50.977645+00:00</li>
+<li>历史变化：无变化；首次 2026-09-24</li>
+<li>方法：新技术；打法：关注自托管 AI 工作台的安全隔离、人工确认与插件生态；可从插件或部署服务切入而非重做平台。</li>
+<li>建议：观察</li>
+<li>理由：项目给出较完整的安全设计与插件架构，但仅有 37 个 star，尚未看到实际用户抱怨、部署量或付费信号；适合先观察。</li>
+<li>英文原文：A self-hosted AI agent workbench: a ChatGPT-style web app where people connect the services they already use (email, documents, Slack, finance tools) and put LLM agents to work on them -- designed so that doing this with <strong>sensitive data</strong> is safe by default, and usable by people who are not engineers.</li>
+<li>中文翻译：一个自托管的 AI 智能体工作台：一个 ChatGPT 风格的 Web 应用，人们在这里连接他们已经在使用的服务（电子邮件、文档、Slack、财务工具），并让 LLM 智能体处理这些服务——其设计使处理<strong>敏感数据</strong>默认安全，并且可供非工程师使用。</li>
+<li>英文原文：Writes require human confirmation</li>
+<li>中文翻译：写入需要人类确认</li>
+<li>目标用户假设：待验证；可能是需要让 AI 访问内部敏感数据但不想用公有云的中小团队或非工程师</li>
+<li>任务假设：自托管接入 Gmail、Drive、Slack、财务工具等，让 LLM 智能体读取并执行有确认的写入</li>
+<li>现有办法待核查：Open WebUI、Dify、自建脚本或直接使用公有云 AI 助手；Quest 提供安全隔离与审批流</li>
+<li>供给缺口假设：敏感数据场景下私有/公网彻底隔离、写入人工确认、插件化接入；但需求强度与付费方未知</li>
+<li>最小验证与交付：不做完整平台；可先做某个高频服务的 Quest 插件、部署检查清单或安全配置模板</li>
+<li>获客验证：GitHub、自托管/隐私社区、Hacker News、开发者 Slack 社群</li>
+<li>收费假设：插件定制、部署支持、安全审计或托管服务；付费意愿未验证</li>
+<li>个人适配待确认：个人小团队适合做插件或部署服务，难与完整开源平台正面竞争</li>
+<li>下一步：先看项目 issue、部署教程反馈和同类自托管产品的抱怨，确认哪个插件或部署环节最痛</li>
+<li>风险与反证：维护成本高、安全承诺难验证、开源竞品多、凭项目描述高估需求</li>
+<li>未知事项：实际部署者是谁、遇到什么困难；插件需求集中在哪些服务；是否有人愿意为安全部署或插件付费；与 Open WebUI、Dify 等项目的差异是否足够</li>
+</ul>
+<h3>13. savka777/jev-use / jev-use：面向 macOS 的语音与键入式电脑操作</h3>
+<ul>
+<li>机会编号：8fa606a2784fe73407d8</li>
+<li>来源：GitHub</li>
+<li>链接：<a href="https://github.com/savka777/jev-use" target="_blank" rel="noopener noreferrer">savka777/jev-use</a></li>
+<li>证据入口：<a href="https://raw.githubusercontent.com/savka777/jev-use/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-19T14:05:35Z</li>
+<li>采集时间：2026-09-26T04:16:50.729359+00:00</li>
+<li>历史变化：无变化；首次 2026-09-20</li>
+<li>方法：新技术；打法：能力改变：用 Accessibility tree + LLM 选择屏幕动作，无需截图即可驱动 macOS；适合作为桌面自动化能力信号跟踪。</li>
+<li>建议：观察</li>
+<li>理由：README 给出可运行的新技术能力，且有 92 stars 显示早期关注；但需求、竞品、付费和获客均未被证据证明，适合观察并核查。</li>
+<li>英文原文：Voice and typed computer use for macOS. You say what you want. Jev picks the next on-screen action. macOS performs it. No screenshots: the app reads the screen through the Accessibility tree.</li>
+<li>中文翻译：面向 macOS 的语音和键入式电脑操作。你说出想要什么。Jev 选择下一个屏幕操作。macOS 执行它。没有截图：该应用通过辅助功能树读取屏幕。</li>
+<li>目标用户假设：待验证；原文面向 macOS 14.2+ 用户，可能包括自动化爱好者、无障碍用户和需要免手操作的人。</li>
+<li>任务假设：用语音或文字说出目标，让 macOS 自动选择并执行屏幕操作，如打开应用、新建笔记、搜索、整理窗口。</li>
+<li>现有办法待核查：待核查：macOS 语音控制、快捷指令、脚本工具或手动操作。</li>
+<li>供给缺口假设：Jev 用 Accessibility tree 避免截图和逐应用适配，可能降低桌面自动化的适配成本；但这是能力描述，不等于市场空白。</li>
+<li>最小验证与交付：待验证：若核查到具体重复任务，可先做单一场景的语音/文字触发自动化，输入一句目标，输出执行结果与失败原因；不先复刻完整 jev-use。</li>
+<li>获客验证：待验证：GitHub、Hacker News、Reddit 的 macOS 自动化/无障碍社区可能是早期渠道。</li>
+<li>收费假设：待验证：开源+托管 API 订阅、一次性买断或企业无障碍方案均需核查。</li>
+<li>个人适配待确认：个人小团队可做轻量封装或界面，但 macOS 权限、第三方 API 依赖和隐私处理增加复杂度；适配度待验证。</li>
+<li>下一步：先访谈 5–10 个 macOS 自动化/无障碍用户，核对现有做法、频率、痛点和付费意愿；同时查竞品、API 成本与隐私要求。</li>
+<li>风险与反证：依赖 TypeSafe API 和 Apple Speech；屏幕内容与操作数据外发带来隐私风险；开源可复制；需求不足。</li>
+<li>未知事项：目标用户是谁；现有替代方案与竞品；用户付费意愿；API 成本与隐私合规；小团队获客路径</li>
+</ul>
+<h3>14. TiddlyInstall: A universal, reusable, install system / TiddlyInstall：一个通用、可复用的安装系统</h3>
+<ul>
+<li>机会编号：7b25e3750a6b28abdc6e</li>
+<li>来源：Hacker News</li>
+<li>链接：<a href="https://news.ycombinator.com/item?id=49851879" target="_blank" rel="noopener noreferrer">TiddlyInstall: A universal, reusable, install system</a></li>
+<li>证据入口：<a href="https://news.ycombinator.com/item?id=49851879" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-26T00:29:48Z</li>
+<li>采集时间：2026-09-26T04:16:50.819193+00:00</li>
+<li>历史变化：新增；首次 2026-09-26</li>
+<li>方法：新技术；打法：观察开发者安装交付的新技术能力，验证托管构建/签名服务</li>
+<li>建议：观察</li>
+<li>理由：作者展示可复用安装器的新实现，有明确交付场景；但当前只是个人项目与HN讨论，需先验证开发者是否愿为此付费或采用托管服务。</li>
+<li>英文原文：The simplest possible approach is to install the runtime on a users computer, isolated, with the package inside it. It&#x27;s wasteful in terms of disk space but can be generalised to build reusable installers that work for just about any language.</li>
+<li>中文翻译：最简单的做法是在用户电脑上安装隔离的运行时，并把程序包放在里面。这在磁盘空间上有些浪费，但可以泛化为可复用安装器，适用于几乎所有语言。</li>
+<li>英文原文：Reusable installers A reusable installer reads its own meta-data to decide on the runtime to install and the project. Linux and Mac are supported through a bash script while all windows versions use an NSIS program.</li>
+<li>中文翻译：可复用安装器会读取自身元数据来决定安装哪个运行时和项目。Linux 和 Mac 通过 bash 脚本支持，所有 Windows 版本则使用 NSIS 程序。</li>
+<li>目标用户假设：需要把Python/Node等运行时应用交付给非技术用户的独立开发者或小团队</li>
+<li>任务假设：生成可复用安装器，让用户一键安装隔离运行时和程序</li>
+<li>现有办法待核查：PyInstaller/freezing、直接port exe、Docker、手写NSIS/bash安装脚本</li>
+<li>供给缺口假设：现有冻结/移植常失败，跨平台安装器难复用，且作者称可通过单HTML改元数据而无需重新编译</li>
+<li>最小验证与交付：一个轻量网页/单HTML生成器：上传或填写项目元数据，产出macOS/Linux与Windows的安装脚本/安装器，先支持Python和Node</li>
+<li>获客验证：HN、开源社区、独立开发者论坛；用现有TiddlyInstall做开源演示</li>
+<li>收费假设：托管构建、代码签名辅助、模板市场或按次打包服务</li>
+<li>个人适配待确认：符合个人/小团队轻量网站与新技术兴趣，但签名、杀软误报和平台适配是门槛</li>
+<li>下一步：找5-10个曾用PyInstaller/port exe失败或抱怨安装交付的开发者，验证他们是否愿意用元数据生成安装器</li>
+<li>风险与反证：作者自述尚未验证需求；Windows NSIS/bash实现和签名成本高；可能只是开发者自用工具</li>
+<li>未知事项：开发者是否愿意采用/付费；跨平台安装器实际成功率；代码签名与杀软误报成本；现有PyInstaller/Docker等替代方案满意度</li>
+</ul>
+<h3>15. nvidia/nemotron-diarization / NVIDIA Nemotron Diarization：多语言说话人分离与流式 ASR 演示</h3>
+<ul>
+<li>机会编号：0d69089c57a96e8c221e</li>
+<li>来源：Hugging Face spaces</li>
+<li>链接：<a href="https://huggingface.co/spaces/nvidia/nemotron-diarization" target="_blank" rel="noopener noreferrer">nvidia/nemotron-diarization</a></li>
+<li>证据入口：<a href="https://huggingface.co/spaces/nvidia/nemotron-diarization/raw/main/README.md" target="_blank" rel="noopener noreferrer">原始资料</a></li>
+<li>发布时间：2026-09-01T20:57:32.000Z</li>
+<li>采集时间：2026-09-26T04:16:50.448715+00:00</li>
+<li>历史变化：新增；首次 2026-09-26</li>
+<li>方法：新技术；打法：观察能力变化；先验证会议/客服/播客场景任务</li>
+<li>建议：观察</li>
+<li>理由：README 显示可用的多语言流式说话人分离与 ASR 演示，带 Live Mic、音频文件、Conversation Lab、Scenario Lab 等能力；这是明确的技术能力变化，但证据仅来自项目自述和演示，没有用户抱怨、订单或付费信号。</li>
+<li>英文原文：Live Mic and Multilingual Live Mic sessions automatically stop after <strong>30 seconds</strong>. Audio File accepts recordings up to <strong>2 minutes</strong> long; trim longer recordings before uploading.</li>
+<li>中文翻译：Live Mic 和 Multilingual Live Mic 会话会在 <strong>30 秒</strong>后自动停止。音频文件接受最长 <strong>2 分钟</strong>的录音；上传前请裁剪更长的录音。</li>
+<li>英文原文：The <strong>Multilingual Live Mic</strong> tab uses Nemotron 3.5 multilingual streaming ASR with Nemotron-3-Diarization.</li>
+<li>中文翻译：<strong>Multilingual Live Mic</strong> 标签页使用 Nemotron 3.5 多语言流式 ASR 与 Nemotron-3-Diarization。</li>
+<li>目标用户假设：待验证；需要说话人分离加转写的开发者、会议记录者、客服质检或播客团队</li>
+<li>任务假设：待验证；把多人音频转成带说话人标签的文本，或模拟多人对话做压力测试</li>
+<li>现有办法待核查：该 Hugging Face Space 演示；也可能有会议转写/ASR 云服务（未在本证据中列出）</li>
+<li>供给缺口假设：待验证；实时多语言分离在开源/托管产品中是否仍有明显缺口未被证明</li>
+<li>最小验证与交付：待验证；若验证，可做‘上传短音频→返回说话人分段与转写’的轻量页面，但当前证据不支持先开工。</li>
+<li>获客验证：待验证；可先核查开发者社区与会议/客服工具集成渠道，不能编造。</li>
+<li>收费假设：待验证；按量转写、订阅或 API 均未证实</li>
+<li>个人适配待确认：待验证；个人/小团队可能依赖第三方模型 API，成本和延迟是变量</li>
+<li>下一步：先核查目标语言、现有转写工具、用户是否抱怨说话人标签不准，再做小样本实测。</li>
+<li>风险与反证：把演示当成产品需求；音频时长限制、并发、API 成本与隐私合规可能限制小团队交付。</li>
+<li>未知事项：中文等目标语言的准确率与延迟；真实会议/客服录音的可用性；是否有用户愿为托管分离/转写付费；与现有会议转写工具的差异；单次音频时长限制背后的成本</li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>
